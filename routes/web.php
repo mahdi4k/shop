@@ -15,6 +15,7 @@ use App\Http\Controllers\homeController;
 Route::get('/', 'homeController@index' );
 Route::get('/admin', 'Admin\PanelCotroller@index' );
 
+//admin_category
+Route::resource('admin/category','admin\CategoryController',['except'=>['show']]);
 //admin_product
-
-Route::resource('admin/product','admin\ProductController',['except'=>['show']]);
+ Route::resource('admin/product','admin\ProductController',['except'=>['show']]);

@@ -8,7 +8,9 @@
     <meta name="author" content="">
 
 
-    <title>پنل مدیریت</title>
+    <title>
+        @yield('header')
+    </title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/dashboard/">
 
@@ -22,8 +24,11 @@
 <body>
 
 @include('Admin/section/header')
+<main style="text-align: right" role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 pull-left">
 @yield('content')
+</main>
 @include('Admin/section/footer')
+@yield('footer')
 
 
 </body>

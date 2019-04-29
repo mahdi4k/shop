@@ -10,7 +10,7 @@
     </div>
 
     <div>
-        <a href="{{ url('admin/category/create') }}" class="btn btn-success">افزودن دسته</a>
+        <a style="margin-bottom: 11px" href="{{ url('admin/category/create') }}" class="btn btn-info">افزودن دسته</a>
         <form action="{{ url('admin/category') }}" id="search_form">
   <table class="table table-striped table-bordered">
       <thead>

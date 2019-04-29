@@ -16,37 +16,44 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="#">
                             <span data-feather="home"></span>
-                            Dashboard <span class="sr-only">(current)</span>
+                            داشبورد
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
                             <span data-feather="file"></span>
-                            Orders
+                            سفارشات
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
+                    <li  class="nav-item">
+
+                        <a  data-toggle="collapse" data-target="#collapseExample" href="#"   aria-expanded="false"  aria-controls="collapseExample" class="nav-link"  >
                             <span data-feather="shopping-cart"></span>
-                            Products
+                            محصولات
                         </a>
+
+                        <div   aria-expanded="false"  aria-controls="collapseExample"  class="collapse   custom-collapse" id="collapseExample">
+                             <a href="/admin/product"><p>مدیریت محصولات</p></a>
+                             <a href="/admin/product/create"><p>افزودن محصولات</p></a>
+
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
                             <span data-feather="users"></span>
-                            Customers
+                            کاربران <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
                             <span data-feather="bar-chart-2"></span>
-                            Reports
+                            تنظیمات
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link {{ Request::path() == 'admin/category' ? 'active' : '' }}" href="/admin/category">
                             <span data-feather="layers"></span>
-                            Integrations
+                            دسته بندی ها
                         </a>
                     </li>
                 </ul>
@@ -56,3 +63,7 @@
 
     </div>
 </div>
+<script>
+
+</script>
+

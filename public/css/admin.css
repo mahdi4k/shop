@@ -38,21 +38,21 @@ This set of fonts are used in this project under the license: (.....)
 	font-family: IRANSans;
 	font-style: normal;
 	font-weight: bold;
-	src: url(/fonts/IRANSansWeb_Bold.eot?7626d015e15844db7d1f54c8e415461a);
-	src: url(/fonts/IRANSansWeb_Bold.eot?7626d015e15844db7d1f54c8e415461a?#iefix) format('embedded-opentype'),  
-		 url(/fonts/IRANSansWeb_Bold.woff2?6ec03a37e370c0d7f4f6bbdba0feac23) format('woff2'),  
-		 url(/fonts/IRANSansWeb_Bold.woff?a762a767a3459fec2195da1373ebf0b1) format('woff'),  
-		 url(/fonts/IRANSansWeb_Bold.ttf?4ff441e3b8c51acd2261585feca1d8c8) format('truetype');
+	src: url(../fonts/IRANSansWeb_Bold.eot?7626d015e15844db7d1f54c8e415461a);
+	src: url(../fonts/IRANSansWeb_Bold.eot?7626d015e15844db7d1f54c8e415461a?#iefix) format('embedded-opentype'),
+		 url(../fonts/IRANSansWeb_Bold.woff2?6ec03a37e370c0d7f4f6bbdba0feac23) format('woff2'),
+		 url(../fonts/IRANSansWeb_Bold.woff?a762a767a3459fec2195da1373ebf0b1) format('woff'),
+		 url(../fonts/IRANSansWeb_Bold.ttf?4ff441e3b8c51acd2261585feca1d8c8) format('truetype');
 }
 @font-face {
 	font-family: IRANSans;
 	font-style: normal;
 	font-weight: 500;
-	src: url(/fonts/IRANSansWeb_Medium.eot?1121c0520a30a7295ffe21dd3fe77a60);
-	src: url(/fonts/IRANSansWeb_Medium.eot?1121c0520a30a7295ffe21dd3fe77a60?#iefix) format('embedded-opentype'),  
-		 url(/fonts/IRANSansWeb_Medium.woff2?bb6a9fe5edb6791184821d992bffdcf4) format('woff2'),  
-		 url(/fonts/IRANSansWeb_Medium.woff?74e2ab212452657f2fc66bd08873884b) format('woff'),  
-		 url(/fonts/IRANSansWeb_Medium.ttf?7a75459b25fca9937df9110d7e049133) format('truetype');
+	src: url(../fonts/IRANSansWeb_Medium.eot?1121c0520a30a7295ffe21dd3fe77a60);
+	src: url(../fonts/IRANSansWeb_Medium.eot?1121c0520a30a7295ffe21dd3fe77a60?#iefix) format('embedded-opentype'),
+		 url(../fonts/IRANSansWeb_Medium.woff2?bb6a9fe5edb6791184821d992bffdcf4) format('woff2'),
+		 url(../fonts/IRANSansWeb_Medium.woff?74e2ab212452657f2fc66bd08873884b) format('woff'),
+		 url(../fonts/IRANSansWeb_Medium.ttf?7a75459b25fca9937df9110d7e049133) format('truetype');
 }
 @font-face {
 	font-family: IRANSans;

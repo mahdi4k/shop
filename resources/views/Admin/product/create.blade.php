@@ -3,7 +3,9 @@
 
 
 
-
+@section('header')
+    افزودن محصول
+@endsection
 
 @section('content')
 
@@ -112,7 +114,7 @@
     <div class="form-group">
         <label>افزودن برچسب</label>
         <input type="text" name="tag_list" id="tag_list" class="form-control" style="float:right;width:60%">
-        <div class="add_product_tag" onclick="add_tag()">افزودن</div>
+        <div class="btn btn-outline-primary add_product_tag" onclick="add_tag()">افزودن</div>
         <input type="hidden" name="keywords" id="keywords">
     </div>
 
@@ -136,10 +138,9 @@
 
 
 
-    <script type="text/javascript" src="{{ url('js/bootstrap-select.js') }}"></script>
 
-    <script type="text/javascript" src="{{ url('ckeditor/ckeditor.js') }}"></script>
-    <script type="text/javascript" src="{{ url('js/jscolor.js') }}"></script>
+
+
     <script>
         add_color=function ()
         {

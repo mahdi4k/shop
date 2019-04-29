@@ -28,7 +28,8 @@ class CreateProductTable extends Migration
             $table->smallInteger('bon')->nullable();
             $table->smallInteger('show_product')->nullable();
             $table->smallInteger('product_number')->nullable();
-            $table->smallInteger('order_product')->nullable();
+            $table->smallInteger('order_product')->nullable();// tedad froosh
+
             $table->text('keywords')->nullable();
             $table->smallInteger('special')->nullable();
             $table->text('description')->nullable();

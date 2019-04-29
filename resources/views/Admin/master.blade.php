@@ -12,13 +12,13 @@
         @yield('header')
     </title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/dashboard/">
 
     <!-- Bootstrap core CSS -->
     <link href="/css/admin.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="/css/admin-custom.css" rel="stylesheet">
+@yield('style')
 </head>
 
 <body>
@@ -28,7 +28,7 @@
 @yield('content')
 </main>
 @include('Admin/section/footer')
-@yield('footer')
+
 
 
 </body>

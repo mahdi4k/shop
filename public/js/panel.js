@@ -53,7 +53,7 @@ add_filter=function ()
         '<option value="1">فیلد radio</option>' +
         '<option value="2">فیلد color</option></select></div>' +
         '<div class="form-group" style="margin-right:0px;margin-bottom:0px;">' +
-        '<span class="fa fa-plus" style="color:red;cursor:pointer;padding-top:15px" onclick="add_child_filter('+id1+','+id2+','+id3+')"></span>' +
+        '<span class="fa fa-plus" style="color:red;cursor:pointer;padding-top:15px" onclick="add_child_filter('+id1+','+id2+','+id3+')">افزودن زیر دسته</span>' +
         '</div>';
 
     $("#filter_box").append(html);

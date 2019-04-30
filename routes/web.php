@@ -26,3 +26,6 @@ Route::get('admin/product/gallery', 'admin\ProductController@gallery');
 Route::post('admin/product/upload', 'admin\ProductController@upload');
 Route::post('admin/product/del_product_img/{id}','admin\ProductController@del_product_img');
 
+//filter_product
+Route::get('admin/filter','admin\FilterController@index');
+Route::post('admin/filter','admin\FilterController@create');

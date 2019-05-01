@@ -99,146 +99,59 @@
 
                     <div id="myCarousel-third" class="carousel slide" data-ride="carousel" data-interval="3000">
                         <ol class="carousel-indicators">
-                            <li data-target="#myCarousel-third" data-slide-to="0" class="active"></li>
-                            <li data-target="#myCarousel-third" data-slide-to="1"></li>
-                            <!--<li data-target="#myCarousel" data-slide-to="2"></li>-->
+                            @foreach($products as $key=>$value)
+
+                                <li data-target="#myCarousel-third" data-slide-to="{{$loop->index}}"
+                                    class="{{$loop->first ? 'active' :''}}"></li>
+                            @endforeach
                         </ol>
 
 
                         <div class="carousel-inner" role="listbox">
-                            <div class="carousel-item active">
-                                <div class="col-md-3">
-                                    <div class="product shadow-around">
-                                        <figure>
-                                            <a href="#"><img class="imgres"
-                                                             src="{{URL::asset('/img/product1.jpg')}}"
-                                                             alt=""></a>
+                            @foreach($products as $product)
+                                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
 
-                                        </figure>
-                                        <div class="product-content">
-                                            <h2><a href="">Apple iPhone 5s</a></h2>
+                                    <div class="col-md-3">
+                                        <div class="product shadow-around">
+                                            <figure>
+                                                <a href="#"><img class="imgres"
+                                                                 src="{{ url('upload').'/'.$value->get_img->url }}"
+                                                                 alt=""></a>
 
-                                            <span class="price">۲.۵۰۰.۰۰۰ تومان</span>
-                                            <a href="" class="   btn btn-info">افزودن به سبد</a>
+                                            </figure>
+                                            <div class="product-content">
+                                                <h2><a href="">Apple iPhone 5s</a></h2>
+
+                                                <span class="price">۲.۵۰۰.۰۰۰ تومان</span>
+                                                <a href="" class="   btn btn-info">افزودن به سبد</a>
+                                            </div>
                                         </div>
                                     </div>
+
+
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="product shadow-around">
-                                        <figure>
-                                            <a href="#"><img class="imgres"
-                                                             src="{{URL::asset('/img/product1.jpg')}}"
-                                                             alt=""></a>
+                                <div class="carousel-item">
+                                    <div class="col-md-3">
+                                        <div class="product shadow-around">
+                                            <figure>
+                                                <a href="#"><img class="imgres"
+                                                                 src="{{URL::asset('/img/product1.jpg')}}"
+                                                                 alt=""></a>
 
-                                        </figure>
-                                        <div class="product-content">
-                                            <h2><a href="">Apple iPhone 5s</a></h2>
+                                            </figure>
+                                            <div class="product-content">
+                                                <h2><a href="">Apple iPhone 5s</a></h2>
 
-                                            <span class="price">۲.۵۰۰.۰۰۰ تومان</span>
-                                            <a href="" class="   btn btn-info">افزودن به سبد</a>
+                                                <span class="price">۲.۵۰۰.۰۰۰ تومان</span>
+                                                <a href="" class="btn btn-info">افزودن به سبد</a>
+                                            </div>
                                         </div>
+                                        `
                                     </div>
+
+
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="product shadow-around">
-                                        <figure>
-                                            <a href="#"><img class="imgres"
-                                                             src="{{URL::asset('/img/product1.jpg')}}"
-                                                             alt=""></a>
-
-                                        </figure>
-                                        <div class="product-content">
-                                            <h2><a href="">Apple iPhone 5s</a></h2>
-
-                                            <span class="price">۲.۵۰۰.۰۰۰ تومان</span>
-                                            <a href="" class="   btn btn-info">افزودن به سبد</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="product shadow-around">
-                                        <figure>
-                                            <a href="#"><img class="imgres"
-                                                             src="{{URL::asset('/img/product1.jpg')}}"
-                                                             alt=""></a>
-
-                                        </figure>
-                                        <div class="product-content">
-                                            <h2><a href="">Apple iPhone 5s</a></h2>
-
-                                            <span class="price">۲.۵۰۰.۰۰۰ تومان</span>
-                                            <a href="" class="   btn btn-info">افزودن به سبد</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="col-md-3">
-                                    <div class="product shadow-around">
-                                        <figure>
-                                            <a href="#"><img class="imgres"
-                                                             src="{{URL::asset('/img/product1.jpg')}}"
-                                                             alt=""></a>
-
-                                        </figure>
-                                        <div class="product-content">
-                                            <h2><a href="">Apple iPhone 5s</a></h2>
-
-                                            <span class="price">۲.۵۰۰.۰۰۰ تومان</span>
-                                            <a href="" class="btn btn-info">افزودن به سبد</a>
-                                        </div>
-                                    </div>
-                                    `
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="product shadow-around">
-                                        <figure>
-                                            <a href="#"><img class="imgres"
-                                                             src="{{URL::asset('/img/product1.jpg')}}"
-                                                             alt=""></a>
-
-                                        </figure>
-                                        <div class="product-content">
-                                            <h2><a href="">Apple iPhone 5s</a></h2>
-
-                                            <span class="price">۲.۵۰۰.۰۰۰ تومان</span>
-                                            <a href="" class="   btn btn-info">افزودن به سبد</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="product shadow-around">
-                                        <figure>
-                                            <a href="#"><img class="imgres"
-                                                             src="{{URL::asset('/img/product1.jpg')}}"
-                                                             alt=""></a>
-
-                                        </figure>
-                                        <div class="product-content">
-                                            <h2><a href="">Apple iPhone 5s</a></h2>
-
-                                            <span class="price">۲.۵۰۰.۰۰۰ تومان</span>
-                                            <a href="" class="   btn btn-info">افزودن به سبد</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="product shadow-around">
-                                        <figure>
-                                            <a href="#"><img class="imgres"
-                                                             src="{{URL::asset('/img/product1.jpg')}}"
-                                                             alt=""></a>
-
-                                        </figure>
-                                        <div class="product-content">
-                                            <h2><a href="">Apple iPhone 5s</a></h2>
-
-                                            <span class="price">۲.۵۰۰.۰۰۰ تومان</span>
-                                            <a href="" class="   btn btn-info">افزودن به سبد</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                @endforeach()
                         </div>
 
 
@@ -253,7 +166,7 @@
 </section>
 <section id="we-are">
     <div class="container-fluid">
-        <h1 class="text-center">گروه<span class="yellow" > هیراد</span> کویر</h1>
+        <h1 class="text-center">گروه<span class="yellow"> هیراد</span> کویر</h1>
         <div class="row">
 
             <div class="col-md-4">
@@ -344,7 +257,8 @@
             <div class="clearfix"></div>
             <ul class="License">
                 <li><i class="fa fa-image"></i> <a target="_blank" href=" /img/2.jpg ">مجوز فناوری</a></li>
-                <li><i style="margin-left: 4px" class="fa fa-image"></i><a target="_blank" href=" /img/1.jpg ">مجوز فعالیت</a></li>
+                <li><i style="margin-left: 4px" class="fa fa-image"></i><a target="_blank" href=" /img/1.jpg ">مجوز
+                        فعالیت</a></li>
             </ul>
             <img class="img-enamad" src="{{URL::asset('/img/enamad.png')}}">
 
@@ -355,7 +269,7 @@
             </div>
             <div class="social-network">
                 <a href=""> <i class="fab fa-telegram"></i></a>
-                <a  href=""> <i class="fab fa-instagram"></i></a>
+                <a href=""> <i class="fab fa-instagram"></i></a>
                 <a href=""> <i class="fab fa-twitter"></i></a>
                 <a href=""> <i class="fab fa-facebook"></i></a>
             </div>

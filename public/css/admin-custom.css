@@ -135,7 +135,10 @@ body{
 }
 .custom-collapse{
 
-    margin-right: 38px;
+     text-align: center;
+     background-color: #eeeeee;
+    padding-top: 7px;
+    padding-bottom: 7px;
 }
 .custom-collapse p{
     color: tomato;

@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/admin.css">
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/slick-theme.css">
+
     <title>lamino</title>
 </head>
 <body>
@@ -92,76 +94,72 @@
         <div class="container">
             <div class="row">
                 <div class=" featured-product-home">
-                    <div class="title os-animation" data-os-animation="fadeIn" data-os-animation-delay=".25s">
-                        <h2 class="text-center">اخرین محصولات </h2>
+                    <div class="title order-title  ">
+                        <h2 class="text-center">جدیدترین محصولات</h2>
                     </div>
 
 
-                    <div id="myCarousel-third" class="carousel slide" data-ride="carousel" data-interval="3000">
-                        <ol class="carousel-indicators">
-                            @foreach($products as $key=>$value)
+                    <div class="shop_product"  >
 
-                                <li data-target="#myCarousel-third" data-slide-to="{{$loop->index}}"
-                                    class="{{$loop->first ? 'active' :''}}"></li>
+
+
+
+                        <section class="new_product">
+                            @foreach($product as $key=>$value)
+                                <div class="product_box"  >
+
+                                    @if($value->get_img)
+
+                                        <div class="product_image_box">
+                                            <img src="{{ url('upload').'/'.$value->get_img->url }}">
+                                        </div>
+
+                                    @endif
+
+
+                                    <p>
+                                        <a href="{{ url('product').'/'.$value->code_url.'/'.$value->title_url }}">
+                                            @if(strlen($value->title)>50)
+                                                {{ mb_substr($value->title,0,33).' ... ' }}
+                                            @else
+                                                {{ $value->title }}
+                                            @endif
+                                        </a>
+                                    </p>
+                                    <p class="product_discounts" @if(!empty($value->discounts) && !empty($value->price)) style="background: #F5F6F7;" @endif>
+
+                                        @if(!empty($value->discounts) && !empty($value->price))
+                                            {{ number_format($value->price) }} تومان
+                                        @endif
+
+                                    </p>
+
+
+
+
+                                    <p class="product_price">
+                                        @if(!empty($value->discounts) && !empty($value->price))
+
+                                            {{ number_format($value->price-$value->discounts) }} تومان
+                                        @elseif(!empty($value->price))
+
+                                            {{ number_format($value->price) }} تومان
+                                        @endif
+
+                                    </p>
+                                </div>
                             @endforeach
-                        </ol>
-
-
-                        <div class="carousel-inner" role="listbox">
-                            @foreach($products as $product)
-                                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-
-                                    <div class="col-md-3">
-                                        <div class="product shadow-around">
-                                            <figure>
-                                                <a href="#"><img class="imgres"
-                                                                 src="{{ url('upload').'/'.$value->get_img->url }}"
-                                                                 alt=""></a>
-
-                                            </figure>
-                                            <div class="product-content">
-                                                <h2><a href="">Apple iPhone 5s</a></h2>
-
-                                                <span class="price">۲.۵۰۰.۰۰۰ تومان</span>
-                                                <a href="" class="   btn btn-info">افزودن به سبد</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="col-md-3">
-                                        <div class="product shadow-around">
-                                            <figure>
-                                                <a href="#"><img class="imgres"
-                                                                 src="{{URL::asset('/img/product1.jpg')}}"
-                                                                 alt=""></a>
-
-                                            </figure>
-                                            <div class="product-content">
-                                                <h2><a href="">Apple iPhone 5s</a></h2>
-
-                                                <span class="price">۲.۵۰۰.۰۰۰ تومان</span>
-                                                <a href="" class="btn btn-info">افزودن به سبد</a>
-                                            </div>
-                                        </div>
-                                        `
-                                    </div>
-
-
-                                </div>
-                                @endforeach()
-                        </div>
+                        </section>
 
 
                     </div>
 
 
-                </div>
+
 
             </div>
         </div>
+    </div>
     </div>
 </section>
 <section id="we-are">
@@ -293,6 +291,44 @@
     src="https://code.jquery.com/jquery-3.4.0.min.js"
     integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
     crossorigin="anonymous">
+</script>
+<script src="js/slick.js" ></script>
+<script>
+    $('.new_product').slick({
+        infinite: true,
+        dots: true,
+        speed: 1000,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        rtl:true,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+
+
 </script>
 <script src="js/easing.jquery1.3.min.js"></script>
 <script src="js/custom.js"></script>

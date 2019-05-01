@@ -13,8 +13,8 @@ class homeController extends Controller
         $cat=Category::where('parent_id',0)->get();
      }
 public function index(){
-     $products=Product::with('get_img')->where('product_status',1)->orderBy('id','DESC')->limit(15)->get();
+     $product=Product::with('get_img')->where('product_status',1)->orderBy('id','DESC')->limit(8)->get();
 
-    return view('index',compact('products'));
+    return view('index',compact('product'));
 }
 }

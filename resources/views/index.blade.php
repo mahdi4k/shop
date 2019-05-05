@@ -128,7 +128,9 @@ function arabic_w2e($str)
 
                 <a href="{{ $url }}">
                     <div class="amazing_div" id="amazing_div_{{ $key }}" @if($key==0) style="display:block" @endif>
-
+                        <div class="title order-title  ">
+                            <h2 class="text-center">جدیدترین محصولات</h2>
+                        </div>
                         <div class="col-md-5">
                             <p style="color:red;padding-top: 30px;">پيشنهاد شگفت انگيز امروز</p>
 

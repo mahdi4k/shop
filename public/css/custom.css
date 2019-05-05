@@ -1041,7 +1041,7 @@ i.fa-users{
 
 .slick-list {
     position: relative;
-    height: 387px;
+
 
     display: block;
     overflow: hidden;
@@ -1268,7 +1268,7 @@ i.fa-users{
 /*amainzg style*/
 .amazing_div
 {
-    height:340px;
+    height:411px;
     background:white;
     margin-top: 20px;
     border: 1px solid #EBECED;
@@ -1411,7 +1411,7 @@ i.fa-users{
 }
 .amazing_box .slick-list
 {
-    padding-right: 30px;
+    padding-right: 55px;
 }
 .amazing_box .slick-prev
 {

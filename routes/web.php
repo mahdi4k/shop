@@ -33,3 +33,6 @@ Route::post('admin/filter','Admin\FilterController@create');
 //item-section
 Route::get('admin/item','Admin\ItemController@index');
 Route::post('admin/item','Admin\ItemController@create');
+
+//amazing product
+Route::resource('admin/amazing','Admin\AmazingController',['except'=>['show']]);

@@ -90,7 +90,7 @@
 {
     content:  "\f053" ;
     font-family: "FontAwesome";
-    color: black
+    color: #ff758c
 }
 [dir='rtl'] .slick-prev:before
 {
@@ -111,7 +111,7 @@
 {
     content: "\f054";
     font-family: "FontAwesome";
-    color: black
+    color: #ff758c
 }
 [dir='rtl'] .slick-next:before
 {
@@ -127,7 +127,7 @@
 .slick-dots
 {
     position: absolute;
-    bottom: -60px;
+    bottom: -31px;
 
     display: block;
 
@@ -197,7 +197,7 @@
     text-align: center;
 
     opacity: .25;
-    color: black;
+    color: #6d6969;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -205,5 +205,5 @@
 .slick-dots li.slick-active button:before
 {
     opacity: .75;
-    color: black;
+    color: #FF758C;
 }

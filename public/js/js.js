@@ -90,14 +90,14 @@ $('.slider_li li').click(function () {
 });
 show_amazing=function (key,count)
 {
-  for (var i=0;i<count;i++)
-  {
-      document.getElementById('amazing_div_'+i).style.display='none';
-      document.getElementById('amazing_footer_'+i).style.background='#F6F7FA';
-      document.getElementById('amazing_footer_'+i).style.color='#000';
-  }
-  document.getElementById('amazing_div_'+key).style.display='block';
-  document.getElementById('amazing_footer_'+key).style.background='#FF5252';
+    for (var i=0;i<count;i++)
+    {
+        document.getElementById('amazing_div_'+i).style.display='none';
+        document.getElementById('amazing_footer_'+i).style.background='#F6F7FA';
+        document.getElementById('amazing_footer_'+i).style.color='#000';
+    }
+    document.getElementById('amazing_div_'+key).style.display='block';
+    document.getElementById('amazing_footer_'+key).style.background='#FF5252';
     document.getElementById('amazing_footer_'+key).style.color='#FFF';
 };
 show_review=function (key) {
@@ -174,7 +174,7 @@ set_pay=function (id)
     }
     else if ((id == 2) || (id==3) || (id==4))
     {
-         
+
         document.getElementById('pay_radio_1').className = 'radio-control2';
         document.getElementById('pay_radio_'+id).className = 'radio-control2';
         document.getElementById('post_radio_'+id).setAttribute('checked','checked');

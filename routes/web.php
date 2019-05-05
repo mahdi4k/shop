@@ -36,3 +36,11 @@ Route::post('admin/item','Admin\ItemController@create');
 
 //amazing product
 Route::resource('admin/amazing','Admin\AmazingController',['except'=>['show']]);
+
+//service product
+Route::resource('admin/service','Admin\ServiceController');
+Route::post('admin/service/get_price','Admin\ServiceController@get_price');
+Route::post('admin/service/set_price','Admin\ServiceController@set_price');
+
+//site controller
+Route::get('product/{code}/{title}','homeController@show');

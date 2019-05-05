@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 class Product extends Model
 {
     protected $table = 'product';
+    public $incrementing = false;
+    public $timestamps = false;
     protected $fillable = ['title', 'code', 'title_url', 'code_url', 'price',
         'discounts', 'view', 'text', 'product_status', 'bon', 'show_product', 'product_number',
         'order_product', 'keywords', 'description', 'special'];

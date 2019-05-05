@@ -1,5 +1,4 @@
-
-<!doctype html>
+ <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -15,6 +14,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="/css/admin.css" rel="stylesheet">
+    <link href="/css/js-persian-cal.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="/css/admin-custom.css" rel="stylesheet">
@@ -29,10 +29,8 @@
 @include('Admin/section/header')
 <main style="text-align: right" role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 pull-left">
 
-
-
-
 @yield('content')
+
 </main>
 @include('Admin/section/footer')
 

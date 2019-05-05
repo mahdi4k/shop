@@ -1445,3 +1445,256 @@ i.fa-users{
     padding-right: 10px;
     padding-left: 10px;
 }
+
+/*single page product styles*/
+
+.content_box
+{
+    background:white;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.show_product_img
+{
+    width:100%;
+    margin-top:-50px;
+    float: right;
+    margin-bottom:20px;
+}
+.show_product_img img
+{
+    width:90%;
+    margin-right:5%;
+}
+.show_product_title
+{
+    width:100%;
+    background:#F5F6F7;
+    margin-top: 20px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.show_product_title h4
+{
+    color:black;
+}
+.show_product_title p
+{
+    font-size: 12px;
+    color: #818181;
+}
+.rating
+{
+    width:100%;
+    margin-top: 30px;
+}
+.show_product_title .col-md-3
+{
+    padding: 0px;
+}
+.rating .gray {
+    background: transparent url("../img/stars.png") repeat-x scroll 0px -14px;
+    height: 14px;
+    margin: 0px auto;
+    width: 100px;
+    direction:ltr;
+}
+.rating .gray .red
+{
+    background: transparent url("../img/stars.png") repeat-x scroll 0px 0px;
+    height: 14px;
+}
+.color_box
+{
+    float: right;
+    border:1px solid #EEE;
+    border-radius:2px;
+    color: #777;
+    margin:10px 0px 0px 10px;
+    cursor:pointer;
+    padding-top: 2px;
+    padding-bottom:2px;
+}
+.color_box label
+{
+    width:14px;
+    height: 14px;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius:50%;
+    border:1px solid #777;
+    position:relative;
+    top: 7px;
+    right: 5px;
+}
+.tick
+{
+    background: transparent url("../img/slices.png") no-repeat scroll -195px -83px;
+    height:10px;
+    width: 10px;
+    position:absolute;
+    opacity: 1;
+    top: 1px;
+}
+.color_box span
+{
+    padding-left:5px;
+    padding-right:5px;
+    font-size:13px;
+}
+.img_box
+{
+    margin-top: 20px;
+}
+.img_box img
+{
+    width:80px;
+    height: 80px;
+    float:left;
+    border:1px solid #E5E5E5;
+    margin-left:10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.show_more_img
+{
+    width:80px;
+    height: 80px;
+    border:1px solid #E5E5E5;
+    float:left;
+    margin-left:10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor:pointer;
+}
+.show_more_img div
+{
+    background: url("../img/slices.png") no-repeat -568px -6px;
+    height: 48px;
+    width: 26px;
+    margin-right:25px;
+}
+.products-availability-image
+{
+    background:url("../img/status-specialoffer.png");
+    height: 138px;
+    width: 132px;
+    float: right;
+}
+#myTabs
+{
+    background: #F5F6F7 none repeat scroll 0% 0%;
+    border-radius: 4px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+    border: 1px solid #EBECED;
+}
+#tab_item::before
+{
+    background: transparent url("../img/slices.png") no-repeat scroll -317px -268px;
+    width: 18px;
+    height: 22px;
+    content: "";
+    display: inline-block;
+    position:absolute;
+    top:13px;
+    margin-left: 5px;
+}
+#tab_comment::before
+{
+    background: transparent url("../img/slices.png") no-repeat scroll -263px -269px;
+    content: "";
+    display: inline-block;
+    position:absolute;
+    top:13px;
+    margin-left: 5px;
+    width: 20px;
+    height: 20px;
+}
+#tab_question::before
+{
+    background: transparent url("../img/slices.png") no-repeat scroll -212px -269px;
+    content: "";
+    display: inline-block;
+    position:absolute;
+    top:14px;
+    margin-left: 5px;
+    width: 20px;
+    height: 20px;
+}
+#tab_review::before
+{
+    background: transparent url("../img/slices.png") no-repeat scroll -107px -269px;
+    content: "";
+    display: inline-block;
+    height: 20px;
+    margin: 0px 0px 0px 16px;
+    right: 0px;
+    width: 20px;
+    position: relative;
+    top: 7px;
+}
+#myTabs li a
+{
+    height:50px;
+    line-height:30px;
+}
+#myTabs li a:hover
+{
+    background:#F5F6F7;
+}
+.nav-tabs > li > a
+{
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+.active a:hover
+{
+    background:white;
+}
+#myTabs li a span
+{
+    padding-right:25px;
+}
+.review_title
+{
+    position:relative;
+    cursor:pointer;
+}
+.review_title2
+{
+    position:relative;
+    cursor:pointer;
+}
+.review_title::before
+{
+    background: transparent url("../img/slices.png") no-repeat scroll 0% 0%;
+    display: inline-block;
+    background-position: -102px -618px;
+    height: 50px;
+    position: absolute;
+    right: -14px;
+    top: 0px;
+    width: 25px;
+    z-index: 1;
+    content:"";
+}
+.review_title p
+{
+    padding-right:7px;
+    position:relative;
+    z-index:10;
+    display:inline-block;
+    background:white;
+}
+.review_title:after
+{
+    background: #E5E5E5 none repeat scroll 0  0 ;
+    content: "";
+    height: 1px;
+    position: absolute;
+    right: -12px;
+    top: 12px;
+    width: 100%;
+}

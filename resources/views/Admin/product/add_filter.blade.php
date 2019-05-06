@@ -1,4 +1,4 @@
-@extends('layouts/admin')
+@extends('Admin.master')
 
 @section('header')
     <title>افزودن فیلتر محصول</title>

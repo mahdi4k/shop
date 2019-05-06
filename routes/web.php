@@ -33,7 +33,8 @@ Route::post('admin/filter','Admin\FilterController@create');
 //item-section
 Route::get('admin/item','Admin\ItemController@index');
 Route::post('admin/item','Admin\ItemController@create');
-
+Route::get('admin/product/add-item/{id}','admin\ProductController@add_item_form');
+Route::post('admin/product/add_item','admin\ProductController@add_item_product');
 //amazing product
 Route::resource('admin/amazing','Admin\AmazingController',['except'=>['show']]);
 

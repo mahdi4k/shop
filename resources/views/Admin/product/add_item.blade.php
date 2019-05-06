@@ -1,7 +1,7 @@
-@extends('layouts/admin')
+@extends('Admin.master')
 
 @section('header')
-    <title>افزودن مشخصات فنی</title>
+     افزودن مشخصات فنی
 @endsection
 
 @section('content')

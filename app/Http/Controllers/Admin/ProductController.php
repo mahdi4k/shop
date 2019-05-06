@@ -3,9 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Category;
+use App\File;
+use App\Filter;
 use App\Http\Requests\ProductRequest;
+use App\Http\Requests\ReviewRequest;
+use App\Item;
 use App\Product;
 use App\ProductImage;
+use App\ReView;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -176,5 +181,114 @@ class ProductController extends Controller
         $url = 'admin/product/' . $product->id . '/edit';
         return redirect($url);
 
+    }
+
+    public function add_review_form(Request $request)
+    {
+        $product_id=$request->get('product_id');
+        $product=Product::findOrFail($product_id);
+        $review=ReView::where('product_id',$product_id)->first();
+        $images=File::where(['product_id'=>$product_id,'type'=>'review'])->get();
+        return view('Admin.product.add_review',['product'=>$product,'image'=>$images,'review'=>$review]);
+    }
+    public function add_review(ReviewRequest $request)
+    {
+        $review=ReView::where('product_id',$request->get('product_id'))->first();
+        if($review)
+        {
+            $review->update($request->all());
+        }
+        else
+        {
+            $review=new ReView($request->all());
+            $review->save();
+        }
+
+        return redirect()->back();
+    }
+    public function del_review_img($id)
+    {
+        $img=File::findOrFail($id);
+        $url=$img->url;
+        if(!empty($url))
+        {
+            if(file_exists('upload/'.$url))
+            {
+                $img->delete();
+                unlink('upload/'.$url);
+            }
+
+        }
+        return redirect()->back();
+    }
+    public function add_item_form($id)
+    {
+        $product=Product::findOrFail($id);
+        $items=Item::get_product_item($id);
+        $item_value=DB::table('item_product')->where('product_id',$product->id)->pluck('value','item_id')->toArray();
+        return View('Admin.product.add_item',['product'=>$product,'items'=>$items,'item_value'=>$item_value]);
+    }
+    public function add_item_product(Request $request)
+    {
+        $item=$request->get('item');
+        $product_id=$request->get('product_id');
+        if(is_array($item))
+        {
+            DB::table('item_product')->where(['product_id'=>$product_id])->delete();
+            foreach ($item as $key=>$value)
+            {
+                DB::table('item_product')->insert([
+                    'item_id'=>$key,
+                    'value'=>$value,
+                    'product_id'=>$product_id
+                ]);
+            }
+        }
+        return redirect()->back();
+    }
+    public function add_filter_form($id)
+    {
+        $filter_value=Filter::get_value($id);
+        $product=Product::findOrFail($id);
+        $filters=Filter::get_product_filter($id);
+        return View('Admin.product.add_filter',['filters'=>$filters,'product'=>$product,'filter_value'=>$filter_value]);
+    }
+    public function add_filter_product(Request $request)
+    {
+        $product_id=$request->get('product_id');
+        $filter=$request->get('filter');
+        $filters=$request->get('filters');
+        if(is_array($filter))
+        {
+            DB::table('filter_product')->where(['product'=>$product_id])->delete();
+            foreach ($filter as $key=>$value)
+            {
+                DB::table('filter_product')->insert(
+                    [
+                        'product'=>$product_id,
+                        'filter_id'=>$key,
+                        'value'=>$value
+                    ]
+                );
+            }
+        }
+        if(is_array($filters))
+        {
+            foreach ($filters as $key=>$value)
+            {
+                foreach ($value as $key2=>$value2)
+                {
+                    DB::table('filter_product')->insert(
+                        [
+                            'product'=>$product_id,
+                            'filter_id'=>$key,
+                            'value'=>$value2
+                        ]
+                    );
+                }
+            }
+        }
+
+        return redirect()->back();
     }
 }

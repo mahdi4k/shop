@@ -54,18 +54,19 @@
                 <div class="col-md-3">
 
                     <?php
-                    $avg=collect($score_data['score'])->avg();
-                    $avg=substr($avg,0,4);
-                    $width=$avg*20;
+                   // $avg=collect($score_data['score'])->avg();
+                    //$avg=substr($avg,0,4);
+                    //$width=$avg*20;
                     ?>
                     <div class="rating">
                         <div class="gray">
-                            <div class="red" style="width:{{ $width }}%"></div>
+                            {{--<div class="red" style="width:{{ $width }}%"></div>--}}
                         </div>
                     </div>
                     <div style="width:100px;margin:5px auto">
 
-                        <p  style="font-size:10px;"> از {{ $score_data['total'] }} رای </p>
+                        <p  style="font-size:10px;">  از  رای </p>
+                        {{--{{ $score_data['total'] }}--}}
                     </div>
                 </div>
                 <div style="clear:both">

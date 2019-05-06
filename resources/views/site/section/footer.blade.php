@@ -144,6 +144,23 @@ for (var j = 0; j < amazing_time.length; j++) {
 </script>
 <script src="{{url('js/easing.jquery1.3.min.js')}}"></script>
 <script src="{{url('js/custom.js')}}"></script>
+
+
+    <script src="{{url('js/jquery.elevateZoom-3.0.8.min.js')}}"></script>
+    <script>
+        $(".zoom").elevateZoom({
+            borderSize:1,
+            zoomWindowPosition:"img_load_zoom",
+            scrollZoom:true,
+            cursor:'zoom-in',
+            zoomWindowWidth:500,
+            zoomWindowHeight:500,
+            zoomLevel:0.5
+        });
+    </script>
+
+
+
 </body>
 
 </html>

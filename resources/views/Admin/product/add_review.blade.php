@@ -1,11 +1,9 @@
-@extends('layouts/admin')
+@extends('Admin.master')
 
-@section('style')
-    <link href="{{ url('css/dropzone.css') }}" rel="stylesheet">
-@endsection
+
 
 @section('header')
-    <title>افزودن نقد و بررسی تخصصی</title>
+     افزودن نقد و بررسی تخصصی
 @endsection
 
 @section('content')
@@ -39,7 +37,7 @@
     <div class="box_title">
         <span>افزودن تصاویر لازم برای نقد و بررسی</span>
     </div>
-    <div style="width:92%;margin:auto">
+    <div style="width:92%;margin: 50px auto">
         <form method="post" id="upload-file" action="{{ url('admin/product/upload?id='.$product->id) }}" class="dropzone">
 
             {{ csrf_field() }}

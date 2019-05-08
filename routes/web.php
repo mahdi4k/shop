@@ -44,9 +44,9 @@ Route::post('admin/service/get_price','Admin\ServiceController@get_price');
 Route::post('admin/service/set_price','Admin\ServiceController@set_price');
 
 //admin-review
-Route::get('admin/product/add-review','admin\ProductController@add_review_form');
+Route::get('admin/product/add-review','Admin\ProductController@add_review_form');
 
-Route::get('admin/product/add_review','Admin\ProductController@add_review');
+Route::post('admin/product/add_review','Admin\ProductController@add_review');
 Route::post('admin/product/del_review_img/{id}','Admin\ProductController@del_review_img');
 //site controller
 Route::get('product/{code}/{title}','homeController@show');

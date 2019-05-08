@@ -1,20 +1,27 @@
 @extends('site.master')
 @section('content')
+<?php
+    function arabic_w2e($str)
+    {
+    $arabic_eastern = array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩');
+    $arabic_western = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
+    return str_replace($arabic_western, $arabic_eastern, $str);
+    }
+     ?>
     <div class="row content_box">
 
 
-        <div class="col-md-5" style="padding-bottom:50px">
+        <div class="col-md-5" style="padding-bottom:50px;border-left: 1px solid #ccc;">
 
             <div style="margin-top:30px;width:100%;float:right;">
                 <div class="products-availability-image"></div>
-                <div style="float: left;">
-                    <ul class="list-inline">
-                        <li><span class="current-product-3d"></span></li>
-
-                        <li><span class="icon-statistics"></span></li>
+                {{-- <div style="float: left;">
+                      <ul class="list-inline">
+                       <li><span class="current-product-3d"></span></li>
+                         <li><span class="icon-statistics"></span></li>
                         <li><span class="icon-love"></span></li>
                     </ul>
-                </div>
+                </div> --}}
             </div>
             <?php
             use Illuminate\Support\Facades\DB;$images = $product->get_images;
@@ -45,11 +52,11 @@
             </div>
         </div>
 
-        <div class="col-md-7">
+        <div class="col-md-7 text-right">
 
             <div id="img_load_zoom"></div>
             <div class="show_product_title">
-                <div class="col-md-9">
+                <div class="col-md-9 title_porduct_top">
                     <h4>{{ $product->title }}</h4>
                     <p>{{ $product->code }}</p>
                 </div>
@@ -106,11 +113,11 @@
                         @endif
                         <input type="hidden" name="color_id" id="color_id" value="{{ $color_id }}">
 
-                        <div style="width:100%;float: right;">
+                        <div style="width:100%;float: right;padding-top:20px">
 
                             @if(sizeof($product->get_service_name)>0)
 
-                                <p style="padding-top:20px">انتخاب گارانتی</p>
+                                <p style="padding-top:55px;font-size:17pt">انتخاب گارانتی</p>
 
 
 
@@ -174,17 +181,36 @@
                         </div>
 
 
-                        <div style="width:100%;float:right;margin-top: 15px;">
+                        <div class="product-price" style="width:100%;float:right;margin-top: 15px;">
 
-                            <p><span>قیمت : </span> {{ number_format($product->price) }} تومان</p>
+                            <p style="font-size:18pt"><span style="font-size:12pt" >قیمت برای مصرف کننده : </span><span class="product-peice-title"> {{ arabic_w2e( number_format($product->price)) }} تومان</span></p>
                             @if(!empty($product->discounts))
-                                <p><span>قیمت برای شما : </span> <span
-                                        style="color:#4CAF50;font-size:16px;">{{ number_format($product->price-$product->discounts) }}</span>
+                                <p><span style="font-size:18pt">قیمت برای شما : </span> <span
+                                        style="color: #FB3449;font-size: 2.214rem;">{{arabic_w2e( number_format($product->price-$product->discounts)) }}</span>
                                     تومان</p>
                             @endif
 
-
-                            <input type="submit" class="btn btn-success" value="افزودن به سبد خرید">
+                         
+                            <button   type="submit" class="btn btn-info-custom hvr-sweep-to-left" >افزودن به سبد خرید</button>
+                            
+                            
+                        </div>
+                        
+                        <div class="service-single">
+ 
+                            <span  >
+                                <i class="fa fa-truck"></i>
+                                <p>ارسال رایگان</p>
+                            </span>
+                            <span>
+                                <i class="fa fa-comment-o"></i>
+                                 <p>پشتیبانی هفت روز هفته</p>
+                            </span>
+                            <span>
+                                    <i class="fa fa-check-square"></i>
+                                    <p>تضمین اصالت کالا</p>
+                            </span>
+                            
                         </div>
 
                     </div>
@@ -195,25 +221,25 @@
         </div>
     </div>
 
-    <div class="row content_box">
+    <div class="row content_box" id="tab-custom">
 
         <ul class="nav nav-tabs" role="tablist" id="myTabs">
-            <li role="presentation" class="active"><a href="#review" aria-controls="review" id="tab_review" role="tab"
-                                                      data-toggle="tab">نفد و بررسی تخصصی</a></li>
-            <li role="presentation"><a href="#item" aria-controls="item" id="tab_item" role="tab"
-                                       data-toggle="tab"><span>مشخصات فنی</span></a></li>
-            <li role="presentation"><a href="#comment" aria-controls="comment" id="tab_comment" role="tab"
-                                       data-toggle="tab"><span>نظرات کاربران</span></a></li>
-            <li role="presentation"><a href="#question" aria-controls="question" id="tab_question" role="tab"
-                                       data-toggle="tab"><span>پرسش و پاسخ</span></a></li>
+            <li role="presentation"  ><a class="active"  href="#review" aria-controls="review" id="tab_review" role="tab"
+                                                      data-toggle="tab">نقد و بررسی تخصصی</a></li>
+            <li role="presentation"><a   href="#item" aria-controls="item" id="tab_item" role="tab"
+                                       data-toggle="tab"> مشخصات فنی </a></li>
+            <li role="presentation"><a   href="#comment" aria-controls="comment" id="tab_comment" role="tab"
+                                       data-toggle="tab"> نظرات کاربران </a></li>
+            <li role="presentation"><a   href="#question" aria-controls="question" id="tab_question" role="tab"
+                                       data-toggle="tab"> پرسش و پاسخ </a></li>
         </ul>
 
         <!-- Tab panes -->
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="review">
 
-                <div style="width:95%;margin:50px auto;text-align:justify">
-                    <h3 style="color: #2196F3;padding-bottom: 15px;"> نقد و بررسی متخصصین دیجی کالا</h3>
+                <div style="width:95%;margin:50px auto;text-align:right">
+                    <h3 style="color: #2196F3;padding-bottom: 15px; white-space: pre"> نقد و بررسی متخصصین دیجی کالا</h3>
 
                     @if($review)
 
@@ -250,14 +276,14 @@
 
             <div role="tabpanel" class="tab-pane" id="item">
 
-                @include('include.product_item',['product'=>$product,'item_value'=>$item_value,'items'=>$items])
+                @include('site.include.product_item',['product'=>$product,'item_value'=>$item_value,'items'=>$items])
 
 
             </div>
             <div role="tabpanel" class="tab-pane" id="comment">
 
 
-                <div class="row" style="margin-top:30px;margin-bottom:20px">
+                <div class="row" style="margin-top:30px;margin-bottom:20px;text-align:right">
 
                     <div class="col-md-7">
                         <ul class="rang_ul">
@@ -435,8 +461,16 @@
     </div>
 @endsection
 @section('footer_site')
+    <?php
+
+    $url=url('site/ajax_set_service');
+    $url2=url('site/ajax_get_tab_data');
+    ?>
     <script src="{{url('js/jquery.elevateZoom-3.0.8.min.js')}}"></script>
     <script>
+
+         
+         
         $(".zoom").elevateZoom({
             borderSize: 1,
             zoomWindowPosition: "img_load_zoom",
@@ -445,6 +479,41 @@
             zoomWindowWidth: 500,
             zoomWindowHeight: 500,
             zoomLevel: 0.5
+        });
+        $('#myTabs a').click(function (e) {
+            e.preventDefault();
+             
+            var product_id='<?= $product->id ?>';
+            var id=this.id.replace('tab_','');
+            var check_data=document.getElementById('data_'+id);
+
+            if(id=="question" || id=="comment")
+            {
+
+
+                if(!check_data)
+                {
+                    $("#loading_"+id).show();
+                    $.ajaxSetup(
+                        {
+                            'headers':{
+                                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                            }
+                        });
+
+                    $.ajax({
+                        url:'{{ $url2 }}',
+                        type:'POST',
+                        data:'tab_id='+id+'&product_id='+product_id,
+                        success:function (data)
+                        {
+                            $("#loading_"+id).hide();
+                            $("#"+id+"_box").html(data);
+                        }
+                    });
+                }
+
+            }
         });
     </script>
 @endsection

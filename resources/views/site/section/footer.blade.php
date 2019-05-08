@@ -70,78 +70,7 @@
 <script src="{{url('js/js.js')}}"></script>
 <script src="{{url('js/slick.js')}}"></script>
 <script src="{{url('js/flipclock.min.js')}}"></script>
-<script>
 
-    $('.amazing').slick({
-        rtl:true,
-        speed: 900,
-        slidesToShow: 3,
-        slidesToScroll:2,
-        variableWidth:true,
-        infinite: false
-    });
-</script>
-<script>
-
-
-$('.new_product').slick({
-    infinite: true,
-    dots: true,
-    speed: 1000,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    rtl: true,
-    responsive: [
-        {
-            breakpoint: 1024,
-            settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3,
-                infinite: true,
-                dots: true
-            }
-        },
-        {
-            breakpoint: 600,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2
-            }
-        },
-        {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-            }
-        }
-    ]
-});
-
-
-for (var j = 0; j < amazing_time.length; j++) {
-    var clock;
-
-    clock = $('#amazing_clock_' + j).FlipClock({
-        clockFace: 'HourlyCounter',
-        autoStart: false,
-        id: 'c_' + j,
-        callbacks: {
-            stop: function () {
-                var a = this.id.replace('c_', '');
-                $('#amazing_clock_' + a).hide();
-                $('#amazing_img_' + a).show();
-            }
-        }
-    });
-
-    clock.setTime(amazing_time[j]);
-    clock.setCountdown(true);
-    clock.start();
-}
-
-
-</script>
 <script src="{{url('js/easing.jquery1.3.min.js')}}"></script>
 <script src="{{url('js/custom.js')}}"></script>
 

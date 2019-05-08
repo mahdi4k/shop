@@ -621,8 +621,9 @@ a:hover
 .content_box
 {
     background:white;
-    margin-top: 20px;
-    margin-bottom: 30px;
+    width: 99%;
+    margin:70px auto; 
+     
 }
 .show_product_img
 {
@@ -758,38 +759,43 @@ a:hover
     border-radius: 4px;
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
     border: 1px solid #EBECED;
+    position: relative;
+    width: 100%;
 }
 #tab_item::before
 {
-    background: transparent url("../img/slices.png") no-repeat scroll -317px -268px;
+    background: transparent url(../img/slices.png) no-repeat scroll -317px -268px;
     width: 18px;
     height: 22px;
     content: "";
     display: inline-block;
-    position:absolute;
-    top:13px;
+    position: absolute;
+    top: 14px;
+    right: 14px;
     margin-left: 5px;
 }
 #tab_comment::before
 {
-    background: transparent url("../img/slices.png") no-repeat scroll -263px -269px;
+    background: transparent url(../img/slices.png) no-repeat scroll -263px -269px;
     content: "";
     display: inline-block;
-    position:absolute;
-    top:13px;
+    position: absolute;
+    top: 15px;
     margin-left: 5px;
     width: 20px;
+    right: 15px;
     height: 20px;
 }
 #tab_question::before
 {
-    background: transparent url("../img/slices.png") no-repeat scroll -212px -269px;
+    background: transparent url(../img/slices.png) no-repeat scroll -212px -269px;
     content: "";
     display: inline-block;
-    position:absolute;
-    top:14px;
+    position: absolute;
+    top: 10px;
     margin-left: 5px;
     width: 20px;
+    right: 9px;
     height: 20px;
 }
 #tab_review::before
@@ -798,7 +804,7 @@ a:hover
     content: "";
     display: inline-block;
     height: 20px;
-    margin: 0px 0px 0px 16px;
+    margin: 0px 0px 0px 7px;
     right: 0px;
     width: 20px;
     position: relative;
@@ -806,12 +812,20 @@ a:hover
 }
 #myTabs li a
 {
-    height:50px;
-    line-height:30px;
+   line-height: 28px;
+   display: block;
+   text-align: center;
+   padding-top: 13px;
+   padding-bottom: 13px;
+   width: 100%;
+   position: relative;
+    
+   top: 15px;
+   left: 13px;
 }
 #myTabs li a:hover
 {
-    background:#F5F6F7;
+
 }
 .nav-tabs > li > a
 {
@@ -821,7 +835,7 @@ a:hover
 }
 .active a:hover
 {
-    background:white;
+
 }
 #myTabs li a span
 {
@@ -1004,10 +1018,11 @@ a:hover
     border-radius: 2px;
     width:300px;
     line-height:36px;
-    margin-top: 10px;
+     
     cursor:pointer;
-    margin-bottom: 5px;
+    margin-bottom: 41px;
     position:relative;
+    margin-top: 28px
 }
 .service_title span
 {

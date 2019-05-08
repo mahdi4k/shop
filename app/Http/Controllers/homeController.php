@@ -6,6 +6,7 @@ use App\Amazing;
 use App\Category;
 use App\Item;
 use App\Product;
+use App\ProductScore;
 use App\ReView;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -31,10 +32,10 @@ class homeController extends Controller
         $product->view = $product->view + 1;
         $product->update();
        $review = ReView::where(['product_id' => $product->id])->first();
-       // $items = Item::get_product_item($product->id);
+         $items = Item::get_product_item($product->id);
          $item_value = DB::table('item_product')->where('product_id', $product->id)->pluck('value', 'item_id')->toArray();
-       // $score_data = ProductScore::get_score($product->id);
+         $score_data = ProductScore::get_score($product->id);
 
-        return view('site/show', ['product' => $product ],['review'=>$review],['item_value'=>$item_value]);
+        return view('site/show', compact('review','items','item_value','product','score_data'));
     }
 }

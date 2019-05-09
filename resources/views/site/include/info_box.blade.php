@@ -34,6 +34,7 @@
 
         <p style="padding-top:20px">انتخاب گارانتی</p>
         <?php
+
         $c=0;
         ?>
         @foreach($product->get_service_name as $key=>$value)
@@ -75,7 +76,7 @@
                         <span>{{ $value->service_name }}</span>
                         <a class="service_ic" id="service_ic"></a>
                     </div>
-                        <input type="hidden" name="service_id" value="{{ $value->id }}" id="service_id">
+                    <input type="hidden" name="service_id" value="{{ $value->id }}" id="service_id">
 
                     <?php
                     }
@@ -97,7 +98,7 @@
             @endforeach
         </div>
 
-     @else
+    @else
 
         <input type="hidden" name="service_id" value="0" id="service_id">
 
@@ -113,14 +114,14 @@
 
     <?php
 
-        if($service)
-        {
-            $price=$service->price;
-        }
-        else
-        {
-            $price=$check ? $check->price :  $product->price;
-        }
+    if($service)
+    {
+        $price=$service->price;
+    }
+    else
+    {
+        $price=$check ? $check->price :  $product->price;
+    }
 
     ?>
     <p><span>قیمت : </span> {{ number_format($price) }} تومان</p>

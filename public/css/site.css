@@ -820,13 +820,10 @@ a:hover
    width: 100%;
    position: relative;
     
-   top: 15px;
+   top: 3px;
    left: 13px;
 }
-#myTabs li a:hover
-{
 
-}
 .nav-tabs > li > a
 {
     -webkit-border-radius: 0px;

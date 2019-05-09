@@ -1,13 +1,13 @@
 @extends('site.master')
 @section('content')
-<?php
+    <?php
     function arabic_w2e($str)
     {
-    $arabic_eastern = array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩');
-    $arabic_western = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
-    return str_replace($arabic_western, $arabic_eastern, $str);
+        $arabic_eastern = array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩');
+        $arabic_western = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
+        return str_replace($arabic_western, $arabic_eastern, $str);
     }
-     ?>
+    ?>
     <div class="row content_box">
 
 
@@ -183,22 +183,25 @@
 
                         <div class="product-price" style="width:100%;float:right;margin-top: 15px;">
 
-                            <p style="font-size:18pt"><span style="font-size:12pt" >قیمت برای مصرف کننده : </span><span class="product-peice-title"> {{ arabic_w2e( number_format($product->price)) }} تومان</span></p>
+                            <p style="font-size:18pt"><span style="font-size:12pt">قیمت برای مصرف کننده : </span><span
+                                    class="product-peice-title"> {{ arabic_w2e( number_format($product->price)) }}
+                                    تومان</span></p>
                             @if(!empty($product->discounts))
                                 <p><span style="font-size:18pt">قیمت برای شما : </span> <span
                                         style="color: #FB3449;font-size: 2.214rem;">{{arabic_w2e( number_format($product->price-$product->discounts)) }}</span>
                                     تومان</p>
                             @endif
 
-                         
-                            <button   type="submit" class="btn btn-info-custom hvr-sweep-to-left" >افزودن به سبد خرید</button>
-                            
-                            
+
+                            <button type="submit" class="btn btn-info-custom hvr-sweep-to-left">افزودن به سبد خرید
+                            </button>
+
+
                         </div>
-                        
+
                         <div class="service-single">
  
-                            <span  >
+                            <span>
                                 <i class="fa fa-truck"></i>
                                 <p>ارسال رایگان</p>
                             </span>
@@ -210,7 +213,7 @@
                                     <i class="fa fa-check-square"></i>
                                     <p>تضمین اصالت کالا</p>
                             </span>
-                            
+
                         </div>
 
                     </div>
@@ -224,13 +227,13 @@
     <div class="row content_box" id="tab-custom">
 
         <ul class="nav nav-tabs" role="tablist" id="myTabs">
-            <li role="presentation"  ><a class="active"  href="#review" aria-controls="review" id="tab_review" role="tab"
-                                                      data-toggle="tab">نقد و بررسی تخصصی</a></li>
-            <li role="presentation"><a   href="#item" aria-controls="item" id="tab_item" role="tab"
+            <li role="presentation"><a class="active" href="#review" aria-controls="review" id="tab_review" role="tab"
+                                       data-toggle="tab">نقد و بررسی تخصصی</a></li>
+            <li role="presentation"><a href="#item" aria-controls="item" id="tab_item" role="tab"
                                        data-toggle="tab"> مشخصات فنی </a></li>
-            <li role="presentation"><a   href="#comment" aria-controls="comment" id="tab_comment" role="tab"
+            <li role="presentation"><a href="#comment" aria-controls="comment" id="tab_comment" role="tab"
                                        data-toggle="tab"> نظرات کاربران </a></li>
-            <li role="presentation"><a   href="#question" aria-controls="question" id="tab_question" role="tab"
+            <li role="presentation"><a href="#question" aria-controls="question" id="tab_question" role="tab"
                                        data-toggle="tab"> پرسش و پاسخ </a></li>
         </ul>
 
@@ -239,7 +242,8 @@
             <div role="tabpanel" class="tab-pane active" id="review">
 
                 <div style="width:95%;margin:50px auto;text-align:right">
-                    <h3 style="color: #2196F3;padding-bottom: 15px; white-space: pre"> نقد و بررسی متخصصین دیجی کالا</h3>
+                    <h3 style="color: #2196F3;padding-bottom: 15px; white-space: pre"> نقد و بررسی متخصصین دیجی
+                        کالا</h3>
 
                     @if($review)
 
@@ -463,14 +467,13 @@
 @section('footer_site')
     <?php
 
-    $url=url('site/ajax_set_service');
-    $url2=url('site/ajax_get_tab_data');
+    $url = url('site/ajax_set_service');
+    $url2 = url('site/ajax_get_tab_data');
     ?>
     <script src="{{url('js/jquery.elevateZoom-3.0.8.min.js')}}"></script>
     <script>
 
-         
-         
+
         $(".zoom").elevateZoom({
             borderSize: 1,
             zoomWindowPosition: "img_load_zoom",
@@ -482,38 +485,88 @@
         });
         $('#myTabs a').click(function (e) {
             e.preventDefault();
-             
-            var product_id='<?= $product->id ?>';
-            var id=this.id.replace('tab_','');
-            var check_data=document.getElementById('data_'+id);
 
-            if(id=="question" || id=="comment")
-            {
+            var product_id = '<?= $product->id ?>';
+            var id = this.id.replace('tab_', '');
+            var check_data = document.getElementById('data_' + id);
+
+            if (id == "question" || id == "comment") {
 
 
-                if(!check_data)
-                {
-                    $("#loading_"+id).show();
+                if (!check_data) {
+                    $("#loading_" + id).show();
                     $.ajaxSetup(
                         {
-                            'headers':{
-                                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                            'headers': {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                             }
                         });
 
                     $.ajax({
-                        url:'{{ $url2 }}',
-                        type:'POST',
-                        data:'tab_id='+id+'&product_id='+product_id,
-                        success:function (data)
-                        {
-                            $("#loading_"+id).hide();
-                            $("#"+id+"_box").html(data);
+                        url: '{{ $url2 }}',
+                        type: 'POST',
+                        data: 'tab_id=' + id + '&product_id=' + product_id,
+                        success: function (data) {
+                            $("#loading_" + id).hide();
+                            $("#" + id + "_box").html(data);
                         }
                     });
                 }
 
             }
         });
+        set_service = function (service_id) {
+            $("#service_box").slideUp();
+            var product_id = '<?= $product->id ?>';
+            var color_id = document.getElementById('color_id').value;
+            $.ajaxSetup(
+                {
+                    'headers': {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+            $.ajax({
+                url: '{{ $url }}',
+                type: 'POST',
+                data: 'service_id=' + service_id + '&product_id=' + product_id + '&color_id=' + color_id,
+                success: function (data) {
+
+                    $("#loading_box").hide();
+                    $("#product_info").html(data);
+                }
+            });
+        };
+        set_color = function (color_id) {
+
+            var product_id = '<?= $product->id ?>';
+            var service_id = document.getElementById('service_id').value;
+            $.ajaxSetup(
+                {
+                    'headers': {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+            $.ajax({
+                url: '{{ $url }}',
+                type: 'POST',
+                data: 'service_id=' + service_id + '&product_id=' + product_id + '&color_id=' + color_id,
+                success: function (data) {
+                    $("#product_info").html(data);
+                }
+            });
+        };
+        change_img = function (url) {
+            var ez = $('.zoom').data('elevateZoom');
+            ez.swaptheimage(url, url);
+        };
+        show_more_img = function () {
+            $("#imgModal").modal('show');
+        };
+        show_img_product = function (url) {
+
+            document.getElementById('product_first_img').src = url;
+        }
     </script>
 @endsection

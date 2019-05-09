@@ -1203,9 +1203,7 @@ i.fa-users{
     transition: .3s;
 
 }
-.product_image_box img:hover {
-
-}
+ 
 .product_box p
 {
 
@@ -1450,15 +1448,15 @@ i.fa-users{
 
 #myTabs li{
     width: 185px;
-    margin-bottom: 8px;
+    
      
     margin-right: 12px;
 }
  
 #myTabs li a.active {
-    color: red;
+    color: #FB3449;
     background-color: white;
-    padding: 11px;
+    padding: 13px;
     white-space: pre;
     margin-right: 0px;
     border-top: 3px solid blue;
@@ -1466,7 +1464,9 @@ i.fa-users{
 
 }
 
-
+.tab-content{
+    width: 100%;
+}
 .title_porduct_top{
     padding-top: 9px;
      
@@ -1581,4 +1581,7 @@ border-right: solid #36CDDF 10px;
 }
 .service-single span p{
     font-weight: 700
+}
+.product_info{
+    margin-right: 11px;
 }

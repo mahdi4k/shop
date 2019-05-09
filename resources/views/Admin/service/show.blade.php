@@ -1,10 +1,8 @@
 @extends('Admin.master')
 @section('header')
-    <title>مدیریت گارانتی محصول</title>
+    مدیریت گارانتی محصول
 @endsection
-@section('style')
-<link href="{{ url('css/js-persian-cal.css') }}" rel="stylesheet">
-@endsection
+ 
 @section('content')
 
     <div class="box_title" >
@@ -16,14 +14,12 @@
         <input type="text" id="pcal4" class="pdate form-control">
     </div>
     <div id="show"></div>
-
-
-@endsection
-@section('footer')
+ 
     <?php
 
     $url=url('admin/service/get_price?product_id=').$product->id;
     ?>
+
 <script type="text/javascript" src="{{ url('js/js-persian-cal.min.js') }}"></script>
 <script type="text/javascript">
     var objCal4 = new AMIB.persianCalendar( 'pcal4', {
@@ -55,4 +51,7 @@
         }
     );
 </script>
+ 
+
 @endsection
+

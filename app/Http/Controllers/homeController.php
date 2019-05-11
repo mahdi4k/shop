@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Amazing;
+use App\Cart;
 use App\Category;
+use App\Color;
 use App\Item;
 use App\Product;
 use App\ProductScore;
@@ -65,17 +67,79 @@ class homeController extends Controller
                 {
                     $query->where(['product_id'=>product_id,'status'=>1]);
                 }])->where(['product_id'=>$product_id])->orderBy('id','DESC')->paginate(10);
-                return View('include.show_comment',['score'=>$score,'product_id'=>$product_id]);
+                return View('site.include.show_comment',['score'=>$score,'product_id'=>$product_id]);
             }
             elseif ($tab_id=='question')
             {
                 $question=Question::with('get_parent')->where(['product_id'=>$product_id,'status'=>1,'parent_id'=>0])->orderBy('id','DESC')->paginate(10);
-                return View('include.add_question',['product_id'=>$product_id,'question'=>$question]);
+                return View('site.include.add_question',['product_id'=>$product_id,'question'=>$question]);
             }
             else
             {
                 return 'error';
             }
+        }
+    }
+    public function show_cart()
+    {
+        $view_name='site/cart';
+        return View($view_name);
+    }
+    public function cart(Request $request)
+    {
+        $product_id=$request->get('product_id',0);
+        $color_id=$request->get('color_id',0);
+        $service_id=$request->get('service_id',0);
+        $product=Product::findOrFail($product_id);
+        $service=Service::where(['product_id'=>$product_id,'color_id'=>$color_id,'parent_id'=>$service_id])->first();
+        if($service)
+        {
+            Cart::add_cart($product_id,$color_id,$service_id);
+        }
+        else
+        {
+            if($color_id==0 && $service_id!=0)
+            {
+                $service=Service::findOrFail($service_id);
+                Cart::add_cart($product_id,$color_id,$service_id);
+            }
+            elseif ($color_id!=0 && $service_id==0)
+            {
+                Color::where(['id'=>$color_id,'product_id'=>$product_id])->firstOrFail();
+                Cart::add_cart($product_id,$color_id,$service_id);
+            }
+            elseif ($color_id==0 && $service_id==0)
+            {
+                Cart::add_cart($product_id,$color_id,$service_id);
+            }
+        }
+
+        return redirect('Cart');
+
+    }
+    public function del_cart(Request $request)
+    {
+        if($request->ajax())
+        {
+            $product_id=$request->get('product_id',0);
+            $color_id=$request->get('color_id',0);
+            $service_id=$request->get('service_id',0);
+            Cart::remove($product_id,$service_id,$color_id);
+            $view_name='site/include/ajax_cart';
+            return View($view_name);
+        }
+    }
+    public function change_cart(Request $request)
+    {
+        if($request->ajax())
+        {
+            $product_id=$request->get('product_id',0);
+            $color_id=$request->get('color_id',0);
+            $service_id=$request->get('service_id',0);
+            $number=$request->get('number',0);
+            Cart::change($product_id,$service_id,$color_id,$number);
+            $view_name= 'site.include/ajax_cart';
+            return View($view_name);
         }
     }
 }

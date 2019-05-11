@@ -32,9 +32,11 @@
                             محصولات
                         </a>
 
-                        <div   aria-expanded="false"  aria-controls="collapseExample"  class="collapse   custom-collapse" id="collapseExample">
-                             <a href="/admin/product"><p>مدیریت محصولات</p></a>
-                             <a href="/admin/product/create"><p>افزودن محصولات</p></a>
+                        <div  style="padding-right: 41px;"  aria-expanded="false"  aria-controls="collapseExample"  class="collapse text-right   custom-collapse" id="collapseExample">
+
+                            <a href="/admin/product"><p>مدیریت محصولات</p></a>
+                              <a href="/admin/product/create"><p>افزودن محصولات</p></a>
+                             <a href="/admin/amazing"><p>محصولات شگفت انگیز</p></a>
 
                         </div>
                     </li>

@@ -9,7 +9,7 @@ $cart_date=\App\Cart::get();
 
 @else
 
-    <div style="width:95%;margin: 50px auto">
+    <div style="width:95%;margin: 50px auto;text-align: right">
 
         <p><span class="icon_item_name"></span> <span>سبد خرید شما در دیجی‌کالا</span></p>
         <p>افزودن کالاها به سبد خرید به معنی رزرو کالا برای شما نیست. برای ثبت سفارش باید مراحل بعدی خرید را تکمیل نمایید.</p>

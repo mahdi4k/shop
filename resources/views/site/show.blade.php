@@ -1,4 +1,7 @@
 @extends('site.master')
+@section('style')
+    <link rel="stylesheet" href="{{url('css/site.css')}}">
+@endsection()
 @section('content')
     <?php
     function arabic_w2e($str)
@@ -92,7 +95,7 @@
                     $colors = $product->get_colors;
                     $color_id = 0;
                     ?>
-
+                <div class="single-product-info">
                     <div id="product_info">
                         <?php
                         $color_id = 0;
@@ -186,7 +189,7 @@
                             <p style="font-size:18pt"><span style="font-size:12pt">قیمت برای مصرف کننده : </span><span
                                     class="product-peice-title"> {{ arabic_w2e( number_format($product->price)) }}
                                     تومان</span></p>
-                            @if(!empty($product->discounts))
+                            @if( empty($product->discounts))
                                 <p><span style="font-size:18pt">قیمت برای شما : </span> <span
                                         style="color: #FB3449;font-size: 2.214rem;">{{arabic_w2e( number_format($product->price-$product->discounts)) }}</span>
                                     تومان</p>
@@ -199,24 +202,25 @@
 
                         </div>
 
-                        <div class="service-single">
- 
+
+                     </div>
+                    <div class="service-single">
+
                             <span>
                                 <i class="fa fa-truck"></i>
                                 <p>ارسال رایگان</p>
                             </span>
-                            <span>
+                        <span>
                                 <i class="fa fa-comment-o"></i>
                                  <p>پشتیبانی هفت روز هفته</p>
                             </span>
-                            <span>
+                        <span>
                                     <i class="fa fa-check-square"></i>
                                     <p>تضمین اصالت کالا</p>
                             </span>
 
-                        </div>
-
                     </div>
+                </div>
                 </form>
             @endif
 

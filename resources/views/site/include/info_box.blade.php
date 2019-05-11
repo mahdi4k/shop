@@ -32,7 +32,7 @@
 <div style="width:100%;float: right;">
     @if(sizeof($product->get_service_name)>0)
 
-        <p style="padding-top:20px">انتخاب گارانتی</p>
+        <p style="padding-top:55px;font-size:17pt">انتخاب گارانتی</p>
         <?php
 
         $c=0;
@@ -124,11 +124,14 @@
     }
 
     ?>
-    <p><span>قیمت : </span> {{ number_format($price) }} تومان</p>
+        <div class="product-price" style="width:100%;float:right;margin-top: 15px;">
+
+        <p><span>قیمت : </span> {{ number_format($price) }} تومان</p>
     @if(!empty($product->discounts))
         <p><span>قیمت برای شما : </span>  <span style="color:#4CAF50;font-size:16px;">{{ number_format($price-$product->discounts) }}</span>  تومان</p>
     @endif
 
 
-    <input type="submit" class="btn btn-success" value="افزودن به سبد خرید">
+        <button type="submit" class="btn btn-info-custom hvr-sweep-to-left">افزودن به سبد خرید</button>
+</div>
 </div>

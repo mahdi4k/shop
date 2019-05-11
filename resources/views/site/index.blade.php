@@ -84,9 +84,9 @@
                 <a href="{{ $url }}">
                     <div class="amazing_div" id="amazing_div_{{ $key }}" @if($key==0) style="display:block" @endif>
                         <div class="title order-title  ">
-                            <h2 class="text-center">جدیدترین محصولات</h2>
+                            <h2 class="text-center">پیشنهاد شگفت انگیز</h2>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-4 col-md-offset-1  text-right">
                             <p style="color:red;padding-top: 30px;">پيشنهاد شگفت انگيز امروز</p>
 
                             <span class="price1">

@@ -141,9 +141,11 @@ body{
     padding-bottom: 7px;
 }
 .custom-collapse p{
-    color: tomato;
+    color: #656060;
     transition: .3s;
-}
+    font-weight: 300;
+    font-size: 15px;
+ }
 .custom-collapse p:hover{
     color: #0056b3;
 }

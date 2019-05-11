@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="{{url('css/custom.css')}}">
     <link rel="stylesheet" href="{{url('css/slick-theme.css')}}">
     <link rel="stylesheet" href="{{url('css/flipclock.css')}}">
-    <link rel="stylesheet" href="{{url('css/site.css')}}">
 
+
+    @yield('style')
     <title>lamino</title>
 </head>
 <body>

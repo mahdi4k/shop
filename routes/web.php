@@ -51,4 +51,8 @@ Route::post('admin/product/del_review_img/{id}','Admin\ProductController@del_rev
 //site controller
 Route::get('product/{code}/{title}','homeController@show');
 Route::post('site/ajax_set_service','homeController@set_service');
+Route::get('Cart','homeController@show_cart');
+Route::post('Cart','homeController@cart');
+Route::post('site/ajax_del_cart','homeController@del_cart');
+Route::post('site/ajax_change_cart','homeController@change_cart');
 

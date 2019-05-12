@@ -15,11 +15,11 @@ class Captcha
         Session::put('Captcha', $word);
         $image = imagecreatefrompng('./img/captcha.png');
 
-        $font1 = './fonts/' . rand(1, 5) . '.ttf';
-        $font2 = './fonts/' . rand(1, 5) . '.ttf';
-        $font3 = './fonts/' . rand(1, 5) . '.ttf';
-        $font4 = './fonts/' . rand(1, 5) . '.ttf';
-        $font5 = './fonts/' . rand(1, 5) . '.ttf';
+        $font1 = public_path() .'/fonts/' . rand(1, 5) . '.ttf';
+        $font2 = public_path() .'/fonts/' . rand(1, 5) . '.ttf';
+        $font3 = public_path() .'/fonts/' . rand(1, 5) . '.ttf';
+        $font4 = public_path() .'/fonts/' . rand(1, 5) . '.ttf';
+        $font5 = public_path() .'/fonts/' . rand(1, 5) . '.ttf';
 
 
         $angle1 = rand(-15, 15);

@@ -13,7 +13,7 @@ class Captcha
             $word .= $letter;
         }
         Session::put('Captcha', $word);
-        $image = imagecreatefrompng('./images/captcha.png');
+        $image = imagecreatefrompng('./img/captcha.png');
 
         $font1 = './fonts/' . rand(1, 5) . '.ttf';
         $font2 = './fonts/' . rand(1, 5) . '.ttf';

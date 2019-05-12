@@ -1182,6 +1182,8 @@ a:hover
     background:#FAFCFC;
     height:155px;
     text-align:center;
+    display: block;
+    width: 100%;
 }
 .header_register div li
 {
@@ -1208,6 +1210,8 @@ a:hover
 {
     width:100%;
     margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     height:40px;
     text-align:left;
     font-family:IRANSansWeb;
@@ -1236,7 +1240,7 @@ a:hover
 {
     margin:170px auto;
     position:absolute;
-
+    text-align: right;
 }
 .right_register_box
 {
@@ -1249,11 +1253,12 @@ a:hover
     border-right:1px solid #F0F1F2;
     position:relative;
     padding-bottom: 60px;
+
 }
 .ul_register li
 {
     list-style:none;
-    color: #737373;
+    color: #737373;padding: 5px;
 }
 .icon-userbox-cart
 {

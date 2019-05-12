@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use View;
 class LoginController extends Controller
 {
     /*
@@ -35,5 +36,7 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        $cat=Category::where('parent_id',0)->get();
+        View::share('category',$cat);
     }
 }

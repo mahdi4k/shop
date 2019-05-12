@@ -60,3 +60,8 @@ Route::post('site/ajax_change_cart','SiteController@change_cart');
 Auth::routes();
 
 Route::get('/home', 'SiteController@index')->name('home');
+Route::get('Captcha',function ()
+{
+    $Captcha=new \App\lib\Captcha();
+    $Captcha->create();
+});

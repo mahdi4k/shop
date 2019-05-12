@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\homeController;
+use App\Http\Controllers\SiteController ;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +13,7 @@ use App\Http\Controllers\homeController;
 |
 */
 
-Route::get('/', 'homeController@index');
+Route::get('/', 'SiteController@index');
 Route::get('/admin', 'Admin\PanelCotroller@index');
 
 //admin_category
@@ -49,10 +49,14 @@ Route::get('admin/product/add-review','Admin\ProductController@add_review_form')
 Route::post('admin/product/add_review','Admin\ProductController@add_review');
 Route::post('admin/product/del_review_img/{id}','Admin\ProductController@del_review_img');
 //site controller
-Route::get('product/{code}/{title}','homeController@show');
-Route::post('site/ajax_set_service','homeController@set_service');
-Route::get('Cart','homeController@show_cart');
-Route::post('Cart','homeController@cart');
-Route::post('site/ajax_del_cart','homeController@del_cart');
-Route::post('site/ajax_change_cart','homeController@change_cart');
+Route::get('product/{code}/{title}','SiteController@show');
+Route::post('site/ajax_set_service','SiteController@set_service');
+Route::get('Cart','SiteController@show_cart');
+Route::post('Cart','SiteController@cart');
+Route::post('site/ajax_del_cart','SiteController@del_cart');
+Route::post('site/ajax_change_cart','SiteController@change_cart');
 
+
+Auth::routes();
+
+Route::get('/home', 'SiteController@index')->name('home');

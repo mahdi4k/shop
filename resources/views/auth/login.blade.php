@@ -1,73 +1,171 @@
-@extends('layouts.app')
-
+@extends('site.master')
+@section('title')
+    گروه هیراد کویر-ورود به سایت
+@endsection
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+    <div class="container-fluid login-register">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+        <div class="row">
+
+            <div class="col-md-6 login-form">
+<span class="sign-in">
+    <i class="fa fa-sign-in"></i>
+</span>
+                <div style="text-align:center;margin-top:60px;">
+
+
+                    <p style="font-weight:bold">عضو دیجی‌ آنلاین هستید؟</p>
+                    <p>برای تکمیل فرآیند خرید خود وارد شوید</p>
+                    <button onclick="show_login_form()" class="btn btn-primary">ورود به سایت</button>
+                </div>
+            </div>
+            <div class="col-md-6 register-form">
+                <span class="user-plus">  <i class="fa fa-user-plus"></i></span>
+                <div class="right_login_box">
+
+                    <div style="text-align:center;padding-top: 60px;">
+                        <div class="icon register_icon"></div>
+                        <p style="font-weight:bold">تازه وارد هستید؟</p>
+                        <p>برای تکمیل فرآیند خرید خود ثبت نام کنید</p>
+                        <a class="btn btn-success" href="{{ url('register') }}">ثبت نام در سایت</a>
+
+                        <div style="padding-top:30px;padding-bottom:30px;width:80%;margin:auto">
+                            با عضویت در دیجی‌کالا تجربه متفاوتی از خرید اینترنتی داشته باشید. وضعیت سفارش خود را پیگیری
+                            نموده و سوابق خریدتان را مشاهده کنید.
                         </div>
+                    </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                </div>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+            </div>
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+        </div>
 
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
+    </div>
+
+
+
+    <div id="show_data"></div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h5 class="modal-title  text-center w-100 " id="myModalLabel">ورود به سایت</h5>
+                </div>
+                <div class="modal-body">
+
+                    <div class="register_form text-right">
+                        <form method="post" action="{{ route('login') }}">
+                            {{ csrf_field() }}
+                            <div class="form-row">
+                                <div class="form-group w-100">
+
+                                    <input type="text" value="{{ old('username') }}" class="form-control" name="username" id="inputAddress">
+                                     <label for="inputAddress">شماره همراه یا پست الکترونیک</label>
+                                    <div class="line"></div>
+
                                 </div>
                             </div>
-                        </div>
+                            @if($errors->has('username'))
+                                <span class="has-error">{{ $errors->first('username') }}</span>
+                            @endif
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
+                            <div class="form-row">
+                                <div class="form-group w-100">
+
+                                    <input type="password" class="form-control" name="password" id="inputPaswword">
+                                    <label for="inputPaswword">کلمه عبور</label>
+                                    <div class="line"></div>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                            @if($errors->has('password'))
+                                <span style="color: red;font-size: 10pt">{{ $errors->first('password') }}</span>
+                            @endif
+                            <div class="form-group custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck"
+                                       name="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                <label class="custom-control-label" for="customCheck"> مرا به خاطر بسپار</label>
+                            </div>
+
+                            <div class="form-group text-center">
+                                <input type="submit" style="width:150px" class="btn btn-info" value="ورود به سایت">
+                                <a class="btn btn-light" style=" padding-right: 10px;" href="">بازیابی کلمه عبور</a>
+                            </div>
+
+
+                        </form>
+                    </div>
+
+
+                </div>
+                <div style="background-color: #dae1f1;" class="login_footer text-center">
+
+                      <span>
+            قبلاً در سایت ثبت نام نکرده اید؟</span>
+                    <a class="btn  mb-1" href="{{ url('register') }}">ثبت نام در سایت</a>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+@endsection
+
+@section('footer_site')
+    <?php
+    $url1 = url('site/ajax_check_login');
+    ?>
+    <script>
+        show_login_form = function () {
+            $.ajaxSetup(
+                {
+                    'headers': {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+            $.ajax({
+                url: '{{ $url1 }}',
+                type: 'POST',
+                success: function (data) {
+                    $("#show_data").html(data);
+                }
+            });
+        };
+
+    </script>
+    @if($errors->has('username') or $errors->has('password'))
+        <script>
+            $("#myModal").modal('show');
+        </script>
+    @endif
+
+    <script>
+        function checkValue(element) {
+            // check if the input has any value (if we've typed into it)
+            if ($(element).val())
+                $(element).addClass('has-value');
+            else
+                $(element).removeClass('has-value');
+        }
+
+        $(document).ready(function () {
+            // Run on page load
+            $('.form-control').each(function () {
+                checkValue(this);
+            });
+            // Run on input exit
+            $('.form-control').blur(function () {
+                checkValue(this);
+            });
+
+        });
+    </script>
 @endsection

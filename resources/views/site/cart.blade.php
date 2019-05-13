@@ -11,6 +11,13 @@
             <?php
 
             $cart_date=\App\Cart::get();
+
+            function arabic_w2e($str)
+            {
+                $arabic_eastern = array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩');
+                $arabic_western = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
+                return str_replace($arabic_western, $arabic_eastern, $str);
+            }
             ?>
 
             @if(sizeof($cart_date)==0)
@@ -86,13 +93,13 @@
                                         </td>
                                         <td class="cart_price">
                                             <p>
-                                                <span class="p1">{{ number_format($data['price2']) }}</span>
+                                                <span class="p1">{{ arabic_w2e( number_format($data['price2']))}}</span>
                                                 <span class="p2">تومان</span>
                                             </p>
                                         </td>
                                         <td class="cart_price">
                                             <p>
-                                                <span class="p1">{{ number_format($data['price2']*$value2) }}</span>
+                                                <span class="p1">{{ arabic_w2e( number_format($data['price2']*$value2)) }}</span>
                                                 <span class="p2">تومان</span>
                                             </p>
                                         </td>
@@ -130,14 +137,14 @@
 
                                     ?>
                                     <ul class="list-inline">
-                                        <li style="margin-right:15px;">جمع کل خرید شما :</li>
-                                        <li style="float:left;margin-left:10px"><span class="p1">{{ number_format($total_price) }}</span> تومان</li>
+                                        <li style="margin-right:15px; display: inline">جمع کل خرید شما :</li>
+                                        <li style="float:left;margin-left:10px"><span class="p1">{{ arabic_w2e( number_format($total_price)) }}</span> تومان</li>
                                     </ul>
                                 </div>
                                 <div style="background:#F7FFF7;">
                                     <ul class="list-inline">
-                                        <li style="margin-right:15px;color:#4CAF50">مبلغ قابل پرداخت :</li>
-                                        <li style="float:left;color:#4CAF50;margin-left:10px"><span class="p1">{{ number_format($price) }}</span> تومان</li>
+                                        <li style="margin-right:15px;color:#4CAF50;display: inline">مبلغ قابل پرداخت :</li>
+                                        <li style="float:left;color:#4CAF50;margin-left:10px"><span class="p1">{{ arabic_w2e( number_format($price)) }}</span> تومان</li>
                                     </ul>
                                 </div>
                             </div>

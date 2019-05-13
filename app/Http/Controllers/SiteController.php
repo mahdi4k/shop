@@ -10,6 +10,7 @@ use App\ProductScore;
 use App\ReView;
 use App\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 class SiteController  extends Controller
 {
@@ -126,6 +127,26 @@ class SiteController  extends Controller
             Cart::change($product_id,$service_id,$color_id,$number);
             $view_name= 'site.include/ajax_cart';
             return View($view_name);
+        }
+    }
+    public function check_login(Request $request)
+    {
+        if($request->ajax())
+        {
+            if(Auth::check())
+            {
+                ?>
+                <?php
+
+            }
+            else
+            {
+                ?>
+                <script>
+                    $("#myModal").modal('show');
+                </script>
+                <?php
+            }
         }
     }
 }

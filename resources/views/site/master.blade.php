@@ -14,7 +14,9 @@
 
 
     @yield('style')
-    <title>lamino</title>
+    <title>
+        @yield('title')
+    </title>
 </head>
 <body>
 <?php

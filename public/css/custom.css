@@ -759,7 +759,7 @@ linear-gradient(to right, #4b6cb752, #182848)
     margin: 0;
     transition: all 0.2s ease-in-out;
     pointer-events: none;
-
+    font-size: 10pt;
     right: 10px;
 }
 
@@ -1668,4 +1668,33 @@ i.fa-users {
     float: right;
     width: 100%;
     position: relative;
+}
+/*login register*/
+.login-register{
+    background-color: white;
+}
+.login-form{
+    padding: 100px 100px; position: relative;
+}
+.register-form{
+    padding: 100px 100px;
+    position: relative;
+}
+.user-plus{
+    position: absolute;
+    right: 5px;
+    left: 3px;
+    color: #218838;
+    top: 54px;
+    text-align: center;
+    font-size: 50pt;
+}
+.sign-in{
+    position: absolute;
+    right: 5px;
+    left: 3px;
+    color: #5780ad;
+    top: 54px;
+    text-align: center;
+    font-size: 50pt;
 }

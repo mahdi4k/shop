@@ -39,6 +39,7 @@ $cart_date=\App\Cart::get();
                 @foreach($product_data as $key2=>$value2)
                     <?php
                     $s_c=explode('_',$key2);
+
                     $service_id=$s_c[0];
                     $color_id=$s_c[1];
                     $data=\App\Cart::get_date($key,$service_id,$color_id);

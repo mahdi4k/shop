@@ -65,3 +65,4 @@ Route::get('Captcha',function ()
     $Captcha=new \App\lib\Captcha();
     $Captcha->create();
 });
+Route::post('site/ajax_check_login','SiteController@check_login');

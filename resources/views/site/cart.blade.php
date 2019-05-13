@@ -2,6 +2,9 @@
 @section('style')
 <link rel="stylesheet" href="{{url('css/site.css')}}">
 @endsection
+@section('title')
+    سبد خرید | فروشگاه اینترنتی هوشمند خودرو
+@endsection
 @section('content')
 
     <div class="row content_box">

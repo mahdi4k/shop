@@ -1298,10 +1298,7 @@ a:hover
     height: 48px;
     margin-bottom: 20px;
 }
-.modal-dialog
-{
-    width: 550px;
-}
+
 #myModal .modal-header
 {
     background-color: #F0F1F2;

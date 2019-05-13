@@ -1,4 +1,7 @@
 @extends('site.master')
+@section('title')
+هوشمندسازان خودرو | هیراد کویر
+@endsection
 @section('content')
     <?php
     function arabic_w2e($str)

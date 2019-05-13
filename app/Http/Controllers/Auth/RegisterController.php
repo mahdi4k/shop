@@ -54,11 +54,11 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'username' => ['required', 'string', 'max:255','check_username','unique_username'],
             'password' => ['required', 'string', 'min:8',],
-            'captcha'=>['required','captcha']
+
         ],[],[
             'username'=>'شماره همراه یا ایمیل',
             'password'=>'کلمه عبور ',
-            'captcha'=>'کد امنیتی '
+
         ]);
     }
 
@@ -71,9 +71,9 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'username' => $data['username'],
+            'password' => bcrypt($data['password']),
+            'role'=>'user'
         ]);
     }
 }

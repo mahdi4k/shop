@@ -736,6 +736,7 @@ linear-gradient(to right, #4b6cb752, #182848)
     position: relative;
     padding-top: 15px;
     margin-bottom: 30px;
+
 }
 
 .form-control {
@@ -1268,6 +1269,13 @@ i.fa-users {
     transition: .3s;
 
 }
+#address_form .form-group{
+
+    position: relative;
+    padding-top: 15px;
+    margin-bottom: 30px;
+    margin-left: 5px;
+}
 
 .product_box p {
 
@@ -1697,4 +1705,9 @@ i.fa-users {
     top: 54px;
     text-align: center;
     font-size: 50pt;
+}
+.btn-danger{
+    color: white !important;
+    border-radius: 5px !important;
+
 }

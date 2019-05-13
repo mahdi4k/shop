@@ -1,9 +1,9 @@
 <div class="modal fade" id="new_address" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content text-right">
+            <div class="modal-header text-center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h5 class="modal-title" id="myModalLabel">آدرس جدید</h5>
+                <h5 class="modal-title w-100 text-center" id="myModalLabel">آدرس جدید</h5>
             </div>
             <div class="modal-body">
 
@@ -14,8 +14,10 @@
                         <tr>
                             <td colspan="2">
                                 <div class="form-group">
-                                    <label>نام و نام خانوادگی</label>
-                                    <input name="name"  class="form-control" style="width:98%" value="{{ old('name') }}">
+
+                                    <input name="name"  id="name-input" class="form-control" style="width:98%" value="{{ old('name') }}">
+                                    <label for="name-input">نام و نام خانوادگی</label>
+                                    <div class="line"></div>
                                 </div>
                             </td>
                         </tr>
@@ -67,15 +69,19 @@
                         <tr>
                             <td>
                                 <div class="form-group">
-                                    <label>تلفن ثابت</label>
 
-                                    <input type="text" name="tell" value="{{ old('tell') }}" class="form-control">
+
+                                    <input type="text" id="phone-input" name="tell" value="{{ old('tell') }}" class="form-control">
+                                    <label for="phone-input">تلفن ثابت</label>
+                                    <div class="line"></div>
                                 </div>
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <label>کد شهر</label>
-                                    <input type="text" class="form-control" value="{{ old('tell_code') }}" name="tell_code">
+
+                                    <input type="text" id="code-city" class="form-control" value="{{ old('tell_code') }}" name="tell_code">
+                                    <label for="code-city">کد شهر</label>
+                                    <div class="line"></div>
                                 </div>
                             </td>
                         </tr>
@@ -95,14 +101,18 @@
                         <tr>
                             <td>
                                 <div class="form-group">
-                                    <label>شماره موبایل</label>
-                                    <input type="text" value="{{ old('mobile') }}" class="form-control" name="mobile">
+
+                                    <input type="text" id="mobile-number" value="{{ old('mobile') }}" class="form-control" name="mobile">
+                                    <label for="mobile-number">شماره موبایل</label>
+                                    <div class="line"></div>
                                 </div>
                             </td>
                             <td>
                                 <div class="form-group">
-                                    <label>کد پستی</label>
-                                    <input type="text" value="{{ old('zip_code') }}"  name="zip_code" class="form-control" placeholder="">
+
+                                    <input type="text" id="zip-code" value="{{ old('zip_code') }}"  name="zip_code" class="form-control" placeholder="">
+                                    <label for="zip-code">کد پستی</label>
+                                    <div class="line"></div>
                                 </div>
                             </td>
                         </tr>
@@ -125,7 +135,8 @@
                             <td colspan="2">
                                 <div>
                                     <label>آدرس </label>
-                                    <textarea name="address" style="width:98%" class="form-control">{{ old('address') }}</textarea>
+                                    <textarea name="address" style="width:98%;border: 1px solid #26c6da;border-radius: 5px;" class="form-control">{{ old('address') }}</textarea>
+
                                 </div>
                             </td>
                         </tr>

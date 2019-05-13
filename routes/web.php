@@ -42,7 +42,8 @@ Route::resource('admin/amazing','Admin\AmazingController',['except'=>['show']]);
 Route::resource('admin/service','Admin\ServiceController');
 Route::post('admin/service/get_price','Admin\ServiceController@get_price');
 Route::post('admin/service/set_price','Admin\ServiceController@set_price');
- 
+Route::resource('admin/ostan','Admin\OstanController',['except'=>['show']]);
+Route::resource('admin/shahr','Admin\ShahrController',['except'=>['show']]);
 //admin-review
 Route::get('admin/product/add-review','Admin\ProductController@add_review_form');
 
@@ -66,3 +67,5 @@ Route::get('Captcha',function ()
     $Captcha->create();
 });
 Route::post('site/ajax_check_login','SiteController@check_login');
+Route::get('Shipping','ShopController@Shipping');
+Route::post('shop/get_ajax_shahr','ShopController@get_ajax_shahr');

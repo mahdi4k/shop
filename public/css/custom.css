@@ -792,7 +792,9 @@ linear-gradient(to right, #4b6cb752, #182848)
     left: 15px;
     right: 15px;
 }
-
+input[type=name]:focus {
+    background-color: transparent;
+}
 .line {
     position: absolute;
     display: block;

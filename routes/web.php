@@ -56,7 +56,11 @@ Route::get('Cart','SiteController@show_cart');
 Route::post('Cart','SiteController@cart');
 Route::post('site/ajax_del_cart','SiteController@del_cart');
 Route::post('site/ajax_change_cart','SiteController@change_cart');
-
+Route::post('shop/add_address','ShopController@add_address');
+Route::post('shop/edit_address_form','ShopController@edit_address_form');
+Route::post('shop/edit_address/{address_id}','ShopController@edit_address');
+Route::delete('remove_address/{id}','ShopController@remove_address');
+Route::get('logout', 'Auth\LoginController@logout');
 
 Auth::routes();
 

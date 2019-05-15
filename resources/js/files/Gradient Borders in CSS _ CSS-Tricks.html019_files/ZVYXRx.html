@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- saved from url=(0079)https://s.codepen.io/chriscoyier/fullembedgrid/ZVYXRx?type=embed&animations=run -->
+<html lang="en"><script type="text/javascript">window["_gaUserPrefs"] = { ioo : function() { return true; } }</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+<title>CodePen - CSS Gradient Borders</title>
+<style>
+      button {
+  background: none;
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+}
+
+.border-gradient {
+  border-image-slice: 1;
+  border-width: 2px;
+}
+
+.border-gradient-purple {
+  border-image: linear-gradient(to left, #743ad5, #d53a9d);
+}
+
+.border-gradient-green {
+  border-image: linear-gradient(to left, #00C853, #B2FF59);
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body > div {
+  width: 100%;
+  text-align: center;
+}
+body > div > div {
+  width: 100%;
+  padding: 1rem;
+}
+
+.on-dark {
+  background: #222;
+}
+.on-dark button {
+  color: white;
+}
+
+    </style>
+<script>
+  window.console = window.console || function(t) {};
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+</head>
+<body translate="no">
+<div>
+<div class="on-light">
+<button class="border-gradient border-gradient-purple">
+I have a gradient
+</button>
+</div>
+<div class="on-dark">
+<button class="border-gradient border-gradient-purple">
+I have a gradient
+</button>
+</div>
+<div class="on-light">
+<button class="border-gradient border-gradient-green">
+I have a gradient
+</button>
+</div>
+<div class="on-dark">
+<button class="border-gradient border-gradient-green">
+I have a gradient
+</button>
+</div>
+</div>
+<script src="./css_reload-5619dc0905a68b2e6298901de54f73cefe4e079f65a75406858d92924b4938bf.js.download"></script>
+
+
+</body></html>

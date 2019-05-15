@@ -6,8 +6,10 @@
         <tr>
             <td colspan="2">
                 <div class="form-group">
-                    <label>نام و نام خانوادگی</label>
-                    <input name="name" style="width:98%"  class="form-control" value="{{ $address->name }}">
+
+                    <input id="name-input" name="name" style="width:98%"  class="form-control" value="{{ $address->name }}">
+                    <label for="name-input">نام و نام خانوادگی</label>
+                    <div class="line"></div>
                 </div>
             </td>
         </tr>
@@ -61,15 +63,19 @@
         <tr>
             <td>
                 <div class="form-group">
-                    <label>تلفن ثابت</label>
 
-                    <input type="text" name="tell" value="{{ $address->tell }}" class="form-control">
+
+                    <input id="tell" type="text" name="tell" value="{{ $address->tell }}" class="form-control">
+                    <label for="tell">تلفن ثابت</label>
+                    <div class="line"></div>
                 </div>
             </td>
             <td>
                 <div class="form-group">
-                    <label>کد شهر</label>
-                    <input type="text"  value="{{ $address->tell_code }}" class="form-control" name="tell_code">
+
+                    <input id="city-code" type="text"  value="{{ $address->tell_code }}" class="form-control" name="tell_code">
+                    <label for="city-code">کد شهر</label>
+                    <div class="line"></div>
                 </div>
             </td>
         </tr>
@@ -89,14 +95,18 @@
         <tr>
             <td>
                 <div class="form-group">
-                    <label>شماره موبایل</label>
-                    <input type="text"  value="{{ $address->mobile }}" class="form-control align_left"  name="mobile">
+
+                    <input id="mobile-number" type="text"  value="{{ $address->mobile }}" class="form-control align_left"  name="mobile">
+                    <label for="mobile-number">شماره موبایل</label>
+                    <div class="line"></div>
                 </div>
             </td>
             <td>
                 <div class="form-group">
-                    <label>کد پستی</label>
+
                     <input type="text"   value="{{ $address->zip_code }}"  name="zip_code" class="form-control align_left" placeholder="">
+                    <label for="zip_code">کد پستی</label>
+                    <div id="zip_code" class="line"></div>
                 </div>
             </td>
         </tr>
@@ -138,3 +148,24 @@
     </table>
 </form>
 
+<script>
+    function checkValue(element) {
+        // check if the input has any value (if we've typed into it)
+        if ($(element).val())
+            $(element).addClass('has-value');
+        else
+            $(element).removeClass('has-value');
+    }
+
+    $(document).ready(function() {
+        // Run on page load
+        $('.form-control').each(function() {
+            checkValue(this);
+        });
+        // Run on input exit
+        $('.form-control').blur(function() {
+            checkValue(this);
+        });
+
+    });
+</script>

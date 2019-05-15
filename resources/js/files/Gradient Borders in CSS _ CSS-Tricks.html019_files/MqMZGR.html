@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)https://s.codepen.io/shshaw/fullembedgrid/MqMZGR?type=embed&animations=run -->
+<html lang="en"><script type="text/javascript">window["_gaUserPrefs"] = { ioo : function() { return true; } }</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+<title>CodePen - Gradient border + border-radius</title>
+<link rel="stylesheet" href="./normalize.min.css">
+<style>
+      @charset "UTF-8";
+.gradient-box {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  max-width: 22em;
+  position: relative;
+  padding: 30% 2em;
+  box-sizing: border-box;
+  color: #FFF;
+  background: #000;
+  background-clip: padding-box;
+  /* !importanté */
+  border: solid 5px transparent;
+  /* !importanté */
+  border-radius: 1em;
+}
+.gradient-box:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -5px;
+  /* !importanté */
+  border-radius: inherit;
+  /* !importanté */
+  background: linear-gradient(to right, red, orange);
+}
+
+html {
+  height: 100%;
+  background: #000;
+  display: flex;
+}
+
+body {
+  margin: auto;
+}
+
+    </style>
+<script>
+  window.console = window.console || function(t) {};
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+</head>
+<body translate="no">
+<div class="gradient-box">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent bibendum, lorem vel tincidunt imperdiet, nibh elit laoreet felis, a bibendum nisl tortor non orci. Donec pretium fermentum felis, quis aliquet est rutrum ut. Integer quis massa ut lacus viverra pharetra in eu lacus. Aliquam tempus odio adipiscing diam pellentesque rhoncus. Curabitur a bibendum est. </p>
+</div>
+<script src="./css_reload-5619dc0905a68b2e6298901de54f73cefe4e079f65a75406858d92924b4938bf.js.download"></script>
+
+
+</body></html>

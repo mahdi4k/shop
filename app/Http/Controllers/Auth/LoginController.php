@@ -6,6 +6,7 @@ use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use View;
+use Auth;
 class LoginController extends Controller
 {
     /*
@@ -38,5 +39,21 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
         $cat=Category::where('parent_id',0)->get();
         View::share('category',$cat);
+    }
+    public function username()
+    {
+        return 'username';
+    }
+    public function redirectTo()
+    {
+        $role=Auth::user()->role;
+        if($role=='admin')
+        {
+            return 'admin';
+        }
+        else
+        {
+            return '/';
+        }
     }
 }

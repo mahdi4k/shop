@@ -13,22 +13,31 @@
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">
+                    <li id="click_advance" class="nav-item">
+                        <a class="nav-link  {{ Request::path() == 'admin' ? 'active' : '' }}" href="/admin">
                             <span data-feather="home"></span>
                             داشبورد
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
+                    <li id="click_advance1" class="nav-item">
+                        <a data-toggle="collapse" data-target="#collapseExample1" href="#"   aria-expanded="false"  aria-controls="collapseExample1" class="nav-link  {{ Request::path() == 'admin/order' ? 'active' : '' }}  "  >
                             <span data-feather="file"></span>
+                            <i style="color: #2dabd2;font-size: 22px;" class="fa fa-angle-down pull-left"></i>
                             سفارشات
                         </a>
-                    </li>
-                    <li  class="nav-item">
+                        <div  style="padding-right: 41px;"  aria-expanded="false"  aria-controls="collapseExample1"  class="collapse text-right   custom-collapse" id="collapseExample1">
 
-                        <a  data-toggle="collapse" data-target="#collapseExample" href="#"   aria-expanded="false"  aria-controls="collapseExample" class="nav-link"  >
+                            <a href="/admin/order"><p>مدیریت سفارشات</p></a>
+                              <a href="/admin/order/discount"><p>کد های تخفیف</p></a>
+                             <a href="/admin/order/cart"><p>کارت هدیه</p></a>
+ 
+                        </div>
+                    </li>
+                    <li id="click_advance"  class="nav-item">
+
+                        <a  data-toggle="collapse" data-target="#collapseExample" href="#"   aria-expanded="false"  aria-controls="collapseExample" class="nav-link {{ Request::path() == 'admin/product' ? 'active' : '' }}"  >
                             <span data-feather="shopping-cart"></span>
+                            <i style="color: #2dabd2;font-size: 22px;" class="fa fa-angle-down pull-left"></i>
                             محصولات
                         </a>
 

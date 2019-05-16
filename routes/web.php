@@ -51,7 +51,11 @@ Route::middleware(['throttle:150,1'])->group(function () {
 
         Route::post('admin/product/add_review', 'Admin\ProductController@add_review');
         Route::post('admin/product/del_review_img/{id}', 'Admin\ProductController@del_review_img');
-
+//order product
+        Route::get('admin/order','admin\OrderController@index')->name('order');
+        Route::get('admin/order/{id}','admin\OrderController@view');
+        Route::delete('admin/order/{id}','admin\OrderController@destroy');
+        Route::post('admin/order/set_status','admin\OrderController@set_status');
 
     });
 

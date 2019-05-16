@@ -15,5 +15,10 @@
     feather.replace()
 </script>
 
-
+<script>
+$('#click_advance,#click_advance1').click(function() {
+    $('#display_advance').toggle('1000');
+    $("i", this).toggleClass("fa fa-angle-up fa fa-angle-down");
+});
+</script>
 

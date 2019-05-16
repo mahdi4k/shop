@@ -395,7 +395,7 @@
                 data: 'data=' + data,
 
                 success: function (data) {
-                     
+
                     if (data == 'ok') {
                         window.location = '<?= $url3 ?>';
                     }

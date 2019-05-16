@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Address;
 use App\Cart;
+use App\Order;
 use App\Ostan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
-
+use Session;
 
 class ShopController extends Controller
 {
@@ -187,7 +188,7 @@ class ShopController extends Controller
                             $data['address_id']=$order_address;
                             $data['order_type']=$order_type;
                             $order_data=Session::put('order_data',$data);
-                            return view('shop.review',['address'=>$address]);
+                            return view('site.shop.review',['address'=>$address]);
                         }
                         else
                         {
@@ -238,7 +239,7 @@ class ShopController extends Controller
         {
             if(Session::has('order_data'))
             {
-                return View('shop.payment');
+                return View('site.shop.payment');
             }
             else
             {
@@ -269,7 +270,7 @@ class ShopController extends Controller
                         {
                             $i = $result['id'];
                             $order = \App\Order::with(['get_address_data', 'get_order_row', 'get_user'])->find($i);
-                            Mail::to($order->get_user->username)->queue(new \App\Mail\OrderMail($order));
+                            //Mail::to($order->get_user->username)->queue(new \App\//Mail\Order//Mail($order));
                             Cart::removeGiftCart($order->price,$order->id);
                             $url = url('user/order?id=') . $result['id'];
                             return redirect($url);
@@ -308,7 +309,7 @@ class ShopController extends Controller
                             if($pay_type==4)
                             {
                                 $zarinpal=new zarinpal();
-                                $res=$zarinpal->pay($price,'ali@gmail.com','09141592083');
+                                $res=$zarinpal->pay($price,'ali@g//Mail.com','09141592083');
                                 if($res)
                                 {
                                     $order=new Order();
@@ -336,7 +337,7 @@ class ShopController extends Controller
                             {
                                 $i=$result['id'];
                                 $order=\App\Order::with(['get_address_data','get_order_row','get_user'])->find($i);
-                                Mail::to($order->get_user->username)->queue(new \App\Mail\OrderMail($order));
+                                //Mail::to($order->get_user->username)->queue(new \App\//Mail\Order//Mail($order));
                                 Cart::removeGiftCart($order->price,$order->id);
                                 $url=url('user/order?id=').$result['id'];
                                 return redirect($url);
@@ -391,7 +392,7 @@ class ShopController extends Controller
 
                     Cart::removeGiftCart($order->price,$order->id);
 
-                    Mail::to($order->get_user->username)->queue(new \App\Mail\OrderMail($order));
+                    //Mail::to($order->get_user->username)->queue(new \App\//Mail\Order//Mail($order));
 
                     return View('user.show_order',['order'=>$order]);
                 }
@@ -430,7 +431,7 @@ class ShopController extends Controller
                         $order->pay_status=1;
                         $order->update();
                         Cart::removeGiftCart($order->price,$order->id);
-                        Mail::to($order->get_user->username)->queue(new \App\Mail\OrderMail($order));
+                        //Mail::to($order->get_user->username)->queue(new \App\//Mail\Order//Mail($order));
 
                         return View('user.show_order',['order'=>$order]);
                     }

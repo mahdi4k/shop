@@ -60,6 +60,10 @@ Route::post('shop/add_address','ShopController@add_address');
 Route::post('shop/edit_address_form','ShopController@edit_address_form');
 Route::post('shop/edit_address/{address_id}','ShopController@edit_address');
 Route::delete('remove_address/{id}','ShopController@remove_address');
+Route::match(['get','post'],'review','ShopController@review');
+Route::get('Payment','ShopController@Payment');
+Route::post('Payment','ShopController@Pay');
+Route::get('user/order','UserController@show_order');
 Route::get('logout', 'Auth\LoginController@logout');
 
 Auth::routes();
@@ -73,3 +77,11 @@ Route::get('Captcha',function ()
 Route::post('site/ajax_check_login','SiteController@check_login');
 Route::get('Shipping','ShopController@Shipping');
 Route::post('shop/get_ajax_shahr','ShopController@get_ajax_shahr');
+
+
+//user route
+Route::get('user/order/print','UserController@print_order');
+Route::get('user/order/create_barcode','UserController@create_barcode');
+Route::get('user/order/pdf','UserController@create_pdf');
+Route::post('order','ShopController@update_order');
+Route::get('order','ShopController@update_order2');

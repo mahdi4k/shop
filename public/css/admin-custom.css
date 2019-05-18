@@ -183,3 +183,6 @@ body{
     top:0px;
     bottom: 0px;
 }
+.chart-panel{
+    max-width: 1000px;
+}

@@ -4,9 +4,7 @@
 @endsection
 
 @section('style')
-    <link href="{{ url('css/bootstrap-select.css') }}" rel="stylesheet" >
-    <link href="{{ url('css/bootstrap-select.css') }}" rel="stylesheet" >
-@endsection
+  @endsection
 @section('content')
 
     <div class="box_title">
@@ -62,8 +60,9 @@
             <tr>
                 <td>وضعیت سفارش</td>
                 <td style="color:red">
-                  <select class="selectpicker" onchange="set_status(<?= $order->id ?>)" id="order_status">
+                  <select class="custom-select" onchange="set_status(<?= $order->id ?>)" id="order_status">
                       @foreach($array as $key=>$value)
+
                           <option value="{{ $key }}" @if($key==$order->order_status) selected="selected" @endif >{{ $value }}</option>
                       @endforeach
                   </select>
@@ -194,8 +193,7 @@
 @endsection
 
 @section('footer')
-<script type="text/javascript" src="{{ url('js/bootstrap-select.js') }}"></script>
-<script type="text/javascript" src="{{ url('js/defaults-fa_IR.js') }}"></script>
+ <script type="text/javascript" src="{{ url('js/defaults-fa_IR.js') }}"></script>
 <script>
     <?php
         $url=url('admin/order/set_status')

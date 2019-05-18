@@ -49,11 +49,19 @@
 
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
+                    <li id="click_advance3" class="nav-item">
+                        <a data-toggle="collapse" data-target="#collapseExample2" href="#"   aria-expanded="false"  aria-controls="collapseExample" class="nav-link"  >
                             <span data-feather="users"></span>
+                            <i style="color: #2dabd2;font-size: 22px;" class="fa fa-angle-down pull-left"></i>
                             کاربران <span class="sr-only">(current)</span>
                         </a>
+                        <div  style="padding-right: 41px;"  aria-expanded="false"  aria-controls="collapseExample2"  class="collapse text-right   custom-collapse" id="collapseExample2">
+
+                            <a href="/admin/user"><p>مدیریت کاربران</p></a>
+                            <a href="/admin/user/create"><p>کاربر جدید</p></a>
+
+
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
@@ -74,7 +82,5 @@
 
     </div>
 </div>
-<script>
 
-</script>
 

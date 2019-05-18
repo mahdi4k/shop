@@ -19,9 +19,9 @@ class CreateOrderTable extends Migration
             $table->integer('user_id');
             $table->integer('time');
             $table->string('date');
-            $table->smallInteger('pay_type');
-            $table->smallInteger('pay_status');
-            $table->smallInteger('order_status');
+            $table->smallInteger('pay_type'); //nahvah pardakht
+            $table->smallInteger('pay_status'); //pardakht shoda ya nashoda
+            $table->smallInteger('order_status'); //marhala pardakht
             $table->integer('total_price');
             $table->integer('price');
             $table->string('code1')->nullable();

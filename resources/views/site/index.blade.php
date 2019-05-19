@@ -1,326 +1,339 @@
 @extends('site.master')
 @section('title')
-هوشمندسازان خودرو | هیراد کویر
+    هوشمندسازان خودرو | هیراد کویر
+@endsection
+@section('style')
+    <link rel="stylesheet" href="{{url('css/site.css')}}">
 @endsection
 @section('content')
     <?php
     function arabic_w2e($str)
     {
-    $arabic_eastern = array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩');
-    $arabic_western = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
-    return str_replace($arabic_western, $arabic_eastern, $str);
+        $arabic_eastern = array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩');
+        $arabic_western = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
+        return str_replace($arabic_western, $arabic_eastern, $str);
     }
-     ?>
-<div class="clearfix"></div>
-<div class="banner">
-    <div class="container">
-        <div class="row">
+    ?>
+    <div class="clearfix"></div>
+    <div class="banner">
+        <div class="container">
+            <div class="row">
 
-            <div class="col-md-6">
-                <p> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحاسوالات پیوسته اهل
-                    دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-                <button type="button" class="btn btn-outline-light">خرید کنید</button>
-            </div>
-            <div class="col-md-6">
+                <div class="col-md-6">
+                    <p> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحاسوالات پیوسته اهل
+                        دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+                    <button type="button" class="btn btn-outline-light">خرید کنید</button>
+                </div>
+                <div class="col-md-6">
 
-                <img class="imgres animated  fadeInLeftBig  "
-                     src="{{URL::asset('img/computer2.png')}}">
-            </div>
-        </div>
-    </div>
-</div>
-
-<section id="about">
-    <div class="container">
-        <h1 class="text-center">معرفی <span>مهارت های</span> ما</h1>
-        <div class="row">
-
-            <div class="col-md-3 col-xs-6 image-rotate">
-                <span class="big_rounded_icon centered centered after heading_icon1 animated icon-magic loaded1"></span>
-                <h3 class="text-center">طراحی سه بعدی با پرینتر سه بعدی</h3>
-            </div>
-            <div class="col-md-3 col-xs-6 image-rotate  ">
-                <span class="big_rounded_icon centered centered after heading_icon2 animated icon-magic loaded2"></span>
-                <h3 class="text-center">طراحی مدار های مخابراتی و فرکانس بالا</h3>
-            </div>
-
-            <div class="col-md-3 col-xs-6 image-rotate">
-                <span class="big_rounded_icon centered centered after heading_icon3 animated icon-magic loaded3"></span>
-                <h3 class="text-center">طراحی برد مدار چاپی چند لایه</h3>
-            </div>
-
-            <div class="col-md-3 col-xs-6 image-rotate">
-                <span class="big_rounded_icon centered centered after heading_icon4 animated icon-magic loaded4"></span>
-                <h3 class="text-center">طراحی وب سایت همراه با اپ اندرویدی</h3>
+                    <img class="imgres animated  fadeInLeftBig  "
+                         src="{{URL::asset('img/computer2.png')}}">
+                </div>
             </div>
         </div>
     </div>
-</section>
-<div class="clearfix"></div>
-<section id="amazing">
+ 
+    <section id="about">
+        <div class="container">
+            <h1 class="text-center">معرفی <span>مهارت های</span> ما</h1>
+            <div class="row">
 
-    <div class="container-fluid">
+                <div class="col-md-3 col-xs-6 image-rotate">
+                    <span
+                        class="big_rounded_icon centered centered after heading_icon1 animated icon-magic loaded1"></span>
+                    <h3 class="text-center">طراحی سه بعدی با پرینتر سه بعدی</h3>
+                </div>
+                <div class="col-md-3 col-xs-6 image-rotate  ">
+                    <span
+                        class="big_rounded_icon centered centered after heading_icon2 animated icon-magic loaded2"></span>
+                    <h3 class="text-center">طراحی مدار های مخابراتی و فرکانس بالا</h3>
+                </div>
 
-        @if(sizeof($amazing)>0)
+                <div class="col-md-3 col-xs-6 image-rotate">
+                    <span
+                        class="big_rounded_icon centered centered after heading_icon3 animated icon-magic loaded3"></span>
+                    <h3 class="text-center">طراحی برد مدار چاپی چند لایه</h3>
+                </div>
 
-            <?php
+                <div class="col-md-3 col-xs-6 image-rotate">
+                    <span
+                        class="big_rounded_icon centered centered after heading_icon4 animated icon-magic loaded4"></span>
+                    <h3 class="text-center">طراحی وب سایت همراه با اپ اندرویدی</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="clearfix"></div>
+    <section id="amazing">
 
-            $array=array(
-                6=>'هزار تومان',
-                7=>'میلیون تومان'
-            )
+        <div class="container-fluid">
 
-            ?>
-
-            @foreach($amazing as $key=>$value)
-
+            @if(sizeof($amazing)>0)
 
                 <?php
 
-                $url=url('').'/product/';
-                if($value->get_product)
-                {
-                    $url.=$value->get_product->code_url.'/'.$value->get_product->title_url;
-                }
+                $array = array(
+                    6 => 'هزار تومان',
+                    7 => 'میلیون تومان'
+                )
+
                 ?>
 
-                <a href="{{ $url }}">
-                    <div class="amazing_div" id="amazing_div_{{ $key }}" @if($key==0) style="display:block" @endif>
+                @foreach($amazing as $key=>$value)
+
+
+                    <?php
+
+                    $url = url('') . '/product/';
+                    if ($value->get_product) {
+                        $url .= $value->get_product->code_url . '/' . $value->get_product->title_url;
+                    }
+                    ?>
+
+                    <a href="{{ $url }}">
+                        <div class="amazing_div" id="amazing_div_{{ $key }}" @if($key==0) style="display:block" @endif>
+                            <div class="title order-title  ">
+                                <h2 class="text-center">پیشنهاد شگفت انگیز</h2>
+                            </div>
+                            <div class="col-md-4 col-md-offset-1  text-right">
+                                <p style="color:red;padding-top: 30px;">پيشنهاد شگفت انگيز امروز</p>
+
+                                <span class="price1">
+                                        <?php
+                                    $price1 = str_replace('000', '', $value->price1);
+                                    ?>
+                                    {{ number_format($price1) }}
+                                    </span>
+
+
+                                <span class="price2">
+                                        <?php
+                                    $price2 = str_replace('000', '', $value->price1 - $value->price2);
+                                    $price3 = $value->price1 - $value->price2;
+                                    ?>
+                                    {{ number_format($price2) }}<span
+                                        style="padding-right:5px;"></span> {{ array_key_exists(strlen($price3),$array) ? $array[strlen($price3)] : '' }}
+                                    </span>
+                                <div style="margin-top: 20px;">
+                                    {!!   nl2br($value->tozihat) !!}
+                                </div>
+
+                                <p style="padding-top: 25px;">
+                                    فرصت باقی مانده تا این پیشنهاد
+                                </p>
+                                <div class="clock" id="amazing_clock_{{ $key }}">
+
+                                </div>
+
+
+                                <div class="Finished_Badge" id="amazing_img_{{ $key }}" style="display:none">
+                                    <img src="{{ url('img/Finished_Badge.png') }}">
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-7">
+
+                                <p style="text-align:center;padding-top:30px">{{ $value->title }}</p>
+
+                                @if($value->get_img)
+                                    <div style="width:250px;margin:auto">
+                                        <img style="width:100%" src="{{ url('upload').'/'.$value->get_img->url }}">
+
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                    </a>
+
+
+
+
+                @endforeach
+
+
+                <div class="amazing_box">
+
+                    <section class="amazing">
+
+                        @foreach($amazing as $key=>$value)
+
+                            <div class="amazing_footer" id="amazing_footer_{{ $key }}"
+                                 onclick="show_amazing({{ $key }},{{ sizeof($amazing) }})">
+                                <span class="ab3"></span> {{ $value->m_title }}
+                            </div>
+
+                        @endforeach
+
+                    </section>
+
+                </div>
+            @endif
+
+        </div>
+
+
+    </section>
+
+
+    <section id="third-carousel">
+        <div class="new-product">
+            <div class="container">
+                <div class="row">
+                    <div class=" featured-product-home">
                         <div class="title order-title  ">
-                            <h2 class="text-center">پیشنهاد شگفت انگیز</h2>
-                        </div>
-                        <div class="col-md-4 col-md-offset-1  text-right">
-                            <p style="color:red;padding-top: 30px;">پيشنهاد شگفت انگيز امروز</p>
-
-                            <span class="price1">
-                                        <?php
-                                $price1=str_replace('000','',$value->price1);
-                                ?>
-                                {{ number_format($price1) }}
-                                    </span>
-
-
-                            <span class="price2">
-                                        <?php
-                                $price2=str_replace('000','',$value->price1-$value->price2);
-                                $price3=$value->price1-$value->price2;
-                                ?>
-                                {{ number_format($price2) }}<span style="padding-right:5px;"></span> {{ array_key_exists(strlen($price3),$array) ? $array[strlen($price3)] : '' }}
-                                    </span>
-                            <div style="margin-top: 20px;">
-                                {!!   nl2br($value->tozihat) !!}
-                            </div>
-
-                            <p style="padding-top: 25px;">
-                                فرصت باقی مانده تا این پیشنهاد
-                            </p>
-                            <div class="clock" id="amazing_clock_{{ $key }}">
-
-                            </div>
-
-
-                            <div class="Finished_Badge" id="amazing_img_{{ $key }}" style="display:none">
-                                <img src="{{ url('img/Finished_Badge.png') }}">
-                            </div>
-
+                            <h2 class="text-center">جدیدترین محصولات</h2>
                         </div>
 
 
-                        <div class="col-md-7">
-
-                            <p style="text-align:center;padding-top:30px">{{ $value->title }}</p>
-
-                            @if($value->get_img)
-                                <div style="width:250px;margin:auto">
-                                    <img style="width:100%" src="{{ url('upload').'/'.$value->get_img->url }}">
-
-                                </div>
-                            @endif
-                        </div>
-                    </div>
-                </a>
+                        <div class="shop_product">
 
 
+                            <section class="new_product">
+                                @foreach($product as $key=>$value)
+                                    <div class="product_box">
+
+                                        @if($value->get_img)
+
+                                            <div class="product_image_box">
+                                                <img src="{{ url('upload').'/'.$value->get_img->url }}">
+                                            </div>
+
+                                        @endif
 
 
-            @endforeach
+                                        <p>
+                                            <a href="{{ url('product').'/'.$value->code_url.'/'.$value->title_url }}">
+                                                @if(strlen($value->title)>50)
+                                                    {{ mb_substr($value->title,0,33).' ... ' }}
+                                                @else
+                                                    {{ $value->title }}
+                                                @endif
+                                            </a>
+                                        </p>
+                                        <p class="product_discounts"
+                                           @if(!empty($value->discounts) && !empty($value->price)) style="background: #F5F6F7;" @endif>
 
-
-            <div class="amazing_box">
-
-                <section class="amazing">
-
-                    @foreach($amazing as $key=>$value)
-
-                        <div class="amazing_footer"  id="amazing_footer_{{ $key }}"  onclick="show_amazing({{ $key }},{{ sizeof($amazing) }})">
-                            <span class="ab3"></span> {{ $value->m_title }}
-                        </div>
-
-                    @endforeach
-
-                </section>
-
-            </div>
-        @endif
-
-    </div>
-
-
-</section>
-
-
-<section id="third-carousel">
-    <div class="new-product">
-        <div class="container">
-            <div class="row">
-                <div class=" featured-product-home">
-                    <div class="title order-title  ">
-                        <h2 class="text-center">جدیدترین محصولات</h2>
-                    </div>
-
-
-                    <div class="shop_product">
-
-
-                        <section class="new_product">
-                            @foreach($product as $key=>$value)
-                                <div class="product_box">
-
-                                    @if($value->get_img)
-
-                                        <div class="product_image_box">
-                                            <img src="{{ url('upload').'/'.$value->get_img->url }}">
-                                        </div>
-
-                                    @endif
-
-
-                                    <p>
-                                        <a href="{{ url('product').'/'.$value->code_url.'/'.$value->title_url }}">
-                                            @if(strlen($value->title)>50)
-                                                {{ mb_substr($value->title,0,33).' ... ' }}
-                                            @else
-                                                {{ $value->title }}
+                                            @if(!empty($value->discounts) && !empty($value->price))
+                                                {{ arabic_w2e( number_format($value->price)) }} تومان
                                             @endif
-                                        </a>
-                                    </p>
-                                    <p class="product_discounts"
-                                       @if(!empty($value->discounts) && !empty($value->price)) style="background: #F5F6F7;" @endif>
 
-                                        @if(!empty($value->discounts) && !empty($value->price))
-                                            {{ arabic_w2e( number_format($value->price)) }} تومان
-                                        @endif
-
-                                    </p>
+                                        </p>
 
 
-                                    <p class="product_price">
-                                        @if(!empty($value->discounts) && !empty($value->price))
+                                        <p class="product_price">
+                                            @if(!empty($value->discounts) && !empty($value->price))
 
-                                            {{ arabic_w2e( number_format($value->price - $value->discounts)) }} تومان
-                                        @elseif(!empty($value->price))
+                                                {{ arabic_w2e( number_format($value->price - $value->discounts)) }}
+                                                تومان
+                                            @elseif(!empty($value->price))
 
-                                            {{ arabic_w2e( number_format($value->price)) }} تومان
-                                        @endif
+                                                {{ arabic_w2e( number_format($value->price)) }} تومان
+                                            @endif
 
-                                    </p>
-                                </div>
-                            @endforeach
-                        </section>
+                                        </p>
+                                    </div>
+                                @endforeach
+                            </section>
+
+
+                        </div>
 
 
                     </div>
-
-
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<section id="we-are">
-    <div class="container-fluid">
-        <h1 class="text-center">گروه<span class="yellow"> هیراد</span> کویر</h1>
-        <div class="row">
+    </section>
+    <section id="we-are">
+        <div class="container-fluid">
+            <h1 class="text-center">گروه<span class="yellow"> هیراد</span> کویر</h1>
+            <div class="row">
 
-            <div class="col-md-4 ">
+                <div class="col-md-4 ">
 
-                <img class="imgres img-weare" src="{{URL::asset('/img/smart-workplace-100539537-primary.idge.jpg')}}"
-                     width="485" height="377">
+                    <img class="imgres img-weare"
+                         src="{{URL::asset('/img/smart-workplace-100539537-primary.idge.jpg')}}"
+                         width="485" height="377">
 
-            </div>
+                </div>
 
-            <div class="col-md-8">
-                <h2 class="custom-text-weare">
-                    طراحی نسل جدید سیستمهای چند رسانه ایی خودرو برپایة سیستم عامل اندروید. در ابتدا با آپشن های موجود در
-                    بازار، تست کردن و رفع عیوب محصول، بعدازآن شروع به تولید و عرضه در بازار میشود.به طور همزمان تحقیق و
-                    توسعه شرکت درجهت ارتقاء محصول و آپشن های اختصاصی گام برداشته شود.محصولات ارائه شده در بازارایران
-                    کمتر درزمینه اندروید بوده درصورتی که علاقه مردم به سیستم های اندروید به دلیل راحتی کاربا آن و ارتقاء
-                    دادن آن و همچنین طیف گسترده تر نرم افزارها و ارتباط برقرارکردن با اینترنت بیشتر می باشد.
-                </h2>
+                <div class="col-md-8">
+                    <h2 class="custom-text-weare">
+                        طراحی نسل جدید سیستمهای چند رسانه ایی خودرو برپایة سیستم عامل اندروید. در ابتدا با آپشن های
+                        موجود در
+                        بازار، تست کردن و رفع عیوب محصول، بعدازآن شروع به تولید و عرضه در بازار میشود.به طور همزمان
+                        تحقیق و
+                        توسعه شرکت درجهت ارتقاء محصول و آپشن های اختصاصی گام برداشته شود.محصولات ارائه شده در بازارایران
+                        کمتر درزمینه اندروید بوده درصورتی که علاقه مردم به سیستم های اندروید به دلیل راحتی کاربا آن و
+                        ارتقاء
+                        دادن آن و همچنین طیف گسترده تر نرم افزارها و ارتباط برقرارکردن با اینترنت بیشتر می باشد.
+                    </h2>
 
 
-                <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-                <div class="wrapper">
-                    <div class="container">
-                        <h1 class="text-center">فرم تماس با ما</h1>
-                        <form>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <input type="email" class="form-control" id="inputEmail4">
-                                    <label for="inputEmail4">ایمیل</label>
+                    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+                    <div class="wrapper">
+                        <div class="container">
+                            <h1 class="text-center">فرم تماس با ما</h1>
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="email" class="form-control" id="inputEmail4">
+                                        <label for="inputEmail4">ایمیل</label>
+                                        <div class="line"></div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="inputname">
+                                        <label for="inputname">نام و نام خانوداگی</label>
+                                        <div class="line"></div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="8"></textarea>
+                                    <label class="pull-right">متن پیام</label>
                                     <div class="line"></div>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="inputname">
-                                    <label for="inputname">نام و نام خانوداگی</label>
-                                    <div class="line"></div>
-                                </div>
-                            </div>
+                                <button type="button" class="btn btn-block btn-metrial">ارسال</button>
 
-
-                            <div class="form-group">
-                                <textarea class="form-control" rows="8"></textarea>
-                                <label class="pull-right">متن پیام</label>
-                                <div class="line"></div>
-                            </div>
-                            <button type="button" class="btn btn-block btn-metrial">ارسال</button>
-
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
+
             </div>
-
         </div>
-    </div>
 
-</section>
+    </section>
     <script>
-    var amazing_time = [];
-    var i = 0;
+        var amazing_time = [];
+        var i = 0;
 
-    <?php
+        <?php
 
-    foreach ($amazing as $key=>$value)
-    {
-    $time = ($value->timestamp - time() > 0) ? $value->timestamp - time() : 0;
-    ?>
-    amazing_time[i] = <?= $time ?>;
-    i++;
-    <?php
-    }
+            foreach ($amazing as $key=>$value)
+            {
+            $time = ($value->timestamp - time() > 0) ? $value->timestamp - time() : 0;
+            ?>
+            amazing_time[i] = <?= $time ?>;
+        i++;
+        <?php
+        }
 
-    ?>
+        ?>
     </script>
- @endsection
+@endsection
 @section('footer_site')
     <script>
 
         $('.amazing').slick({
-            rtl:true,
+            rtl: true,
             speed: 900,
             slidesToShow: 3,
-            slidesToScroll:2,
-            variableWidth:true,
+            slidesToScroll: 2,
+            variableWidth: true,
             infinite: false
         });
     </script>
@@ -382,7 +395,7 @@
             clock.setCountdown(true);
             clock.start();
         }
-      </script>
+    </script>
     <script>
         function checkValue(element) {
             // check if the input has any value (if we've typed into it)
@@ -392,16 +405,16 @@
                 $(element).removeClass('has-value');
         }
 
-        $(document).ready(function() {
+        $(document).ready(function () {
             // Run on page load
-            $('.form-control').each(function() {
+            $('.form-control').each(function () {
                 checkValue(this);
             });
             // Run on input exit
-            $('.form-control').blur(function() {
+            $('.form-control').blur(function () {
                 checkValue(this);
             });
 
         });
     </script>
-    @endsection
+@endsection

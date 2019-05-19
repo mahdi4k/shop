@@ -11,8 +11,8 @@ class CategoryController extends Controller
 {
     public function index(Request $request)
     {
-        $category=Category::search($request->all());
-        return view('Admin.category.index ',['category'=>$category,'data'=>$request->all()]);
+        $category = Category::search($request->all());
+        return view('Admin.category.index ', ['category' => $category, 'data' => $request->all()]);
     }
 
 

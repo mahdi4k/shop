@@ -31,7 +31,8 @@ Route::middleware(['throttle:150,1'])->group(function () {
 //filter_product
         Route::get('admin/filter', 'Admin\FilterController@index');
         Route::post('admin/filter', 'Admin\FilterController@create');
-
+        Route::get('admin/product/add-filter/{id}','admin\ProductController@add_filter_form');
+        Route::post('admin/product/add_filter','admin\ProductController@add_filter_product');
 //item-section
         Route::get('admin/item', 'Admin\ItemController@index');
         Route::post('admin/item', 'Admin\ItemController@create');
@@ -57,8 +58,9 @@ Route::middleware(['throttle:150,1'])->group(function () {
         Route::delete('admin/order/{id}', 'admin\OrderController@destroy');
         Route::post('admin/order/set_status', 'admin\OrderController@set_status');
 
-//user managementset_status
+//user managements_status
         Route::resource('admin/user', 'admin\UserController');
+
     });
 
     Route::get('admin_login', 'Admin\AdminController@admin_login');

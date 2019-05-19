@@ -1,7 +1,7 @@
 @extends('Admin.master')
 
 @section('header')
-    <title>افزودن فیلتر محصول</title>
+     افزودن فیلتر محصول
 @endsection
 
 @section('content')

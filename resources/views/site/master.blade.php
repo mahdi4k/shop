@@ -19,10 +19,7 @@
     </title>
 </head>
 <body>
-<?php
 
-
-?>
 @include('site.section.header')
 
  @yield('content')

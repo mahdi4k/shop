@@ -20,15 +20,7 @@ class SearchController extends Controller
     {
         $cat=Category::where('parent_id',0)->get();
         View::share('category',$cat);
-        $detect = new Mobile_Detect();
-        if($detect->isMobile() || $detect->isTablet())
-        {
-            $this->view='mobile.';
-        }
-        else
-        {
-            $this->view='';
-        }
+
     }
     public function search(Request $request,$cat1,$cat2,$cat3)
     {
@@ -94,9 +86,9 @@ class SearchController extends Controller
             }
             $search=new Search($array,$product_status,$type,$search_text,$first_price,$last_price,$cat_id);
             $data=$search->get_product();
-            $view_name=$this->view.'/include/product_list';
 
-            return view($view_name,['product'=>$data['product'],'cat_url'=>$cat_url,'total_product'=>$data['total_product']]);
+
+            return view('site/include/product_list',['product'=>$data['product'],'cat_url'=>$cat_url,'total_product'=>$data['total_product']]);
         }
 
     }

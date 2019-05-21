@@ -64,7 +64,6 @@
     </div>
 </footer>
 
- <script src="{{url('js/home.js')}}"></script>
 
 <script src="{{url('js/js.js')}}"></script>
 <script src="{{url('js/slick.js')}}"></script>

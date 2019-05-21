@@ -82,7 +82,7 @@
             }
             $cart_date=\App\Cart::get();
             ?>
-            <table id="cart_table" class="table table-bordered">
+            <table id="cart_table" class="col-md-8 table table-bordered">
 
                 <tr>
                     <th>شرح محصول</th>
@@ -172,7 +172,7 @@
             </p>
 
 
-            <div class="order_item_price">
+            <div class="order_item_price col-md-4">
 
                 <?php
 
@@ -216,9 +216,7 @@
             </div>
 
 
-            <p>
-                <span class="icon_item_name"></span><span style="padding-right:5px;">اطلاعات ارسال سفارش</span>
-            </p>
+
 
 
             <table class="order_location_data">
@@ -256,7 +254,7 @@
 
             <div class="form-group" style="float: left;margin-top:40px;margin-bottom:30px">
 
-                <a href="{{ url('Payment') }}" class="btn btn-success">
+                <a href="{{ url('Payment') }}" class="btn btn-lg btn-info">
                     تایید و ادامه خرید
                 </a>
             </div>

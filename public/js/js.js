@@ -93,12 +93,12 @@ show_amazing=function (key,count)
     for (var i=0;i<count;i++)
     {
         document.getElementById('amazing_div_'+i).style.display='none';
-        document.getElementById('amazing_footer_'+i).style.background='#F6F7FA';
+        document.getElementById('amazing_footer_'+i).style.background='#fff';
         document.getElementById('amazing_footer_'+i).style.color='#000';
     }
     document.getElementById('amazing_div_'+key).style.display='block';
     document.getElementById('amazing_footer_'+key).style.background='#FF5252';
-    document.getElementById('amazing_footer_'+key).style.color='#FFF';
+    document.getElementById('amazing_footer_'+key).style.color='#ffffff';
 };
 show_review=function (key) {
     var c=document.getElementById('review_div_'+key).style.display;

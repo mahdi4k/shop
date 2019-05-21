@@ -2,6 +2,9 @@
 @section('style')
     <link rel="stylesheet" href="{{url('css/site.css')}}">
 @endsection()
+@section('title')
+    مشخصات، قیمت و خرید {{$product->title}}
+@endsection
 @section('content')
     <?php
     function arabic_w2e($str)
@@ -55,32 +58,15 @@
             </div>
         </div>
 
-        <div class="col-md-7 text-right">
+        <div style="background: #FDFDFD" class="col-md-7 text-right">
 
             <div id="img_load_zoom"></div>
             <div class="show_product_title">
-                <div class="col-md-9 title_porduct_top">
+                <div class="col-md-10 title_porduct_top">
                     <h4>{{ $product->title }}</h4>
                     <p>{{ $product->code }}</p>
                 </div>
-                <div class="col-md-3">
 
-                    <?php
-                    // $avg=collect($score_data['score'])->avg();
-                    //$avg=substr($avg,0,4);
-                    //$width=$avg*20;
-                    ?>
-                    <div class="rating">
-                        <div class="gray">
-                            {{--<div class="red" style="width:{{ $width }}%"></div>--}}
-                        </div>
-                    </div>
-                    <div style="width:100px;margin:5px auto">
-
-                        <p style="font-size:10px;"> از رای </p>
-                        {{--{{ $score_data['total'] }}--}}
-                    </div>
-                </div>
                 <div style="clear:both">
                 </div>
             </div>
@@ -95,43 +81,62 @@
                     $colors = $product->get_colors;
                     $color_id = 0;
                     ?>
-                <div class="single-product-info">
-                    <div id="product_info">
-                        <?php
-                        $color_id = 0;
-                        $service_id = 0;
-                        ?>
-                        @if(sizeof($colors)>0)
-                            <p style="padding-top: 20px;">انتخاب رنگ</p>
-                            @foreach($colors as $key=>$value)
-                                @if($key==0)
-                                    <?php $color_id = $value->id ?>
-                                @endif
-                                <div class="color_box" onclick="set_color('<?= $value->id ?>')">
-                                    <label style="background:#{{ $value->color_code }}"> @if($key==0) <span
-                                            class="tick"></span> @endif</label>
-                                    <span>{{ $value->color_name }}</span>
-                                </div>
-                            @endforeach
-                        @endif
-                        <input type="hidden" name="color_id" id="color_id" value="{{ $color_id }}">
+                    <div class="single-product-info">
+                        <div id="product_info">
+                            <?php
+                            $color_id = 0;
+                            $service_id = 0;
+                            ?>
+                            @if(sizeof($colors)>0)
+                                <p style="padding-top: 20px;">انتخاب رنگ</p>
+                                @foreach($colors as $key=>$value)
+                                    @if($key==0)
+                                        <?php $color_id = $value->id ?>
+                                    @endif
+                                    <div class="color_box" onclick="set_color('<?= $value->id ?>')">
+                                        <label style="background:#{{ $value->color_code }}"> @if($key==0) <span
+                                                class="tick"></span> @endif</label>
+                                        <span>{{ $value->color_name }}</span>
+                                    </div>
+                                @endforeach
+                            @endif
+                            <input type="hidden" name="color_id" id="color_id" value="{{ $color_id }}">
 
-                        <div style="width:100%;float: right;padding-top:20px">
+                            <div style="width:100%;float: right;padding-top:20px">
 
-                            @if(sizeof($product->get_service_name)>0)
+                                @if(sizeof($product->get_service_name)>0)
 
-                                <p style="padding-top:55px;font-size:17pt">انتخاب گارانتی</p>
+                                    <p style="padding-top:55px;font-size:17pt">انتخاب گارانتی</p>
 
 
 
-                                <?php
-                                $c = 0;
-                                ?>
-                                @foreach($product->get_service_name as $key=>$value)
+                                    <?php
+                                    $c = 0;
+                                    ?>
+                                    @foreach($product->get_service_name as $key=>$value)
 
-                                    @if($color_id==0)
+                                        @if($color_id==0)
 
-                                        @if($key==0)
+                                            @if($key==0)
+                                                <div class="service_title" onclick="show_service()">
+                                                    <span>{{ $value->service_name }}</span>
+                                                    <a class="service_ic" id="service_ic"></a>
+                                                </div>
+                                                <?php
+                                                $service_id = $value->id;
+                                                ?>
+                                            @endif
+                                        @else
+
+                                            <?php
+
+                                            if($c == 0)
+                                            {
+                                            $check = DB::table('service')->where(['parent_id' => $value->id, 'color_id' => $color_id])->first();
+                                            if($check)
+                                            {
+                                            $c = 1;
+                                            ?>
                                             <div class="service_title" onclick="show_service()">
                                                 <span>{{ $value->service_name }}</span>
                                                 <a class="service_ic" id="service_ic"></a>
@@ -139,88 +144,105 @@
                                             <?php
                                             $service_id = $value->id;
                                             ?>
+
+                                            <?php
+                                            }
+                                            }
+                                            ?>
+
+
                                         @endif
-                                    @else
 
+                                    @endforeach
+
+                                    <div class="service_box" id="service_box">
+                                        @foreach($product->get_service_name as $key=>$value)
+                                            <div onclick="set_service('<?= $value->id ?>')">
+                                                {{ $value->service_name }}
+                                            </div>
+                                        @endforeach
+                                    </div>
+
+                                @endif
+                                <input type="hidden" name="service_id" value="{{ $service_id }}" id="service_id">
+
+
+                            </div>
+
+
+                            <div class="product-price" style="width:100%;float:right;margin-top: 15px;">
+                                @if(!empty($product->discounts))
+                                    <p style="font-size:18pt"><span class="product-peice-title"> {{ arabic_w2e( number_format($product->price)) }}
+                                            تومان</span></p>
+                                @endif
+
+                                @if(empty($product->discounts))
+                                    <p><span style="font-size:18pt">قیمت برای شما : </span> <span
+                                            style="color: #FB3449;font-size: 2.214rem;">{{arabic_w2e( number_format($product->price-$product->discounts)) }}</span>
+                                        تومان</p>
+                                @endif
+                                <p><span style="font-size:18pt">قیمت  : </span> <span
+                                        style="color: #FB3449;font-size: 2.214rem;">{{arabic_w2e( number_format($product->price-$product->discounts)) }}</span>
+                                    تومان
+                                </p>
+
+                                <button type="submit" class="btn btn-info-custom hvr-sweep-to-left">افزودن به سبد خرید
+                                </button>
+                                <div class="truck">
+                                    <i class="truck-custom fa fa-truck"></i>
+                                    <span>ارسال از دو روز کاری آینده</span>
+                                </div>
+                                <div class="property-item">
+                                    <h6 class="">ویژگی های محصول</h6>
+                                    <?php
+                                    $i=1;
+                                    ?>
+                                    @foreach($items as $key=>$value)
                                         <?php
-
-                                        if($c == 0)
-                                        {
-                                        $check = DB::table('service')->where(['parent_id' => $value->id, 'color_id' => $color_id])->first();
-                                        if($check)
-                                        {
-                                        $c = 1;
+                                        $get_child_item = $value->get_child_item;
                                         ?>
-                                        <div class="service_title" onclick="show_service()">
-                                            <span>{{ $value->service_name }}</span>
-                                            <a class="service_ic" id="service_ic"></a>
-                                        </div>
-                                        <?php
-                                        $service_id = $value->id;
-                                        ?>
+                                        @foreach($get_child_item as $key2=>$value2)
+                                            <ul>
+                                            <li class="d-inline-custom">
 
-                                        <?php
-                                        }
-                                        }
-                                        ?>
+                                               <span> {{ $value2->name }} :</span>
 
 
-                                    @endif
+                                                @if(array_key_exists($value2->id,$item_value))
+                                                  <span>  {{ $item_value[$value2->id] }}</span>
+                                                @endif
 
-                                @endforeach
+                                            </li>
+                                            </ul>
+                                        @endforeach
+                                        @if($i++ == 3)
+                                                @break
+                                            @endif
 
-                                <div class="service_box" id="service_box">
-                                    @foreach($product->get_service_name as $key=>$value)
-                                        <div onclick="set_service('<?= $value->id ?>')">
-                                            {{ $value->service_name }}
-                                        </div>
                                     @endforeach
                                 </div>
 
-                            @endif
-                            <input type="hidden" name="service_id" value="{{ $service_id }}" id="service_id">
+                            </div>
 
 
                         </div>
-
-
-                        <div class="product-price" style="width:100%;float:right;margin-top: 15px;">
-
-                            <p style="font-size:18pt"><span style="font-size:12pt">قیمت برای مصرف کننده : </span><span
-                                    class="product-peice-title"> {{ arabic_w2e( number_format($product->price)) }}
-                                    تومان</span></p>
-                            @if( empty($product->discounts))
-                                <p><span style="font-size:18pt">قیمت برای شما : </span> <span
-                                        style="color: #FB3449;font-size: 2.214rem;">{{arabic_w2e( number_format($product->price-$product->discounts)) }}</span>
-                                    تومان</p>
-                            @endif
-
-
-                            <button type="submit" class="btn btn-info-custom hvr-sweep-to-left">افزودن به سبد خرید
-                            </button>
-
-
-                        </div>
-
-
-                     </div>
-                    <div class="service-single">
+                        <div class="service-single">
 
                             <span>
                                 <i class="fa fa-truck"></i>
                                 <p>ارسال رایگان</p>
                             </span>
-                        <span>
+                            <span>
                                 <i class="fa fa-comment-o"></i>
                                  <p>پشتیبانی هفت روز هفته</p>
                             </span>
-                        <span>
+                            <span>
                                     <i class="fa fa-check-square"></i>
                                     <p>تضمین اصالت کالا</p>
                             </span>
 
+                        </div>
                     </div>
-                </div>
                 </form>
             @endif
 

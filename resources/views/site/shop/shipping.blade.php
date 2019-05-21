@@ -225,7 +225,7 @@
 
                     <div class="form-group" style="float: left;margin-top:40px;margin-bottom:30px">
 
-                        <input type="submit" value="ثبت اطلاعات و ادامه خرید" class="btn btn-success">
+                        <button type="submit"   class="btn-info-custom hvr-sweep-to-left">ثبت اطلاعات و ادامه خرید</button>
 
                     </div>
 

@@ -80,6 +80,9 @@ class Product extends Model
         return $this->hasMany(CatProduct::class,'product_id','id')->orderBy('cat_id','ASC');
     }
 
-
+    public function get_score()
+    {
+        return $this->hasMany(ProductScore::class,'product_id','id');
+    }
 
 }

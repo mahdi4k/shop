@@ -82,7 +82,7 @@
             @endif
 
 
-            <div style="border: 1px solid #62B965;margin-bottom:20px;" id="gift_cart">
+            {{--<div style="border: 1px solid #62B965;margin-bottom:20px;" id="gift_cart">
                 <div style="padding: 20px;">
                     <div class="row">
                         <div class="col-md-4 col-xs-12">
@@ -98,7 +98,7 @@
 
 
 
-            </div>
+            </div>--}}
 
 
 
@@ -128,7 +128,7 @@
             ?>
 
             @if($d==0)
-                <div style="border: 1px solid #62B965;margin-bottom:20px;" id="discount_box">
+                {{--<div style="border: 1px solid #62B965;margin-bottom:20px;" id="discount_box">
                     <div style="padding: 20px;">
                         <div class="row">
                             <div class="col-md-4 col-xs-12">
@@ -141,10 +141,7 @@
                             </div>
                         </div>
                     </div>
-
-
-
-                </div>
+                 </div>--}}
             @else
 
 

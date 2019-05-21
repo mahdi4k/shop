@@ -82,6 +82,16 @@ Route::middleware(['throttle:150,1'])->group(function () {
     Route::get('user/order', 'UserController@show_order');
     Route::get('logout', 'Auth\LoginController@logout');
 
+
+    //search category menu filter product search page
+    Route::post('ajax/set_filter_product','SearchController@ajax_search');
+    Route::get('category/{cat1}/{cat2}','SearchController@show_cat1');
+    Route::get('category/{cat1}/{cat2}/{cat3}','SearchController@show_cat_product');
+    Route::get('category/{cat1}/{cat2}/{cat3}/{cat4}','SearchController@show_cat4');
+    Route::get('category/{cat1}','SearchController@cat1');
+    Route::get('search/{cat1}/{cat2}/{cat3}','SearchController@search');
+    Route::get('Search','SiteController@search');
+    Route::get('AddComment/{product_id}','SiteController@comment_form');
     Auth::routes();
 
     Route::get('/home', 'SiteController@index')->name('home');

@@ -46,6 +46,7 @@
                             <a href="/admin/product"><p>مدیریت محصولات</p></a>
                               <a href="/admin/product/create"><p>افزودن محصولات</p></a>
                              <a href="/admin/amazing"><p>محصولات شگفت انگیز</p></a>
+                             <a href="/admin/product/add_item"><p>افزودن ویژگی محصولات</p></a>
 
                         </div>
                     </li>

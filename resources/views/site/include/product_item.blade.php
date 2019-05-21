@@ -15,6 +15,7 @@
                     <tr>
                         <td class="product_item_name">
                             <p>
+
                                 {{ $value2->name }}
                             </p>
                         </td>

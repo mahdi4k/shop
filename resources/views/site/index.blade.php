@@ -2,9 +2,7 @@
 @section('title')
     هوشمندسازان خودرو | هیراد کویر
 @endsection
-@section('style')
-    <link rel="stylesheet" href="{{url('css/site.css')}}">
-@endsection
+
 @section('content')
     <?php
     function arabic_w2e($str)
@@ -32,7 +30,7 @@
             </div>
         </div>
     </div>
- 
+
     <section id="about">
         <div class="container">
             <h1 class="text-center">معرفی <span>مهارت های</span> ما</h1>
@@ -175,8 +173,21 @@
 
 
     </section>
+    <div class="container-fluid  ">
+        <div class="row">
+            <div class="img-cover  ">
+                <img width="1920" class="img-fluid-custom " src="{{url('img/n4f8kpx2zmq4fc7o8d3esqe2ye7yowazhpp6qh3gfpvhlrj0dn.jpg')}}">
+            </div>
+            <div class="col-md-6">
+                <img class="img-fluid" src="{{url('img/1000004013.jpg')}}">
+            </div>
+            <div class="col-md-6">
+                <img class="img-fluid" src="{{url('img/1000003909.jpg')}}">
 
+            </div>
+        </div>
 
+    </div>
     <section id="third-carousel">
         <div class="new-product">
             <div class="container">

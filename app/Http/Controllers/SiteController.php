@@ -152,4 +152,29 @@ class SiteController extends Controller
             }
         }
     }
+
+    public function comment_form($product)
+    {
+        $e=explode('-',$product);
+        if(sizeof($e)==2)
+        {
+            if($e[0]=='DKP')
+            {
+                $user_id=Auth::user()->id;
+                $product=Product::with('get_img')->findOrFail($e[1]);
+                $score=ProductScore::with('get_user')->where(['user_id'=>$user_id,'product_id'=>$product->id])->first();
+                $comment=Comment::where(['user_id'=>$user_id,'product_id'=>$product->id])->first();
+
+                return View('site.comment_form',['product'=>$product,'score'=>$score,'comment'=>$comment]);
+            }
+            else
+            {
+                return view(404);
+            }
+        }
+        else
+        {
+            return view(404);
+        }
+    }
 }

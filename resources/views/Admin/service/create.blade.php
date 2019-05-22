@@ -1,6 +1,6 @@
 @extends('Admin.master')
 @section('header')
-    <title>افزودن گارانتی</title>
+     افزودن گارانتی
 @endsection
 
 @section('content')

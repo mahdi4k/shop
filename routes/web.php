@@ -91,7 +91,7 @@ Route::middleware(['throttle:150,1'])->group(function () {
     Route::get('category/{cat1}','SearchController@cat1');
     Route::get('search/{cat1}/{cat2}/{cat3}','SearchController@search');
     Route::get('Search','SiteController@search');
-    Route::get('AddComment/{product_id}','SiteController@comment_form');
+
     Auth::routes();
 
     Route::get('/home', 'SiteController@index')->name('home');
@@ -111,4 +111,11 @@ Route::middleware(['throttle:150,1'])->group(function () {
     Route::post('order', 'ShopController@update_order');
     Route::get('order', 'ShopController@update_order2');
 
+    Route::post('site/ajax_get_tab_data','SiteController@get_tab_data');
+
+    Route::middleware(['auth'])->group(function () {
+        Route::get('AddComment/{product_id}', 'SiteController@comment_form');
+        Route::post('site/add_score','SiteController@add_score');
+        Route::post('site/add_comment','SiteController@add_comment');
+    });
 });

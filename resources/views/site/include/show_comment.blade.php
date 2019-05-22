@@ -139,6 +139,7 @@
         var url=$(this).attr('href');
         var url=url.split('page=');
         var product_id='<?= $product_id ?>';
+
         if(url.length==2)
         {
             $("#loading_comment").show();

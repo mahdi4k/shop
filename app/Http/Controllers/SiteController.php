@@ -6,12 +6,14 @@ use App\Amazing;
 use App\Cart;
 use App\Category;
 use App\Color;
+use App\Comment;
 use App\Item;
 use App\Product;
 use App\ProductScore;
 use App\ReView;
 use App\Service;
 use View;
+use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -70,9 +72,9 @@ class SiteController extends Controller
         if ($request->ajax()) {
             if ($tab_id == 'comment') {
                 $score = ProductScore::with(['get_comment' => function ($query) {
-                    $query->where(['product_id' => product_id, 'status' => 1]);
+                    $query->where(['product_id' => product_id, 'status' => 0]);
                 }])->where(['product_id' => $product_id])->orderBy('id', 'DESC')->paginate(10);
-                return View('site.include.show_comment', ['score' => $score, 'product_id' => $product_id]);
+                 return View('site.include.show_comment', ['score' => $score, 'product_id' => $product_id]);
             } elseif ($tab_id == 'question') {
                 $question = Question::with('get_parent')->where(['product_id' => $product_id, 'status' => 1, 'parent_id' => 0])->orderBy('id', 'DESC')->paginate(10);
                 return View('site.include.add_question', ['product_id' => $product_id, 'question' => $question]);
@@ -176,5 +178,87 @@ class SiteController extends Controller
         {
             return view(404);
         }
+    }
+
+    public function add_score(Request $request)
+    {
+        $range=$request->get('range');
+        $product_id=$request->get('product_id');
+        if(is_array($range))
+        {
+            $user_id=Auth::user()->id;
+            $count=ProductScore::where(['user_id'=>$user_id,'product_id'=>$product_id])->count();
+            $time=time();
+            if($count==0)
+            {
+                $score_value='';
+                foreach ($range as $key=>$value)
+                {
+                    settype($value,'integer');
+                    $v=is_integer($value) ? $value : 0;
+                    $score_value.=$key.'_'.$value.'@#';
+                }
+                DB::table('product_score')->insert([
+                    'product_id'=>$product_id,
+                    'value'=>$score_value,
+                    'user_id'=>$user_id,
+                    'time'=>$time
+                ]);
+            }
+
+        }
+        return redirect()->back();
+    }
+    public function add_comment(Request $request)
+    {
+        $Validator=Validator::make($request->all(),
+            ['subject'=>'required'],[],['subject'=>'عنوان نقد و بررسی']);
+        if($Validator->fails())
+        {
+
+            return redirect()->back()->withErrors($Validator)->withInput();
+        }
+        else
+        {
+            $product_id=$request->get('product_id');
+            $product=Product::findOrFail($product_id);
+            $user_id=Auth::user()->id;
+            $count=ProductScore::where(['user_id'=>$user_id,'product_id'=>$product_id])->count();
+            if($count>0)
+            {
+
+                $advantages=$request->get('advantages');
+                $disadvantages=$request->get('disadvantages');
+                $a='';
+                $d='';
+                if(is_array($advantages))
+                {
+                    foreach ($advantages as $key=>$value)
+                    {
+                        $a.=$value.'@$E@';
+                    }
+                }
+                if(is_array($disadvantages))
+                {
+                    foreach ($disadvantages as $key=>$value)
+                    {
+                        $d.=$value.'@$E@';
+                    }
+                }
+                $Comment=new Comment();
+                $Comment->subject=$request->get('subject');
+                $Comment->product_id=$product_id;
+                $Comment->comment_text=$request->get('comment_text');
+                $Comment->advantages=$a;
+                $Comment->disadvantages=$d;
+                $Comment->user_id=$user_id;
+                $Comment->status=0;
+                $Comment->save();
+
+            }
+
+            return redirect()->back();
+        }
+
     }
 }

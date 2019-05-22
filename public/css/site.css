@@ -622,8 +622,8 @@ a:hover
 {
     background:white;
     width: 99%;
-    margin:70px auto; 
-     
+    margin:70px auto;
+    text-align: right;
 }
 .show_product_img
 {
@@ -1962,6 +1962,7 @@ a:hover
     box-shadow: 0 2px 3px rgba(0,0,0,.15);
     border-radius: 2px;
     margin-bottom: 30px;
+    text-align: right;
 }
 .icon-form-add
 {
@@ -2094,6 +2095,8 @@ a:hover
     width:100%;
     padding-top:15px;
     padding-bottom:5px;
+     
+    padding-right: 20px;
 }
 .comment_header p
 {

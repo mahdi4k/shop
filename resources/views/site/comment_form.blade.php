@@ -1,10 +1,14 @@
-@extends('layouts.site')
+@extends('site.master')
 @section('style')
 <link href="{{ url('css/rangeslider.css') }}" rel="stylesheet">
+<link href="{{ url('css/site.css') }}" rel="stylesheet">
 @endsection
+@section('title')
+    ثبت نظر برای محصول {{ $product->title}}
+    @endsection
 @section('content')
 
-    <div class="row content_box">
+    <div class="row content_box text-right">
 
         @php
         function get_item_value($score,$n)
@@ -304,6 +308,7 @@
 
                     </div>
 
+
             </div>
 
 
@@ -334,7 +339,7 @@
     @endif
 @endsection
 
-@section('footer')
+@section('footer_site')
 <script type="text/javascript" src="{{ url('js/rangeslider.js') }}"></script>
 <script>
     var textContent = ('textContent' in document) ? 'textContent' : 'innerText';

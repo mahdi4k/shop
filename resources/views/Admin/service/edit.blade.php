@@ -1,6 +1,6 @@
 @extends('Admin.master')
 @section('header')
-    <title>ویرایش گارانتی</title>
+     ویرایش گارانتی
 @endsection
 
 @section('content')

@@ -10,10 +10,12 @@ use App\Comment;
 use App\Item;
 use App\Product;
 use App\ProductScore;
+use App\Question;
 use App\ReView;
 use App\Service;
 use View;
 use Validator;
+use Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -83,7 +85,28 @@ class SiteController extends Controller
             }
         }
     }
-
+    public function add_question(Request $request)
+    {
+        $product_id=$request->get('product_id');
+        $Validator=Validator::make($request->all(),
+            ['question'=>'required'],[],['question'=>'متن پرسش']);
+        if($Validator->fails())
+        {
+            return redirect()->back()->withErrors($Validator)->withInput();
+        }
+        else
+        {
+            $user_id=Auth::user()->id;
+            Product::findOrFail($product_id);
+            $Question=new Question($request->all());
+            $Question->time=time();
+            $Question->user_id=$user_id;
+            $Question->status=0;
+            $Question->save();
+            Session::put('status','پرسش شما با موفقیت ثبت شده و بعد از تایید مدیریت نمایش داده میشه');
+            return redirect()->back();
+        }
+    }
     public function show_cart()
     {
         $view_name = 'site/cart';

@@ -117,5 +117,6 @@ Route::middleware(['throttle:150,1'])->group(function () {
         Route::get('AddComment/{product_id}', 'SiteController@comment_form');
         Route::post('site/add_score','SiteController@add_score');
         Route::post('site/add_comment','SiteController@add_comment');
+        Route::post('add_question','SiteController@add_question');
     });
 });

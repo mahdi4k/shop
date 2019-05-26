@@ -1,7 +1,7 @@
-@extends('layouts/admin')
+@extends('Admin.master')
 
 @section('header')
-    <title>ویرایش کاربر</title>
+    ویرایش کاربر
 @endsection
 @section('style')
     <link href="{{ url('css/bootstrap-select.css') }}" rel="stylesheet" >

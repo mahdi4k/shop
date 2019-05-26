@@ -1,7 +1,7 @@
-@extends('layouts/admin')
+@extends('Admin.master')
 
 @section('header')
-    <title>آمار بازدید فروشگاه</title>
+    آمار بازدید فروشگاه
 @endsection
 
 @section('content')

@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\Statistics;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -61,8 +62,8 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'check_admin'=> Middleware\check_admin::class,
-        'statistics'=>Statistics::class,
-        'load_admin_data'=>load_admin_data::class
+        'statistics'=>Middleware\Statistics::class,
+        'load_admin_data'=>Middleware\load_admin_data::class
     ];
 
     /**

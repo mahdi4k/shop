@@ -792,7 +792,7 @@ a:hover
     content: "";
     display: inline-block;
     position: absolute;
-    top: 10px;
+    top: 16px;
     margin-left: 5px;
     width: 20px;
     right: 9px;
@@ -1213,11 +1213,9 @@ a:hover
 {
     width:100%;
     margin-top: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    height:40px;
+     height:40px;
     text-align:left;
-    font-family:IRANSansWeb;
+    font-family: IRANSansWeb, serif;
 }
 .register_btn
 {
@@ -2602,7 +2600,14 @@ a:hover
     margin-top:20px;
     cursor:pointer;
 }
-
+.question-auth{
+    background-color: #fffde4;
+    border: 1px solid #f6e8a1;
+    color: #a37731;
+    display: inline-table;
+    padding: 23px;
+    width: 100%;
+}
 @media (max-width:397px)
 {
     .index_search_input

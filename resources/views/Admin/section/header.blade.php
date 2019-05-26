@@ -50,7 +50,7 @@
 
                         </div>
                     </li>
-                    <li id="click_advance3" class="nav-item">
+                    <li id="click_advance3" class="nav-item ">
                         <a data-toggle="collapse" data-target="#collapseExample2" href="#"   aria-expanded="false"  aria-controls="collapseExample" class="nav-link"  >
                             <span data-feather="users"></span>
                             <i style="color: #2dabd2;font-size: 22px;" class="fa fa-angle-down pull-left"></i>
@@ -65,9 +65,28 @@
                         </div>
                     </li>
                     <li class="nav-item">
+                        <a  class="nav-link {{ Request::path() == 'admin/statistics' ? 'active' : '' }} " href="{{url('admin/statistics')}}">
+                            <span data-feather="bar-chart-2"></span>
+                            آمار سایت
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#">
                             <span data-feather="bar-chart-2"></span>
                             تنظیمات
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link {{ Request::path() == 'admin/comment' ? 'active' : '' }}" href="{{url('admin/comment')}}">
+                        <span style="opacity:.7" class="badge badge-pill badge-danger">{{$comment_count}}</span>
+                            مدیریت نظرات کاربران
+                   
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::path() == 'admin/question' ? 'active' : '' }}" href="{{url('admin/question')}}">
+                            <span style="opacity:.7" class="badge badge-pill badge-danger">{{$question_count}}</span>
+                            مدیریت پرسش های  کاربران
                         </a>
                     </li>
                     <li class="nav-item">

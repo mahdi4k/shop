@@ -1,7 +1,7 @@
-@extends('layouts/admin')
+@extends('Admin.master')
 
 @section('header')
-    <title>مدیریت کاربران</title>
+    مدیریت کاربران
 @endsection
 
 

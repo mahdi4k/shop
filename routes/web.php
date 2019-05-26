@@ -13,10 +13,10 @@ use App\Http\Controllers\SiteController;
 |
 */
 
-Route::get('/', 'SiteController@index');
+
 Route::middleware(['throttle:150,1'])->group(function () {
 
-    Route::middleware(['check_admin'])->group(function () {
+    Route::middleware(['check_admin','load_admin_data'])->group(function () {
         Route::get('/admin', 'Admin\PanelCotroller@index');
 //admin_category
         Route::resource('admin/category', 'Admin\CategoryController', ['except' => ['show']]);
@@ -59,16 +59,39 @@ Route::middleware(['throttle:150,1'])->group(function () {
         Route::post('admin/order/set_status', 'admin\OrderController@set_status');
 
 //user managements_status
-        Route::resource('admin/user', 'admin\UserController');
+        Route::resource('admin/user', 'Admin\UserController');
+        //admin_statistics
+        Route::get('admin/statistics','Admin\AdminController@statistics');
+//comment and question users managment
+        Route::post('admin/ajax/set_comment_status','admin\CommentController@set_comment_status');
+        Route::delete('admin/comment/{id}','admin\CommentController@delete');
+        Route::get('admin/question','admin\QuestionController@index');
+        Route::get('admin/comment','Admin\CommentController@index');
+        Route::post('admin/ajax/set_status_question','admin\QuestionController@set_status');
+        Route::delete('admin/question/{id}','admin\QuestionController@delete');
+        Route::post('admin/question/add','admin\QuestionController@add');
 
     });
 
     Route::get('admin_login', 'Admin\AdminController@admin_login');
+    Route::middleware(['statistics'])->group(function ()
+    {
+        Route::get('/','SiteController@index');
+        Route::get('product/{code}/{title}','SiteController@show');
+        Route::get('Cart','SiteController@show_cart');
+
+        Route::get('category/{cat1}','SearchController@cat1');
+        Route::get('search/{cat1}/{cat2}/{cat3}','SearchController@search');
+
+
+
+        Route::get('Search','SiteController@search');
+    });
 
 //site controller
-    Route::get('product/{code}/{title}', 'SiteController@show');
+
     Route::post('site/ajax_set_service', 'SiteController@set_service');
-    Route::get('Cart', 'SiteController@show_cart');
+
     Route::post('Cart', 'SiteController@cart');
     Route::post('site/ajax_del_cart', 'SiteController@del_cart');
     Route::post('site/ajax_change_cart', 'SiteController@change_cart');
@@ -88,8 +111,8 @@ Route::middleware(['throttle:150,1'])->group(function () {
     Route::get('category/{cat1}/{cat2}','SearchController@show_cat1');
     Route::get('category/{cat1}/{cat2}/{cat3}','SearchController@show_cat_product');
     Route::get('category/{cat1}/{cat2}/{cat3}/{cat4}','SearchController@show_cat4');
-    Route::get('category/{cat1}','SearchController@cat1');
-    Route::get('search/{cat1}/{cat2}/{cat3}','SearchController@search');
+
+
     Route::get('Search','SiteController@search');
 
     Auth::routes();

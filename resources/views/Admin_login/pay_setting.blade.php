@@ -1,7 +1,7 @@
-@extends('layouts/admin')
+@extends('Admin.master')
 
 @section('header')
-    <title>تنظیمات پرداخت</title>
+    تنظیمات پرداخت
 @endsection
 
 

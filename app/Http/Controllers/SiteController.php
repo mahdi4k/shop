@@ -74,7 +74,7 @@ class SiteController extends Controller
         if ($request->ajax()) {
             if ($tab_id == 'comment') {
                 $score = ProductScore::with(['get_comment' => function ($query) {
-                    $query->where(['product_id' => product_id, 'status' => 0]);
+                    $query->where(['product_id' => product_id, 'status' => 1]);
                 }])->where(['product_id' => $product_id])->orderBy('id', 'DESC')->paginate(10);
                  return View('site.include.show_comment', ['score' => $score, 'product_id' => $product_id]);
             } elseif ($tab_id == 'question') {

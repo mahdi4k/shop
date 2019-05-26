@@ -60,7 +60,7 @@
 
         <div style="background: #FDFDFD" class="col-md-7 text-right">
 
-            <div id="img_load_zoom"></div>
+            <div style="left: 400px; position:relative;" id="img_load_zoom"></div>
             <div class="show_product_title">
                 <div class="col-md-10 title_porduct_top">
                     <h4>{{ $product->title }}</h4>
@@ -503,11 +503,11 @@
         $(".zoom").elevateZoom({
             borderSize: 1,
             zoomWindowPosition: "img_load_zoom",
-            scrollZoom: true,
-            cursor: 'zoom-in',
-            zoomWindowWidth: 500,
-            zoomWindowHeight: 500,
-            zoomLevel: 0.5
+            scrollZoom: false,
+            cursor: '',
+            zoomWindowWidth: 400,
+            zoomWindowHeight: 400,
+            zoomLevel: 0.75
         });
         $('#myTabs a').click(function (e) {
             e.preventDefault();

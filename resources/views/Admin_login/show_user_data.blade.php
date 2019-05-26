@@ -1,7 +1,7 @@
-@extends('layouts/admin')
+@extends('Admin.master')
 
 @section('header')
-    <title>{{ $user->username }}</title>
+     {{ $user->username }}
 @endsection
 
 

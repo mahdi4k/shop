@@ -294,8 +294,8 @@ class ShopController extends Controller
                                     $result=$order->add_order($pay_type,$refid);
                                     if(array_key_exists('id',$result))
                                     {
-                                        return view('shop.location1',['res'=>$refid]);
-                                    }
+                                        return view('site.shop.location1',['res'=>$refid]);
+                                    }                                               
                                     else
                                     {
                                         return redirect()->back()->with('error',$result['error']);

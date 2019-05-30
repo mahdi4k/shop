@@ -61,10 +61,7 @@
 
                     <div style="text-align:center;height:40px;position:relative">
 
-                        <div class="product_item_compare" onclick="add_compare_product('<?= $value->id ?>','{{ $value->title }}','{{ $value->get_img->url }}')">
-                            <span class="checkbox2" id="compare_{{ $value->id  }}"></span>
-                            <span style="padding-top:5px">مقایسه</span>
-                        </div>
+
                         @foreach($value->get_colors as $key2=>$value2)
                             <label style="width:15px;height:15px;background:#{{ $value2->color_code }};border-radius:100%;@if($value2->color_code=='FFFFFF') border:1px solid silver @endif"></label>
                         @endforeach

@@ -1,4 +1,4 @@
-@extends('layouts.site')
+@extends('site.master')
 
 @section('content')
 <div class="container-fluid w-98">

@@ -95,6 +95,21 @@
                             دسته بندی ها
                         </a>
                     </li>
+                    <li id="click_advance7" class="nav-item ">
+                        <a data-toggle="collapse" data-target="#collapseExample7" href="#"   aria-expanded="false"  aria-controls="collapseExample" class="nav-link"  >
+                            <span data-feather="users"></span>
+                            <i style="color: #2dabd2;font-size: 22px;" class="fa fa-angle-down pull-left"></i>
+                            کاربران <span class="sr-only">(current)</span>
+                        </a>
+                        <div  style="padding-right: 41px;"  aria-expanded="false"  aria-controls="collapseExample7"  class="collapse text-right   custom-collapse" id="collapseExample7">
+
+                            <a href="/admin/setting/pay"><p>تنظیمات پرداخت</p></a>
+                            <a href="/admin/user/create"><p>کاربر جدید</p></a>
+
+
+                        </div>
+                    </li>
+                     
                 </ul>
             </div>
         </nav>

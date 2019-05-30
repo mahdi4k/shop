@@ -56,14 +56,16 @@ class SiteController extends Controller
 
     public function set_service(Request $request)
     {
+
         $service_id = $request->get('service_id');
         $product_id = $request->get('product_id');
+        $items = Item::get_product_item($product_id);
         $color_id = $request->get('color_id');
         $product = Product::with('get_service_name')->find($product_id);
         $colors = $product->get_colors;
         $check = Service::where(['parent_id' => $service_id, 'product_id' => $product_id, 'color_id' => $color_id])->orderby('id', 'DESC')->first();
         //$view_name=$this->view.'include/info_box';
-        return View('site.include.info_box', ['colors' => $colors, 'service' => $check, 'color_id' => $color_id, 'product' => $product, 'service_id' => $service_id]);
+        return View('site.include.info_box', ['colors' => $colors,'items'=>$items , 'service' => $check, 'color_id' => $color_id, 'product' => $product, 'service_id' => $service_id]);
     }
 
     public function get_tab_data(Request $request)

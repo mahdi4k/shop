@@ -176,15 +176,16 @@
                                             تومان</span></p>
                                 @endif
 
-                                @if(empty($product->discounts))
-                                    <p><span style="font-size:18pt">قیمت برای شما : </span> <span
+                                @if(!empty($product->discounts))
+                                    <p><span style="font-size:18pt">قیمت  : </span> <span
                                             style="color: #FB3449;font-size: 2.214rem;">{{arabic_w2e( number_format($product->price-$product->discounts)) }}</span>
                                         تومان</p>
                                 @endif
-                                <p><span style="font-size:18pt">قیمت  : </span> <span
-                                        style="color: #FB3449;font-size: 2.214rem;">{{arabic_w2e( number_format($product->price-$product->discounts)) }}</span>
-                                    تومان
-                                </p>
+                                @if(empty($product->discounts))
+                                    <p><span style="font-size:18pt">قیمت  : </span> <span
+                                            style="color: #FB3449;font-size: 2.214rem;">{{arabic_w2e( number_format($product->price-$product->discounts)) }}</span>
+                                        تومان</p>
+                                @endif
 
                                 <button type="submit" class="btn btn-info-custom hvr-sweep-to-left">افزودن به سبد خرید
                                 </button>
@@ -447,7 +448,7 @@
 
 
     <div class="modal fade" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span

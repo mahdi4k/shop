@@ -1,8 +1,9 @@
-@extends('layouts.site')
+@extends('site.master')
 
 @section('style')
     <link href="{{ url('css/ion.rangeSlider.css') }}" rel="stylesheet">
     <link href="{{ url('css/ion.rangeSlider.skinNice.css') }}" rel="stylesheet">
+    <link href="{{ url('css/site.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -98,7 +99,7 @@
             </div>
 
             <div  id="show_product" style="width:100%;float:right;border-top:1px solid silver">
-                @include('include.product_list',['product'=>$data['product'],'cat_url'=>''])
+                @include('site.include.product_list',['product'=>$data['product'],'cat_url'=>''])
 
             </div>
 
@@ -111,7 +112,7 @@
 
 
 
-@section('footer')
+@section('footer_site')
 <script type="text/javascript" src="{{ url('js/list.min.js') }}"></script>
 <script src="{{ url('js/ion.rangeSlider.min.js') }}"></script>
 <script>

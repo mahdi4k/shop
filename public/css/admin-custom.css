@@ -55,8 +55,11 @@ body{
 .sidebar .nav-link.active .feather {
     color: inherit;
     margin-bottom: 7px;
+    opacity: 1;
 }
-
+.sidebar-sticky ul li a:hover .badge{
+    opacity: 1 !important;
+}
 .sidebar-heading {
     font-size: .75rem;
     text-transform: uppercase;
@@ -256,3 +259,4 @@ body{
 {
    margin-right: 0px !important;
 }
+

@@ -95,11 +95,12 @@ add_item=function ()
     var count=document.getElementsByClassName('product_item_div').length+1;
     var id1="'"+'item_div-'+count+"'";
     var id2='-'+count;
-    var html='<div id="item_div-'+count+'" style="width:100%;float:right;margin-top:10px;margin-bottom:5px" class="product_item_div">' +
-        '<input name="item_name[-'+count+']" type="text"  style="float: right;" class="form-control" placeholder="نام گروه" >' +
+    var html='<div id="item_div-'+count+'" style="width:100%;float:right;margin-top:10px;margin-bottom:5px;border: 2px dashed #1ebdbf;padding:20px" class="product_item_div">' +
+        '<lable style="font-weight:bold;padding:5px;background:aliceblue; display:block;margin-bottom:10px">نام گروه</lable>'+
+    '<input name="item_name[-'+count+']" type="text"  style="float: right;" class="form-control" placeholder="نام گروه" >' +
         '</div>'+
         '<div class="form-group" style="margin-right:0px;margin-bottom:0px;">' +
-        '<span class="fa fa-plus" style="color:red;cursor:pointer;padding-top:15px" onclick="add_child_item('+id1+','+id2+')"></span>' +
+        '<span class="fa fa-plus" style="color:red;cursor:pointer;padding-top:15px" onclick="add_child_item('+id1+','+id2+')"><p style="color:#6f6868;display: inline-block;font-family: iransans;">افزودن آیتم</p></span>' +
         '</div>';
     ;
     $("#item_box").append(html);
@@ -108,7 +109,8 @@ add_child_item=function(id1,id2)
 {
     var count=document.getElementsByClassName('child_item').length+1;
     var html='<div class="child_item">' +
-        '<input type="text" name="child_item['+id2+'][-'+count+']" style="float: right;" class="form-control" placeholder="نام آیتم">' +
+    '<lable style="font-weight:bold;padding-top:94px;border-bottom: 3px dashed #e02d4a;display:inline-block;padding-bottom:6px; padding-top:6px">نام آیتم</lable>'+
+        '<input type="text" name="child_item['+id2+'][-'+count+']" style="float: right;margin:7px" class="form-control" placeholder="نام آیتم">' +
         '<select name="child_filed['+id2+'][-'+count+']" class="form-control" style="float:right;margin-right:10px">' +
         '<option value="1">فیلد input</option>' +
         '<option value="2">فیلد select</option>' +

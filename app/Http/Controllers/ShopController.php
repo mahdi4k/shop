@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Address;
 use App\Cart;
 use App\Order;
+use App\lib\Mellat_Bank;
+use App\lib\zarinpal;
+use Mail;
 use App\Ostan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -270,7 +273,7 @@ class ShopController extends Controller
                         {
                             $i = $result['id'];
                             $order = \App\Order::with(['get_address_data', 'get_order_row', 'get_user'])->find($i);
-                            //Mail::to($order->get_user->username)->queue(new \App\//Mail\Order//Mail($order));
+                            Mail::to($order->get_user->username)->queue(new \App\Mail\OrderMail($order));
                             Cart::removeGiftCart($order->price,$order->id);
                             $url = url('user/order?id=') . $result['id'];
                             return redirect($url);
@@ -337,7 +340,7 @@ class ShopController extends Controller
                             {
                                 $i=$result['id'];
                                 $order=\App\Order::with(['get_address_data','get_order_row','get_user'])->find($i);
-                                //Mail::to($order->get_user->username)->queue(new \App\//Mail\Order//Mail($order));
+                                Mail::to($order->get_user->username)->queue(new \App\Mail\OrderMail($order));
                                 Cart::removeGiftCart($order->price,$order->id);
                                 $url=url('user/order?id=').$result['id'];
                                 return redirect($url);
@@ -392,7 +395,7 @@ class ShopController extends Controller
 
                     Cart::removeGiftCart($order->price,$order->id);
 
-                    //Mail::to($order->get_user->username)->queue(new \App\//Mail\Order//Mail($order));
+                    Mail::to($order->get_user->username)->queue(new \App\Mail\OrderMail($order));
 
                     return View('user.show_order',['order'=>$order]);
                 }
@@ -431,7 +434,7 @@ class ShopController extends Controller
                         $order->pay_status=1;
                         $order->update();
                         Cart::removeGiftCart($order->price,$order->id);
-                        //Mail::to($order->get_user->username)->queue(new \App\//Mail\Order//Mail($order));
+                        Mail::to($order->get_user->username)->queue(new \App\Mail\OrderMail($order));
 
                         return View('user.show_order',['order'=>$order]);
                     }

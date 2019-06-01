@@ -6,7 +6,7 @@
         <div class="col-md-3 col-xs-12 col-sm-3">
 
             <ul class="user_panel_ul">
-                <li  class="active"><a href="{{ url('user/orders') }}">سفارشات من</a></li>
+                <li  class="{{ Request::path() == 'user/orders' ? 'active' : '' }}"><a href="{{ url('user/orders') }}">سفارشات من</a></li>
                 <li><a href="{{ url('user/gift_cart') }}">کارت های هدیه</a></li>
                 <li><a href="{{ url('user') }}">لیست مورد علاقه</a></li>
                 <li><a href="{{ url('user') }}">نقد های من</a></li>

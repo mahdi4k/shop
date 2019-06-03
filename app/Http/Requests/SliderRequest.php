@@ -26,7 +26,7 @@ class SliderRequest extends FormRequest
         if($this->isMethod('post'))
         {
             return [
-                'title'=>'required',
+                 
                 'url'=>'required|url',
                 'pic'=>'required|image|max:1024'
             ];

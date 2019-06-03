@@ -18,7 +18,7 @@
                 <div style="padding-top:40px">
 
 
-                    <div class="first_div_order_header">
+                    <div class="first_div_order_header d-flex justify-content-center">
 
                         <div class="clearfix">
                             <div></div>
@@ -44,13 +44,7 @@
                     </span>
 
 
-                        <div class="rounded_rectangle_over step_shipping line_order"></div>
-
-                        <span class="bullet login">
-                        <a>
-                            <span>بازبینی سفارش</span>
-                        </a>
-                    </span>
+                         
 
 
                         <div class="rounded_rectangle_over step_shipping line_order"></div>
@@ -61,12 +55,7 @@
                         </a>
                     </span>
 
-                        <div class="clearfix gray">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
+                        
 
                     </div>
 
@@ -225,7 +214,7 @@
 
                     <div class="form-group" style="float: left;margin-top:40px;margin-bottom:30px">
 
-                        <button type="submit"   class="btn-info-custom hvr-sweep-to-left">ثبت اطلاعات و ادامه خرید</button>
+                    <a href="{{url('Payment')}}"      class="btn btn-info-custom-payment hvr-sweep-to-left">ثبت اطلاعات و ادامه خرید</a>
 
                     </div>
 

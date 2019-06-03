@@ -8,7 +8,7 @@ $("#product_cat li").hover(function ()
     {
         var id=this.id.replace('li','span');
         document.getElementById(id).className='fa fa-chevron-up';
-        $('ul',this).show();
+        $('ul', this).css('display', 'flex');
     }
 
 
@@ -21,7 +21,7 @@ $("#product_cat li").hover(function ()
     {
         var id=this.id.replace('li','span');
         document.getElementById(id).className='fa fa-chevron-down';
-        $('ul',this).hide();
+        $('ul', this).hide(1);
     }
 
 });

@@ -135,56 +135,57 @@ function arabic_w2e($str)
 
     ?>
         <div class="product-price" style="width:100%;float:right;margin-top: 15px;">
-            @if(!empty($product->discounts))
-                <p style="font-size:18pt"><span class="product-peice-title"> {{ arabic_w2e( number_format($product->price)) }}
-                        تومان</span></p>
-            @endif
+                                @if(!empty($product->discounts))
+                                    <p style="font-size:18pt"><span class="product-peice-title"> {{ arabic_w2e( number_format($product->price)) }}
+                                            تومان</span></p>
+                                @endif
 
-            @if(empty($product->discounts))
-                <p><span style="font-size:18pt">قیمت برای شما : </span> <span
-                        style="color: #FB3449;font-size: 2.214rem;">{{arabic_w2e( number_format($product->price-$product->discounts)) }}</span>
-                    تومان</p>
-            @endif
-            <p><span style="font-size:18pt">قیمت  : </span> <span
-                    style="color: #FB3449;font-size: 2.214rem;">{{arabic_w2e( number_format($product->price-$product->discounts)) }}</span>
-                تومان
-            </p>
+                                @if(!empty($product->discounts))
+                                    <p><span style="font-size:18pt">قیمت  : </span> <span
+                                            style="color: #FB3449;font-size: 2.214rem;">{{arabic_w2e( number_format($product->price-$product->discounts)) }}</span>
+                                        تومان</p>
+                                @endif
+                                @if(empty($product->discounts))
+                                    <p><span style="font-size:18pt">قیمت  : </span> <span
+                                            style="color: #FB3449;font-size: 2.214rem;">{{arabic_w2e( number_format($product->price-$product->discounts)) }}</span>
+                                        تومان</p>
+                                @endif
 
-            <button type="submit" class="btn btn-info-custom hvr-sweep-to-left">افزودن به سبد خرید
-            </button>
-            <div class="truck">
-                <i class="truck-custom fa fa-truck"></i>
-                <span>ارسال از دو روز کاری آینده</span>
-            </div>
-            <div class="property-item">
-                <h6 class="">ویژگی های محصول</h6>
-                <?php
-                $i=1;
-                ?>
-                @foreach($items as $key=>$value)
-                    <?php
-                    $get_child_item = $value->get_child_item;
-                    ?>
-                    @foreach($get_child_item as $key2=>$value2)
-                        <ul>
-                        <li class="d-inline-custom">
+                                <button type="submit" class="btn btn-info-custom hvr-sweep-to-left">افزودن به سبد خرید
+                                </button>
+                                <div class="truck">
+                                    <i class="truck-custom fa fa-truck"></i>
+                                    <span>ارسال از دو روز کاری آینده</span>
+                                </div>
+                                <div class="property-item">
+                                    <h6 class="">ویژگی های محصول</h6>
+                                    <?php
+                                    $i=1;
+                                    ?>
+                                    @foreach($items as $key=>$value)
+                                        <?php
+                                        $get_child_item = $value->get_child_item;
+                                        ?>
+                                        @foreach($get_child_item as $key2=>$value2)
+                                            <ul>
+                                            <li class="d-inline-custom">
 
-                           <span> {{ $value2->name }} :</span>
+                                               <span> {{ $value2->name }} :</span>
 
 
-                            @if(array_key_exists($value2->id,$item_value))
-                              <span>  {{ $item_value[$value2->id] }}</span>
-                            @endif
+                                                @if(array_key_exists($value2->id,$item_value))
+                                                  <span>  {{ $item_value[$value2->id] }}</span>
+                                                @endif
 
-                        </li>
-                        </ul>
-                    @endforeach
-                    @if($i++ == 3)
-                            @break
-                        @endif
+                                            </li>
+                                            </ul>
+                                        @endforeach
+                                        @if($i++ == 3)
+                                                @break
+                                            @endif
 
-                @endforeach
-            </div>
+                                    @endforeach
+                                </div>
 
-        </div>
+                            </div>
 </div>

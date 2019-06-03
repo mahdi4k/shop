@@ -70,8 +70,7 @@
 <script src="{{url('js/flipclock.min.js')}}"></script>
 
 <script src="{{url('js/easing.jquery1.3.min.js')}}"></script>
-<script src="{{url('js/custom.js')}}"></script>
-
+ 
 
     @yield('footer_site')
 

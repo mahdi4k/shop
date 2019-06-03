@@ -22,6 +22,10 @@ Route::middleware(['throttle:150,1'])->group(function () {
                 Route::resource('admin/category', 'Admin\CategoryController', ['except' => ['show']]);
                 Route::post('admin/category/del_img/{id}', 'Admin\CategoryController@del_img');
 
+                //admin_discount
+                Route::resource('admin/order/discount', 'Admin\DiscountController', ['except' => ['show']]);
+                //slider
+                Route::resource('admin/slider', 'Admin\SliderController', ['except' => ['show']]);
                 //admin_product
                 Route::resource('admin/product', 'Admin\ProductController', ['except' => ['show']]);
                 Route::get('admin/product/gallery', 'Admin\ProductController@gallery');
@@ -31,13 +35,13 @@ Route::middleware(['throttle:150,1'])->group(function () {
                 //filter_product
                 Route::get('admin/filter', 'Admin\FilterController@index');
                 Route::post('admin/filter', 'Admin\FilterController@create');
-                Route::get('admin/product/add-filter/{id}', 'admin\ProductController@add_filter_form');
-                Route::post('admin/product/add_filter', 'admin\ProductController@add_filter_product');
+                Route::get('admin/product/add-filter/{id}', 'Admin\ProductController@add_filter_form');
+                Route::post('admin/product/add_filter', 'Admin\ProductController@add_filter_product');
                 //item-section
                 Route::get('admin/item', 'Admin\ItemController@index');
                 Route::post('admin/item', 'Admin\ItemController@create');
-                Route::get('admin/product/add-item/{id}', 'admin\ProductController@add_item_form');
-                Route::post('admin/product/add_item', 'admin\ProductController@add_item_product');
+                Route::get('admin/product/add-item/{id}', 'Admin\ProductController@add_item_form');
+                Route::post('admin/product/add_item', 'Admin\ProductController@add_item_product');
                 //amazing product
                 Route::resource('admin/amazing', 'Admin\AmazingController', ['except' => ['show']]);
 
@@ -53,10 +57,10 @@ Route::middleware(['throttle:150,1'])->group(function () {
                 Route::post('admin/product/add_review', 'Admin\ProductController@add_review');
                 Route::post('admin/product/del_review_img/{id}', 'Admin\ProductController@del_review_img');
                 //order product
-                Route::get('admin/order', 'admin\OrderController@index')->name('order');
-                Route::get('admin/order/{id}', 'admin\OrderController@view');
-                Route::delete('admin/order/{id}', 'admin\OrderController@destroy');
-                Route::post('admin/order/set_status', 'admin\OrderController@set_status');
+                Route::get('admin/order', 'Admin\OrderController@index')->name('order');
+                Route::get('admin/order/{id}', 'Admin\OrderController@view');
+                Route::delete('admin/order/{id}', 'Admin\OrderController@destroy');
+                Route::post('admin/order/set_status', 'Admin\OrderController@set_status');
 
                 //user managements_status
                 Route::resource('admin/user', 'Admin\UserController');

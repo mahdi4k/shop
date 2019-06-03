@@ -46,7 +46,8 @@
                             <a href="/admin/product"><p>مدیریت محصولات</p></a>
                               <a href="/admin/product/create"><p>افزودن محصولات</p></a>
                              <a href="/admin/amazing"><p>محصولات شگفت انگیز</p></a>
-                             <a href="/admin/product/add_item"><p>افزودن ویژگی محصولات</p></a>
+                          <a href="{{ url('admin/filter') }}"><p>فیلتر های محصول</p></a> 
+                         <a href="{{ url('admin/item') }}"><p>ایتم های محصول</p></a> 
 
                         </div>
                     </li>
@@ -71,12 +72,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="bar-chart-2"></span>
-                            تنظیمات
+                        <a class="nav-link {{ Request::path() == 'admin/slider' ? 'active' : '' }}" href="{{url('admin/slider')}}">
+                            <span data-feather="monitor"></span>
+                            اسلایدر
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item ">
                     <a class="nav-link {{ Request::path() == 'admin/comment' ? 'active' : '' }}" href="{{url('admin/comment')}}">
                         <span style="opacity:.7" class="badge badge-pill badge-danger">{{$comment_count}}</span>
                             مدیریت نظرات کاربران
@@ -99,13 +100,12 @@
                         <a data-toggle="collapse" data-target="#collapseExample7" href="#"   aria-expanded="false"  aria-controls="collapseExample" class="nav-link"  >
                             <span data-feather="users"></span>
                             <i style="color: #2dabd2;font-size: 22px;" class="fa fa-angle-down pull-left"></i>
-                            کاربران <span class="sr-only">(current)</span>
+                            تنظیمات سایت <span class="sr-only">(current)</span>
                         </a>
                         <div  style="padding-right: 41px;"  aria-expanded="false"  aria-controls="collapseExample7"  class="collapse text-right   custom-collapse" id="collapseExample7">
 
                             <a href="/admin/setting/pay"><p>تنظیمات پرداخت</p></a>
-                            <a href="/admin/user/create"><p>کاربر جدید</p></a>
-
+ 
 
                         </div>
                     </li>

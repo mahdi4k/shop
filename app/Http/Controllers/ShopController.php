@@ -13,12 +13,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use Session;
+use App\Category;
+use View;
 
 class ShopController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
+        $cat = Category::where('parent_id', 0)->get();
+        View::share('category', $cat);
     }
 
     public function Shipping()

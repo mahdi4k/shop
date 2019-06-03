@@ -28,6 +28,7 @@ body
 {
     color:#929782;
     text-decoration:none;
+    font-size: .957rem;
 }
 .header_ul li a
 {
@@ -36,8 +37,8 @@ body
 .btn-shopping-cart
 {
     height:38px;
-    background:#4caf50;
-    color:white;
+    border: 1px solid #00bfd6;
+    color:#00bfd6;
     -webkit-border-radius:4px;
     -moz-border-radius:4px;
     border-radius:4px;
@@ -45,7 +46,7 @@ body
 }
 .shopping-cart-icon
 {
-    background:#62b965;
+    
     font-size: 20px;
     padding-right:15px;
     padding-left:15px;
@@ -56,8 +57,7 @@ body
 .shopping-cart-text
 {
     float: right;
-    padding-right:15px;
-    padding-left:30px;
+     
 }
 .index_search_input
 {
@@ -73,10 +73,7 @@ body
     height: 36px;
     text-align:right;
 }
-#header_header
-{
 
-}
 #header_header .input-group-addon
 {
     background:#9DA3B1;
@@ -93,11 +90,12 @@ body
     width:24px;
     height:24px;
     float: right;
-    background:#5FBF63;
+    background: #00bfd6;
+    color: aliceblue;
     -webkit-border-radius:50%;
     -moz-border-radius:50%;
     border-radius:50%;
-    margin:7px 7px 0px 0px;
+    margin:7px 7px 0px 9px;
     text-align:center;
     line-height: 26px;
 }
@@ -110,6 +108,7 @@ body
     background:#f7f8fa;
     border-top:1px solid #eff0f2;
     border-bottom:1px solid #e3e4e5;
+    height: 42px;
 }
 .sub_menu1
 {
@@ -119,8 +118,8 @@ body
     border-right:1px solid #e1e1e1;
     border-left:1px solid #e1e1e1;
     border-bottom:1px solid #e1e1e1;
-    margin-top:16px;
-    right:4px;
+    top: 26px;
+    right:-40px;
     display:none;
     z-index:100;
 }
@@ -129,11 +128,13 @@ body
     width:100%;
     position:relative;
     margin: 0px;
+    display: flex;
 }
 #product_cat li
 {
-    padding-top:15px;
-    padding-bottom: 15px;
+    padding-top:11px;
+    padding-bottom: 6px;
+    margin-left: 20px;
 }
 #product_cat li:hover
 {
@@ -190,6 +191,8 @@ body
     padding-right: 3px;
     position:relative;
     z-index:100;
+    text-align: right;
+    display: block !important;
 }
 .li_menu li
 {
@@ -336,15 +339,7 @@ body
     from {opacity: 0.1}
     top  {opacity: 1}
 }
-.shop_product
-{
-    width:100%;
-    background:white;
-    border:1px solid #EBECED;
-    border-radius: 4px;
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
-
-}
+ 
 .shop_product_title
 {
     height:40px;
@@ -382,58 +377,11 @@ body
     top:0px;
     bottom:0px;
 }
-.product_box p
-{
-    font-size:12px;
-    padding-top: 20px;
-}
-.product_box p a
-{
-    color:black;
-    text-decoration: none;
-}
-.product_price
-{
-    text-align:center;
-    color:#4CAF50;
-    font-size:13px !important;
-}
-.product_discounts
-{
-    color:#999;
-    text-align:center;
-    height:25px;
-    padding-top:7px !important;
-}
-.slick-next
-{
-    right: 5px;
-    z-index:100;
-    top:43%;
-}
-.slick-next::before
-{
-    content: "";
-    font-family:FontAwesome;
-    color: black;
-    font-size: 30px;
-}
-.slick-prev
-{
-    left:5px;
-    z-index:100;
-    top:43%;
-}
-.slick-prev::before
-{
-    content: "";
-    font-family:FontAwesome;
-    color: black;
-    font-size: 30px;
-}
+ 
+ 
 .amazing_div
 {
-    height:340px;
+    max-height:715px;
     background:white;
     margin-top: 20px;
     border: 1px solid #EBECED;
@@ -831,10 +779,8 @@ a:hover
     -moz-border-radius: 0px;
     border-radius: 0px;
 }
-.active a:hover
-{
 
-}
+
 #myTabs li a span
 {
     padding-right:25px;
@@ -1317,10 +1263,7 @@ a:hover
     border-bottom-right-radius:10px;
     border-bottom-left-radius:10px;
 }
-.login_footer a
-{
-    color:green;
-}
+ 
 .cart_price2
 {
     border:1px solid  #C0F0C1;
@@ -1372,7 +1315,7 @@ a:hover
 {
     width:11px;
     height:2px;
-    background:#62B965;
+    background:#00BFD6;
     float: right;
     margin:2px 3px;
 }
@@ -1392,13 +1335,13 @@ a:hover
 }
 .bullet.green.tick
 {
-    background: #62B965 url("../img/slices.png") no-repeat scroll -810px -476px !important;
-    border-color: #62B965;
+    background: #00BFD6 url("../img/slices.png") no-repeat scroll -810px -476px !important;
+    border-color: #00BFD6;
 }
 .bullet.green
 {
     background: #EBFFEB none repeat scroll 0% 0% !important;
-    border-color: #62B965;
+    border-color: #00BFD6;
 }
 .bullet a span
 {
@@ -1410,7 +1353,7 @@ a:hover
 }
 .rounded_rectangle_over
 {
-    background:#62B965;
+    background:#00BFD6;
     height: 2px;
     float: right;
     margin-top: 10px;
@@ -2272,9 +2215,8 @@ a:hover
     padding-left:15px;
     font-size:17px;
 }
-.compare-table
-{
-}
+
+
 .table-item-header
 {
     width:185px;

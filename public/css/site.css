@@ -1360,6 +1360,12 @@ a:hover
     margin-right:5px;
     margin-left: 5px;
 }
+.modal-content{
+    text-align: right !important;
+}
+.modal-header{
+    text-align: center;
+}
 .step_shipping
 {
     width:23%;
@@ -1582,7 +1588,7 @@ a:hover
 {
     width:0px;
     height:0px;
-    border-top:39px solid #8CD98E;
+    border-top:39px solid #8cd9d8;
     position:absolute;
     border-left:39px solid transparent;
     top: 0px;
@@ -2550,6 +2556,23 @@ a:hover
     display: inline-table;
     padding: 23px;
     width: 100%;
+}
+.checked_custom_shipping::before{
+    content: "\f00c";
+    font-family: FontAwesome, serif;
+
+}
+.dot-custom{
+    width: 5px;
+    height: 5px;
+    background: red;
+}
+.card-text:last-child {
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 13px;
+    white-space: pre;
+    color: #777474;
 }
 @media (max-width:397px)
 {

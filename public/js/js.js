@@ -188,3 +188,18 @@ set_pay=function (id)
     }
 
 };
+$('#addcheck').click(function () {
+    document.getElementById('order_type').value = 1;
+    $('#addcheck1').removeClass('checked_custom_shipping');
+    $('#addcheck').toggleClass('checked_custom_shipping');
+});
+$('#addcheck1').click(function () {
+    document.getElementById('order_type').value = 2;
+    $('#addcheck').removeClass('checked_custom_shipping');
+    $('#addcheck1').toggleClass('checked_custom_shipping') ;
+
+});
+
+$('.show-drop').click(function () {
+    $('.user_drop').toggle()
+});

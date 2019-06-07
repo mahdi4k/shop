@@ -2,28 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3bdfcc1-8ef1-4bc3-a901-69563c786f88" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/lamino.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lamino.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ShopController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ShopController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/SliderRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/SliderRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/admin-custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin-custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/bootstrap-select.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap-select.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/custom.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/site.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/bootstrap-select.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/bootstrap-select.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/custom.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/section/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/section/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/site/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/cart.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/site/include/ajax_cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/include/ajax_cart.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/site/include/info_box.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/include/info_box.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/site/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/site/section/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/section/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/site/include/edit_address.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/include/edit_address.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/site/section/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/section/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/site/shop/shipping.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/shop/shipping.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -108,7 +92,7 @@
     <session id="461465454">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="13" />
+          <entry key="project.closed" value="14" />
           <entry key="project.open.time.107" value="1" />
           <entry key="project.open.time.113" value="1" />
           <entry key="project.open.time.117" value="1" />
@@ -128,36 +112,36 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="41" />
+          <entry key="css" value="42" />
           <entry key="html" value="1" />
-          <entry key="js" value="34" />
+          <entry key="js" value="36" />
           <entry key="json" value="3" />
-          <entry key="php" value="383" />
+          <entry key="php" value="393" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="210" />
-          <entry key="CSS" value="41" />
+          <entry key="Blade" value="214" />
+          <entry key="CSS" value="42" />
           <entry key="HTML" value="1" />
           <entry key="JSON" value="3" />
-          <entry key="JavaScript" value="34" />
-          <entry key="PHP" value="173" />
+          <entry key="JavaScript" value="36" />
+          <entry key="PHP" value="179" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="1071" />
+          <entry key="css" value="1289" />
           <entry key="dummy" value="3" />
-          <entry key="js" value="96" />
-          <entry key="php" value="10389" />
+          <entry key="js" value="361" />
+          <entry key="php" value="11112" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="8038" />
-          <entry key="CSS" value="1071" />
-          <entry key="JavaScript" value="96" />
+          <entry key="Blade" value="8761" />
+          <entry key="CSS" value="1289" />
+          <entry key="JavaScript" value="361" />
           <entry key="PHP" value="2351" />
           <entry key="PLAIN_TEXT" value="3" />
         </counts>
@@ -172,19 +156,46 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://E:/laravel-digikala/resources/views/site/cart.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/site/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="33" column="29" lean-forward="true" selection-start-line="28" selection-start-column="24" selection-end-line="33" selection-end-column="29" />
+            <state relative-caret-position="736">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/css/site.css">
+        <entry file="file://$PROJECT_DIR$/resources/views/site/section/header.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="794" column="22" selection-start-line="794" selection-start-column="22" selection-end-line="794" selection-end-column="22" />
+            <state relative-caret-position="276">
+              <caret line="36" column="22" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="109" column="30" selection-start-line="109" selection-start-column="20" selection-end-line="109" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/css/custom.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="346">
+              <caret line="1867" column="1" lean-forward="true" selection-start-line="1867" selection-start-column="1" selection-end-line="1867" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/js.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="461">
+              <caret line="203" column="27" selection-start-line="203" selection-start-column="27" selection-end-line="203" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -201,24 +212,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>show_com</find>
-      <find>$comment</find>
-      <find>$score</find>
-      <find>../img</find>
-      <find>add_que</find>
-      <find>$question-</find>
-      <find>$question</find>
-      <find>add</find>
-      <find>add_question</find>
-      <find>add_answer</find>
-      <find>parent_id</find>
-      <find>به این پرسش پاسخ دهید</find>
-      <find>ajax</find>
-      <find>zoom</find>
-      <find>img_load_zoom</find>
-      <find>auth</find>
-      <find>متن</find>
-      <find>btn btn-info-custom hvr-sweep-to-left</find>
       <find>admin_l</find>
       <find>'SiteController@index</find>
       <find>product/{code}/{title}</find>
@@ -231,6 +224,24 @@
       <find>مقایسه</find>
       <find>a</find>
       <find>.sidebar .nav-link</find>
+      <find>#62B965</find>
+      <find>modal</find>
+      <find>آدرس</find>
+      <find>tab</find>
+      <find>edit_address</find>
+      <find>دیجی</find>
+      <find>دیجی کالا</find>
+      <find>ديجي‌کال</find>
+      <find>font-fa</find>
+      <find>باربري</find>
+      <find>card</find>
+      <find>type-radio-control</find>
+      <find>set_type</find>
+      <find>order_type</find>
+      <find>edit</find>
+      <find>footer</find>
+      <find>edit_address_form</find>
+      <find>user</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -242,6 +253,7 @@
       <replace>form-control-custom</replace>
       <replace>سایت</replace>
       <replace>//Mail</replace>
+      <replace>#00BFD6</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -250,8 +262,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/site/section/header.blade.php" />
-        <option value="$PROJECT_DIR$/app/Category.php" />
         <option value="$PROJECT_DIR$/app/CatProduct.php" />
         <option value="$PROJECT_DIR$/app/Search.php" />
         <option value="$PROJECT_DIR$/app/Product.php" />
@@ -262,12 +272,9 @@
         <option value="$PROJECT_DIR$/resources/views/site/section/footer.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/site/master.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" />
-        <option value="$PROJECT_DIR$/public/js/js.js" />
         <option value="$PROJECT_DIR$/resources/views/site/include/product_item.blade.php" />
-        <option value="$PROJECT_DIR$/public/css/custom.css" />
         <option value="$PROJECT_DIR$/resources/views/site/cart.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/site/shop/payment.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/site/shop/shipping.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/site/shop/review.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/site/comment_form.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/Admin/service/create.blade.php" />
@@ -281,7 +288,6 @@
         <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
         <option value="$PROJECT_DIR$/resources/views/site/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/site/include/add_question.blade.php" />
-        <option value="$PROJECT_DIR$/public/css/site.css" />
         <option value="$PROJECT_DIR$/resources/views/site/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/Statistics.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
@@ -301,6 +307,12 @@
         <option value="$PROJECT_DIR$/resources/views/site/search2.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/site/search.blade.php" />
         <option value="$PROJECT_DIR$/public/css/admin-custom.css" />
+        <option value="$PROJECT_DIR$/resources/views/site/include/edit_address.blade.php" />
+        <option value="$PROJECT_DIR$/public/css/site.css" />
+        <option value="$PROJECT_DIR$/resources/views/site/shop/shipping.blade.php" />
+        <option value="$PROJECT_DIR$/public/css/custom.css" />
+        <option value="$PROJECT_DIR$/public/js/js.js" />
+        <option value="$PROJECT_DIR$/resources/views/site/section/header.blade.php" />
       </list>
     </option>
   </component>
@@ -450,26 +462,23 @@
               <item name="laravel-shop" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="laravel-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="laravel-shop" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
               <item name="Middleware" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="laravel-shop" type="b2602c69:ProjectViewProjectNode" />
               <item name="laravel-shop" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="laravel-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laravel-shop" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="laravel-shop" type="b2602c69:ProjectViewProjectNode" />
               <item name="laravel-shop" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="laravel-shop" type="b2602c69:ProjectViewProjectNode" />
@@ -510,6 +519,29 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="auth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="laravel-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laravel-shop" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="site" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="laravel-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laravel-shop" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="site" type="462c0819:PsiDirectoryNode" />
+              <item name="section" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="laravel-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laravel-shop" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="site" type="462c0819:PsiDirectoryNode" />
+              <item name="shop" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="laravel-shop" type="b2602c69:ProjectViewProjectNode" />
@@ -578,18 +610,17 @@
       <workItem from="1558687462598" duration="3775000" />
       <workItem from="1558851480177" duration="8856000" />
       <workItem from="1559123820518" duration="295000" />
-      <workItem from="1559541888983" duration="1304000" />
+      <workItem from="1559541888983" duration="17318000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="396894000" />
+    <option name="totallyTimeSpent" value="412908000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22163388" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30635402" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -618,50 +649,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Question.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/site/comment_form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2658">
-          <caret line="257" lean-forward="true" selection-start-line="257" selection-end-line="257" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/website/resources/views/Home/layouts/comment.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="22" lean-forward="true" selection-start-column="22" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/custom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/Admin/user/create_user.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/Admin/user/show_user_data.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" lean-forward="true" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/Admin/user/update_user.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
@@ -733,13 +720,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/site/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
         </state>
       </provider>
     </entry>
@@ -858,13 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1978">
-          <caret line="86" selection-start-line="86" selection-end-line="86" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/site/search.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7797">
@@ -941,6 +914,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ShopController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="104" column="24" selection-start-line="104" selection-start-column="20" selection-end-line="104" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/site/include/edit_address.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="140" column="23" lean-forward="true" selection-start-line="140" selection-start-column="23" selection-end-line="140" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_11_13_194649_create_user_address_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-138" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_11_18_065422_create_order_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/site.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="2570" column="23" lean-forward="true" selection-start-line="2570" selection-start-column="23" selection-end-line="2570" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://E:/laravel-digikala/resources/views/site/cart.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -948,10 +954,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/site.css">
+    <entry file="file://$PROJECT_DIR$/resources/views/site/shop/shipping.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="794" column="22" selection-start-line="794" selection-start-column="22" selection-end-line="794" selection-end-column="22" />
+        <state relative-caret-position="430">
+          <caret line="193" column="101" selection-start-line="193" selection-start-column="101" selection-end-line="193" selection-end-column="101" />
+          <folding>
+            <element signature="e#2734#2789#0#HTML" expanded="true" />
+            <element signature="e#5849#5996#0#HTML" />
+            <element signature="e#8321#8346#0#HTML" expanded="true" />
+            <element signature="e#8610#8643#0#HTML" expanded="true" />
+            <element signature="e#9035#9075#0#HTML" expanded="true" />
+            <element signature="e#9769#9794#0#HTML" expanded="true" />
+            <element signature="e#10028#10061#0#HTML" expanded="true" />
+            <element signature="e#10442#10482#0#HTML" expanded="true" />
+            <element signature="e#9314#9362#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="109" column="30" selection-start-line="109" selection-start-column="20" selection-end-line="109" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="1867" column="1" lean-forward="true" selection-start-line="1867" selection-start-column="1" selection-end-line="1867" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/site/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/js.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="203" column="27" selection-start-line="203" selection-start-column="27" selection-end-line="203" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/site/section/header.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="36" column="22" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
         </state>
       </provider>
     </entry>

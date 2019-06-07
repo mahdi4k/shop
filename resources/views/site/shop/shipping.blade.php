@@ -1,10 +1,10 @@
 @extends('site.master')
 @section('title')
-ثبت سفارش | هوشمند سازان خودرو
+    ثبت سفارش | هوشمند سازان خودرو
 @endsection
 @section('style')
     <link href="{{ url('css/bootstrap-select.css') }}" rel="stylesheet">
-    <link href="{{ url('css/site.css') }}" rel="stylesheet">
+
 @endsection
 
 @section('content')
@@ -29,7 +29,7 @@
 
                         <span class="bullet login green tick">
                         <a>
-                            <span>ورود به دیجی آنلاین</span>
+                            <span>ورود به سایت</span>
                         </a>
                     </span>
 
@@ -44,9 +44,6 @@
                     </span>
 
 
-                         
-
-
                         <div class="rounded_rectangle_over step_shipping line_order"></div>
 
                         <span class="bullet login">
@@ -55,7 +52,6 @@
                         </a>
                     </span>
 
-                        
 
                     </div>
 
@@ -84,7 +80,7 @@
 
                         @endif
                         <table id="address_table_<?= $value->id ?>"
-                               class="user_address @if($key==0) active_address @endif">
+                               class=" user_address @if($key==0) active_address @endif">
 
                             <tr>
                                 <td class="first_td" rowspan="3">
@@ -104,7 +100,7 @@
                                     </div>
                                 </td>
                                 <td colspan="3">
-                                    {{ $value->name }}
+                                    <span>گیرنده :</span> {{ $value->name }}
                                 </td>
 
                                 <td class="end_td" rowspan="3">
@@ -122,30 +118,25 @@
                             <tr>
 
                                 <td>
-                                    <span>استان:  </span>
+                                    <span>استان   </span>
                                     <span>
                                {{ $value->get_ostan->ostan_name }}
-                           </span>
+                                        ,
+                                    </span>
+                                    <span>شهر
+                                        {{ $value->get_shahr->shahr_name }}
+                                        {{ $value->address }}
+                                    </span>
                                 </td>
 
-                                <td rowspan="2">
-                                    <p>{{ $value->address }}</p>
-                                    <p><span>کد پستی : </span> <span>{{ $value->zip_code }}</span></p>
-                                </td>
-
-                                <td style="text-align:center">
-                                    <span>شماره تماس اضطراری : </span>
-                                    <span>{{ $value->mobile }}</span>
-                                </td>
 
                             </tr>
                             <tr>
 
+
                                 <td>
-                                    <span>شهر : </span>
-                                    <span>{{ $value->get_shahr->shahr_name }}</span>
-                                </td>
-                                <td style="text-align:center">
+                                    <span>شماره تماس اضطراری : </span>
+                                    <span>{{ $value->mobile }}</span>
                                     <span>شماره تماس ثابت : </span>
                                     <span>{{ $value->tell.' - '.$value->tell_code }}</span>
                                 </td>
@@ -160,61 +151,56 @@
                     </p>
 
 
-                    <table class="user_address">
 
-                        <tr>
-                            <td class="first_td">
-                                <div id="type_radio_1" class="type-radio-control2" onclick="set_type(1)">
-                                    <label></label>
-                                </div>
-                            </td>
-                            <td>
-                                <div style="float:right">
-                                    <img src="{{ url('img/post_48_icon.png') }}">
-                                </div>
-                                <div style="float:right">
-                                    <p style="padding-right:15px;">تحويل اکسپرس ديجي‌کالا</p>
-                                    <p style="padding-right:15px">زمان تحويل: 1 روز کاري درصورت ثبت سفارش تا ساعت 12
-                                        (به‌جز جشنواره‌هاي فروش و روزهاي تعطيل)</p>
-                                </div>
-                            </td>
-                            <td style="width:120px;text-align:center">
-                                <p>هزینه ارسال </p>
-                                <p class="#4CAF50">10,000 تومان</p>
-                            </td>
-                        </tr>
 
-                    </table>
 
-                    <table class="user_address">
-
-                        <tr>
-                            <td class="first_td">
-                                <div id="type_radio_2" class="type-radio-control" onclick="set_type(2)">
-                                    <label></label>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6 d-flex justify-content-around">
+                                <div class="card border-primary mb-3" style="max-width: 21rem;">
+                                    <div class="card-header text-center bg-transparent border-primary">تحويل اکسپرس
+                                        هوشمند خودرو
+                                    </div>
+                                    <div class="card-body">
+                                        <div style="margin: 5px auto 5px auto" class="d-flex justify-content-center">
+                                            <img src="{{ url('img/post_48_icon.png') }}">
+                                        </div>
+                                        <p class="card-text">زمان تحويل: 1 روز کاري درصورت ثبت سفارش تا ساعت 12</p>
+                                    </div>
+                                    <div class="w-100 d-flex justify-content-center mb-2">
+                                        <button id="addcheck" type="button" style="border-radius: 6px;padding: 8px;"
+                                                class="  btn   btn-primary  "><span> انتخاب روش ارسال</span></button>
+                                    </div>
+                                    <div class="card-footer text-center bg-transparent border-primary">هزینه ارسال 10000 هزار
+                                        تومان
+                                    </div>
                                 </div>
-                            </td>
-                            <td>
-                                <div style="float:right">
-                                    <img src="{{ url('img/vtn_48_icon.png') }}">
+                            </div>
+                            <div class="col-md-6 d-flex justify-content-around">
+                                <div class="card border-primary mb-3" style="width: 21rem;">
+                                    <div class="card-header text-center bg-transparent border-primary">باربري (پس کرايه
+                                        | لوازم خانگي سنگين)
+                                    </div>
+                                    <div class="card-body    ">
+                                        <div style="margin: 5px auto 5px auto" class="d-flex justify-content-center">
+                                            <img src="{{ url('img/post_48_icon.png') }}">
+                                        </div>
+                                        <p class="card-text"> ويژه لوازم خانگي سنگين</p>
+                                    </div>
+                                    <div class="w-100 d-flex justify-content-center mb-2">
+                                        <button id="addcheck1" type="button" style="border-radius: 6px;padding: 8px;"
+                                                class="btn btn-sm btn-primary  "><span>انتخاب روش ارسال</span></button>
+                                    </div>
+                                    <div class="card-footer text-center bg-transparent border-primary">هزینه ارسال پس کرایه</div>
                                 </div>
-                                <div style="float:right">
-                                    <p style="padding-right:15px;">باربري (پس کرايه | لوازم خانگي سنگين)</p>
-                                    <p style="padding-right:15px">ويژه لوازم خانگي سنگين</p>
-                                </div>
-                            </td>
-                            <td style="width:120px;text-align:center">
-                                <p>هزینه ارسال </p>
-                                <p class="#4CAF50">پس کرايه</p>
-                            </td>
-                        </tr>
-
-                    </table>
-
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="form-group" style="float: left;margin-top:40px;margin-bottom:30px">
 
-                    <a href="{{url('Payment')}}"      class="btn btn-info-custom-payment hvr-sweep-to-left">ثبت اطلاعات و ادامه خرید</a>
+                        <a href="{{url('Payment')}}" class="btn btn-info-custom-payment hvr-sweep-to-left">ثبت اطلاعات و
+                            ادامه خرید</a>
 
                     </div>
 
@@ -234,7 +220,7 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
-                    <h5 class="modal-title" id="myModalLabel">ویرایش آدرس</h5>
+                    <h5 style="position: relative;left: 355px;" class="modal-title" id="myModalLabel">ویرایش آدرس</h5>
                 </div>
                 <div id="loading_box">
                     <div class="loading"></div>
@@ -422,12 +408,16 @@
         };
         set_type = function (id) {
             document.getElementById('order_type').value = id;
+
             var c = document.getElementsByClassName('type-radio-control2');
+
             for (var i = 0; i < c.length; i++) {
                 c[i].className = 'type-radio-control';
+
             }
             document.getElementById('type_radio_' + id).className = 'type-radio-control2';
         };
+
         function checkValue(element) {
             // check if the input has any value (if we've typed into it)
             if ($(element).val())
@@ -436,13 +426,13 @@
                 $(element).removeClass('has-value');
         }
 
-        $(document).ready(function() {
+        $(document).ready(function () {
             // Run on page load
-            $('.form-control').each(function() {
+            $('.form-control').each(function () {
                 checkValue(this);
             })
             // Run on input exit
-            $('.form-control').blur(function() {
+            $('.form-control').blur(function () {
                 checkValue(this);
             });
 

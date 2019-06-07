@@ -26,11 +26,17 @@
 
                      </div>
                  </form>
-                 <div class=user-register>
+                 <div  class=user-register>
                      @if(Auth::check())
-                     <li> <a class="underline-from-center" href="{{ url('user') }}">
+                     <li> <a class=" show-drop" href="#">
                              {{ Auth::user()->username }}
-                         </a></li>
+                         </a>
+                     </li>
+                         <div class="user_drop">
+                             <a href="{{url('user')}}">  <p><i class="fa fa-user"></i>پروفایل</p></a>
+                             <a href="{{url('user/orders')}}">   <p><i class="fa fa-shopping-cart"></i>سفارشات من </p></a>
+                             <a href="{{url('logout')}}">  <p><i class="fa fa-sign-out"></i>خروج از سایت </p></a>
+                         </div>
                      @else
 
                      <li><a href="{{ url('login') }}">ورود / ثبت‌

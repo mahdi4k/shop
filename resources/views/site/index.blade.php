@@ -11,7 +11,76 @@
         $arabic_western = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
         return str_replace($arabic_western, $arabic_eastern, $str);
     }
+
+     
     ?>
+    <div id="show_data"></div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h5 class="modal-title  text-center w-100 " id="myModalLabel">ورود به سایت</h5>
+                </div>
+                <div class="modal-body">
+    
+                    <div class="register_form text-right">
+                        <form method="post" action="{{ route('login') }}">
+                            {{ csrf_field() }}
+                            <div class="form-row">
+                                <div class="form-group w-100">
+    
+                                    <input type="text" value="{{ old('username') }}" class="form-control" name="username" id="inputAddress">
+                                    <label for="inputAddress">شماره همراه یا پست الکترونیک</label>
+                                    <div class="line"></div>
+    
+                                </div>
+                            </div>
+                            @if($errors->has('username'))
+                                <span class="has-error">{{ $errors->first('username') }}</span>
+                            @endif
+    
+    
+                            <div class="form-row">
+                                <div class="form-group w-100">
+    
+                                    <input type="password" class="form-control" name="password" id="inputPaswword">
+                                    <label for="inputPaswword">کلمه عبور</label>
+                                    <div class="line"></div>
+                                </div>
+                            </div>
+                            @if($errors->has('password'))
+                                <span style="color: red;font-size: 10pt">{{ $errors->first('password') }}</span>
+                            @endif
+                            <div class="form-group custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck"
+                                       name="remember" {{ old('remember') ? 'checked' : '' }}>
+    
+                                <label class="custom-control-label" for="customCheck"> مرا به خاطر بسپار</label>
+                            </div>
+    
+                            <div class="form-group text-center">
+                                <input type="submit" style="width:150px" class="btn btn-info" value="ورود به سایت">
+                                <a class="btn btn-light" style=" padding-right: 10px;" href="">بازیابی کلمه عبور</a>
+                            </div>
+    
+    
+                        </form>
+                    </div>
+    
+    
+                </div>
+                <div style="background-color: #dae1f1;" class="login_footer text-center">
+    
+                          <span>
+                قبلاً در سایت ثبت نام نکرده اید؟</span>
+                    <a class="btn  mb-1" href="{{ url('register') }}">ثبت نام در سایت</a>
+                </div>
+            </div>
+        </div>
+    </div>
 <div class="clearfix"></div>
 <div class="banner">
 
@@ -75,6 +144,8 @@
     </div>
 </section>
 <div class="clearfix"></div>
+
+
 <section id="amazing">
 
     <div class="container-fluid">
@@ -337,21 +408,21 @@
     var amazing_time = [];
     var i = 0;
 
-    <
-    ?
-    php
+    <?php
+    
+    
 
     foreach($amazing as $key => $value) {
-            $time = ($value - > timestamp - time() > 0) ? $value - > timestamp - time() : 0; ?
-            >
-            amazing_time[i] = < ? = $time ? > ;
-            i++; <
-            ?
-            php
+            $time = ($value->timestamp - time() > 0) ? $value->timestamp - time() : 0; 
+            ?> 
+            amazing_time[i] = <?= $time ?> ;
+            i++; <?php
+            
+            
         }
 
-        ?
-        >
+        ?>
+        
 
 </script>
 @endsection

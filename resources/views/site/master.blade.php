@@ -12,8 +12,10 @@
     <link rel="stylesheet" href="{{url('css/slick-theme.css')}}">
     <link rel="stylesheet" href="{{url('css/flipclock.css')}}">
     <link rel="stylesheet" href="{{url('css/site.css')}}">
+    <link rel="stylesheet" href="{{url('css/responsiv1298.css')}}" >
     <script src="{{url('js/home.js')}}"></script>
-
+    
+              
 
     @yield('style')
     <title>

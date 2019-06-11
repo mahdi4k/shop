@@ -7,7 +7,7 @@ $("#product_cat li").hover(function ()
     else
     {
         var id=this.id.replace('li','span');
-        document.getElementById(id).className='fa fa-chevron-up';
+         
         $('ul', this).css('display', 'flex');
     }
 
@@ -20,7 +20,7 @@ $("#product_cat li").hover(function ()
     else
     {
         var id=this.id.replace('li','span');
-        document.getElementById(id).className='fa fa-chevron-down';
+         
         $('ul', this).hide(1);
     }
 
@@ -191,13 +191,16 @@ set_pay=function (id)
 $('#addcheck').click(function () {
     document.getElementById('order_type').value = 1;
     $('#addcheck1').removeClass('checked_custom_shipping');
+    $('.add-border2').removeClass('border-active');
     $('#addcheck').toggleClass('checked_custom_shipping');
+    $('.add-border1').addClass('border-active');
 });
 $('#addcheck1').click(function () {
     document.getElementById('order_type').value = 2;
     $('#addcheck').removeClass('checked_custom_shipping');
+    $('.add-border1').removeClass('border-active');
     $('#addcheck1').toggleClass('checked_custom_shipping') ;
-
+    $('.add-border2').addClass('border-active');
 });
 
 $('.show-drop').click(function () {

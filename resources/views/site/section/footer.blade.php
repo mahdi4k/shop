@@ -44,10 +44,10 @@
                 <p><i class="fa fa-bookmark-o"></i>شَبکه اجتماعی</p>
             </div>
             <div class="social-network">
-                <a href=""> <i class="fab fa-telegram"></i></a>
-                <a href=""> <i class="fab fa-instagram"></i></a>
-                <a href=""> <i class="fab fa-twitter"></i></a>
-                <a href=""> <i class="fab fa-facebook"></i></a>
+                <a href=""> <i class="fa fa-telegram"></i></a>
+                <a href=""> <i class="fa fa-instagram"></i></a>
+                <a href=""> <i class="fa fa-twitter"></i></a>
+                <a href=""> <i class="fa fa-facebook"></i></a>
             </div>
             <p class="text-center no-margin">عضویت در خبرنامه</p>
             <input type="email" class="original-control" placeholder="ایمیل" aria-label="Username">
@@ -70,12 +70,42 @@
 <script src="{{url('js/flipclock.min.js')}}"></script>
 
 <script src="{{url('js/easing.jquery1.3.min.js')}}"></script>
- 
-
-    @yield('footer_site')
 
 
+@yield('footer_site')
 
+
+<?php
+$url1 = url('site/ajax_check_login');
+?>
+<script>
+    show_login_form = function () {
+        $.ajaxSetup(
+            {
+                'headers': {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        $.ajax({
+            url: '{{ $url1 }}',
+            type: 'POST',
+            success: function (data) {
+                $("#show_data").html(data);
+            }
+        });
+    };
+</script>
+@if($errors->has('username') or $errors->has('password'))
+<script>
+    
+
+        $(document).ready(function(){
+  $("#myBtn").click(function(){
+    $("#myModal").modal();
+  });
+});
+</script>
+@endif
 </body>
 
 </html>

@@ -55,7 +55,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="submit" class="register_btn" value="ثبت نام در دیجی آنلاین">
+                                    <button   class="register_btn" >ثبت نام در دیجی آنلاین</button>
                                 </div>
 
 
@@ -93,5 +93,5 @@
 
         </div>
     </div>
-
+      
 @endsection

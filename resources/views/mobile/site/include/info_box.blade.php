@@ -1,4 +1,4 @@
-<?php $c_id = 0; $check = null;
+<?php $c_id=0; $check=null;
 
 ?>
 <?php
@@ -17,20 +17,18 @@ function arabic_w2e($str)
         @if($service)
 
             @if($value->id==$service->color_id)
-                <?php $c_id = $service->color_id; ?>
+                <?php $c_id=$service->color_id; ?>
             @endif
             <div class="color_box" onclick="set_color('<?= $value->id ?>')">
-                <label style="background:#{{ $value->color_code }}"> @if($value->id==$service->color_id) <span
-                        class="tick"></span> @endif</label>
+                <label style="background:#{{ $value->color_code }}"> @if($value->id==$service->color_id) <span class="tick"></span> @endif</label>
                 <span>{{ $value->color_name }}</span>
             </div>
         @else
             @if($value->id==$color_id)
-                <?php $c_id = $value->id; ?>
+                <?php $c_id=$value->id; ?>
             @endif
             <div class="color_box" onclick="set_color('<?= $value->id ?>')">
-                <label style="background:#{{ $value->color_code }}"> @if($value->id==$color_id) <span
-                        class="tick"></span> @endif</label>
+                <label style="background:#{{ $value->color_code }}"> @if($value->id==$color_id) <span class="tick"></span> @endif</label>
                 <span>{{ $value->color_name }}</span>
             </div>
 
@@ -47,7 +45,7 @@ function arabic_w2e($str)
         <p style="padding-top:55px;font-size:17pt">انتخاب گارانتی</p>
         <?php
 
-        $c = 0;
+        $c=0;
         ?>
         @foreach($product->get_service_name as $key=>$value)
 
@@ -77,12 +75,12 @@ function arabic_w2e($str)
 
                     <?php
 
-                    if($c == 0)
+                    if($c==0)
                     {
-                    $check = DB::table('service')->where(['parent_id' => $value->id, 'color_id' => $color_id])->orderBy('id', 'DESC')->first();
+                    $check=DB::table('service')->where(['parent_id'=>$value->id,'color_id'=>$color_id])->orderBy('id','DESC')->first();
                     if($check)
                     {
-                    $c = 1;
+                    $c=1;
                     ?>
                     <div class="service_title" onclick="show_service()">
                         <span>{{ $value->service_name }}</span>
@@ -121,14 +119,18 @@ function arabic_w2e($str)
 </div>
 
 
+
 <div style="width:100%;float:right;margin-top: 15px;">
 
     <?php
 
-    if ($service) {
-        $price = $service->price;
-    } else {
-        $price = $check ? $check->price : $product->price;
+    if($service)
+    {
+        $price=$service->price;
+    }
+    else
+    {
+        $price=$check ? $check->price :  $product->price;
     }
 
     ?>
@@ -148,10 +150,10 @@ function arabic_w2e($str)
                     style="color: #FB3449;font-size: 2.214rem;">{{arabic_w2e( number_format($product->price-$product->discounts)) }}</span>
                 تومان</p>
         @endif
-        <div class="btn-fixed">
-            <button type="submit" class="btn btn-info-custom hvr-sweep-to-left">افزودن به سبد خرید
-            </button>
-        </div>
+            <div class="btn-fixed">
+        <button type="submit" class="btn btn-info-custom hvr-sweep-to-left">افزودن به سبد خرید
+        </button>
+            </div>
         <div class="truck">
             <i class="truck-custom fa fa-truck"></i>
             <span>ارسال از دو روز کاری آینده</span>
@@ -159,7 +161,7 @@ function arabic_w2e($str)
         <div class="property-item">
             <h6 class="">ویژگی های محصول</h6>
             <?php
-            $i = 1;
+            $i=1;
             ?>
             @foreach($items as $key=>$value)
                 <?php

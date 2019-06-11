@@ -130,6 +130,7 @@ Route::middleware(['throttle:150,1'])->group(function () {
         Route::post('site/ajax_check_login', 'SiteController@check_login');
         Route::get('Shipping', 'ShopController@Shipping');
         Route::post('shop/get_ajax_shahr', 'ShopController@get_ajax_shahr');
+        ROute::post('site/check_discount_code','SiteController@check_discount_code');
 
 
         //user route

@@ -20,12 +20,22 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Slider;
+use App\lib\Mobile_Detect;
 
 class SiteController extends Controller
 {
+    protected  $view;
     public function __construct()
     {
-
+        $detect = new Mobile_Detect();
+        if($detect->isMobile() || $detect->isTablet())
+        {
+            $this->view='mobile.';
+        }
+        else
+        {
+            $this->view='';
+        }
 
         $cat = Category::where('parent_id', 0)->get();
 
@@ -38,8 +48,10 @@ class SiteController extends Controller
 
         $slider = Slider::orderBy('id', 'DESC')->limit(5)->get();
         $product = Product::with('get_img')->where('product_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
+        $old_amazing=Amazing::orderBy('timestamp','DESC')->first();
         $amazing = Amazing::with('get_img')->with('get_product')->orderBy('id', 'DESC')->get();
-        return view('site.index', compact('product', 'amazing', 'slider'));
+        $view_name=$this->view.'site/index';
+        return view($view_name, compact('product', 'amazing', 'slider','old_amazing'));
     }
 
     public function show($code, $title)
@@ -52,7 +64,8 @@ class SiteController extends Controller
         $items = Item::get_product_item($product->id);
         $item_value = DB::table('item_product')->where('product_id', $product->id)->pluck('value', 'item_id')->toArray();
         $score_data = ProductScore::get_score($product->id);
-        return view('site/show', compact('review', 'items', 'item_value', 'product', 'score_data'));
+        $view_name=$this->view.'site/show';
+        return view($view_name, compact('review', 'items', 'item_value', 'product', 'score_data'));
     }
 
     public function set_service(Request $request)
@@ -65,7 +78,7 @@ class SiteController extends Controller
         $product = Product::with('get_service_name')->find($product_id);
         $colors = $product->get_colors;
         $check = Service::where(['parent_id' => $service_id, 'product_id' => $product_id, 'color_id' => $color_id])->orderby('id', 'DESC')->first();
-        //$view_name=$this->view.'include/info_box';
+        $view_name=$this->view.'site.include.info_box';
         return View('site.include.info_box', ['colors' => $colors, 'items' => $items, 'service' => $check, 'color_id' => $color_id, 'product' => $product, 'service_id' => $service_id]);
     }
 
@@ -113,7 +126,8 @@ class SiteController extends Controller
     }
     public function show_cart()
     {
-        $view_name = 'site/cart';
+
+        $view_name=$this->view.'site/cart';
         return View($view_name);
     }
 
@@ -147,7 +161,7 @@ class SiteController extends Controller
             $color_id = $request->get('color_id', 0);
             $service_id = $request->get('service_id', 0);
             Cart::remove($product_id, $service_id, $color_id);
-            $view_name = 'site/include/ajax_cart';
+            $view_name=$this->view.'site.include/ajax_cart';
             return View($view_name);
         }
     }
@@ -160,7 +174,7 @@ class SiteController extends Controller
             $service_id = $request->get('service_id', 0);
             $number = $request->get('number', 0);
             Cart::change($product_id, $service_id, $color_id, $number);
-            $view_name = 'site.include/ajax_cart';
+            $view_name=$this->view.'site.include/ajax_cart';
             return View($view_name);
         }
     }
@@ -271,5 +285,37 @@ public function add_comment(Request $request)
 
         return redirect()->back();
     }
+
+    
 }
+
+public function check_discount_code(Request $request)
+    {
+        $price=Session::get('price',0);
+        $code=$request->get('discount_code');
+        $discount=Discount::where(['code'=>$code])->get();
+        if(sizeof($discount)>0)
+        {
+            $price=Session::get('price',0);
+            $r=Discount::check_discount($discount,$price);
+            if($r)
+            {
+                Session::put('discount',$r);
+
+                $price2=Cart::getPrice();
+
+                echo 'کد تخفیف وارد شده صحیح می باشد مبلغ نهایی برای پرداخت : '.$price2;
+            }
+            else
+            {
+                return 'error';
+            }
+        }
+        else
+        {
+            return 'error';
+        }
+
+
+    }
 }

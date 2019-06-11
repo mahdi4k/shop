@@ -81,7 +81,24 @@
                 </div>
             @endif
 
+            <div style="border: 1px solid #62B965;margin-bottom:20px;" id="gift_cart">
+                    <div style="padding: 20px;">
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12">
+                                <p style="padding-top:5px">در صورتی که کارت هدیه دارید وارد کنید</p>
+                            </div>
 
+                            <div class="col-md-8 col-xs-12">
+                                <input class="form-control" style="width:200px;float:right" type="text" name="gift_cart" id="gift_carts">
+                                <button class="btn btn-default" onclick="send_gift_cart()">بررسی</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                
             {{--<div style="border: 1px solid #62B965;margin-bottom:20px;" id="gift_cart">
                 <div style="padding: 20px;">
                     <div class="row">

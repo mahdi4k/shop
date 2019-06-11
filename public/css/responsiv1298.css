@@ -1,0 +1,49 @@
+@media only screen and (max-width: 1024px) { 
+
+     
+    .about-title {
+        border-bottom: 1px solid orange;
+        width: 198px;
+        display: inline-table;
+    }
+    .social-network a {
+        opacity: .6;
+        transition: 0.3s;
+        display: table-cell;
+        position: relative;
+        right: 27px;
+    }
+    .footer-about {
+        margin-right: 18px;
+        width: 267px;
+        font-size: 12px;
+        line-height: 2;
+    }
+
+ }
+ @media only screen and (max-width: 768px) { 
+
+    .footer-about {
+        margin-right: 18px;
+        width: 208px;
+        font-size: 12px;
+        line-height: 2;
+    }
+    .site-sta, .site-section i {
+        font-size: 13pt;
+        float: right;
+        text-align: initial;
+        margin-right: -44px;
+    }
+    .social-network a {
+        opacity: .6;
+        transition: 0.3s;
+        display: table-cell;
+        position: relative;
+        right: -21px;
+    }
+ }
+
+ @media only screen and (min-width: 1600px) { 
+    
+ }

@@ -4,7 +4,6 @@
 @endsection
 @section('content')
 
-
     <div class="container-fluid login-register">
 
 

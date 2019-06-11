@@ -15,11 +15,21 @@ use Validator;
 use Session;
 use App\Category;
 use View;
-
+use App\lib\Mobile_Detect;
 class ShopController extends Controller
-{
+{   
+    protected  $view;
     public function __construct()
     {
+        $detect = new Mobile_Detect();
+        if($detect->isMobile() || $detect->isTablet())
+        {
+            $this->view='mobile.';
+        }
+        else
+        {
+            $this->view='';
+        }
         $this->middleware('auth');
         $cat = Category::where('parent_id', 0)->get();
         View::share('category', $cat);
@@ -32,7 +42,8 @@ class ShopController extends Controller
             $ostan=Ostan::get();
             $user_id=Auth::user()->id;
             $address=Address::with('get_shahr')->with('get_ostan')->where('user_id',$user_id)->orderBy('id','DESC')->paginate(20);
-            return View('site.shop.shipping',['ostan'=>$ostan,'address'=>$address]);
+            $view_name=$this->view.'site.shop.shipping';
+            return View($view_name,['ostan'=>$ostan,'address'=>$address]);
         }
         else
         {
@@ -451,7 +462,7 @@ class ShopController extends Controller
                 {
                     return View('pay_error');
                 }
-            }
+           }
             else
             {
                 return View('pay_error');

@@ -14,11 +14,10 @@
                         <tr>
                             <td colspan="2">
                                 <div class="form-group">
-
-                                    <input name="name"  id="name-input" class="form-control" style="width:98%" value="{{ old('name') }}">
                                     <label for="name-input">نام و نام خانوادگی</label>
-                                    <div class="line"></div>
-                                </div>
+                                    <input name="name"  id="name-input" class="form-control"   value="{{ old('name') }}">
+                                    
+                                 </div>
                             </td>
                         </tr>
 
@@ -70,18 +69,18 @@
                             <td>
                                 <div class="form-group">
 
-
-                                    <input type="text" id="phone-input" name="tell" value="{{ old('tell') }}" class="form-control">
                                     <label for="phone-input">تلفن ثابت</label>
-                                    <div class="line"></div>
+                                    <input type="text" id="phone-input" name="tell" value="{{ old('tell') }}" class="form-control">
+                                    
+                                     
                                 </div>
                             </td>
                             <td>
                                 <div class="form-group">
-
-                                    <input type="text" id="code-city" class="form-control" value="{{ old('tell_code') }}" name="tell_code">
                                     <label for="code-city">کد شهر</label>
-                                    <div class="line"></div>
+                                    <input type="text" id="code-city" class="form-control" value="{{ old('tell_code') }}" name="tell_code">
+                                    
+                                     
                                 </div>
                             </td>
                         </tr>
@@ -101,18 +100,18 @@
                         <tr>
                             <td>
                                 <div class="form-group">
-
-                                    <input type="text" id="mobile-number" value="{{ old('mobile') }}" class="form-control" name="mobile">
                                     <label for="mobile-number">شماره موبایل</label>
-                                    <div class="line"></div>
+                                    <input type="text" id="mobile-number" value="{{ old('mobile') }}" class="form-control" name="mobile">
+                                    
+                                     
                                 </div>
                             </td>
                             <td>
                                 <div class="form-group">
-
-                                    <input type="text" id="zip-code" value="{{ old('zip_code') }}"  name="zip_code" class="form-control" placeholder="">
                                     <label for="zip-code">کد پستی</label>
-                                    <div class="line"></div>
+                                    <input type="text" id="zip-code" value="{{ old('zip_code') }}"  name="zip_code" class="form-control" placeholder="">
+                                   
+                                     
                                 </div>
                             </td>
                         </tr>

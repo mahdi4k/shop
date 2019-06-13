@@ -41,11 +41,13 @@ class CategoryController extends Controller
     {
         $Category = Category::findOrFail($id);
         $cat_list = Category::get_cat_list();
-        return View('admin.category.edit', ['cat_list' => $cat_list, 'Category' => $Category]);
+        return View('Admin.category.edit', ['cat_list' => $cat_list, 'Category' => $Category]);
+         
     }
 
     public function update(CategoryRequest $request, $id)
     {
+         
         $Category = Category::findOrFail($id);
         if ($request->hasFile('pic')) {
             $file_name = time() . '.' . $request->file('pic')->getClientOriginalExtension();
@@ -53,8 +55,8 @@ class CategoryController extends Controller
                 $Category->img = $file_name;
             }
         }
-        $Category->update($request->all());
-        $url = 'admin/category/' . $Category->id . '/edit';
+          $Category->update($request->all());
+         $url = 'admin/category/' . $Category->id . '/edit';
         return redirect($url);
     }
 

@@ -43,14 +43,6 @@
                         </a>
                     </span>
 
-                    <div class="rounded_rectangle_over step_shipping line_order"></div>
-
-                    <span class="bullet login">
-                        <a>
-                            <span>بازبینی سفارش</span>
-                        </a>
-                    </span>
-
 
                     <div class="rounded_rectangle_over step_shipping line_order"></div>
 
@@ -69,7 +61,7 @@
         </div>
 
 
-        <form class="w-100" action="{{ url('review') }}" method="post">
+        <form class="w-100" action="{{ url('payment') }}" method="post">
             {{ csrf_field() }}
             <div style="width:95%;margin:50px auto; text-align: right">
 
@@ -94,12 +86,15 @@
 
 
                             <div style="width:100%;position:absolute;top:-1px;right:0px">
-                                <span id="span_action_<?= $value->id ?>" class="@if($key==0) active-address @else span_address @endif">
+                                <span id="span_action_<?= $value->id ?>"
+                                    class="@if($key==0) active-address @else span_address @endif">
                                     <li class="icon-shopping-white-mark"></li>
                                 </span>
                             </div>
 
-                            <div id="address_radio_<?= $value->id ?>" class="@if($key==0) radio-control2 @else radio-control @endif" onclick="set_addrees('<?= $value->id ?>')">
+                            <div id="address_radio_<?= $value->id ?>"
+                                class="@if($key==0) radio-control2 @else radio-control @endif"
+                                onclick="set_addrees('<?= $value->id ?>')">
                                 <label></label>
                             </div>
                         </td>
@@ -112,7 +107,8 @@
                                 <span class="fa fa-edit"></span>
                             </div>
                             <div class="delete_address">
-                                <span class="fa fa-remove" onclick="del_row('<?= $value->id ?>','<?= url('remove_address') ?>','<?= Session::token() ?>')"></span>
+                                <span class="fa fa-remove"
+                                    onclick="del_row('<?= $value->id ?>','<?= url('remove_address') ?>','<?= Session::token() ?>')"></span>
                             </div>
                         </td>
 
@@ -150,7 +146,8 @@
                 @endforeach
 
 
-                <p style="padding-top:30px"><span class="icon_item_name"></span><span style="padding-right:5px;">انتخاب شیوه ارسال </span>
+                <p style="padding-top:30px"><span class="icon_item_name"></span><span style="padding-right:5px;">انتخاب
+                        شیوه ارسال </span>
                 </p>
 
 
@@ -171,9 +168,12 @@
                                     <p class="card-text">زمان تحويل: 1 روز کاري درصورت ثبت سفارش تا ساعت 12</p>
                                 </div>
                                 <div class="w-100 d-flex justify-content-center mb-2">
-                                    <button id="addcheck" type="button" style="border-radius: 6px;padding: 8px;" class="  btn checked_custom_shipping  btn-primary  "><span> انتخاب روش ارسال</span></button>
+                                    <button id="addcheck" type="button" style="border-radius: 6px;padding: 8px;"
+                                        class="  btn checked_custom_shipping  btn-primary  "><span> انتخاب روش
+                                            ارسال</span></button>
                                 </div>
-                                <div class="card-footer text-center bg-transparent border-primary">هزینه ارسال 10000 هزار
+                                <div class="card-footer text-center bg-transparent border-primary">هزینه ارسال 10000
+                                    هزار
                                     تومان
                                 </div>
                             </div>
@@ -190,22 +190,25 @@
                                     <p class="card-text"> ويژه لوازم خانگي سنگين</p>
                                 </div>
                                 <div class="w-100 d-flex justify-content-center mb-2">
-                                    <button id="addcheck1" type="button" style="border-radius: 6px;padding: 8px;" class="btn btn-sm btn-primary  "><span>انتخاب روش ارسال</span></button>
+                                    <button id="addcheck1" type="button" style="border-radius: 6px;padding: 8px;"
+                                        class="btn btn-sm btn-primary  "><span>انتخاب روش ارسال</span></button>
                                 </div>
-                                <div class="card-footer text-center bg-transparent border-primary">هزینه ارسال پس کرایه</div>
+                                <div class="card-footer text-center bg-transparent border-primary">هزینه ارسال پس کرایه
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <input type="submit" value="ثبت اطلاعات و ادامه خرید" class="btn pull-left btn-info-custom-payment hvr-sweep-to-left" type="submit">  
-
+                <div class="d-flex justify-content-center">
+                    <input type="submit" value="ثبت اطلاعات و ادامه خرید"
+                        class="btn pull-left btn-info-custom-payment hvr-sweep-to-left" type="submit">
+                </div>
 
             </div>
         </form>
         <div class="form-group" style="width:99%">
 
-             
+
 
         </div>
     </div>
@@ -220,7 +223,8 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
                 <h5 style="position: relative;left: 355px;" class="modal-title" id="myModalLabel">ویرایش آدرس</h5>
             </div>
             <div id="loading_box">

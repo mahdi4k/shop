@@ -8,6 +8,7 @@ use App\Category;
 use App\Color;
 use App\Comment;
 use App\Item;
+use App\IndexSearch;
 use App\Product;
 use App\ProductScore;
 use App\Question;
@@ -316,6 +317,28 @@ public function check_discount_code(Request $request)
             return 'error';
         }
 
+
+    }
+
+    public function search(Request $request)
+    {
+        if($request->has('text'))
+        {
+            $text=$request->get('text');
+            $Product=IndexSearch::get_product($text,$request->get('type',1),$request->get('product_status',0));
+            if($request->ajax())
+            {
+                 return View('site.include.product_list2',['product'=>$Product,'cat_url'=>'','Search_text'=>$text]);
+            }
+            else
+            {
+                return View('site.search2',['product'=>$Product,'Search_text'=>$text]);
+            }
+        }
+        else
+        {
+            return redirect('');
+        }
 
     }
 }

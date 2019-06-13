@@ -105,7 +105,7 @@ Route::middleware(['throttle:150,1'])->group(function () {
         Route::post('shop/edit_address/{address_id}', 'ShopController@edit_address');
         Route::delete('remove_address/{id}', 'ShopController@remove_address');
         Route::match(['get', 'post'], 'review', 'ShopController@review');
-        Route::get('Payment', 'ShopController@Payment');
+        Route::post('payment', 'ShopController@Payment');
         Route::post('Payment', 'ShopController@Pay');
         Route::get('user/order', 'UserController@show_order');
         Route::get('logout', 'Auth\LoginController@logout');

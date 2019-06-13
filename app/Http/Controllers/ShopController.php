@@ -187,7 +187,7 @@ class ShopController extends Controller
         }
         return redirect()->back();
     }
-    public function review(Request $request)
+    /*public function review(Request $request)
     {
         if(Cart::has())
         {
@@ -250,23 +250,32 @@ class ShopController extends Controller
         {
             return redirect('Cart');
         }
-    }
-    public function Payment()
+    }*/
+    public function payment(Request $request)
     {
+        $order_address=$request->get('order_address',0);
+        $order_type=$request->get('order_type',0);
+        $data=array();
+        $data['address_id']=$order_address;
+        $data['order_type']=$order_type;
+        $order_data=Session::put('order_data',$data);
         if(Cart::has())
         {
             if(Session::has('order_data'))
             {
-                return View('site.shop.payment');
+                $view_name=$this->view.'site.shop.payment';
+                return View($view_name);
             }
             else
             {
-                return redirect('Shipping');
+                $view_name=$this->view.'site.shop.Shipping';
+                return redirect($view_name);
             }
         }
         else
         {
-            return redirect('cart');
+            $view_name=$this->view.'site.cart';
+            return redirect($view_name);
         }
     }
     public function Pay(Request $request)
@@ -288,7 +297,7 @@ class ShopController extends Controller
                         {
                             $i = $result['id'];
                             $order = \App\Order::with(['get_address_data', 'get_order_row', 'get_user'])->find($i);
-                            Mail::to($order->get_user->username)->queue(new \App\Mail\OrderMail($order));
+                            //Mail::to($order->get_user->username)->queue(new \App\Mail\OrderMail($order));
                             Cart::removeGiftCart($order->price,$order->id);
                             $url = url('user/order?id=') . $result['id'];
                             return redirect($url);
@@ -355,7 +364,7 @@ class ShopController extends Controller
                             {
                                 $i=$result['id'];
                                 $order=\App\Order::with(['get_address_data','get_order_row','get_user'])->find($i);
-                                Mail::to($order->get_user->username)->queue(new \App\Mail\OrderMail($order));
+                                //Mail::to($order->get_user->username)->queue(new \App\Mail\OrderMail($order));
                                 Cart::removeGiftCart($order->price,$order->id);
                                 $url=url('user/order?id=').$result['id'];
                                 return redirect($url);
@@ -379,12 +388,14 @@ class ShopController extends Controller
             }
             else
             {
-                return redirect('Shipping');
+                $view_name=$this->view.'site.shop.Shipping';
+                return redirect($view_name);
             }
         }
         else
         {
-            return redirect('Cart');
+            $view_name=$this->view.'site.cart';
+            return redirect($view_name);
         }
 
     }
@@ -410,7 +421,7 @@ class ShopController extends Controller
 
                     Cart::removeGiftCart($order->price,$order->id);
 
-                    Mail::to($order->get_user->username)->queue(new \App\Mail\OrderMail($order));
+                    //Mail::to($order->get_user->username)->queue(new \App\Mail\OrderMail($order));
 
                     return View('user.show_order',['order'=>$order]);
                 }

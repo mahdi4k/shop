@@ -25,7 +25,7 @@ class CategoryRequest extends FormRequest
     {
         return [
             'cat_name'=>'required',
-            'cat_ename'=>'required|unique:category,cat_ename'.$this->category.'',
+             
             'parent_id'=>'required',
             'pic'=>'image|max:1024'
         ];

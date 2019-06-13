@@ -144,6 +144,7 @@ body
     border-bottom: 2px solid #EE5253;
     box-shadow: 1px 0px 4px 0px rgba(189, 178, 178, 0.65);
 }
+ 
 .c-form{
     position: relative;
     width: 100%;
@@ -1172,12 +1173,7 @@ a:hover
     width:90%;
     margin:20px auto;
 }
-.form-control
-{
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    border-radius: 0px;
-}
+ 
 .register_form .form-control
 {
     width:100%;
@@ -1511,11 +1507,14 @@ a:hover
 .radio-control
 {
     position:relative;
+    text-align: center;
+    padding: 10px
 }
-.radio-control label
+.radio-control em
 {
     width:16px;
     height:16px;
+    display: inline-block;
     border-radius:100%;
     background:#FFF;
     border:1px solid #D4DBDE;
@@ -1523,10 +1522,11 @@ a:hover
     top:5px;
     cursor:pointer;
 }
-.type-radio-control label
+.type-radio-control em
 {
     width:16px;
     height:16px;
+    display: inline-block;
     border-radius:100%;
     background:#FFF;
     border:1px solid #D4DBDE;
@@ -1534,8 +1534,24 @@ a:hover
     top:5px;
     cursor:pointer;
 }
-.radio-control2 label
+.radio-control2{
+    text-align: center;
+    padding: 10px;
+    
+}
+.custom-style-payment{
+    box-shadow: 1px 1px 6px 1px #e2dede;
+}
+.radio-control  label{
+    width: 100%;
+}
+.radio-control2  label{
+    width: 100%;
+}
+
+.radio-control2 em
 {
+    display: inline-block;
     background:#2196F3;
     width:16px;
     height:16px;
@@ -1544,7 +1560,7 @@ a:hover
     top:5px;
     cursor:pointer;
 }
-.radio-control2 label::after
+.radio-control2 em::after
 {
     width:7px;
     height:7px;
@@ -1556,8 +1572,9 @@ a:hover
     right:4px;
 }
 
-.type-radio-control2 label
+.type-radio-control2 em
 {
+    display: inline-block;
     background:#2196F3;
     width:16px;
     height:16px;
@@ -1566,7 +1583,7 @@ a:hover
     top:5px;
     cursor:pointer;
 }
-.type-radio-control2 label::after
+.type-radio-control2 em::after
 {
     width:7px;
     height:7px;
@@ -1577,8 +1594,13 @@ a:hover
     top:4px;
     right:4px;
 }
-
-
+.show-drop{
+    transition: .2s color;
+}
+.show-drop:hover{
+    color: tomato ;
+}
+ 
 .loading_box
 {
     width:180px;
@@ -1709,6 +1731,10 @@ a:hover
     width:95%;
     background:white;
     margin-right:0px !important;
+    text-align: right;
+}
+.product-pr{
+    background: #edeff0;
 }
 #filter_product_box
 {
@@ -1779,24 +1805,40 @@ a:hover
 }
 .search_body
 {
-    background:white;
+    background:#edeff0;
 }
 .search_product_box
 {
     width:32%;
     float:right;
     margin-right:3px;
+    background: white;
     margin-top: 20px;
     border: 1px solid white;
     padding-right:15px;
     padding-left:15px;
+    transition: .2s box-shadow
+}
+.amazing-button::after {
+    content: "\f07a";
+    font-family: FontAwesome, serif;
+    width: 41px;
+    background: #108da0;
+    height: 38px;
+    line-height: 34px;
+    left: 5px;
+    position: relative;
+    color: white;
+    bottom: 0px;
+    display: inline-block;
+    text-align: center;
 }
 .search_product_box img
 {
     width:100%;
     margin-top:30px;
     margin-bottom: 20px;
-    height: 250px;
+    height: 276px;
 }
 .search_product_box p
 {
@@ -1825,10 +1867,10 @@ a:hover
 }
 .search_product_box:hover
 {
-    border: 1px solid #C7C7C7;
+    box-shadow: -2px 1px 6px rgba(185, 179, 179, 0.25), 0 0px 13px rgba(0, 0, 0, 0.22);
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    border-radius:3px;
+     border-radius:3px;
 }
 
 .filter .search
@@ -1854,7 +1896,16 @@ a:hover
 }
 #search_ul
 {
+    
+    margin-top: 0;
+    margin-right: 0;
+}
+#search_ul li{
     font-size: 13px;
+}
+#search_ul li a {
+    font-size: 13px;
+    transition: .2s color;
 }
 #search_ul .fa-angle-left
 {
@@ -2127,7 +2178,8 @@ a:hover
 }
 .search_product_box .title
 {
-    height: 50px;
+    text-align: center;
+    
 }
 .checkbox2
 {
@@ -2412,10 +2464,12 @@ a:hover
     padding:5px;
     font-size:13px;
 }
+ 
 .search_type_ul
 {
     float:left;
     margin-bottom:0px !important;
+    padding-right: 17px;
 }
 .search_type_ul li
 {
@@ -2426,6 +2480,15 @@ a:hover
     padding-left:10px;
     padding-bottom:10px;
     cursor:pointer;
+    color: #8a8a8a;
+    font-size: 15px;
+    transition: .2s color
+}
+.search_type_ul li:hover{
+    color: #17bbc5
+}
+#search_ul li a:hover{
+    color:black;
 }
 .user_panel_ul .active
 {

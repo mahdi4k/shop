@@ -3,7 +3,7 @@
 @section('style')
     <link href="{{ url('css/ion.rangeSlider.css') }}" rel="stylesheet">
     <link href="{{ url('css/ion.rangeSlider.skinNice.css') }}" rel="stylesheet">
-    <link href="{{ url('css/site.css') }}" rel="stylesheet">
+     
 @endsection
 
 @section('content')
@@ -48,10 +48,9 @@
 
 
         <div class="col-md-9 show_product"  style="background:white">
+                <div class="product-pr">
 
-
-            <div style="width:97%;margin:auto" >
-                <div style="width:100%;float:right">
+             
 
                     <ul class="list-inline" id="search_ul">
                         <li><a href="{{ url('') }}">فروشگاه اینترنتی دیجی آنلاین</a><span class="fa fa-angle-left"></span></li>
@@ -59,35 +58,28 @@
                         <li><a href="{{ url('category').'/'.$category1->cat_ename.'/'.$category2->cat_ename }}">{{ $category2->cat_name }}</a><span class="fa fa-angle-left"></span></li>
                         <li><a href="{{ url('category').'/'.$category1->cat_ename.'/'.$category2->cat_ename.'/'.$category3->cat_ename }}">{{ $category3->cat_name }}</a><span class="fa fa-angle-left"></span></li>
                         <li><a href="{{ url('category').'/'.$category1->cat_ename.'/'.$category2->cat_ename.'/'.$category3->cat_ename.'/'.$category4->cat_ename}}">{{ $category4->cat_name }}</a></li>
-
+                        <li style="position: absolute;left: 1px;margin-left: 33px;margin-top: 10px;" class="list-inline-item pull-left">
+                                <p style="padding-right:15px">
+                                        <span>{{ $category2->cat_name }}</span>
+                                         
+                                        
+                                         
+                                        <span> - {{ sizeof($data['product']) }}</span> 
+                                        <span>محصول</span>
+                                          
+                                         
+                                         
+                                    </p>
+                        </li>
                     </ul>
 
-                </div>
-            </div>
+                 
 
 
-            <div style="width:100%;float:right;position:relative;margin-top:10px;margin-bottom:10px">
-
-                <div style="float:right;">
-                    <p style="padding-right:15px">
-                        <span>{{ $category3->cat_name }}</span>
-                        <span>(</span>
-                        <span>نمایش از </span>
-                        <span>1</span>
-                        <span> - {{ sizeof($data['product']) }}</span>
-                        <span> محصول از </span>
-                        <span>{{ $data['total_product'] }}</span>
-                        <span>)</span>
-                    </p>
-                </div>
-                <div class="search_input_box">
-                    <input type="text" id="search_input" class="form-control search_input" placeholder="جست و جو در نتایج">
-                    <span class="fa fa-search" onclick="search_product()"></span>
-                </div>
-            </div>
+             
 
 
-            <div style="padding-top:15px;width:100%;float:right">
+            <div style="display: flex;padding-top: 15px;width: 97%;float: right;background: white;border-radius: 13px;float: right;">
                 <span style="padding-right:15px;">مرتب سازی بر اساس : </span>
                 <ul class="search_type_ul">
                     <li id="search_type_1" class="active" onclick="set_type(1)">جدیدترین</li>

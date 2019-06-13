@@ -105,6 +105,22 @@ $url1 = url('site/ajax_check_login');
   });
 });
 </script>
+<script>
+search=function () {
+
+var search_text=document.getElementById('inputGroupSuccess1').value;
+if(search_text.trim()!='')
+{
+    if(search_text.trim().length>2)
+    {
+        $("#search_product_form").submit();
+    }
+
+}
+
+
+}
+</script>
 @endif
 </body>
 

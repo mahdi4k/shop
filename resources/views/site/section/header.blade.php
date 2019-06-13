@@ -6,9 +6,9 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-        <form style="width: 63%;position:relative" class="form-inline mt-2 mt-md-0">
+        <form style="width: 63%;position:relative" action="{{ url('Search') }}" id="search_product_form" class="form-inline mt-2 mt-md-0">
 
-            <input class="custom-form-control mr-sm-2" type="text" placeholder="نام کالا یا برند" aria-label="Search">
+            <input id="inputGroupSuccess1" name="text" class="custom-form-control mr-sm-2" type="text" placeholder="نام کالا یا برند" aria-label="Search">
             <button style="" class=" custom-search  my-2 my-sm-0"></button>
 
         </form>

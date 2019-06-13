@@ -6,6 +6,12 @@
 
 
         <?php
+function arabic_w2e($str)
+    {
+        $arabic_eastern = array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩');
+        $arabic_western = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
+        return str_replace($arabic_western, $arabic_eastern, $str);
+    }
 
         function get_score($data)
         {
@@ -50,51 +56,31 @@
             @foreach($product as $key=>$value)
 
                 <div class="search_product_box">
-
+                        <a href="{{ url('product').'/'.$value->code_url.'/'.$value->title_url }}">
                     <img  src="{{ url('upload').'/'.$value->get_img->url }}">
-
+                        </a>
 
                     <?php
 
                     $score=get_score($value->get_score);
                     ?>
 
-                    <div style="text-align:center;height:40px;position:relative">
-
-                        <div class="product_item_compare" onclick="add_compare_product('<?= $value->id ?>','{{ $value->title }}','{{ $value->get_img->url }}')">
-                            <span class="checkbox2" id="compare_{{ $value->id  }}"></span>
-                            <span style="padding-top:5px">مقایسه</span>
-                        </div>
-                        @foreach($value->get_colors as $key2=>$value2)
-                            <label style="width:15px;height:15px;background:#{{ $value2->color_code }};border-radius:100%;@if($value2->color_code=='FFFFFF') border:1px solid silver @endif"></label>
-                        @endforeach
-
-                    </div>
-                    <p style="font-size:12px">
-                        <label class="product_score">
-                            <span class="fa fa-star"></span>
-                            <span>{{ $score }}</span>
-                        </label>
-
-                        <label>
-                            <span>از </span>
-                            <span>{{ sizeof($value->get_score) }}</span>
-                            <span>رای </span>
-                        </label>
-                    </p>
-                    <p class="title">
+                    
+                     
+                    <p class="title text-center">
                         <a href="{{ url('product').'/'.$value->code_url.'/'.$value->title_url }}">
                             @if(strlen($value->title)>35)
                                 {{ mb_substr($value->title,0,28).' ... ' }}
                             @else
                                 {{ $value->title }}
                             @endif
-                        </a></p>
+                        </a>
+                    </p>
 
-                    <p style="color:red">
+                    <p style="color:red; text-align:center">
                         @if($value->product_status==1)
                             @if(!empty($value->price))
-                                {{ number_format($value->price) }} تومان
+                                {{ arabic_w2e(number_format($value->price)) }} تومان
                             @else
                                 <span>نا موجود</span>
                             @endif
@@ -102,6 +88,11 @@
                             <span>نا موجود</span>
                         @endif
                     </p>
+                    <a href="{{ url('product').'/'.$value->code_url.'/'.$value->title_url }}">
+                    <div class="amazing-button mb-5 text-center  ">
+                            <button class="btn btn-info">افزودن به سبد خرید</button>
+                     </div>
+                    </a>
                 </div>
 
             @endforeach

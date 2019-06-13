@@ -6,11 +6,11 @@
         <tr>
             <td colspan="2">
                 <div class="form-group">
-
+                    <label for="name-input">نام و نام خانوادگی</label>
                     <input id="name-input" name="name" style="width:98%" class="form-control"
                            value="{{ $address->name }}">
-                    <label for="name-input">نام و نام خانوادگی</label>
-                    <div class="line"></div>
+                    
+                     
                 </div>
             </td>
         </tr>
@@ -68,19 +68,19 @@
             <td>
                 <div class="form-group">
 
-
-                    <input id="tell" type="text" name="tell" value="{{ $address->tell }}" class="form-control">
                     <label for="tell">تلفن ثابت</label>
-                    <div class="line"></div>
+                    <input id="tell" type="text" name="tell" value="{{ $address->tell }}" class="form-control">
+                   
+                     
                 </div>
             </td>
             <td>
                 <div class="form-group">
-
+                    <label for="city-code">کد شهر</label>
                     <input id="city-code" type="text" value="{{ $address->tell_code }}" class="form-control"
                            name="tell_code">
-                    <label for="city-code">کد شهر</label>
-                    <div class="line"></div>
+                    
+                     
                 </div>
             </td>
         </tr>
@@ -100,19 +100,19 @@
         <tr>
             <td>
                 <div class="form-group">
-
+                    <label for="mobile-number">شماره موبایل</label>
                     <input id="mobile-number" type="text" value="{{ $address->mobile }}" class="form-control align_left"
                            name="mobile">
-                    <label for="mobile-number">شماره موبایل</label>
-                    <div class="line"></div>
+                    
+                     
                 </div>
             </td>
             <td>
                 <div class="form-group">
-
+                    <label for="zip_code">کد پستی</label>
                     <input type="text" value="{{ $address->zip_code }}" name="zip_code" class="form-control align_left"
                            placeholder="">
-                    <label for="zip_code">کد پستی</label>
+                    
                     <div id="zip_code" class="line"></div>
                 </div>
             </td>
@@ -136,10 +136,7 @@
             <td colspan="2">
                 <div>
                     <label>آدرس </label>
-                    <textarea name="address" style="width: 100%;
-    border: 1px solid #2bc2c7;
-    border-radius: 6px;
-}" class="form-control">{{ $address->address }}</textarea>
+                    <textarea name="address"  class="form-control">{{ $address->address }}</textarea>
                 </div>
             </td>
         </tr>

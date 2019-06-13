@@ -167,22 +167,22 @@ set_pay=function (id)
     }
     if (id == 1)
     {
-        document.getElementById('pay_radio_1').className = 'radio-control2';
-        document.getElementById('pay_radio_3').className = 'radio-control2';
+        document.getElementById('pay_radio_1').className = 'radio-control2 ';
+        document.getElementById('pay_radio_3').className = 'radio-control2 custom-style-payment';
         document.getElementById('post_radio_3').setAttribute('checked','checked');
         $("#tab_payment_1").addClass('pay_type_table');
     }
     else if ((id == 2) || (id==3) || (id==4))
     {
 
-        document.getElementById('pay_radio_1').className = 'radio-control2';
-        document.getElementById('pay_radio_'+id).className = 'radio-control2';
+        document.getElementById('pay_radio_1').className = 'radio-control2 ';
+        document.getElementById('pay_radio_'+id).className = 'radio-control2 custom-style-payment';
         document.getElementById('post_radio_'+id).setAttribute('checked','checked');
         $("#tab_payment_1").addClass('pay_type_table');
     }
     else
     {
-        document.getElementById('pay_radio_'+id).className = 'radio-control2';
+        document.getElementById('pay_radio_'+id).className = 'radio-control2 ';
         document.getElementById('post_radio_'+id).setAttribute('checked','checked');
         $("#tab_payment_"+id).addClass('pay_type_table');
     }
@@ -204,5 +204,8 @@ $('#addcheck1').click(function () {
 });
 
 $('.show-drop').click(function () {
-    $('.user_drop').toggle()
+    $('.user_drop').toggle();
+    
 });
+ 
+

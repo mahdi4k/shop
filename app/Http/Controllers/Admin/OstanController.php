@@ -41,6 +41,7 @@ class OstanController extends Controller
     }
     public function update(Request $request,$id)
     {
+        
         $ostan=Ostan::findOrFail($id);
         $Validator=Validator::make($request->all(),
             ['ostan_name'=>'required'],[],['ostan_name'=>'نام استان']);

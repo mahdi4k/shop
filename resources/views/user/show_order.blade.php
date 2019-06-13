@@ -68,7 +68,7 @@
                     </tr>
 
                     <tr>
-                        <td>مبلغ واریز شده</td>
+                        <td>مبلغ  قابل واریز</td>
                         <td>{{ number_format($order->price) }} تومان</td>
                     </tr>
 

@@ -67,7 +67,7 @@
             </div>
 
             <div  id="show_product" style="width:100%;float:right;border-top:1px solid silver">
-                @include('include.product_list2',['product'=>$product,'cat_url'=>'','Search_text'=>$Search_text])
+                @include('site.include.product_list2',['product'=>$product,'cat_url'=>'','Search_text'=>$Search_text])
 
             </div>
 

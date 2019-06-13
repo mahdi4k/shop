@@ -1,9 +1,9 @@
 @extends('site.master')
 @section('title')
-    بازبینی خرید | هوشمند سازان خودرو
+    انتخاب درگاه پرداخت | هوشمند سازان خودرو
 @endsection
 @section('style')
-    <link href="{{ url('css/site.css') }}" rel="stylesheet">
+
 @endsection
 @section('content')
 
@@ -15,7 +15,7 @@
 
 
 
-                <div class="first_div_order_header">
+                <div class="first_div_order_header d-flex justify-content-center">
 
                     <div class="clearfix">
                         <div></div>
@@ -26,7 +26,7 @@
 
                     <span class="bullet login green tick">
                         <a>
-                            <span>ورود به دیجی آنلاین</span>
+                            <span>ورود به هوشمند خودرو</span>
                         </a>
                     </span>
 
@@ -41,13 +41,7 @@
                     </span>
 
 
-                    <div class="rounded_rectangle_over step_shipping line_order"></div>
 
-                    <span class="bullet login green tick">
-                        <a>
-                            <span>بازبینی سفارش</span>
-                        </a>
-                    </span>
 
 
                     <div class="rounded_rectangle_over step_shipping line_order"></div>
@@ -203,7 +197,7 @@
                     <tr>
                         <td style="width: 40px;">
                             <div class="radio-control2" id="pay_radio_1" onclick="set_pay(1)">
-                                <label></label>
+                                <em></em>
                             </div>
                         </td>
                         <td>
@@ -211,24 +205,34 @@
                                 پرداخت اینترنتی ( با تمامی کارت‌های عضو شتاب )
                             </p>
 
-                            <div>
+                            <div class="d-flex justify-content-around">
 
-                                <div class="radio-control first_pay_div" id="pay_radio_2" onclick="set_pay(2)">
-                                    <label></label>
-                                    <span>درگاه پرداخت اینترنتی بانک سامان</span>
+                                <div class="radio-control first_pay_div " id="pay_radio_2" onclick="set_pay(2)">
+                                    <label for="post_radio_2">
+                                        <img class="cursor:pointer" width="150" height="150" alt="bank_meli" src="{{url('img/bank_meli.jpeg')}}">
+
+                                    </label>
+                                    <em></em>
+                                    <span class="d-block">درگاه پرداخت اینترنتی بانک ملی</span>
                                     <input type="radio"  id="post_radio_2"  class="pay_radio" value="2" name="pay_radio">
                                 </div>
 
 
-                                <div class="radio-control2"  id="pay_radio_3" onclick="set_pay(3)">
-                                    <label></label>
-                                    <span>درگاه پرداخت اینترنتی بانک ملت</span>
+                                <div class="radio-control2 custom-style-payment"  id="pay_radio_3" onclick="set_pay(3)">
+                                    <label>
+                                        <img class="cursor:pointer" width="150"  alt="bank_meli" src="{{url('img/download (1).jpeg')}}">
+                                    </label>
+                                    <em></em>
+                                    <span class="d-block">درگاه پرداخت اینترنتی بانک ملت</span>
                                     <input type="radio"  id="post_radio_3" checked="checked" class="pay_radio" value="3" name="pay_radio">
                                 </div>
 
                                 <div class="radio-control" id="pay_radio_4" onclick="set_pay(4)">
-                                    <label></label>
-                                    <span>درگاه پرداخت اینترنتی زرین پال</span>
+                                    <label>
+                                        <img class="cursor:pointer" width="150" alt="bank_meli" src="{{url('img/zarin_pal.jpeg')}}">
+                                    </label>
+                                     <em></em>
+                                    <span class="d-block">درگاه پرداخت اینترنتی زرین پال</span>
                                     <input type="radio" id="post_radio_4" class="pay_radio" value="4" name="pay_radio">
                                 </div>
                             </div>
@@ -242,7 +246,7 @@
                     <tr>
                         <td style="width: 40px;">
                             <div class="radio-control" id="pay_radio_5" onclick="set_pay(5)">
-                                <label></label>
+                                <em></em>
                                 <input type="radio" id="post_radio_5" class="pay_radio" value="5" name="pay_radio">
                             </div>
                         </td>
@@ -264,7 +268,7 @@
                     <tr>
                         <td style="width: 40px;">
                             <div class="radio-control" id="pay_radio_6" onclick="set_pay(6)">
-                                <label></label>
+                                <em></em>
                                 <input type="radio" id="post_radio_6" class="pay_radio" value="6" name="pay_radio">
                             </div>
                         </td>
@@ -285,11 +289,12 @@
                     <tr>
                         <td style="width: 40px;">
                             <div class="radio-control" id="pay_radio_7" onclick="set_pay(7)">
-                                <label></label>
+                                <em></em>
                                 <input type="radio" id="post_radio_7" class="pay_radio" value="7" name="pay_radio">
                             </div>
                         </td>
                         <td>
+                            
                             <p>
                                 واریز به حساب
                             </p>

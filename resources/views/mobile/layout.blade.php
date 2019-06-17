@@ -58,11 +58,22 @@
                 <li class="list-inline-item" onclick="show_cat_box()"><span class="fa fa-bars"></span></li>
                 <li class="list-inline-item">هوشمند خودرو</li>
 
-                <li class="list-inline-item pull-left"  ><span class="fa fa-user"></span></li>
-                <li  class="list-inline-item pull-left" ><span class="fa fa-shopping-cart"></span></li>
-                <li class="list-inline-item pull-left" ><span class="fa fa-search"></span></li>
+                <a href="{{url('user')}}"><li class="list-inline-item pull-left ml-3"  ><span class="fa fa-user"></span></li></a>
+                <a href="{{ url('Cart') }}"><li  class="list-inline-item pull-left ml-3" ><span class="fa fa-shopping-cart"></span></li></a>
+                <li class="list-inline-item pull-left ml-3" ><span class="fa fa-search"></span></li>
+                
+                <li class="list-inline-item toggle-search w-100  ">
+                        <form style="width: 100%;position:relative" action="{{ url('Search') }}" id="search_product_form" class="form-inline mt-2 mt-md-0">
+
+                                <input id="inputGroupSuccess1" name="text" class="custom-form-control mr-sm-2" type="text" placeholder="نام کالا یا برند" aria-label="Search">
+                                <button style="" class=" custom-search  my-2 my-sm-0"></button>
+                    
+                        </form>
+                </li>
             </ul>
+            
         </div>
+        
     </div>
     <div class="clear"></div>
     
@@ -71,8 +82,8 @@
     <div class="w-100">
         <footer class="container-fluid">
             <div class="row">
-                <div class="col-md-3 col-sm-8 text-center">
-                    <div class=" sta-title col-sm-8 col-md-4 col-md-offset-2">
+                <div class="col-md-6 col-sm-8 text-center">
+                    <div class=" sta-title col-sm-8 col-md-12 col-md-offset-2">
                         <p><i class="fa fa-phone-square"></i>ارتباط با ما</p>
                     </div>
                     <div class="clearfix"></div>
@@ -84,8 +95,8 @@
                     </ul>
                 </div>
 
-                <div class="col-md-3 col-sm-8 text-center">
-                    <div class=" about-title col-sm-8 col-md-4 col-md-offset-2">
+                <div class="col-md-6 col-sm-8 text-center">
+                    <div class=" about-title col-sm-8 col-md-12 col-md-offset-2">
                         <p><i class="fa fa-users"></i>گروه هیراد</p>
                     </div>
                     <div class="clearfix"></div>
@@ -97,21 +108,21 @@
                         می باشد. </p>
                 </div>
 
-                <div class="col-md-3 col-sm-8 text-center">
-                    <div class=" about-title col-sm-8 col-md-4 col-md-offset-2">
+                <div class="col-md-6 col-sm-8 text-center">
+                    <div class=" about-title col-sm-8 col-md-12 col-md-offset-2">
                         <p><i class="fa fa-th-list"></i>مجوز ها</p>
                     </div>
                     <div class="clearfix"></div>
                     <ul class="License">
-                        <li><i class="fa fa-image"></i> <a target="_blank" href=" /img/2.jpg ">مجوز فناوری</a></li>
-                        <li><i style="margin-left: 4px" class="fa fa-image"></i><a target="_blank" href=" /img/1.jpg ">مجوز
+                        <li class="list-inline-item"><i class="fa fa-image"></i> <a target="_blank" href=" /img/2.jpg ">مجوز فناوری</a></li>
+                        <li class="list-inline-item"><i style="margin-left: 4px" class="fa fa-image"></i><a target="_blank" href=" /img/1.jpg ">مجوز
                                 فعالیت</a></li>
                     </ul>
                     <img class="img-enamad" src="{{URL::asset('/img/enamad.png')}}">
 
                 </div>
-                <div class="col-md-3 col-sm-8 text-center">
-                    <div class=" about-title col-sm-8 col-md-4 col-md-offset-2">
+                <div class="col-md-6 col-sm-8 text-center">
+                    <div class=" about-title col-sm-8 col-md-12 col-md-offset-2">
                         <p><i class="fa fa-bookmark-o"></i>شَبکه اجتماعی</p>
                     </div>
                     <div class="social-network">
@@ -127,7 +138,7 @@
 
             </div>
             <div class="row">
-                <div class="col-xs-12 col-md-12 footer-nav text-center">
+                <div class="col-xs-12 mt-3 col-md-12 footer-nav text-center">
                     <h5 class="text-center copy-right"> تمامی فعاليت‌هاي سایت، تابع قوانين و مقررات جمهوري اسلامي ايران می
                         باشد</h5>
 

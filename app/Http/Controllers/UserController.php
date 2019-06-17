@@ -12,11 +12,22 @@ use Auth;
 use View;
 use Response;
 use DB;
+use App\lib\Mobile_Detect;
 
 class UserController extends Controller
 {
+    protected  $view;
     public function __construct()
     {
+        $detect = new Mobile_Detect() ;
+        if($detect->isMobile() || $detect->isTablet())
+        {
+            $this->view='mobile.';
+        }
+        else
+        {
+            $this->view='';
+        }
         $this->middleware('auth')->except('create_barcode');
         $cat = Category::where('parent_id', 0)->get();
         View::share('category', $cat);
@@ -38,7 +49,8 @@ class UserController extends Controller
         $order_id = $request->get('id');
         $user_id = Auth::user()->id;
         $order = Order::with('get_address_data')->with('get_order_row')->where(['id' => $order_id, 'user_id' => $user_id])->firstOrFail();
-        return View('user.show_order', ['order' => $order]);
+        $view_name=$this->view.'user.show_order';
+        return View($view_name, ['order' => $order]);
     }
     public function print_order(Request $request)
     {

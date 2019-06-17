@@ -2,7 +2,7 @@
 
 
 
-    <div style="width:97%;margin:auto;">
+    <div style="width:100%;margin:auto;">
 
 
         <?php
@@ -89,7 +89,7 @@ function arabic_w2e($str)
                         @endif
                     </p>
                     <a href="{{ url('product').'/'.$value->code_url.'/'.$value->title_url }}">
-                    <div class="amazing-button mb-5 text-center  ">
+                    <div class="amazing-button mb-4 text-center  ">
                             <button class="btn btn-info">افزودن به سبد خرید</button>
                      </div>
                     </a>

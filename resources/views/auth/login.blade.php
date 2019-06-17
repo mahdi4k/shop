@@ -16,7 +16,7 @@
                 <div style="text-align:center;margin-top:60px;">
 
 
-                    <p style="font-weight:bold">عضو دیجی‌ آنلاین هستید؟</p>
+                    <p style="font-weight:bold">عضو هوشمند خودرو هستید؟</p>
                     <p>برای تکمیل فرآیند خرید خود وارد شوید</p>
                     <button onclick="show_login_form()" class="btn btn-primary">ورود به سایت</button>
                 </div>
@@ -26,7 +26,7 @@
                 <div class="right_login_box">
 
                     <div style="text-align:center;padding-top: 60px;">
-                        <div class="icon register_icon"></div>
+                        
                         <p style="font-weight:bold">تازه وارد هستید؟</p>
                         <p>برای تکمیل فرآیند خرید خود ثبت نام کنید</p>
                         <a class="btn btn-success" href="{{ url('register') }}">ثبت نام در سایت</a>

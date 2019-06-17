@@ -94,7 +94,7 @@
             
 
                     <ul class="list-inline" id="search_ul">
-                        <li><a href="{{ url('') }}">فروشگاه اینترنتی دیجی آنلاین</a><span class="fa fa-angle-left"></span></li>
+                        <li><a href="{{ url('') }}">فروشگاه اینترنتی هوشمند خودرو</a><span class="fa fa-angle-left"></span></li>
                         <li><a href="{{ url('category').'/'.$category1->cat_ename }}">{{ $category1->cat_name }}</a><span class="fa fa-angle-left"></span></li>
                         <li><a href="{{ url('category').'/'.$category1->cat_ename.'/'.$category2->cat_ename }}">{{ $category2->cat_name }}</a><span class="fa fa-angle-left"></span></li>
                         <li><a href="{{ url('category').'/'.$category1->cat_ename.'/'.$category2->cat_ename.'/'.$category3->cat_ename }}">{{ $category3->cat_name }}</a></li>

@@ -54,7 +54,7 @@ function arabic_w2e($str)
 
             @foreach($product as $key=>$value)
 
-                <div class="search_product_box">
+                <div class="search_product_box col-xs-12 ">
                         <a href="{{ url('product').'/'.$value->code_url.'/'.$value->title_url }}">
                     <img  src="{{ url('upload').'/'.$value->get_img->url }}">
                         </a>
@@ -73,7 +73,7 @@ function arabic_w2e($str)
 
                     </div>
                      
-                    <p class="title text-center">
+                    <p class="title">
                         <a href="{{ url('product').'/'.$value->code_url.'/'.$value->title_url }}">
                             @if(strlen($value->title)>35)
                                 {{ mb_substr($value->title,0,28).' ... ' }}

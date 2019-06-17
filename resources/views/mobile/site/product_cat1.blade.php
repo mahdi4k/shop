@@ -1,16 +1,74 @@
-@extends('site.master')
-
+@extends('mobile.layout')
 @section('style')
-    <link href="{{ url('css/ion.rangeSlider.css') }}" rel="stylesheet">
+<link href="{{ url('css/ion.rangeSlider.css') }}" rel="stylesheet">
     <link href="{{ url('css/ion.rangeSlider.skinNice.css') }}" rel="stylesheet">
 @endsection
-
 @section('content')
 <div class="container-fluid w-98">
     <div class="row" id="filter_product_box">
 
+        <div class="col-md-12 show_product"   >
+                <ul class="cat_ul">
 
-        <div class="col-md-3 mt-5">
+                        @foreach($cat_list as $key=>$value)
+             
+                            <li><a  href="{{ url('category').'/'.$category1->cat_ename.'/'.$category2->cat_ename.'/'.$key }}">
+                                    <span>{{ $value['cat_name'] }}</span>
+                                    @if($value['cat_child']=='ok')
+                                        <span class="fa fa-angle-left" style="float:left;padding-left:10px;font-size:17px"></span>
+                                    @endif
+                                </a>
+                            </li>
+                        @endforeach
+             
+                    </ul>
+            <div class="product-pr">
+
+             
+
+                    <ul class="list-inline" id="search_ul">
+                        <li><a href="{{ url('') }}">فروشگاه اینترنتی هوشمند خودرو</a><span class="fa fa-angle-left"></span></li>
+                        <li><a href="{{ url('category').'/'.$category1->cat_ename }}">{{ $category1->cat_name }}</a></li>
+                        <li style="position: absolute;left:-15px;top:35px; margin-left: 33px;margin-top: 10px;" class="list-inline-item pull-left">
+                            <p style="padding-right:15px">
+                                    <span>{{ $category1->cat_name }}</span>
+                                     
+                                    
+                                     
+                                    <span> - {{ sizeof($data['product']) }}</span> 
+                                    <span>محصول</span>
+                                      
+                                     
+                                     
+                                </p>
+                    </li>
+                    </ul>
+
+                 
+            </div>
+
+
+             
+
+
+            <div style="padding-top: 15px;width: 100%;background: white;border-radius: 13px;">
+                <span style="ppadding-right: 15px;text-align: center;width: 100%;display: block;">مرتب سازی بر اساس : </span>
+                <ul class="search_type_ul">
+                    <li id="search_type_1" class="active" onclick="set_type(1)">جدیدترین</li>
+                    <li id="search_type_2" onclick="set_type(2)">پربازدیدترین</li>
+                    <li id="search_type_3"  onclick="set_type(3)">پرفروش ترین</li>
+                    <li id="search_type_4" onclick="set_type(4)">ارزانترین</li>
+                    <li id="search_type_5" onclick="set_type(5)">گرانترین</li>
+                </ul>
+            </div>
+
+            <div  id="show_product" style="width:100%;float:right; ">
+                @include('mobile.site.include.product_list',['product'=>$data['product'],'cat_url'=>''])
+
+            </div>
+
+        </div>
+        <div class="col-md-12 mt-5">
 
             <div class="filter_box">
 
@@ -58,62 +116,14 @@
         </div>
 
 
-        <div class="col-md-9 show_product"   >
-            <div class="product-pr">
-
-             
-
-                    <ul class="list-inline" id="search_ul">
-                        <li><a href="{{ url('') }}">فروشگاه اینترنتی هوشمند خودرو</a><span class="fa fa-angle-left"></span></li>
-                        <li><a href="{{ url('category').'/'.$category1->cat_ename }}">{{ $category1->cat_name }}</a></li>
-                        <li style="position: absolute;left: 1px;margin-left: 33px;margin-top: 10px;" class="list-inline-item pull-left">
-                            <p style="padding-right:15px">
-                                    <span>{{ $category1->cat_name }}</span>
-                                     
-                                    
-                                     
-                                    <span> - {{ sizeof($data['product']) }}</span> 
-                                    <span>محصول</span>
-                                      
-                                     
-                                     
-                                </p>
-                    </li>
-                    </ul>
-
-                 
-            </div>
-
-
-             
-
-
-            <div style="display: flex;padding-top: 15px;width: 97%;float: right;background: white;border-radius: 13px;float: right;">
-                <span style="padding-right:15px;">مرتب سازی بر اساس : </span>
-                <ul class="search_type_ul">
-                    <li id="search_type_1" class="active" onclick="set_type(1)">جدیدترین</li>
-                    <li id="search_type_2" onclick="set_type(2)">پربازدیدترین</li>
-                    <li id="search_type_3"  onclick="set_type(3)">پرفروش ترین</li>
-                    <li id="search_type_4" onclick="set_type(4)">ارزانترین</li>
-                    <li id="search_type_5" onclick="set_type(5)">گرانترین</li>
-                </ul>
-            </div>
-
-            <div  id="show_product" style="width:100%;float:right; ">
-                @include('site.include.product_list',['product'=>$data['product'],'cat_url'=>''])
-
-            </div>
-
-        </div>
+        
 
     </div>
 </div>
+
+
 @endsection
-
-
-
-
-@section('footer_site')
+@section('script')
 <script type="text/javascript" src="{{ url('js/list.min.js') }}"></script>
 <script src="{{ url('js/ion.rangeSlider.min.js') }}"></script>
 <script>
@@ -302,5 +312,4 @@ set_type=function (type)
             send_data('<?= $url ?>');
         };
 </script>
-
 @endsection

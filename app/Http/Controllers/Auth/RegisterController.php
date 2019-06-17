@@ -8,9 +8,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\lib\Mobile_Detect;
 use View;
 class RegisterController extends Controller
 {
+    protected  $view;
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -38,6 +40,16 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
+        $detect = new Mobile_Detect();
+        if($detect->isMobile() || $detect->isTablet())
+        {
+            $this->view='mobile.';
+        }
+        else
+        {
+            $this->view='';
+        }
+
         $this->middleware('guest');
         $cat=Category::where('parent_id',0)->get();
         View::share('category',$cat);

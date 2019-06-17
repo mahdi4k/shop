@@ -151,7 +151,7 @@
     </div>
 </div>
 @if(auth::check())
-            <div class="btn-fixed">
+            <div style="justify-content: center!important;" class="btn-fixed d-flex">
             <a href="{{ url('Shipping') }}" class="btn btn-info-custom hvr-sweep-to-left"
                style="float:left;margin-top:15px;line-height: 44px"><span>ادامه ثبت سفارش</span>
                 <span class="fa fa-arrow-left"></span></a>

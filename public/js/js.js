@@ -1,9 +1,11 @@
 $("#product_cat li").hover(function ()
 {
+      
     if(this.id=='')
     {
         $('div',this).show();
-    }
+         
+    } 
     else
     {
         var id=this.id.replace('li','span');
@@ -21,7 +23,7 @@ $("#product_cat li").hover(function ()
     {
         var id=this.id.replace('li','span');
          
-        $('ul', this).hide(1);
+        $('ul', this).hide();
     }
 
 });
@@ -203,9 +205,27 @@ $('#addcheck1').click(function () {
     $('.add-border2').addClass('border-active');
 });
 
-$('.show-drop').click(function () {
-    $('.user_drop').toggle();
-    
+const $menu = $('.dropdown');
+
+$(document).mouseup(function (e) {
+   if (!$menu.is(e.target) // if the target of the click isn't the container...
+   && $menu.has(e.target).length === 0) // ... nor a descendant of the container
+   {
+     $menu.removeClass('is-active');
+  }
+ });
+
+$('.toggle').on('click', () => {
+  $menu.toggleClass('is-active' , 1000);
 });
+
  
 
+$(document).ready(function(){
+
+$('.fa-search').click(function() {
+    
+    $('.toggle-search').slideToggle('slow');
+  });
+    
+  });

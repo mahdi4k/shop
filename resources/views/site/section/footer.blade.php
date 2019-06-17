@@ -32,8 +32,8 @@
             </div>
             <div class="clearfix"></div>
             <ul class="License">
-                <li><i class="fa fa-image"></i> <a target="_blank" href=" /img/2.jpg ">مجوز فناوری</a></li>
-                <li><i style="margin-left: 4px" class="fa fa-image"></i><a target="_blank" href=" /img/1.jpg ">مجوز
+                <li ><i class="fa fa-image"></i> <a target="_blank" href=" /img/2.jpg ">مجوز فناوری</a></li>
+                <li ><i style="margin-left: 4px" class="fa fa-image"></i><a target="_blank" href=" /img/1.jpg ">مجوز
                         فعالیت</a></li>
             </ul>
             <img class="img-enamad" src="{{URL::asset('/img/enamad.png')}}">

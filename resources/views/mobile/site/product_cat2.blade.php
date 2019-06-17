@@ -1,16 +1,61 @@
-@extends('site.master')
-
+@extends('mobile.layout')
 @section('style')
-    <link href="{{ url('css/ion.rangeSlider.css') }}" rel="stylesheet">
+<link href="{{ url('css/ion.rangeSlider.css') }}" rel="stylesheet">
     <link href="{{ url('css/ion.rangeSlider.skinNice.css') }}" rel="stylesheet">
 @endsection
-
 @section('content')
 <div class="container-fluid w-98">
     <div class="row" id="filter_product_box">
 
+        <div class="col-md-12 show_product"   >
+            <div class="product-pr">
 
-        <div class="col-md-3 mt-5">
+             
+
+                <ul class="list-inline" id="search_ul">
+                    <li class="list-inline-item"><a href="{{ url('') }}">فروشگاه اینترنتی هوشمند خودرو</a><span class="fa fa-angle-left"></span></li>
+                    <li class="list-inline-item"><a href="{{ url('category').'/'.$category1->cat_ename }}">{{ $category1->cat_name }}</a><span class="fa fa-angle-left"></span></li>
+                    <li class="list-inline-item"><a href="{{ url('category').'/'.$category1->cat_ename.'/'.$category2->cat_ename }}">{{ $category2->cat_name }}</a></li>
+                    <li style="position: absolute;left:-15px;top:35px; margin-left: 33px;margin-top: 10px;" class="list-inline-item pull-left">
+                            <p style="padding-right:15px">
+                                    <span>{{ $category2->cat_name }}</span>
+                                     
+                                    
+                                     
+                                    <span> - {{ sizeof($data['product']) }}</span> 
+                                    <span>محصول</span>
+                                      
+                                     
+                                     
+                                </p>
+                    </li>
+                </ul>
+
+                 
+            </div>
+
+
+             
+
+
+            <div style="padding-top: 15px;width: 100%;background: white;border-radius: 13px;">
+                <span style="ppadding-right: 15px;text-align: center;width: 100%;display: block;">مرتب سازی بر اساس : </span>
+                <ul class="search_type_ul">
+                    <li id="search_type_1" class="active" onclick="set_type(1)">جدیدترین</li>
+                    <li id="search_type_2" onclick="set_type(2)">پربازدیدترین</li>
+                    <li id="search_type_3"  onclick="set_type(3)">پرفروش ترین</li>
+                    <li id="search_type_4" onclick="set_type(4)">ارزانترین</li>
+                    <li id="search_type_5" onclick="set_type(5)">گرانترین</li>
+                </ul>
+            </div>
+
+            <div  id="show_product" style="width:100%;float:right; ">
+                @include('mobile.site.include.product_list',['product'=>$data['product'],'cat_url'=>''])
+
+            </div>
+
+        </div>
+        <div class="col-md-12 mt-5">
 
             <div class="filter_box">
 
@@ -58,62 +103,14 @@
         </div>
 
 
-        <div class="col-md-9 show_product"   >
-            <div class="product-pr">
-
-             
-
-                    <ul class="list-inline" id="search_ul">
-                        <li><a href="{{ url('') }}">فروشگاه اینترنتی هوشمند خودرو</a><span class="fa fa-angle-left"></span></li>
-                        <li><a href="{{ url('category').'/'.$category1->cat_ename }}">{{ $category1->cat_name }}</a></li>
-                        <li style="position: absolute;left: 1px;margin-left: 33px;margin-top: 10px;" class="list-inline-item pull-left">
-                            <p style="padding-right:15px">
-                                    <span>{{ $category1->cat_name }}</span>
-                                     
-                                    
-                                     
-                                    <span> - {{ sizeof($data['product']) }}</span> 
-                                    <span>محصول</span>
-                                      
-                                     
-                                     
-                                </p>
-                    </li>
-                    </ul>
-
-                 
-            </div>
-
-
-             
-
-
-            <div style="display: flex;padding-top: 15px;width: 97%;float: right;background: white;border-radius: 13px;float: right;">
-                <span style="padding-right:15px;">مرتب سازی بر اساس : </span>
-                <ul class="search_type_ul">
-                    <li id="search_type_1" class="active" onclick="set_type(1)">جدیدترین</li>
-                    <li id="search_type_2" onclick="set_type(2)">پربازدیدترین</li>
-                    <li id="search_type_3"  onclick="set_type(3)">پرفروش ترین</li>
-                    <li id="search_type_4" onclick="set_type(4)">ارزانترین</li>
-                    <li id="search_type_5" onclick="set_type(5)">گرانترین</li>
-                </ul>
-            </div>
-
-            <div  id="show_product" style="width:100%;float:right; ">
-                @include('site.include.product_list',['product'=>$data['product'],'cat_url'=>''])
-
-            </div>
-
-        </div>
+        
 
     </div>
 </div>
+
+
 @endsection
-
-
-
-
-@section('footer_site')
+@section('script')
 <script type="text/javascript" src="{{ url('js/list.min.js') }}"></script>
 <script src="{{ url('js/ion.rangeSlider.min.js') }}"></script>
 <script>
@@ -146,7 +143,7 @@ var last_price=0;
         });
 send_data=function (url)
 {
-    var cat_id='<?= $category1->id ?>';
+    var cat_id='<?= $category2->id ?>';
     var array=new  Array;
     var checkbox_list=document.getElementsByClassName('search_checkbox');
     var j=0;
@@ -229,78 +226,5 @@ set_type=function (type)
                 send_data('<?= $url ?>');
             }
         };
-        show_list=function (id)
-        {
-            var c=document.getElementById('filter_search_item_'+id);
-            if(c)
-            {
-                if(c.style.display=='block')
-                {
-                    $("#angle-down_"+id).addClass('fa-angle-down');
-                    $("#angle-down_"+id).removeClass('fa-angle-up');
-                    $("#filter_search_item_"+id).hide();
-                }
-                else
-                {
-                    $("#angle-down_"+id).addClass('fa-angle-up');
-                    $("#angle-down_"+id).removeClass('fa-angle-down');
-
-                    $("#filter_search_item_"+id).show();
-                }
-            }
-        };
-        set_filter=function(id1,id2,name)
-        {
-            var c=document.getElementById('filter_li_'+id2);
-            var c2=document.getElementById('filter_checkbox_'+id2);
-            if(c)
-            {
-                if(c.className=='filter_checkbox')
-                {
-                    c.className='filter_checkbox2';
-                }
-                else if(c.className=='filter_checkbox2')
-                {
-                    c.className='filter_checkbox';
-                }
-            }
-            if(c2)
-            {
-                if(c2.checked)
-                {
-                    c2.checked=false;
-                    $("#filter_items_"+id2).remove();
-                }
-                else
-                {
-                    c2.checked=true;
-                    var id='filter_items_'+id2;
-                    var html='<div class="search_item"  onclick="remove_filter('+id2+')" id='+id+'>' +
-                        '<span>'+name+'</span>' +
-                        '<span class="fa fa-remove"></span></div>';
-                    $("#filter_name_box").append(html);
-                }
-
-            }
-
-            send_data('<?= $url ?>');
-
-        };
-        remove_filter=function (id)
-        {
-            $("#filter_items_"+id).remove();
-            var c=document.getElementById('filter_li_'+id);
-            var c2=document.getElementById('filter_checkbox_'+id);
-            if(c2)
-            {
-                c2.checked=false;
-            }
-            if(c)
-            {
-                c.className='filter_checkbox';
-            }
-            send_data('<?= $url ?>');
-        };
 </script>
-
 @endsection

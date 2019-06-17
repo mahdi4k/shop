@@ -209,7 +209,7 @@
 
                                 <div class="radio-control first_pay_div " id="pay_radio_2" onclick="set_pay(2)">
                                     <label for="post_radio_2">
-                                        <img class="cursor:pointer" width="150" height="150" alt="bank_meli" src="{{url('img/bank_meli.jpeg')}}">
+                                        <img style="cursor:pointer" width="150" height="150" alt="bank_meli" src="{{url('img/bank_meli.jpeg')}}">
 
                                     </label>
                                     <em></em>
@@ -220,7 +220,7 @@
 
                                 <div class="radio-control2 custom-style-payment"  id="pay_radio_3" onclick="set_pay(3)">
                                     <label>
-                                        <img class="cursor:pointer" width="150"  alt="bank_meli" src="{{url('img/download (1).jpeg')}}">
+                                        <img style="cursor:pointer" width="150"  alt="bank_meli" src="{{url('img/download (1).jpeg')}}">
                                     </label>
                                     <em></em>
                                     <span class="d-block">درگاه پرداخت اینترنتی بانک ملت</span>
@@ -229,7 +229,7 @@
 
                                 <div class="radio-control" id="pay_radio_4" onclick="set_pay(4)">
                                     <label>
-                                        <img class="cursor:pointer" width="150" alt="bank_meli" src="{{url('img/zarin_pal.jpeg')}}">
+                                        <img style="cursor:pointer" width="150" alt="bank_meli" src="{{url('img/zarin_pal.jpeg')}}">
                                     </label>
                                      <em></em>
                                     <span class="d-block">درگاه پرداخت اینترنتی زرین پال</span>
@@ -307,9 +307,9 @@
 
 
 
-                <div class="form-group" style="float: left;margin-top:40px;margin-bottom:30px">
+                <div class="form-group d-flex" style="margin-top:40px;margin-bottom:30px;justify-content:center">
 
-                    <input type="submit" value="ثبت سفارش" class="btn btn-success">
+                    <button type="submit"   class="btn btn-block btn-lg btn-info-custom-payment hvr-sweep-to-left">ثبت سفارش</button>
 
                 </div>
 

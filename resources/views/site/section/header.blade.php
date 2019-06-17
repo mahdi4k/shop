@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md mb-4 mt-4">
+<nav style="background:white" class="navbar navbar-expand-md pb-4  pt-4">
     <a class="navbar-brand" href="/"><img src="{{URL::asset('/img/icon.gif')}}" width="40" height="40"> گروه<span> هیراد کویر </span></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
@@ -14,15 +14,17 @@
         </form>
         <ul style="width: 187px !important;" class="navbar-nav list-inline nav-width-custom  p-0">
             @if(Auth::check())
-                <li class="mt-2  "><a class=" show-drop" href="#">
+            <div class="dropdown">
+                <li class="mt-2 text-center  "><a class=" show-drop toggle" href="#">
                         {{ Auth::user()->username }}
                     </a>
                 </li>
-                <div class="user_drop"> 
+                <div class="user_drop dropdown-menu"> 
                     <a href="{{url('user')}}"><p><i class="fa fa-user"></i>پروفایل</p></a>
                     <a href="{{url('user/orders')}}"><p><i class="fa fa-shopping-cart"></i>سفارشات من </p></a>
                     <a href="{{url('logout')}}"><p><i class="fa fa-sign-out"></i>خروج از سایت </p></a>
                 </div>
+            </div>
             @else
 
                 <li class="    mt-2 mr-3"><a class="user-list-sign" href="{{url('register')}}"><i class="fa fa-user-plus ml-2"></i>ثبت نام</a></li>
@@ -53,7 +55,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    <button style="position:absolute" type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
                     <h5 class="modal-title  text-center w-100 " id="myModalLabel">ورود به سایت</h5>
                 </div>
@@ -64,10 +66,10 @@
                             {{ csrf_field() }}
                             <div class="form-row">
                                 <div class="form-group w-100">
-
+                                        <label for="inputAddress">شماره همراه یا پست الکترونیک</label>
                                     <input type="text" value="{{ old('username') }}" class="form-control" name="username" id="inputAddress">
-                                     <label for="inputAddress">شماره همراه یا پست الکترونیک</label>
-                                    <div class="line"></div>
+                                     
+                                     
 
                                 </div>
                             </div>
@@ -78,10 +80,10 @@
 
                             <div class="form-row">
                                 <div class="form-group w-100">
-
+                                        <label for="inputPaswword">کلمه عبور</label>
                                     <input type="password" class="form-control" name="password" id="inputPaswword">
-                                    <label for="inputPaswword">کلمه عبور</label>
-                                    <div class="line"></div>
+                                    
+                                     
                                 </div>
                             </div>
                             @if($errors->has('password'))

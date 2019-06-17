@@ -1,7 +1,7 @@
 body
 {
     direction:rtl;
-    background:#edeff0;
+    background:#f3f7fa;
     font-family:IRANSansWeb;
 }
 @font-face {
@@ -66,13 +66,13 @@ body
     direction:ltr;
     float: right;
 }
-#inputGroupSuccess1
-{
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    border-radius: 0px;
-    height: 36px;
-    text-align:right;
+#inputGroupSuccess1 {
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    height: 40px;
+    text-align: right;
+    background: beige
 }
 
 #header_header .input-group-addon
@@ -1177,7 +1177,7 @@ a:hover
 .register_form .form-control
 {
     width:100%;
-    margin-top: 20px;
+     
      height:40px;
     text-align:left;
     font-family: IRANSansWeb, serif;
@@ -1729,12 +1729,12 @@ a:hover
 .filter_box
 {
     width:95%;
-    background:white;
+    
     margin-right:0px !important;
     text-align: right;
 }
 .product-pr{
-    background: #edeff0;
+    background: #f3f7fa;
 }
 #filter_product_box
 {
@@ -1805,7 +1805,7 @@ a:hover
 }
 .search_body
 {
-    background:#edeff0;
+    background:#f3f7fa;
 }
 .search_product_box
 {
@@ -1914,6 +1914,9 @@ a:hover
     top:4px;
     position:relative;
 }
+.filter_box div{
+    background: white
+ }
 .angle-down
 {
     float:left;
@@ -2216,7 +2219,7 @@ a:hover
 {
     position:absolute;
     right:7px;
-    background: #edeff0;
+    background: #f3f7fa;
     padding:5px;
     display:none;
 }
@@ -2568,6 +2571,8 @@ a:hover
     margin-top:15px;
     padding-bottom:15px;
     text-align: right;
+    background: white;
+    border-radius: 13px;
 }
 .cat_ul ul
 {

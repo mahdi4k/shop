@@ -1762,18 +1762,22 @@ color: #908d8d;
 
 }
 .user_drop{
-    top: 51px;
-    border-top: 4px solid #EE5253;
+    top: 24px;
+    border-top: 4px solid #EE5253 !important;
     position: absolute;
-    
     background: #ffffff;
     z-index: 9999;
     text-align: right;
     padding: 19px;
     width: 180px;
     height: 145px;
-display: none;
+    display: none;
 }
+ 
+.is-active .user_drop {
+    
+    display: block;
+  }
 .user_drop:before{
     content: "";
     width: 0;

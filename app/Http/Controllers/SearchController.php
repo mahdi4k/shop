@@ -18,6 +18,15 @@ class SearchController extends Controller
     protected  $view;
     public function __construct()
     {
+        $detect = new Mobile_Detect();
+        if($detect->isMobile() || $detect->isTablet())
+        {
+            $this->view='mobile.';
+        }
+        else
+        {
+            $this->view='';
+        }
         $cat=Category::where('parent_id',0)->get();
         View::share('category',$cat);
 
@@ -35,7 +44,8 @@ class SearchController extends Controller
             $filter=Filter::get_search_filter($category1->id,$category2->id,$category3->id);
             $Search=new Search($get);
             $data=$Search->get_product();
-            return View('site.search',[
+            $view_name=$this->view.'site.search';
+            return View($view_name,[
                 'filter'=>$filter,
                 'product'=>$data['product'],
                 'filter_id'=>$data['filter_id'],
@@ -87,8 +97,8 @@ class SearchController extends Controller
             $search=new Search($array,$product_status,$type,$search_text,$first_price,$last_price,$cat_id);
             $data=$search->get_product();
 
-
-            return view('site/include/product_list',['product'=>$data['product'],'cat_url'=>$cat_url,'total_product'=>$data['total_product']]);
+            $view_name=$this->view.'site/include/product_list';
+            return view($view_name,['product'=>$data['product'],'cat_url'=>$cat_url,'total_product'=>$data['total_product']]);
         }
 
     }
@@ -96,36 +106,16 @@ class SearchController extends Controller
     {
         $category1=Category::where(['cat_ename'=>$cat1])->firstOrFail();
         $category2=Category::where(['cat_ename'=>$cat2,'parent_id'=>$category1->id])->firstOrFail();
-        if($this->view=='')
-        {       
+         
+                
             $cat_list=Category::where('parent_id',$category2->id)->get();
             $price=CatProduct::get_search_price($category2->id);
             $data=Search::get_product_cat($category2->id);
             $cat_url='category/'.$category1->cat_ename.'/'.$category2->cat_ename;
-
-            return View('site.product_cat2',['data'=>$data,'category1'=>$category1,'price'=>$price,'cat_url'=>$cat_url,'cat_list'=>$cat_list,'category2'=>$category2]);
-        }
-        else
-        {
-            $slider=Slider::orderBy('id','DESC')->limit(5)->get();
-            $view_name=$this->view.'/search/show_cat';
-            $cat_list=Category::get_show_child_cat($category2->id);
-
-            $product_id=array();
-            $get_product_id=DB::table('cat_product')->where('cat_id',$category2->id)->get();
-            foreach ($get_product_id as $key=>$value)
-            {
-                $product_id[$value->product_id]=$value->product_id;
-            }
-
-
-
-            $view_product=Product::with('get_img')->whereIn('id',$product_id)->where('product_status',1)->orderBy('view','DESC')->limit(15)->get();
-            $order_product=Product::with('get_img')->whereIn('id',$product_id)->where('product_status',1)->orderBy('order_product','DESC')->limit(15)->get();
-            $product=Product::with('get_img')->whereIn('id',$product_id)->where('product_status',1)->orderBy('id','DESC')->limit(15)->get();
-            return View($view_name,['slider'=>$slider,'category2'=>$category2,'cat_list'=>$cat_list,
-                'category1'=>$category1,'view_product'=>$view_product,'order_product'=>$order_product,'product'=>$product]);
-        }
+            $view_name=$this->view.'site.product_cat2';
+            return View($view_name,['data'=>$data,'category1'=>$category1,'price'=>$price,'cat_url'=>$cat_url,'cat_list'=>$cat_list,'category2'=>$category2]);
+        
+         
 
     }
     public function show_cat_product($cat1,$cat2,$cat3)
@@ -161,7 +151,8 @@ class SearchController extends Controller
         $price=CatProduct::get_search_price($category->id);
         $data=Search::get_product_cat($category->id);
         $cat_url='category/'.$cat;
-        return View('site.product_cat1',['data'=>$data,'category1'=>$category,'price'=>$price,'cat_url'=>$cat_url,'cat_list'=>$cat_list]);
+        $view_name=$this->view.'site.product_cat1';
+        return View($view_name,['data'=>$data,'category1'=>$category,'price'=>$price,'cat_url'=>$cat_url,'cat_list'=>$cat_list]);
     }
     public function show_cat4($cat1,$cat2,$cat3,$cat4)
     {

@@ -1,9 +1,6 @@
-@extends('site.master')
-@section('style')
-    <link rel="stylesheet" href="{{url('css/site.css')}}">
-@endsection
+@extends('mobile.layout')
 @section('content')
-    <div class="container">
+<div class="container">
         <div class="row content_box">
 
             <div class="header_register">
@@ -68,5 +65,4 @@
 
         </div>
     </div>
-      
 @endsection

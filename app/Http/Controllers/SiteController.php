@@ -332,7 +332,8 @@ public function check_discount_code(Request $request)
             }
             else
             {
-                return View('site.search2',['product'=>$Product,'Search_text'=>$text]);
+                $view_name=$this->view.'site.search2';
+                return View($view_name,['product'=>$Product,'Search_text'=>$text]);
             }
         }
         else

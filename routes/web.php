@@ -67,13 +67,13 @@ Route::middleware(['throttle:150,1'])->group(function () {
                 //admin_statistics
                 Route::get('admin/statistics', 'Admin\AdminController@statistics');
                 //comment and question users managment
-                Route::post('admin/ajax/set_comment_status', 'admin\CommentController@set_comment_status');
-                Route::delete('admin/comment/{id}', 'admin\CommentController@delete');
-                Route::get('admin/question', 'admin\QuestionController@index');
+                Route::post('admin/ajax/set_comment_status', 'Admin\CommentController@set_comment_status');
+                Route::delete('admin/comment/{id}', 'Admin\CommentController@delete');
+                Route::get('admin/question', 'Admin\QuestionController@index');
                 Route::get('admin/comment', 'Admin\CommentController@index');
-                Route::post('admin/ajax/set_status_question', 'admin\QuestionController@set_status');
-                Route::delete('admin/question/{id}', 'admin\QuestionController@delete');
-                Route::post('admin/question/add', 'admin\QuestionController@add');
+                Route::post('admin/ajax/set_status_question', 'Admin\QuestionController@set_status');
+                Route::delete('admin/question/{id}', 'Admin\QuestionController@delete');
+                Route::post('admin/question/add', 'Admin\QuestionController@add');
                 //setting dargah pardakht
                 Route::get('admin/setting/pay', 'admin\AdminController@pay_setting_form');
                 Route::post('admin/setting/pay', 'admin\AdminController@pay_setting');

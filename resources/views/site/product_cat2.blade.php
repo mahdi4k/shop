@@ -1,5 +1,7 @@
 @extends('site.master')
-
+@section('title')
+{{ $category2->cat_name }}-هوشمند خودرو
+@endsection
 @section('style')
     <link href="{{ url('css/ion.rangeSlider.css') }}" rel="stylesheet">
      
@@ -11,11 +13,11 @@
     <div class="row" id="filter_product_box">
 
 
-        <div class="col-md-3">
+        <div class="col-md-3 mt-5">
 
             <div class="filter_box">
 
-                <div style="border-bottom: 1px solid #E3E3E3;padding:30px 15px 20px 15px;cursor:pointer">
+                <div style="background:white; margin-bottom:15px; border-bottom: 1px solid #E3E3E3;padding:30px 15px 20px 15px;cursor:pointer">
                     <p onclick="set_status_product()">
 
                         <span id="status_prodict_ic" class="filter_checkbox"></span>
@@ -25,7 +27,7 @@
                     </p>
                 </div>
 
-                <div style="direction:ltr;padding-top:20px;padding-bottom:20px;border-bottom: 1px solid #E3E3E3;">
+                <div style="background:white;direction:ltr;padding-top:20px;padding-bottom:20px;border-bottom: 1px solid #E3E3E3;">
 
                     <div style="width:90%;margin:auto;text-align:center">
                         <input type="text" id="example_id" name="example_name" value="" />
@@ -36,7 +38,7 @@
                 </div>
 
 
-                <div style="width:100%;">
+                <div style="width:100%;background:white;">
                     <?php
                     $a=array();
                     ?>
@@ -73,7 +75,7 @@
         <div class="col-md-9 show_product"   >
             <div class="product-pr">
                     <ul class="list-inline" id="search_ul">
-                        <li class="list-inline-item"><a href="{{ url('') }}">فروشگاه اینترنتی دیجی آنلاین</a><span class="fa fa-angle-left"></span></li>
+                        <li class="list-inline-item"><a href="{{ url('') }}">فروشگاه اینترنتی هوشمند خودرو</a><span class="fa fa-angle-left"></span></li>
                         <li class="list-inline-item"><a href="{{ url('category').'/'.$category1->cat_ename }}">{{ $category1->cat_name }}</a><span class="fa fa-angle-left"></span></li>
                         <li class="list-inline-item"><a href="{{ url('category').'/'.$category1->cat_ename.'/'.$category2->cat_ename }}">{{ $category2->cat_name }}</a></li>
                         <li style="position: absolute;left: 1px;margin-left: 33px;margin-top: 10px;" class="list-inline-item pull-left">
@@ -100,7 +102,7 @@
 
             
             <div style="display: flex;padding-top: 15px;width: 97%;float: right;background: white;border-radius: 13px;float: right;">
-                    <span style="padding-right:15px;color: #8a8a8a;font-size: 15px;">مرتب سازی بر اساس : </span>
+                    <span style="padding-right:15px">مرتب سازی بر اساس : </span>
                 <ul class="search_type_ul">
                     <li id="search_type_1" class="active" onclick="set_type(1)">جدیدترین</li>
                     <li id="search_type_2" onclick="set_type(2)">پربازدیدترین</li>

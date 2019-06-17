@@ -200,8 +200,8 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <input type="submit" value="ثبت اطلاعات و ادامه خرید"
-                        class="btn pull-left btn-info-custom-payment hvr-sweep-to-left" type="submit">
+                    <button type="submit"  
+                        class="btn pull-left btn-info-custom-payment hvr-sweep-to-left" type="submit">ثبت اطلاعات و ادامه خرید</button>
                 </div>
 
             </div>

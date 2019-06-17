@@ -151,7 +151,7 @@
                         $product=$value->get_product;
                         ?>
                         <tr>
-                            <td>
+                            <td >
                                 <div style="width:100%" class="cart_div">
                                     <div class="col-md-4">
                                         <img class="cart_img" src="{{ url('upload/'.$value->get_product_img->url) }}">

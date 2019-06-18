@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use View;
 use Auth;
+use Request;
 use App\lib\Mobile_Detect;
 class LoginController extends Controller
 {
@@ -29,7 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+     
 
     /**
      * Create a new controller instance.
@@ -58,13 +59,23 @@ class LoginController extends Controller
     public function redirectTo()
     {
         $role=Auth::user()->role;
-        if($role=='admin')
-        {
+         
+
+        switch(true) {
+            case $role=='admin':
+            
             return 'admin';
+            case $role=='user':
+                return '/Shipping';
+             
+             
+            default:
+                return '/login';
         }
-        else
-        {
-            return '/';
-        }
+
+
+         
+         
     }
+     
 }

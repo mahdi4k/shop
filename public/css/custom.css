@@ -241,7 +241,7 @@ a:hover {
 }
 
 .dropdown-item:hover {
-    background-color: #fed136;
+    background-color: #ccc;
     color: #fff;
 }
 
@@ -735,7 +735,8 @@ footer p {
     color: #fff;
     font-size: 16px;
     padding: 20px;
-    text-align: center
+    text-align: center;
+    margin-bottom:0;
 }
 
 .site-section, .site-sta {

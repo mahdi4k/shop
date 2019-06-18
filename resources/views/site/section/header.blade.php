@@ -59,7 +59,16 @@
                             aria-hidden="true">&times;</span></button>
                     <h5 class="modal-title  text-center w-100 " id="myModalLabel">ورود به سایت</h5>
                 </div>
+                @if (Request::is('Cart'))
+                    <div class="modal-body">
+                        <div style="margin-bottom:0" class="alert alert-primary text-center" role="alert">
+                          برای ادامه خرید لطفا وارد سایت شوید 
+                    </div>
+                </div>
+                 @endif
                 <div class="modal-body">
+                 
+                
 
                     <div class="register_form text-right">
                         <form method="post" action="{{ route('login') }}">

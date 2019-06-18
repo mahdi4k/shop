@@ -13,6 +13,8 @@ use View;
 use Response;
 use DB;
 use App\lib\Mobile_Detect;
+use App\Ostan;
+use App\Address;
 
 class UserController extends Controller
 {
@@ -35,14 +37,16 @@ class UserController extends Controller
     public function index()
     {
         $this->report_data();
-        return View('user.index');
+        $view_name=$this->view.'user.index';
+        return View($view_name);
     }
     public function orders()
     {
         $this->report_data();
         $user_id = Auth::user()->id;
         $orders = Order::where(['user_id' => $user_id])->orderBy('id', 'DESC')->paginate(10);
-        return View('user.orders', ['orders' => $orders]);
+        $view_name=$this->view.'user.orders';
+        return View($view_name, ['orders' => $orders]);
     }
     public function show_order(Request $request)
     {
@@ -91,6 +95,16 @@ class UserController extends Controller
         $user_id = Auth::user()->id;
         $total_user_orders = Order::where(['user_id' => $user_id])->count();
         View::share('total_user_orders', $total_user_orders);
+    }
+    public function editAdress(){
+        
+            $ostan=Ostan::get();
+            $this->report_data();
+            $user_id=Auth::user()->id;
+            $address=Address::with('get_shahr')->with('get_ostan')->where('user_id',$user_id)->orderBy('id','DESC')->paginate(20);
+            $view_name=$this->view.'user.editAddress';
+        
+        return view($view_name , compact('ostan','user_id','address','orders'));
     }
     
 }

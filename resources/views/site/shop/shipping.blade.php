@@ -74,80 +74,91 @@
                 <input type="hidden" name="order_type" id="order_type" value="1">
 
                 @foreach($address as $key=>$value)
-
+                 
                 @if($key==0)
                 <input type="hidden" name="order_address" value="{{ $value->id }}" id="order_address">
 
                 @endif
-                <table id="address_table_<?= $value->id ?>" class=" user_address @if($key==0) active_address @endif">
+                <div id="address_radio_<?= $value->id ?>" class="@if($key==0) radio-control2 @else radio-control @endif"
+                    onclick="set_addrees('<?= $value->id ?>')">
+                    @if(sizeof($address)>1)
+                    <button type="button" class="btn btn-light">
+                        <span style="cursor: pointer;">انتخاب این آدرس برای ارسال</span>
+                        <em></em>
+                    </button>
+                    @endif
+                </div>
+                @if(sizeof($address)>1)
+                <div class="d-flex justify-content-center">
+                    <i style="color: #ccc;font-size: 37px;" class="fa fa-angle-double-down" aria-hidden="true"></i>
+                </div>
+                @endif
+                <div id="address_table_<?= $value->id ?>" class="  user_address @if($key==0) active_address @endif">
 
-                    <tr>
-                        <td class="first_td" rowspan="3">
-
-
-                            <div style="width:100%;position:absolute;top:-1px;right:0px">
-                                <span id="span_action_<?= $value->id ?>"
-                                    class="@if($key==0) active-address @else span_address @endif">
-                                    <li class="icon-shopping-white-mark"></li>
-                                </span>
-                            </div>
-
-                            <div id="address_radio_<?= $value->id ?>"
-                                class="@if($key==0) radio-control2 @else radio-control @endif"
-                                onclick="set_addrees('<?= $value->id ?>')">
-                                <label></label>
-                            </div>
-                        </td>
-                        <td colspan="3">
-                            <span>گیرنده :</span> {{ $value->name }}
-                        </td>
-
-                        <td class="end_td" rowspan="3">
-                            <div class="edit_address" onclick="edit_address('<?= $value->id ?>')">
-                                <span class="fa fa-edit"></span>
-                            </div>
-                            <div class="delete_address">
-                                <span class="fa fa-remove"
-                                    onclick="del_row('<?= $value->id ?>','<?= url('remove_address') ?>','<?= Session::token() ?>')"></span>
-                            </div>
-                        </td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td>
-                            <span>استان </span>
-                            <span>
-                                {{ $value->get_ostan->ostan_name }}
-                                ,
-                            </span>
-                            <span>شهر
-                                {{ $value->get_shahr->shahr_name }}
-                                {{ $value->address }}
-                            </span>
-                        </td>
+                    <div class="d-flex">
+                        <span id="span_action_<?= $value->id ?>"
+                            class="@if($key==0) active-address @else span_address @endif">
+                            <li class="icon-shopping-white-mark"></li>
+                        </span>
+                    </div>
 
 
-                    </tr>
-                    <tr>
+
+                    <div class="girande-address">
+                        <span class="ml-2" style="color: #9e8585;font-size: 19px;"><i class="fa fa-address-card"></i>
+                        </span>
+                        <span style="font-size: 18px;color: #7b7575; ">گیرنده :</span>
+                        <span style="color:#5f5454">{{ $value->name }}</span>
+                    </div>
 
 
-                        <td>
-                            <span>شماره تماس اضطراری : </span>
-                            <span>{{ $value->mobile }}</span>
-                            <span>شماره تماس ثابت : </span>
-                            <span>{{ $value->tell.' - '.$value->tell_code }}</span>
-                        </td>
-                    </tr>
+
+                    <div class="ostan-address">
+                        <span class="ml-3" style="color: #9e8585;font-size: 19px;"><i
+                                class="fa fa-map-marker"></i></span>
+                        <span style="font-size: 18px;color: #7b7575;">آدرس :</span>
+                        <span style="color:#5f5454">استان </span>
+                        <span style="color:#5f5454">
+                            {{ $value->get_ostan->ostan_name }}
+                            ,
+                        </span>
+                        <span style="color:#5f5454">شهر
+                            {{ $value->get_shahr->shahr_name }}
+                            {{ $value->address }}
+                        </span>
+                    </div>
 
 
-                </table>
+
+
+
+                    <div class="callNumber-adress">
+                        <span class="ml-3" style="color: #9e8585;font-size: 19px;"><i class="fa fa-phone"
+                                aria-hidden="true"></i></span>
+                        <span>شماره تماس اضطراری : </span>
+                        <span>{{ $value->mobile }}</span>
+                        <span>شماره تماس ثابت : </span>
+                        <span>{{ $value->tell.' - '.$value->tell_code }}</span>
+                    </div>
+
+
+                    <div class="clearfix"></div>
+                    <div class="btn btn-outline-light edit_address" onclick="edit_address('<?= $value->id ?>')">
+                        <span class="fa fa-edit"></span>
+                        <span>ویرایش آدرس</span>
+                    </div>
+                    <div class="btn btn-outline-light delete_address">
+                        <span class="fa fa-remove"
+                            onclick="del_row('<?= $value->id ?>','<?= url('remove_address') ?>','<?= Session::token() ?>')">
+                            <span>حذف آدرس</span>
+                        </span>
+                    </div>
+                </div>
+                
                 @endforeach
-
-
-                <p style="padding-top:30px"><span class="icon_item_name"></span><span style="padding-right:5px;">انتخاب
-                        شیوه ارسال </span>
+                 <p style="padding-top:30px"><span class="icon_item_name"></span><span
+                    style="padding-right:5px;">انتخاب
+                    شیوه ارسال </span>
                 </p>
 
 
@@ -200,8 +211,8 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <button type="submit"  
-                        class="btn pull-left btn-info-custom-payment hvr-sweep-to-left" type="submit">ثبت اطلاعات و ادامه خرید</button>
+                    <button type="submit" class="btn pull-left btn-info-custom-payment hvr-sweep-to-left"
+                        type="submit">ثبت اطلاعات و ادامه خرید</button>
                 </div>
 
             </div>

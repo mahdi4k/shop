@@ -228,4 +228,6 @@ $('.fa-search').click(function() {
     $('.toggle-search').slideToggle('slow');
   });
     
-  });
+});
+
+ 

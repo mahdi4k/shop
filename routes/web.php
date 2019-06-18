@@ -81,9 +81,9 @@ Route::middleware(['throttle:150,1'])->group(function () {
 
         Route::get('admin_login', 'Admin\AdminController@admin_login');
         Route::middleware(['statistics'])->group(function () {
-                Route::get('/', 'SiteController@index');
+                Route::get('/', 'SiteController@index')->name('index');
                 Route::get('product/{code}/{title}', 'SiteController@show');
-                Route::get('Cart', 'SiteController@show_cart');
+                Route::get('Cart', 'SiteController@show_cart')->name('cart');
 
                 Route::get('category/{cat1}', 'SearchController@cat1');
                 Route::get('search/{cat1}/{cat2}/{cat3}', 'SearchController@search');
@@ -92,6 +92,7 @@ Route::middleware(['throttle:150,1'])->group(function () {
 
                 Route::get('Search', 'SiteController@search');
         });
+        ROute::post('customLogin','ShopController@customLogin')->name('custom.login');
 
         //site controller
 
@@ -108,6 +109,7 @@ Route::middleware(['throttle:150,1'])->group(function () {
         Route::post('payment', 'ShopController@Payment');
         Route::post('Payment', 'ShopController@Pay');
         Route::get('user/order', 'UserController@show_order');
+        
         Route::get('logout', 'Auth\LoginController@logout');
 
 
@@ -149,5 +151,6 @@ Route::middleware(['throttle:150,1'])->group(function () {
                 Route::post('add_question', 'SiteController@add_question');
                 Route::get('user', 'UserController@index');
                 Route::get('user/orders', 'UserController@orders');
+                Route::get('user/editAddress', 'UserController@editAdress');
         });
 });

@@ -11,6 +11,13 @@ body
     url('../fonts/IRANSansWeb.woff') format("woff"),
     url('../fonts/IRANSansWeb.ttf') format("truetype");
 }
+@font-face {
+    font-family:'IRANSansWebLight';
+    src:url('../fonts/IRANSansWeb_Light.eot');
+    src:url('../fonts/IRANSansWeb.eot?#iefix') format("embedded-opentype"),
+    url('../fonts/IRANSansWeb_Light.woff') format("woff"),
+    url('../fonts/IRANSansWeb_Light.ttf') format("truetype");
+}
 .header
 {
     background:white;
@@ -1297,12 +1304,7 @@ a:hover
     height:60px;
     line-height:59px;
 }
-.btn
-{
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    border-radius: 0px;
-}
+ 
 #footer_cart .col-md-7
 {
     padding: 0px;
@@ -1441,18 +1443,22 @@ a:hover
 .user_address
 {
     width:100%;
-    margin-top: 20px;
+    overflow: auto;
+    margin-top: 10px;
     border:1px solid #F0F1F2;
+    background: #f7f7f7;
+    padding: 10px 10px 15px;
+    margin-bottom: 24px;
     border-collapse:separate;
 }
 .active_address
 {
     border:1px solid #C0F0C1;
+    box-shadow: 0px 0px 5px 4px #cccccc9c;
 }
 .active_address tr td
 {
-    border-left:1px solid #C0F0C1 !important;
-    border-bottom:1px solid #C0F0C1 !important;
+     
 }
 .first_td
 {
@@ -1460,12 +1466,7 @@ a:hover
     width:40px;
     position:relative;
 }
-.user_address tr td
-{
-    padding: 15px;
-    border-bottom:1px solid #F0F1F2;
-    border-left:1px solid #F0F1F2;
-}
+ 
 .end_td
 {
     width: 40px;
@@ -1473,36 +1474,33 @@ a:hover
 }
 .edit_address
 {
-    background:#E3F3FC;
-    width:100%;
-    height:50%;
-    position:absolute;
-    top: 0px;
-    cursor:pointer;
-    right:1px;
+    float: left;
+    display: inline-block;
 }
-.delete_address
-{
-    width:100%;
-    height:50%;
-    position:absolute;
-    cursor:pointer;
-    right:1px;
-    background:#FFEDEE;
+ 
+ 
+.delete_address{
+    float: left;
+    display: inline-block;
 }
-.edit_address .fa-edit
-{
-    color:blue;
-    position:absolute;
-    top:45%;
-    right:10px;
+ 
+.girande-address{
+     
+    padding-right: 10px
 }
-.delete_address .fa-remove
-{
-    color:red;
-    position:absolute;
-    top:45%;
-    right:13px;
+ .btn-outline-light{
+    color: #838d98;
+    border-color: #f8f9fa;
+}
+.ostan-address{
+    padding-top: 30px;
+    padding-right: 10px
+    
+}
+.callNumber-adress{
+    padding-top: 30px;
+    padding-right: 10px;
+    color:#5f5454
 }
 .radio-control
 {
@@ -1630,25 +1628,25 @@ a:hover
 }
 .active-address
 {
-    width:0px;
-    height:0px;
-    border-top:39px solid #8cd9d8;
-    position:absolute;
-    border-left:39px solid transparent;
-    top: 0px;
-    display:inline-block;
-    right: 0px;
+    width: 0;
+    height: 0px;
+    border-top: 49px solid #8cd9d8;
+    position: relative;
+    border-left: 53px solid transparent;
+    top: -10px;
+    display: inline-block;
+    right: -10px;
 }
 .icon-shopping-white-mark
 {
-    width:13px;
-    height:13px;
-    background:url("../img/slices.png");
+    width: 13px;
+    height: 13px;
+    background: url(../img/slices.png);
     background-position: -813px -479px;
-    position:relative;
-    display:inline-block;
-    top: -31px;
-    right:2px;
+    position: relative;
+    display: inline-block;
+    top: -38px;
+    right: 7px;
 }
 .order_item_price
 {
@@ -2496,6 +2494,7 @@ a:hover
 .user_panel_ul .active
 {
     background: deepskyblue;
+    color: white;
 }
 .user_panel_ul .active a
 {

@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('mobile.layouts.user')
 
 
 @section('panel_content')
@@ -6,7 +6,7 @@
 <?php
 $Jdf=new \App\lib\Jdf();
 ?>
-    <table class="table table-bordered user_table table-striped">
+    <table  class="table table-responsive table-bordered user_table table-striped">
 
         <tr>
             <th>ردیف</th>

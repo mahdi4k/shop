@@ -1,4 +1,4 @@
-@extends('site.master')
+@extends('mobile.layout')
 
 @section('content')
     <div class="row content_box" style="padding-top:30px">
@@ -6,7 +6,8 @@
         <div class="col-md-3 col-xs-12 col-sm-3">
 
             <ul class="user_panel_ul">
-                <li  class="{{ Request::path() == 'user/orders' ? 'active' : '' }}"><a href="{{ url('user/orders') }}">سفارشات من</a></li>
+                    <a href="{{url('/')}}">  <li>بازگشت به سایت</li></a>
+                    <a href="{{ url('user/orders') }}"><li  class="{{ Request::path() == 'user/orders' ? 'active' : '' }}">سفارشات من</li></a>
                  
                  
                  
@@ -14,7 +15,7 @@
               {{--  <li><a href="{{ url('user') }}">دیجی بن های من</a></li>--}}
                 
                {{-- <li><a href="{{ url('user') }}">پیغام های من</a></li>--}}
-               <li><a href="{{ url('user/editAddress') }}">آدرس ها</a></li>
+               <a href="{{ url('user/editAddress') }}"><li class="{{ Request::path() == 'user/editAddress' ? 'active' : '' }}">آدرس ها</li></a>
             </ul>
         </div>
 

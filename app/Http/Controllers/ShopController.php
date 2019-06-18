@@ -47,7 +47,7 @@ class ShopController extends Controller
         }
         else
         {
-            return redirect('Cart');
+            return redirect('/');
         }
 
     }
@@ -486,4 +486,6 @@ class ShopController extends Controller
 
 
     }
+
+     
 }

@@ -14,9 +14,15 @@
 
      
     ?>
-     
+
+
+
+
+
+
 <div class="clearfix"></div>
 <div class="banner">
+
 
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -26,27 +32,27 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
         <div class="row">
-        <div class="col-md-12">
-            <div class="carousel-inner">
-                @foreach($slider as $slide)
-                <div class="carousel-item  @if($loop->first) active @endif">
-                    <img width="500" height="500" class="pull-left ml-5"
-                        src="{{ url('upload').'/'.$slide->img }}"
-                        alt="First slide">
+            <div class="col-md-12">
+                <div class="carousel-inner">
+                    @foreach($slider as $slide)
+                    <div class="carousel-item  @if($loop->first) active @endif">
+                        <img width="500" height="500" class="pull-left ml-5" src="{{ url('upload').'/'.$slide->img }}"
+                            alt="First slide">
                         <div class="carousel-caption d-none pull-left d-md-block">
-                            
-                            <p >{{$slide->title}}</p>
-                                <span>
-                                 <a href="{{$slide->url}}"> <button class="btn btn-outline-light">افزودن به سبد خرید</button></a>
-                                </span>
+
+                            <p>{{$slide->title}}</p>
+                            <span>
+                                <a href="{{$slide->url}}"> <button class="btn btn-outline-light">افزودن به سبد
+                                        خرید</button></a>
+                            </span>
                         </div>
+                    </div>
+
+                    @endforeach
                 </div>
-                
-                @endforeach
             </div>
         </div>
-        </div>
-         
+
     </div>
 
 </div>
@@ -225,11 +231,11 @@
                             <div class="product_box">
 
                                 @if($value->get_img)
-<a href="{{ url('product').'/'.$value->code_url.'/'.$value->title_url }}">
-                                <div class="product_image_box">
-                                    <img src="{{ url('upload').'/'.$value->get_img->url }}">
-                                </div>
-                            </a>
+                                <a href="{{ url('product').'/'.$value->code_url.'/'.$value->title_url }}">
+                                    <div class="product_image_box">
+                                        <img src="{{ url('upload').'/'.$value->get_img->url }}">
+                                    </div>
+                                </a>
                                 @endif
 
 
@@ -243,28 +249,28 @@
                                     </a>
                                 </p>
                                 <a href="{{ url('product').'/'.$value->code_url.'/'.$value->title_url }}">
-                                <p class="product_discounts" @if(!empty($value->discounts) && !empty($value->price))
-                                    style="background: #F5F6F7;" @endif>
+                                    <p class="product_discounts" @if(!empty($value->discounts) && !empty($value->price))
+                                        style="background: #F5F6F7;" @endif>
 
-                                    @if(!empty($value->discounts) && !empty($value->price))
-                                    {{ arabic_w2e( number_format($value->price)) }} تومان
-                                    @endif
+                                        @if(!empty($value->discounts) && !empty($value->price))
+                                        {{ arabic_w2e( number_format($value->price)) }} تومان
+                                        @endif
 
-                                </p>
-                           
+                                    </p>
 
-                                <p class="product_price">
-                                    @if(!empty($value->discounts) && !empty($value->price))
 
-                                    {{ arabic_w2e( number_format($value->price - $value->discounts)) }}
-                                    تومان
-                                    @elseif(!empty($value->price))
+                                    <p class="product_price">
+                                        @if(!empty($value->discounts) && !empty($value->price))
 
-                                    {{ arabic_w2e( number_format($value->price)) }} تومان
-                                    @endif
+                                        {{ arabic_w2e( number_format($value->price - $value->discounts)) }}
+                                        تومان
+                                        @elseif(!empty($value->price))
 
-                                </p>
-                                 </a>
+                                        {{ arabic_w2e( number_format($value->price)) }} تومان
+                                        @endif
+
+                                    </p>
+                                </a>
                             </div>
                             @endforeach
                         </section>
@@ -278,9 +284,144 @@
         </div>
     </div>
 </section>
+
+<section>
+
+    <div class="container-fluid indicator ">
+        <div class="title order-title  ">
+            <h2 class="text-center">محصولات شاخص</h2>
+        </div>
+        <div class="row">
+
+            <div class="col-md-6">
+                @foreach ($mobile_products as $item)
+                @if ($loop->first)
+                <figure>
+                    <a href="{{ url('product').'/'.$item->code_url.'/'.$item->title_url }}">
+                        <img style="width:100%;max-width:450px" class="img-fluid rounded mx-auto d-block"
+                            src="{{ url('upload').'/'.$item->get_img->url }}">
+                </figure>
+                </a>
+                <p class="indicator-fa">{{$item->title}}</p>
+                <p class="indicator-en">{{$item->code}}</p>
+                @endif
+                @endforeach
+                <div class="items-product-index d-flex">
+                    <div class="col-md-7 col-md-offset-2 p-0">
+                        @foreach($items as $key=>$value)
+                        <?php
+                                $get_child_item = $value->get_child_item;
+                                ?>
+                        @foreach($get_child_item as $key2=>$value2)
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item indicator-li pl-0 text-center mr-5">
+                                <span> {{ $value2->name }} :</span>
+                            </li>
+                        </ul>
+                        @endforeach
+
+
+                        @endforeach
+                    </div>
+                    <div class="col-md-1">
+
+
+
+
+
+                        <ul class="list-group list-group-flush text-right">
+                            @foreach ($item_value as $item)
+                            @if($item->value==1 )
+                            <li style="color:skyblue; padding:13px" class="list-group-item pr-0 fa fa-check"></li>
+                            @endif
+                            @endforeach
+                        </ul>
+
+
+                    </div>
+
+                </div>
+                @foreach ($mobile_products as $item)
+                @if ($loop->first)
+                <a href="{{ url('product').'/'.$item->code_url.'/'.$item->title_url }}" style="color:white"
+                    class="btn btn-info-custom hvr-sweep-to-left btn-index"> افزودن به سبد خرید<i
+                        class="fa fa-shopping-cart mr-2"></i> </a>
+                @endif
+                @endforeach
+
+            </div>
+
+            <div class="col-md-6">
+                @foreach ($mobile_products as $item)
+                @if ($loop->last)
+                <a href="{{ url('product').'/'.$item->code_url.'/'.$item->title_url }}">
+                    <figure>
+                        <img style="height:249px;width:100%;max-width:450px" class="  rounded mx-auto d-block"
+                            src="{{ url('upload').'/'.$item->get_img->url }}">
+                    </figure>
+                </a>
+                <p class="indicator-fa">{{$item->title}}</p>
+                <p class="indicator-en">{{$item->code}}</p>
+
+
+
+                @endif
+                @endforeach
+                <div class="items-product-index d-flex">
+                    <div class="col-md-7 col-md-offset-2 p-0">
+                        @foreach($items as $key=>$value)
+                        <?php
+                            $get_child_item = $value->get_child_item;
+                            ?>
+                        @foreach($get_child_item as $key2=>$value2)
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item indicator-li pl-0 text-center mr-5">
+                                <span> {{ $value2->name }} :</span>
+                            </li>
+                        </ul>
+                        @endforeach
+
+
+                        @endforeach
+                    </div>
+                    <div class="col-md-1">
+
+
+
+
+
+                        <ul class="list-group list-group-flush text-right">
+                            @foreach ($item_value as $item)
+                            @if($item->value==1)
+                            <li style="color:skyblue; padding:13px" class="list-group-item pr-0 fa fa-check"></li>
+                            @endif
+                            @endforeach
+                        </ul>
+
+
+                    </div>
+                </div>
+                @foreach ($mobile_products as $item)
+                @if ($loop->first)
+                <a href="{{ url('product').'/'.$item->code_url.'/'.$item->title_url }}" style="color:white"
+                    class="btn btn-info-custom hvr-sweep-to-left btn-index"> افزودن به سبد خرید<i
+                        class="fa fa-shopping-cart mr-2"></i> </a>
+                @endif
+                @endforeach
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
 <section id="we-are">
     <div class="container-fluid">
         <h1 class="text-center">گروه<span class="yellow"> هیراد</span> کویر</h1>
+
         <div class="row">
 
             <div class="col-md-4 ">
@@ -306,31 +447,41 @@
                 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
                 <div class="wrapper">
                     <div class="container">
+
                         <h1 class="text-center">فرم تماس با ما</h1>
-                        <form class="mb-5">
+                        <form id="myForm" class="mb-5">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                        <label class="pull-right for="inputEmail4">ایمیل</label>
-                                    <input type="email" class="form-control" id="inputEmail4">
-                                    
-                                     
+                                    <label class="pull-right for=" inputEmail4">ایمیل</label>
+                                    <input name="email" type="email" class="form-control" id="email">
+
+
                                 </div>
                                 <div class="form-group col-md-6">
-                                        <label class="pull-right for="inputname">نام و نام خانوداگی</label>
-                                    <input type="text" class="form-control" id="inputname">
-                                   
-                                     
+                                    <label class="pull-right for=" inputname">نام و نام خانوداگی</label>
+                                    <input name="name" type="text" class="form-control" id="name">
+
+
                                 </div>
                             </div>
 
 
                             <div class="form-group">
-                                    <label class="pull-right">متن پیام</label>
-                                <textarea class="form-control" rows="8"></textarea>
-                                
-                                 
+                                <label class="pull-right">متن پیام</label>
+                                <textarea id="text" name="text" class="form-control" rows="8"></textarea>
+
+
                             </div>
-                            <button type="button" class="btn btn-block btn-metrial">ارسال</button>
+                            <div id="success_message" class="alert alert-success" style="display:none">پیام شما با
+                                موفقیت ارسال شد</div>
+                            <div id="error_message" class="alert alert-danger"
+                                style="display:none; text-align: center;">
+                                <ul style=" margin-bottom:0">
+                                    لطفا تمام فیلد ها  را پر کنید
+                                </ul>
+                            </div>
+                            <button id="ajaxSubmit" name="valider" type="button"
+                                class="btn btn-block btn-metrial">ارسال</button>
 
                         </form>
                     </div>
@@ -453,5 +604,48 @@
 
     });
 
+</script>
+<script>
+    $(document).ready(function () {
+            $('#ajaxSubmit').click(function (e) {
+                e.preventDefault();
+                $.ajaxSetup(
+                        {
+                            'headers': {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            }
+                        });
+
+                jQuery.ajax({
+                    url: "{{ url('/getData') }}",
+                    method: 'post',
+                    data: {
+                        name: jQuery('#name').val(),
+                        email: jQuery('#email').val(),
+                        text: jQuery('#text').val()
+                    },
+                        success:function(data){
+                            //console.log(data);
+                            $('#success_message').fadeIn().html(data.message).fadeOut(6000);
+                        },
+                        error: function (err) {
+                            if (err.status == 500) { // when status code is 422, it's a validation issue
+                                console.log(err.responseJSON);
+                                $('#error_message').fadeIn(300).delay(4000).fadeOut(300) ;
+
+                                // you can loop through the errors object and show it to the user
+                                console.warn(err.responseJSON.errors);
+                                // display errors on each form field
+                                $.each(err.responseJSON.errors, function (i, error) {
+                                    var el = $(document).find('[name="' + i + '"]');
+                                    el.after($('<span style="color: red;">' + error[0] + '</span>'));
+                                });
+                            }
+                        }
+
+                }
+                );
+            });
+        });
 </script>
 @endsection

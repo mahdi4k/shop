@@ -180,15 +180,26 @@ class Search
         $product_id=DB::table('cat_product')->where('cat_id',$cat_id)->pluck('product_id','id')->toArray();
 
         $product=Product::with(['get_img','get_colors','get_score'])
-            ->whereIn('id',$product_id)
-            ->where(['show_product'=>1])
-            ->orderBy('id','DESC')
-            ->paginate(20);
+        ->whereIn('id',$product_id)
+        ->where(['show_product'=>1])
+        ->orderBy('id','DESC')
+        ->paginate(20);
         $array['product']=$product;
         $total_product=$product=Product::whereIn('id',$product_id)
             ->where(['show_product'=>1])->count();
         $array['total_product']=$total_product;
         return $array;
+    }
+    public static function get_mobile_category(){
+         
+        $mobile_category=DB::table('cat_product')->where('cat_id','6')->pluck('product_id');
+        $product=Product::with(['get_img','get_colors','get_score'])
+        ->whereIn('id',$mobile_category)
+        ->where(['show_product'=>1])
+        ->orderBy('id','DESC')
+        ->limit(2)
+         ->get();
+        return $product;
     }
     public function load()
     {

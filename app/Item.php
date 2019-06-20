@@ -21,6 +21,25 @@ class Item extends Model
     {
         $items=array();
         $cats=DB::table('cat_product')->where(['product_id'=>$id])->get();
+        
+        foreach ($cats as $cat)
+        {
+            if(sizeof($items)==0)
+            {
+                $item=Item::with('get_child_item')->where(['cat_id'=>$cat->cat_id,'parent_id'=>0])->get();
+                if(sizeof($item)>0)
+                {
+                    $items=$item;
+                }
+            }
+        }
+        return $items;
+    }
+    public static function get_mobile_items($id)
+    {
+        $items=array();
+        $cats=DB::table('cat_product')->where(['product_id'=>$id])->get();
+        
         foreach ($cats as $cat)
         {
             if(sizeof($items)==0)

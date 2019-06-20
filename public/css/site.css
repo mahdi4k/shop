@@ -18,6 +18,10 @@ body
     url('../fonts/IRANSansWeb_Light.woff') format("woff"),
     url('../fonts/IRANSansWeb_Light.ttf') format("truetype");
 }
+@font-face{
+    font-family: 'Mali-Bold';
+    src: url('../fonts/Mali-Bold.ttf');
+}
 .header
 {
     background:white;
@@ -2651,10 +2655,78 @@ a:hover
     font-family: FontAwesome, serif;
 
 }
+.list-group-item {
+    
+    border: none !important;  
+}
+.indicator-li{
+    font-size: 13px;
+    color: #5C5C5C;
+
+}
+.btn-index {
+    display: block;
+    margin: 10px auto;
+    background-color: #05bcc5 !important;
+    line-height: 44px;
+    border: white;
+    width: 230px;
+    color:white;
+}
+.btn-index:before {
+    content: "";
+    font-family: FontAwesome;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #0cb3bb !important;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+.btn-index:hover{
+    color: white;
+    box-shadow: 1px 1px 9px 3px #ccc;
+}
+.indicator img{
+    transition: all .6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.indicator img:hover{
+     
+    transform: scale(1.03);
+}
+.indicator-fa{
+    text-align: center;
+    font-weight: bold;
+}
+.indicator-en{
+    font-family: 'Mali-Bold';
+    text-align: center;
+}
 .dot-custom{
     width: 5px;
     height: 5px;
     background: red;
+}
+.indicator{
+    margin-bottom: 50px;
+    margin-top: 100px;
+    background-color: white;
+    box-shadow: 0 13px 27px rgba(0, 0, 0, 0.25), 0 -4px 15px rgba(0, 0, 0, 0.22);
+    border-radius: 20px;
+    width: 99%;
+    margin-right: 8px;
+    height: auto;
 }
 .card-text:last-child {
     text-align: center;

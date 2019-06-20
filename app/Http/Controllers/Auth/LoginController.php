@@ -56,6 +56,11 @@ class LoginController extends Controller
     {
         return 'username';
     }
+    public function showLoginForm()
+    {
+        $view_name=$this->view.'auth.login';
+        return view($view_name);
+    }
     public function redirectTo()
     {
         $role=Auth::user()->role;

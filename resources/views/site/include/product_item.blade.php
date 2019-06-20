@@ -36,7 +36,7 @@
 
                             @if($item_value[$value2->id]==1)
                                 <p>
-                                    <span class="fa fa-check" style="color:green;"></span>
+                                    <span class="fa fa-check" style="color:skyblue;"></span>
                                 </p>
                             @else
                                 <p>

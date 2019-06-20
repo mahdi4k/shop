@@ -107,7 +107,7 @@
 
                             <div class="form-group text-center">
                                 <input type="submit" style="width:150px" class="btn btn-info" value="ورود به سایت">
-                                <a class="btn btn-light" style=" padding-right: 10px;" href="">بازیابی کلمه عبور</a>
+                            <a class="btn btn-light" style=" padding-right: 10px;" href="{{route('password.request')}}">بازیابی کلمه عبور</a>
                             </div>
 
 

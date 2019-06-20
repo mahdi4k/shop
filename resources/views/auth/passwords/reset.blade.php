@@ -1,5 +1,7 @@
-@extends('layouts.app')
-
+@extends('site.master')
+@section('title')
+    گروه هیراد کویر- بازیابی کلمه عبور
+@endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

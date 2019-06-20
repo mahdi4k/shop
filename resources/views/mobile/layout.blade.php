@@ -58,8 +58,8 @@
                 <li class="list-inline-item" onclick="show_cat_box()"><span class="fa fa-bars"></span></li>
                 <li class="list-inline-item">هوشمند خودرو</li>
 
-                <a href="{{url('user')}}"><li class="list-inline-item pull-left ml-3"  ><span class="fa fa-user"></span></li></a>
-                <a href="{{ url('Cart') }}"><li  class="list-inline-item pull-left ml-3" ><span class="fa fa-shopping-cart"></span></li></a>
+                <a href="{{url('user')}}"><li class="list-inline-item pull-left ml-3"  ><span @if(Auth::check()) style="color:blue" @endif  class="fa fa-user"></span></li></a>
+                <a href="{{ url('Cart') }}"><li  class="list-inline-item pull-left ml-3" ><span  class="fa fa-shopping-cart"></span></li></a>
                 <li class="list-inline-item pull-left ml-3" ><span class="fa fa-search"></span></li>
                 
                 <li class="list-inline-item toggle-search w-100  ">
@@ -67,7 +67,6 @@
 
                                 <input id="inputGroupSuccess1" name="text" class="custom-form-control mr-sm-2" type="text" placeholder="نام کالا یا برند" aria-label="Search">
                                 <button style="" class=" custom-search  my-2 my-sm-0"></button>
-                    
                         </form>
                 </li>
             </ul>

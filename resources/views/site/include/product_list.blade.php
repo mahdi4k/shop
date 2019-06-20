@@ -59,11 +59,7 @@ function arabic_w2e($str)
                     <img  src="{{ url('upload').'/'.$value->get_img->url }}">
                         </a>
 
-                    <?php
-
-                    $score=get_score($value->get_score);
-                    ?>
-
+ 
                     <div style="text-align:center;height:40px;position:relative">
 
 

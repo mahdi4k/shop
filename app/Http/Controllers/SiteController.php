@@ -22,6 +22,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Slider;
 use App\lib\Mobile_Detect;
+use App\Search;
+use App\itemProduct;
+use App\ContactUs;
 
 class SiteController extends Controller
 {
@@ -46,13 +49,19 @@ class SiteController extends Controller
 
     public function index()
     {
-
+        
+        $mobile_products=Search::get_mobile_category();
+        $select_mobile_product=$mobile_products->pluck('id');
         $slider = Slider::orderBy('id', 'DESC')->limit(5)->get();
         $product = Product::with('get_img')->where('product_status', 1)->orderBy('id', 'DESC')->limit(8)->get();
         $old_amazing=Amazing::orderBy('timestamp','DESC')->first();
         $amazing = Amazing::with('get_img')->with('get_product')->orderBy('id', 'DESC')->get();
+        $items = Item::get_mobile_items($select_mobile_product);
+        $item_value=itemProduct::whereIn('product_id',[$select_mobile_product])->get();
+         
+        //$item_value = DB::table('item_product')->whereIn('product_id', ['17','19'])->pluck('value', 'item_id')->toArray();
         $view_name=$this->view.'site/index';
-        return view($view_name, compact('product', 'amazing', 'slider','old_amazing'));
+        return view($view_name, compact('product', 'amazing', 'slider','old_amazing','mobile_products','items','item_value'  ));
     }
 
     public function show($code, $title)
@@ -342,4 +351,26 @@ public function check_discount_code(Request $request)
         }
 
     }
+    
+    public function ajaxForm(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+        'name' => 'required',
+        'email' => 'required',
+        'text' => 'required',
+    ]);
+
+
+
+
+         $contact= new ContactUs();
+        $contact->name = $request->name;
+        $contact->email = $request->email;
+        $contact->text = $request->text;
+
+
+        $contact->save();
+
+    }
+
 }

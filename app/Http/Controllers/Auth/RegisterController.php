@@ -88,4 +88,9 @@ class RegisterController extends Controller
             'role'=>'user'
         ]);
     }
+    public function showRegistrationForm()
+    {
+        $view_name=$this->view.'auth.register';
+        return view($view_name);
+    }
 }

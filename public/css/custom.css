@@ -228,16 +228,16 @@ a:hover {
 /*end rotate style*/
 
 .navbar-nav .nav-item .nav-link:hover {
-    color: #fed136;
+    color: #ff637d;
 }
 
 .yellow {
-    color: #fed136;
+    color: #ff637d;
 
 }
 
 .navbar-expand-md .navbar-nav .dropdown-menu {
-    border-top: 3px solid #fed136;
+    border-top: 3px solid #ff637d;
 }
 
 .dropdown-item:hover {
@@ -304,7 +304,7 @@ a:hover {
 
 #about span {
 
-    color: #fed136;
+    color: #ff637d;
     font-size: 2.5rem;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -432,7 +432,7 @@ a:hover {
 }
 
 #we-are span {
-    color: #fed136;
+    color: #ff637d;
 }
 
 /* product section */
@@ -839,7 +839,7 @@ i.fa-users {
     .navbar-nav {
         position: relative;
         background-color: #4765a6;
-        border-top: 3px solid #fed136;
+        border-top: 3px solid #ff637d;
         color: #fff;
         z-index: 9999;
         text-align: right;
@@ -923,7 +923,7 @@ i.fa-users {
     .navbar-nav {
         position: relative;
         background-color: #4765a6;
-        border-top: 3px solid #fed136;
+        border-top: 3px solid #ff637d;
         color: #fff;
         z-index: 9999;
         text-align: right;
@@ -1673,7 +1673,7 @@ i.fa-users {
     font-family: FontAwesome, serif;
      position: relative;
     top: -2px;
-     color: green;
+     color: skyblue;
     vertical-align: middle;
     margin-left: 5px;
     border-radius: 50%;

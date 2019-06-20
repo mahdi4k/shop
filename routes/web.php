@@ -153,4 +153,5 @@ Route::middleware(['throttle:150,1'])->group(function () {
                 Route::get('user/orders', 'UserController@orders');
                 Route::get('user/editAddress', 'UserController@editAdress');
         });
+        Route::post('/getData', 'SiteController@ajaxForm');
 });

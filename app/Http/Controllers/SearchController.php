@@ -154,6 +154,7 @@ class SearchController extends Controller
         $view_name=$this->view.'site.product_cat1';
         return View($view_name,['data'=>$data,'category1'=>$category,'price'=>$price,'cat_url'=>$cat_url,'cat_list'=>$cat_list]);
     }
+     
     public function show_cat4($cat1,$cat2,$cat3,$cat4)
     {
         $category1=Category::where(['cat_ename'=>$cat1])->firstOrFail();

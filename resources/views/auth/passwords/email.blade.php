@@ -1,11 +1,13 @@
-@extends('layouts.app')
-
+@extends('site.master')
+@section('title')
+    گروه هیراد کویر- بازیابی کلمه عبور
+@endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+            <div class="card m-5">
+                <div style="text-align:center" class="card-header">{{ __('بازیابی کلمه عبور') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -17,13 +19,13 @@
                     <form method="POST" action="{{ route('password.email') }}">
                         @csrf
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                        <div class="form-group row d-flex justify-content-center p-2">
+                            <label for="email" class="pull-left">{{ __('  ایمیلی که با آن ثبت نام کردین :') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="username" type="email" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
 
-                                @error('email')
+                                @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -31,10 +33,10 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                        <div class="form-group row mb-0 d-flex justify-content-center">
+                             
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
+                                    {{ __('ارسال لینک بازیابی رمز عبور') }}
                                 </button>
                             </div>
                         </div>

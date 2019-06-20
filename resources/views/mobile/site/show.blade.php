@@ -200,10 +200,15 @@
                                             <ul>
                                                 <li class="d-inline-custom">
 
-                                                    <span> {{ $value2->name }} :</span>
+                                                    <span> {{ $value2->name }} 
+                                                    
+                                                        @if($item_value[$value2->id]!=1)
+                                                        :
+                                                    @endif
+                                                    </span>
+                                                                                             
 
-
-                                                    @if(array_key_exists($value2->id,$item_value))
+                                                    @if(array_key_exists($value2->id,$item_value) && $item_value[$value2->id]!=1)
                                                         <span>  {{ $item_value[$value2->id] }}</span>
                                                     @endif
 

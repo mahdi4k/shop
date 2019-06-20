@@ -206,10 +206,14 @@
                                             <ul>
                                             <li class="d-inline-custom">
 
-                                               <span> {{ $value2->name }} :</span>
+                                               <span> {{ $value2->name }}  
+                                                    @if(array_key_exists($value2->id,$item_value) && $item_value[$value2->id]!=1)
+                                                    :
+                                                  @endif
+                                            </span>
 
 
-                                                @if(array_key_exists($value2->id,$item_value))
+                                                @if(array_key_exists($value2->id,$item_value) && $item_value[$value2->id]!=1)
                                                   <span>  {{ $item_value[$value2->id] }}</span>
                                                 @endif
 
@@ -298,7 +302,7 @@
 
 
                         <p style="color:red;padding-top:30px;padding-bottom:30px;text-align:center">نقد و بررسی تخصصی
-                            برای این محصول ثبت نشد</p>
+                            برای این محصول ثبت نشده</p>
 
                     @endif
                 </div>

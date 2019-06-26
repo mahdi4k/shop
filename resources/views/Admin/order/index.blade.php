@@ -46,12 +46,7 @@
         </tr>
         </thead>
         <?php $i=1; $Jdf=new \App\lib\Jdf();
-        function arabic_w2e($str)
-        {
-            $arabic_eastern = array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩');
-            $arabic_western = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
-            return str_replace($arabic_western, $arabic_eastern, $str);
-        }
+        
         ?>
         @foreach($order as $key=>$value)
 
@@ -59,8 +54,8 @@
                 <td>{{ $i }}</td>
                 <td>{{ $value->order_id }}</td>
                 <td>{{ $value->get_user->username }}</td>
-                <td >{{ arabic_w2e( $Jdf->jdate('Y-m-d',$value->time)) }} | {{ arabic_w2e( $Jdf->tr_num($Jdf->jdate('H:i:s',$value->time))) }}</td>
-                <td>{{ arabic_w2e( number_format($value->price)) }} تومان</td>
+                <td >{{   $Jdf->jdate('Y-m-d',$value->time)  }} | {{   $Jdf->tr_num($Jdf->jdate('H:i:s',$value->time))  }}</td>
+                <td>{{   number_format($value->price)  }} تومان</td>
                 <td>
                     @if($value->pay_status==1)
                         <span>پرداخت شده</span>

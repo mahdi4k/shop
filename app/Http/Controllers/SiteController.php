@@ -25,6 +25,7 @@ use App\lib\Mobile_Detect;
 use App\Search;
 use App\itemProduct;
 use App\ContactUs;
+use App\News;
 
 class SiteController extends Controller
 {
@@ -49,7 +50,8 @@ class SiteController extends Controller
 
     public function index()
     {
-        
+         
+         
         $mobile_products=Search::get_mobile_category();
         $select_mobile_product=$mobile_products->pluck('id');
         $slider = Slider::orderBy('id', 'DESC')->limit(5)->get();
@@ -58,10 +60,10 @@ class SiteController extends Controller
         $amazing = Amazing::with('get_img')->with('get_product')->orderBy('id', 'DESC')->get();
         $items = Item::get_mobile_items($select_mobile_product);
         $item_value=itemProduct::whereIn('product_id',[$select_mobile_product])->get();
-         
+        $news_all=News::orderBy('id', 'DESC')->limit(4)->get();
         //$item_value = DB::table('item_product')->whereIn('product_id', ['17','19'])->pluck('value', 'item_id')->toArray();
         $view_name=$this->view.'site/index';
-        return view($view_name, compact('product', 'amazing', 'slider','old_amazing','mobile_products','items','item_value'  ));
+        return view($view_name, compact('product', 'amazing', 'slider','old_amazing','mobile_products','items','item_value','news_all' ));
     }
 
     public function show($code, $title)
@@ -69,13 +71,15 @@ class SiteController extends Controller
         $product = Product::with('get_images')->with('get_colors')
             ->where(['code_url' => $code, 'title_url' => $title, 'show_product' => 1])->firstOrFail();
         $product->view = $product->view + 1;
+        $cat_product=Product::get_cat_id($product->id);
+        $categoryBread=Category::select('cat_name','cat_ename')->whereIn('id',$cat_product)->get();
         $product->update();
         $review = ReView::where(['product_id' => $product->id])->first();
         $items = Item::get_product_item($product->id);
         $item_value = DB::table('item_product')->where('product_id', $product->id)->pluck('value', 'item_id')->toArray();
         $score_data = ProductScore::get_score($product->id);
         $view_name=$this->view.'site/show';
-        return view($view_name, compact('review', 'items', 'item_value', 'product', 'score_data'));
+        return view($view_name, compact('review', 'items', 'item_value', 'product', 'score_data','categoryBread'));
     }
 
     public function set_service(Request $request)

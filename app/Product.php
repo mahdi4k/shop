@@ -43,6 +43,11 @@ class Product extends Model
         $cat_list=DB::table('cat_product')->where('product_id',$id)->pluck('cat_id','id')->toArray();
         return $cat_list;
     }
+    public static function get_cat_id($id)
+    {
+        $cat_list=DB::table('cat_product')->where('product_id',$id)->pluck('cat_id')->toArray();
+        return $cat_list;
+    }
     public function get_colors()
     {
         return $this->hasMany(Color::class,'product_id','id');

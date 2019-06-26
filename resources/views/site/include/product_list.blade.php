@@ -91,7 +91,7 @@ function arabic_w2e($str)
                     </p>
                     <a href="{{ url('product').'/'.$value->code_url.'/'.$value->title_url }}">
                     <div class="amazing-button mb-4 text-center  ">
-                        <button class="btn btn-info">افزودن به سبد خرید</button>
+                        <button style="border-radius:0" class="btn btn-info">افزودن به سبد خرید</button>
                     </div>
                     </a>
                 </div>

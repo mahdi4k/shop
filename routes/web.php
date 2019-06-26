@@ -53,7 +53,6 @@ Route::middleware(['throttle:150,1'])->group(function () {
                 Route::resource('admin/shahr', 'Admin\ShahrController', ['except' => ['show']]);
                 //admin-review
                 Route::get('admin/product/add-review', 'Admin\ProductController@add_review_form');
-
                 Route::post('admin/product/add_review', 'Admin\ProductController@add_review');
                 Route::post('admin/product/del_review_img/{id}', 'Admin\ProductController@del_review_img');
                 //order product
@@ -75,8 +74,10 @@ Route::middleware(['throttle:150,1'])->group(function () {
                 Route::delete('admin/question/{id}', 'Admin\QuestionController@delete');
                 Route::post('admin/question/add', 'Admin\QuestionController@add');
                 //setting dargah pardakht
-                Route::get('admin/setting/pay', 'admin\AdminController@pay_setting_form');
-                Route::post('admin/setting/pay', 'admin\AdminController@pay_setting');
+                Route::get('admin/setting/pay', 'Admin\AdminController@pay_setting_form');
+                Route::post('admin/setting/pay', 'Admin\AdminController@pay_setting');
+                //news section
+                Route::resource('admin/news','Admin\NewsController',['except' => ['show']]);
         });
 
         Route::get('admin_login', 'Admin\AdminController@admin_login');
@@ -92,7 +93,7 @@ Route::middleware(['throttle:150,1'])->group(function () {
 
                 Route::get('Search', 'SiteController@search');
         });
-        ROute::post('customLogin','ShopController@customLogin')->name('custom.login');
+        //Route::post('customLogin','ShopController@customLogin')->name('custom.login');
 
         //site controller
 
@@ -109,7 +110,7 @@ Route::middleware(['throttle:150,1'])->group(function () {
         Route::post('payment', 'ShopController@Payment');
         Route::post('Payment', 'ShopController@Pay');
         Route::get('user/order', 'UserController@show_order');
-        
+        Route::get('/news/{news}','homeController@single')->name('news.single');
         Route::get('logout', 'Auth\LoginController@logout');
 
 

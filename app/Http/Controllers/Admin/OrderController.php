@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 
 class OrderController extends Controller
 {
+    
     public function index(Request $request)
     {
         $order=Order::search($request->all());
@@ -50,4 +51,7 @@ class OrderController extends Controller
         $order->delete();
         return redirect()->back();
     }
+
+    
+     
 }

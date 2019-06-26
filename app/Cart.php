@@ -167,6 +167,8 @@ class  Cart
             return 0;
         }
     }
+
+    
     public static function has()
     {
         $cart=Session::get('cart',array());

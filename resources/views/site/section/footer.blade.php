@@ -121,7 +121,30 @@ if(search_text.trim()!='')
 
 }
 </script>
+
 @endif
+<script>
+        <?php
+            $url = url('site/ajax_del_cart');
+            
+           ?>
+            del_product_cart = function (p_id, s_id, c_id) {
+            $.ajaxSetup(
+                {
+                    'headers': {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+            $.ajax({
+                url: '{{ $url }}',
+                type: 'POST',
+                data: 'service_id=' + s_id + '&product_id=' + p_id + '&color_id=' + c_id,
+                success: function (data) {
+                    $("#delete-mini-cart").html(data);
+                }
+            });
+        };
+   </script>
 </body>
 
 </html>

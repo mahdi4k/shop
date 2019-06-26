@@ -264,9 +264,7 @@ a:hover {
     height: auto;
 
     position: relative;
-    background: #4b6cb7;
-    background: -webkit-linear-gradient(to right, #4b6cb7, #182848);
-    background: linear-gradient(to right, #4b6cb7, #182848);
+     margin-top: 20px;
     text-align: center;
     color: #fff;
     background-attachment: scroll;
@@ -1415,7 +1413,7 @@ i.fa-users {
 #myTabs li a.active {
      
     background-color: white;
-    padding: 13px;
+     
     white-space: pre;
     margin-right: 0px;
     border-top: 4px solid #00bfd6;
@@ -1727,9 +1725,10 @@ border-top:0 ;
 .custom-search{
     position: absolute;
     left: 1px;
-    background: tomato;
-    width: 68px;
-    height: 100%;
+    top: 1px;
+    background: inherit;
+    width: 50px;
+    height: 0px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     box-shadow: none;
@@ -1739,8 +1738,11 @@ border-top:0 ;
 .custom-search::before{
     content: "\f002";
     font-family: FontAwesome, serif;
-    color: white;
+    color: #5fb8f0;
+    text-shadow: 1px 1px 3px;
     font-size: 26px;
+    position: relative;
+    top: -2px;
 }
 .nav-width-custom{
     width: 38%!important;

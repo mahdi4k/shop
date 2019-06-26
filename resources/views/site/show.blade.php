@@ -1,7 +1,5 @@
 @extends('site.master')
-@section('style')
-    <link rel="stylesheet" href="{{url('css/site.css')}}">
-@endsection()
+ 
 @section('title')
     مشخصات، قیمت و خرید {{$product->title}}
 @endsection
@@ -14,10 +12,47 @@
         return str_replace($arabic_western, $arabic_eastern, $str);
     }
     ?>
+     
+
+     <div style=" margin-top:12px;display:flex">
+
+            <ul class="cat_ul_single list-inline">
+               
+               <li class="list-inline-item">
+                <i style="color:skyblue" class="fa fa-home"></i>   
+               <a href="{{url('/')}}">
+                هوشمند خودرو
+            </a>
+               </li>
+                
+                <li class="list-inline-item">
+                    <i class="fa fa-angle-left"></i>
+                    <a href="{{ url('category').'/'.$categoryBread[0]->cat_ename }}">
+                    {{$categoryBread[0]->cat_name}}
+                    </a>
+               </li>
+               <li class="list-inline-item">
+                    <i class="fa fa-angle-left"></i>
+                    <a href="{{ url('category').'/'.$categoryBread[1]->cat_ename }}">
+                   {{$categoryBread[1]->cat_name}}
+                </a>
+               </li>
+               <li class="list-inline-item">
+                    <i class="fa fa-angle-left"></i>
+                    <a href="{{ url('category').'/'.$categoryBread[1]->cat_ename }}">
+                    {{$categoryBread[2]->cat_name}}
+                    </a>
+               </li>
+                
+               
+            </ul>
+        </div>
+
+
     <div class="row content_box">
 
 
-        <div class="col-md-5" style="padding-bottom:50px;border-left: 1px solid #ccc;">
+        <div class="col-md-5" style="padding-bottom:50px;border-left: 1px solid #cccccc2e;">
 
             <div style="margin-top:30px;width:100%;float:right;">
                 <div class="products-availability-image"></div>

@@ -780,3 +780,80 @@ border-bottom: 2px solid #b8c7d4a6;
     border-radius: 6px;
     margin-bottom: 11px;
 }
+.single-title-news {
+    position: absolute;
+    bottom: 23px;
+    right: 14px;
+    z-index: 999;
+    font-size: 12px;
+    color: white;
+    font-family: 'IRANSansWebLight';
+}
+.date-news-single {
+    position: absolute;
+    right: 4px;
+    padding: 3px;
+    bottom: 4px;
+    border-radius: 3px;
+    background: white;
+    z-index: 1;
+    font-size: 13px;
+}
+.img-news figure {
+    transition: all .2s ease-in;
+    overflow: hidden;
+    filter: brightness(79%);
+}
+.news-section-single {
+    margin-top: unset;
+}
+.breadcrumb-news{
+    background: white;
+    border-radius: 7px;
+    padding: 5px;
+    width: 90%;
+    margin: 0 auto;
+    height: 35px;
+    margin-bottom: 18px;
+}
+.news-single-body {
+    font-family: IRANSansWebLight;
+    line-height: 30px;
+    font-weight: 400;
+    text-align: justify;
+    letter-spacing: .1px;
+}
+.caret-left{
+    position: relative;
+}
+.caret-left::before{
+
+    content: "\f0d9";
+    font-family: FontAwesome;
+    color: skyblue;
+    position: absolute;
+    left: 108px;
+    font-size: 16px;
+    bottom: 13px;
+
+}
+.caret-left-news::before{
+    content: "\f0d9";
+    font-family: FontAwesome;
+    color: skyblue;
+    position: absolute;
+    right: -9px;
+    top: -2px;
+    font-size: 17px;
+}
+.news-section-single {
+    margin-bottom: 50px;
+   
+    padding: 17px;
+    background-color: white;
+    box-shadow: 0 0 22px -5px #A2C8F9;
+    border-radius: 20px;
+    width: 95%;
+    /* margin-right: 8px; */
+    height: auto;
+}

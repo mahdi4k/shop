@@ -6,17 +6,15 @@
 body{
     font-family: IRANSans, serif !important;
 }
-/*
- * Sidebar
- */
 
 .sidebar {
-    position: fixed;
+    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 1px;
-    z-index: 100; /* Behind the navbar */
+    z-index: 100;
+    width: 20%;
     padding: 0;
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
 }
@@ -24,11 +22,10 @@ body{
 .sidebar-sticky {
     position: -webkit-sticky;
     position: sticky;
-    top: 48px; /* Height of navbar */
+    top: 48px;
     height: calc(100vh - 48px);
-    padding-top: .5rem;
     overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    overflow-y: auto; 
 }
 .sidebar-sticky .nav{
     text-align: right;
@@ -265,4 +262,13 @@ body{
     background-color: #28a745;
     border-color: #28a745;
     margin-bottom: 20px;
+}
+.user-interface{
+    display: block;
+    width: 100%;
+    padding: 20px;
+    background: #6190E8;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #A7BFE8, #6190E8);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #A7BFE8, #6190E8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }

@@ -1,8 +1,35 @@
+var timer = {};
+
+$('#menu_top').find('li').hover(function () {
+    var tag = $(this);
+    var timerAttr = tag.attr('data-time');
+    clearTimeout(timer[timerAttr]);
+
+    timer[timerAttr] = setTimeout(function () {
+        $('>ul', tag).css('display', 'flex');
+        tag.addClass('active-menu');
+        $('>.submenue3', tag).css('display', 'flex');
+    }, 250);
+
+
+}, function () {
+    var tag = $(this);
+    var timerAttr = tag.attr('data-time');
+    clearTimeout(timer[timerAttr]);
+    timer[timerAttr] = setTimeout(function () {
+        $('>ul', tag).fadeOut();
+        tag.removeClass('active-menu');
+        $('>.submenue3', tag).fadeOut();
+    }, 250);
+
+});
+ 
 $("#product_cat li").hover(function ()
 {
       
     if(this.id=='')
     {
+        
         $('div',this).show();
          
     } 
@@ -230,4 +257,15 @@ $('.fa-search').click(function() {
     
 });
 
- 
+$(document).ready(function(){
+    $("#show_team").click(function(){
+      $("#show_ourteam").slideToggle();
+    });
+  });
+
+
+  $(document).ready(function(){
+    $("#show-mini-cart").click(function(){
+      $(".cart").fadeToggle();
+    });
+  });

@@ -1,0 +1,122 @@
+<div class="container-fluid menu">
+
+    <div class="container">
+        <div class="row">
+            <ul class="list-inline" id="product_cat">
+                @foreach($category as $key=>$value)
+
+                <li data-time="1" id="product_cat_li_<?= $value->id ?>">
+                    <a href="{{ url('category').'/'.$value['cat_ename'] }}"><span
+                            style="padding:7px">{{ $value['cat_name'] }}</span></a>
+                    <span id="product_cat_span_<?= $value->id ?>" </span> <ul class="list-inline sub_menu1">
+                        @foreach($value->getChild as $key2=>$value2)
+                <li>
+                    <a href="{{ url('category').'/'.$value->cat_ename.'/'.$value2->cat_ename }}">
+                        {{ $value2->cat_name }}
+                    </a>
+
+                    <div class="menu_box">
+
+
+                        <?php
+                                        $t = 0;
+                                        $d = 1;
+                                        ?>
+
+                        @foreach($value2->getChild as $key3=>$value3)
+
+                        <?php
+                          $menu4 = $value3->getChild2;
+                        ?>
+                        @if((11-$t)<sizeof($menu4) && $t>0)
+
+                            <?php
+                             $t = 0;
+                             $d++;
+                           ?>
+                    </div>
+                    @endif
+                    @if($t==0)
+                    <div class="menu_box_div_{{ $d }}">
+                        @endif
+                        <?php $t++; ?>
+
+
+                        <ul class="li_menu">
+                            <li>
+                                <a style="color:#16C1F3"
+                                    href="{{ url('category').'/'.$value->cat_ename.'/'.$value2->cat_ename.'/'.$value3->cat_ename }}">
+                                    {{ $value3->cat_name }}
+                                </a>
+                            </li>
+                            <?php
+                                                $j = 0;
+
+                                                ?>
+                            @foreach($menu4 as $key4=>$value4)
+                            <?php $t++; ?>
+                            @if($j<11) <?php
+                                                    $url = url('/');
+                                                    $e = explode('_', $value4->cat_ename);
+                                                    if (sizeof($e) == 3) {
+                                                        if ($e[0] == 'filter') {
+                                                            $url .= '/search/' . $value->cat_ename . '/' . $value2->cat_ename . '/' . $value3->cat_ename . '?' . $e[1] . '[0]=' . $e[2];
+                                                        } else {
+                                                            $url .= '/category/' . $value->cat_ename . '/' . $value2->cat_ename . '/' . $value3->cat_ename . '/' . $value4->cat_ename;
+                                                        }
+                                                    } else {
+                                                        $url .= '/category/' . $value->cat_ename . '/' . $value2->cat_ename . '/' . $value3->cat_ename . '/' . $value4->cat_ename;
+                                                    }
+                                                    ?> 
+                                                    <li><a href="{{ $url }}">{{ $value4->cat_name }}</a> </li>
+               
+
+                @else
+
+                @if(sizeof($menu4)>11)
+
+                <li>
+                    <a href="{{ url('category').'/'.$value->cat_ename.'/'.$value2->cat_ename.'/'.$value3->cat_ename }}"
+                        style="color:#16C1F3">مشاهده موارد بیشتر</a></li>
+                @endif
+
+                @endif
+
+                <?php $j++ ?>
+
+                @endforeach
+
+            </ul>
+
+
+            <?php
+                  if($t > 12)
+                   {
+                   $t = 0;
+                    $d++;
+                                            ?>
+        </div><?php }?>
+
+
+
+
+        @endforeach
+
+
+
+        @if(!empty($value2->img))
+
+        <div class="cat_img" style="background:url('{{ url('upload').'/'.$value2->img }}')"></div>
+        @endif
+
+    </div>
+    </li>
+    @endforeach
+    </ul>
+    </li>
+    @endforeach
+    </ul>
+</div>
+</div>
+
+</div>

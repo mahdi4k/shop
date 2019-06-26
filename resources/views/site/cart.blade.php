@@ -1,16 +1,12 @@
 @extends('site.master')
-@section('style')
-    <link rel="stylesheet" href="{{url('css/site.css')}}">
-@endsection
+ 
 @section('title')
     سبد خرید | فروشگاه اینترنتی هوشمند خودرو
 @endsection
 @section('content')
     <div class="container-fluid">
         <div class="row content_box">
-@php
-     
-@endphp
+ 
             <div class="  w-100" id="product_cart">
 
                 <?php
@@ -26,10 +22,10 @@
                 ?>
 
                 @if(sizeof($cart_date)==0)
-
-                    <p style="color:red;text-align:center;padding-top:30px;padding-bottom: 20px;">سبد خرید شما خالی
-                        می باشد</p>
-
+                    <i style="font-size: 50pt;margin-top: 34px;color: slategray;" class="fa fa-shopping-basket d-flex justify-content-center"></i>
+                    <p style="color:#565656;text-align:center;padding-top:30px;padding-bottom: 20px;">هیچ کالایی در سبد خرید شما وجود ندارد!</p>
+                      
+                    <a class="btn btn-outline-primary   d-table mx-auto mb-5 " href="{{url('/')}}"> بازگشت به سایت</a>
                 @else
 
                     <div style="width:95%;margin: 50px auto;text-align: right">
@@ -159,7 +155,7 @@
 
                                         ?>
                                         <ul class="list-inline">
-                                            <li style="margin-right:15px; display: inline">جمع کل خرید شما :</li>
+                                            <li style="margin-right:15px; display: inline"> جمع کل خرید شما بدون تخفیف :</li>
                                             <li style="float:left;margin-left:10px"><span
                                                     class="p1">{{ arabic_w2e( number_format($total_price)) }}</span>
                                                 تومان

@@ -12,9 +12,8 @@
         return str_replace($arabic_western, $arabic_eastern, $str);
     }
 
-     
+      $i=1; $Jdf=new \App\lib\Jdf();
     ?>
-
 
 
 
@@ -25,7 +24,7 @@
 
 
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -36,23 +35,22 @@
                 <div class="carousel-inner">
                     @foreach($slider as $slide)
                     <div class="carousel-item  @if($loop->first) active @endif">
-                        <img width="500" height="500" class="pull-left ml-5" src="{{ url('upload').'/'.$slide->img }}"
-                            alt="First slide">
-                        <div class="carousel-caption d-none pull-left d-md-block">
+                        <img style="border-radius:10px" src="{{ url('upload').'/'.$slide->img }}" alt="First slide">
 
-                            <p>{{$slide->title}}</p>
-                            <span>
-                                <a href="{{$slide->url}}"> <button class="btn btn-outline-light">افزودن به سبد
-                                        خرید</button></a>
-                            </span>
-                        </div>
                     </div>
 
                     @endforeach
                 </div>
             </div>
         </div>
-
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
 
 </div>
@@ -203,10 +201,10 @@
             <img width="1920" class="img-fluid-custom "
                 src="{{url('img/n4f8kpx2zmq4fc7o8d3esqe2ye7yowazhpp6qh3gfpvhlrj0dn.jpg')}}">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 text-center">
             <img class="img-fluid" src="{{url('img/1000004013.jpg')}}">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 text-center">
             <img class="img-fluid" src="{{url('img/1000003909.jpg')}}">
 
         </div>
@@ -285,6 +283,12 @@
     </div>
 </section>
 
+
+<div>
+    <img class="w-100" src="{{url('img/banner.jpg')}}">
+</div>
+
+
 <section>
 
     <div class="container-fluid indicator ">
@@ -323,7 +327,7 @@
 
                         @endforeach
                     </div>
-                    <div class="col-md-1">
+                    <div class="col-md-1 pr-0">
 
 
 
@@ -378,13 +382,14 @@
                             <li class="list-group-item indicator-li pl-0 text-center mr-5">
                                 <span> {{ $value2->name }} :</span>
                             </li>
+
                         </ul>
                         @endforeach
 
 
                         @endforeach
                     </div>
-                    <div class="col-md-1">
+                    <div class="col-md-1 pr-0">
 
 
 
@@ -415,13 +420,216 @@
 </section>
 
 
+<section id="news">
+
+
+    <div class="container-fluid news-section ">
+
+        <div class="title order-title  ">
+            <h2 class="text-center">آخرین اخبار سایت</h2>
+        </div>
+        <div class="p-3">
+            <div class="row">
+                @foreach ($news_all as $item)
+                <div class="col-md-3">
+                    <div class="all-news">
+                        <div class="img-news position-relative">
+                            <span class="date-news"> {{arabic_w2e(jdate($item->created_at)->format('%A, %d %B %y'))}}
+                            </span>
+                            <figure class="shin">
+                                <a href="{{ route('news.single' , ['news' => $item->id ]) }}">
+                                    <img width="100%" src="{{$item->images['images']['300']}}">
+                                </a>
+                            </figure>
+
+                        </div>
+                        <div class="panel-content">
+                            <a class="news-title"
+                                href="{{ route('news.single' , ['news' => $item->id ]) }}">{{str_limit($item->title,54)}}</a>
+                            <a href="{{ route('news.single' , ['news' => $item->id ]) }}"
+                                class="btn btn-info btn-sm btn-sm-custom mr-2" role="button">ادامه خبر</a>
+                        </div>
+                        <div class="p-details">
+                            <i class="fa fa-eye"></i>
+                            <span class="mr-1">{{arabic_w2e($item->viewCount)}}</span>
+                            <i style="position:absolute;left:20px; color:skyblue"
+                                class="fa fa-user pull-left">-ادمین</i>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+                <div class="col-md-3">
+                    <div class="all-news">
+                        <div class="img-news position-relative">
+                            <span class="date-news">چهارشنبه, ۲۲ خرداد ۱۳۹۸</span>
+                            <figure>
+                                <img width="100%" src="{{url('img/php.jpg')}}">
+                            </figure>
+
+                        </div>
+                        <div class="panel-content">
+                            <a>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</a>
+                        </div>
+                        <div class="p-details">
+                            <i class="fa fa-eye"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="all-news">
+                        <div class="img-news position-relative">
+                            <span class="date-news">چهارشنبه, ۲۲ خرداد ۱۳۹۸</span>
+                            <figure>
+                                <img width="100%" src="{{url('img/php.jpg')}}">
+                            </figure>
+
+                        </div>
+                        <div class="panel-content">
+                            <a>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</a>
+                        </div>
+                        <div class="p-details">
+                            <i class="fa fa-eye"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="all-news">
+                        <div class="img-news position-relative">
+                            <span class="date-news">چهارشنبه, ۲۲ خرداد ۱۳۹۸</span>
+                            <figure>
+                                <img width="100%" src="{{url('img/php.jpg')}}">
+                            </figure>
+
+                        </div>
+                        <div class="panel-content">
+                            <a>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</a>
+                        </div>
+                        <div>
+                            <i class="fa fa-eye"></i>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+</section>
 
 
 
 <section id="we-are">
     <div class="container-fluid">
         <h1 class="text-center">گروه<span class="yellow"> هیراد</span> کویر</h1>
+        <button style="position: relative;top: -66px;left: 10px;" class="btn btn-outline-info" id="show_team">مشاهده
+            اعضا گروه هیراد</button>
+        <div class="w-100 our-team" id="show_ourteam">
+            <div class="title-section1 d-table mx-auto w-100 mb-3">
+                <h1 style=" " class="text-center">تــیــم هیراد کویر</h1>
 
+                <div class="team-line center-block"></div>
+                <h4 style=" " class="text-center">گروه هیراد کویر ارائه دهنده خدمات نوین با کادری مجرب و متعهد</h4>
+            </div>
+            <div class="row">
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail thumbnail-custom">
+                        <img width="150" height="150"
+                            class="img-responsive img-rounded rounded-circle d-table mx-auto lazy"
+                            src="/img/team/hesani.jpg">
+                        <div class="caption caption-custom text-center">
+                            <h5>امین حسانی فر </h5>
+                            <h6>دارای مدرک مهندسی فناوری اطلاعات و فعال در بخش بازاریابی شرکت </h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail thumbnail-custom">
+                        <img width="150" height="150"
+                            class="img-responsive img-rounded rounded-circle d-table mx-auto lazy"
+                            src="/img/team/hessanifar.jpg">
+                        <div class="caption caption-custom text-center">
+                            <h5>محمد رضا حسانی فر</h5>
+                            <h6>دارای مدرک کارشناسی برق, 15 سال سابقه فعالیت مستمر در زمینه خودرو </h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail thumbnail-custom">
+                        <img width="150" height="150"
+                            class="img-responsive img-rounded rounded-circle d-table mx-auto lazy"
+                            src="/img/team/seyed_ali.jpg">
+                        <div class="caption caption-custom text-center">
+                            <h5>سید علی بهشت آئین</h5>
+                            <h6>دارای مدرک مهندسی برق و متخصص در مونتاژ سخت افزار</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail thumbnail-custom">
+                        <img width="150" height="150"
+                            class="img-responsive img-rounded rounded-circle d-table mx-auto lazy "
+                            src="/img/team/salari.PNG">
+                        <div class="caption caption-custom text-center">
+                            <h5>سید محمد سالاری </h5>
+                            <h6>دارای مدرک فناوری اطلاعات و برنامه نویس اندروید </h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail thumbnail-custom">
+                        <img width="150" height="150"
+                            class="img-responsive img-rounded rounded-circle d-table mx-auto lazy"
+                            src="/img/team/mohammad_hassan.jpg">
+                        <div class="caption caption-custom text-center">
+                            <h5>محمد حسن قاسمی نژاد</h5>
+                            <h6> دارای مدرک مهندسی تکنولوژی الکترونیک </h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail thumbnail-custom ">
+                        <img width="150" height="150" class="  img-rounded rounded-circle d-table mx-auto lazy "
+                            src="/img/team/mohammad_hossen.jpg">
+                        <div class="caption caption-custom text-center">
+                            <h5>محمد حسین قاسمی نژاد</h5>
+                            <h6>دارای مدرک فیزیک جامدات </h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail thumbnail-custom ">
+                        <img width="150" height="150" class="  img-rounded rounded-circle d-table mx-auto lazy "
+                            src="/img/team/mohammad_hossen.jpg">
+                        <div class="caption caption-custom text-center">
+                            <h5>محمد حسین قاسمی نژاد</h5>
+                            <h6>دارای مدرک فیزیک جامدات </h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail thumbnail-custom ">
+                        <img width="150" height="150" class="  img-rounded rounded-circle d-table mx-auto lazy "
+                            src="{{url('/img/team/mohammad_hossen.jpg')}}">
+                        <div class="caption caption-custom text-center">
+                            <h5>محمد حسین قاسمی نژاد</h5>
+                            <h6>دارای مدرک فیزیک جامدات </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
 
             <div class="col-md-4 ">
@@ -477,7 +685,7 @@
                             <div id="error_message" class="alert alert-danger"
                                 style="display:none; text-align: center;">
                                 <ul style=" margin-bottom:0">
-                                    لطفا تمام فیلد ها  را پر کنید
+                                    لطفا تمام فیلد ها را پر کنید
                                 </ul>
                             </div>
                             <button id="ajaxSubmit" name="valider" type="button"

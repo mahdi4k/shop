@@ -151,9 +151,10 @@
                             @endforeach
                             <tr class="table-body">
                                 <td style="padding:3px" colspan="4">
-                                    <a style="color:white !important"
+                                <a href="{{url('Shipping')}}" style="color:white !important"
                                         class="btn btn-block btn btn-info-custom-mini-cart hvr-sweep-to-left ">ثبت سفارش
-                                        وارسال</a>
+                                        وارسال
+                                    </a>
                                 </td>
                             </tr>
                         </tbody>
@@ -382,3 +383,4 @@
             </div>
         </div>
     </div>
+</div>

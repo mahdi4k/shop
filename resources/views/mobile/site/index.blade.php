@@ -39,7 +39,7 @@ function get_amazing_time($old_amazing)
        }
 ?>
 
-<div class="banner">
+<div class="banner col-md-12">
 
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -53,17 +53,10 @@ function get_amazing_time($old_amazing)
             <div class="carousel-inner">
                 @foreach($slider as $slide)
                 <div class="carousel-item  @if($loop->first) active @endif">
-                    <img width="150" height="150" class="pull-left ml-5"
+                    <img style="border-radius:17px"   class="img-fluid px-2"
                         src="{{ url('upload').'/'.$slide->img }}"
                         alt="First slide">
-                        <div class="carousel-caption  pull-left d-md-block">
-
-                            <p class="d-none" >{{$slide->title}}</p>
-                                <span >
-                                 <a href="{{$slide->url}}"> <button class="btn mb-4 btn-sm pull-right btn-outline-light">افزودن به سبد خرید</button></a>
-                                </span>
-                        </div>
-                </div>
+                 </div>
 
                 @endforeach
             </div>
@@ -74,6 +67,7 @@ function get_amazing_time($old_amazing)
 
 </div>
 
+ 
 <section id="about">
     <div class="container">
         <h1 class="text-center">معرفی <span>مهارت های</span> ما</h1>
@@ -292,10 +286,7 @@ function get_amazing_time($old_amazing)
 </section>
 <div class="container-fluid  ">
     <div class="row">
-        <div class="img-cover  ">
-            <img width="1920" class="img-fluid-custom "
-                 src="{{url('img/n4f8kpx2zmq4fc7o8d3esqe2ye7yowazhpp6qh3gfpvhlrj0dn.jpg')}}">
-        </div>
+         
         <div class="col-md-6 col-xs-6">
             <img class="img-fluid" src="{{url('img/1000004013.jpg')}}">
         </div>

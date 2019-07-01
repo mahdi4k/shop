@@ -69,7 +69,7 @@ class SiteController extends Controller
     public function show($code, $title)
     {
         $product = Product::with('get_images')->with('get_colors')
-            ->where(['code_url' => $code, 'title_url' => $title, 'show_product' => 1])->firstOrFail();
+        ->where(['code_url' => $code, 'title_url' => $title, 'show_product' => 1])->firstOrFail();
         $product->view = $product->view + 1;
         $cat_product=Product::get_cat_id($product->id);
         $categoryBread=Category::select('cat_name','cat_ename')->whereIn('id',$cat_product)->get();
@@ -79,7 +79,7 @@ class SiteController extends Controller
         $item_value = DB::table('item_product')->where('product_id', $product->id)->pluck('value', 'item_id')->toArray();
         $score_data = ProductScore::get_score($product->id);
         $view_name=$this->view.'site/show';
-        return view($view_name, compact('review', 'items', 'item_value', 'product', 'score_data','categoryBread'));
+        return view($view_name, compact('review', 'items',  'product','categoryBread','item_value','score_data'));
     }
 
     public function set_service(Request $request)

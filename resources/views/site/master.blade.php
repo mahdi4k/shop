@@ -25,7 +25,7 @@
 <body>
 
 @include('site.section.header')
-
+<div class="responsive-sections">
  @yield('content')
-
+</div>
  @include('site.section.footer' )

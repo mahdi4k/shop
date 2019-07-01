@@ -57,8 +57,13 @@
             <ul class="list-inline" id="header_ul">
                 <li class="list-inline-item" onclick="show_cat_box()"><span class="fa fa-bars"></span></li>
                 <li class="list-inline-item">هوشمند خودرو</li>
-
-                <a href="{{url('user')}}"><li class="list-inline-item pull-left ml-3"  ><span @if(Auth::check()) style="color:blue" @endif  class="fa fa-user"></span></li></a>
+                <li class="list-inline-item center-img "><img width="39" src="{{url('/img/icon.gif')}}"></li>
+                <a href="{{url('user')}}"><li class=" list-inline-item pull-left ml-3"  ><span @if(Auth::check()) style="color:blue" @endif  class="fa fa-user"></span>
+                
+                     
+                </li>
+                
+                </a>
                 <a href="{{ url('Cart') }}"><li  class="list-inline-item pull-left ml-3" ><span  class="fa fa-shopping-cart"></span></li></a>
                 <li class="list-inline-item pull-left ml-3" ><span class="fa fa-search"></span></li>
                 
@@ -82,7 +87,7 @@
         <footer class="container-fluid">
             <div class="row">
                 <div class="col-md-6 col-sm-8 text-center">
-                    <div class=" sta-title col-sm-8 col-md-12 col-md-offset-2">
+                    <div class=" sta-title col-sm-8 col-md-12  ">
                         <p><i class="fa fa-phone-square"></i>ارتباط با ما</p>
                     </div>
                     <div class="clearfix"></div>
@@ -95,7 +100,7 @@
                 </div>
 
                 <div class="col-md-6 col-sm-8 text-center">
-                    <div class=" about-title col-sm-8 col-md-12 col-md-offset-2">
+                    <div class=" about-title col-sm-8 col-md-12  ">
                         <p><i class="fa fa-users"></i>گروه هیراد</p>
                     </div>
                     <div class="clearfix"></div>
@@ -108,7 +113,7 @@
                 </div>
 
                 <div class="col-md-6 col-sm-8 text-center">
-                    <div class=" about-title col-sm-8 col-md-12 col-md-offset-2">
+                    <div class=" about-title col-sm-8 col-md-12  ">
                         <p><i class="fa fa-th-list"></i>مجوز ها</p>
                     </div>
                     <div class="clearfix"></div>
@@ -121,7 +126,7 @@
 
                 </div>
                 <div class="col-md-6 col-sm-8 text-center">
-                    <div class=" about-title col-sm-8 col-md-12 col-md-offset-2">
+                    <div class=" about-title col-sm-8 col-md-12  ">
                         <p><i class="fa fa-bookmark-o"></i>شَبکه اجتماعی</p>
                     </div>
                     <div class="social-network">

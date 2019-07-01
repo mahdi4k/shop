@@ -17,11 +17,12 @@
     <div class="row content_box">
 
 
-        <div class="col-md-5" style="padding-bottom:50px;border-left: 1px solid #ccc;">
+        <div class="col-md-5" style="padding-bottom:50px;">
 
             <div style="margin-top:30px;width:100%; ">
+                    @if($product->special==1)
                 <div class="products-availability-image"></div>
-
+                @endif
             </div>
             <?php
             use Illuminate\Support\Facades\DB;$images = $product->get_images;
@@ -57,11 +58,8 @@
             <div style="left: 400px; position:relative;" id="img_load_zoom"></div>
             <div class="show_product_title">
                 <div class="col-md-10 title_porduct_top">
-                    <h4>{{ $product->title }}</h4>
+                    <h4 style="font-size: 19px;color: #3c3c3cf0;">{{ $product->title }}</h4>
                     <p>{{ $product->code }}</p>
-                </div>
-
-                <div style="clear:both">
                 </div>
             </div>
 
@@ -201,8 +199,8 @@
                                                 <li class="d-inline-custom">
 
                                                     <span> {{ $value2->name }} 
-                                                    
-                                                        @if($item_value[$value2->id]!=1)
+                                                    @if(array_key_exists($value2->id,$item_value) && $item_value[$value2->id]!=1)
+                                                         
                                                         :
                                                     @endif
                                                     </span>
@@ -237,7 +235,8 @@
         </div>
 
     </div>
-<div class="d-flex justify-content-center service-single">
+    <div class="d-flex w-98 mx-auto">
+   <div class="  justify-content-center service-single">
 
             <div class="col-xs-4 text-center"  >
                 <i class="fa fa-truck"></i>
@@ -252,7 +251,7 @@
                 <p>تضمین اصالت کالا</p>
             </div>
 
-
+    </div>
 </div>
 
 

@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="{{url('css/flipclock.css')}}">
     <link rel="stylesheet" href="{{url('css/site.css')}}">
     <link rel="stylesheet" href="{{url('css/responsiv1298.css')}}" >
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <script src="{{url('js/home.js')}}"></script>
     
               

@@ -13,7 +13,9 @@
                    $url.=$value->get_product->code_url.'/'.$value->get_product->title_url;
                 }
                 ?>
-            <a class="item">
+            <a href="{{$url}}" class="item">
+                
+                   
                
 
                   
@@ -21,7 +23,7 @@
 
 
                     <div class="title order-title  ">
-                        <h2 class="text-right mt-0">پیشنهادات ویژه امروز</h2>
+                        <h2 style="font-size:20px;margin-top:5px;margin-right: 16px;height:43px;" class="text-right mt-0">پیشنهادات ویژه امروز</h2>
                     </div>
 
                     
@@ -62,7 +64,9 @@
                         </div>
                         <div class="clock" id="amazing_clock_{{ $key }}"></div>
                         <p>زمان باقی مانده برای این سفارش</p>
-
+           <div class="Finished_Badge" id="amazing_img_{{ $key }}" style="display:none">
+                                        <img class="finish-badge" src="{{ url('img/Finished_Badge.png') }}">
+           </div>
                     </div>
                     
                 </div>

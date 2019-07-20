@@ -8,20 +8,7 @@
     <div class="row" id="filter_product_box">
 
         <div class="col-md-12 show_product"   >
-                <ul class="cat_ul">
-
-                        @foreach($cat_list as $key=>$value)
-             
-                            <li><a  href="{{ url('category').'/'.$category1->cat_ename.'/'.$category2->cat_ename.'/'.$key }}">
-                                    <span>{{ $value['cat_name'] }}</span>
-                                    @if($value['cat_child']=='ok')
-                                        <span class="fa fa-angle-left" style="float:left;padding-left:10px;font-size:17px"></span>
-                                    @endif
-                                </a>
-                            </li>
-                        @endforeach
-             
-                    </ul>
+                 
             <div class="product-pr">
 
              

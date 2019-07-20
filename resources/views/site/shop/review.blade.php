@@ -26,7 +26,7 @@
 
                     <span class="bullet login green tick">
                         <a>
-                            <span>ورود به دیجی آنلاین</span>
+                            <span>ورود به سایت</span>
                         </a>
                     </span>
 

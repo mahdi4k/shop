@@ -14,6 +14,40 @@
         return str_replace($arabic_western, $arabic_eastern, $str);
     }
     ?>
+    <div style=" display: flex;float: right;">
+
+            <ul class="cat_ul_single list-inline">
+        
+                <li class="list-inline-item">
+                    <i style="color:skyblue" class="fa fa-home"></i>
+                    <a href="{{url('/')}}">
+                        هوشمند خودرو
+                    </a>
+                </li>
+        
+                <li class="list-inline-item">
+                    <i class="fa fa-angle-left"></i>
+                    <a href="{{ url('category').'/'.$categoryBread[0]->cat_ename }}">
+                        {{$categoryBread[0]->cat_name}}
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <i class="fa fa-angle-left"></i>
+                    <a href="{{ url('category').'/'.$categoryBread[1]->cat_ename }}">
+                        {{$categoryBread[1]->cat_name}}
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <i class="fa fa-angle-left"></i>
+                    <a href="{{ url('category').'/'.$categoryBread[1]->cat_ename }}">
+                        {{$categoryBread[2]->cat_name}}
+                    </a>
+                </li>
+        
+        
+            </ul>
+        </div>
+        
     <div class="row content_box">
 
 

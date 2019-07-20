@@ -70,16 +70,15 @@
 </footer>
 
 
-<script src="{{url('js/js.js')}}"></script>
-<script src="{{url('js/slick.js')}}"></script>
-<script src="{{url('js/flipclock.min.js')}}"></script>
+
+
 
 <script src="{{url('js/easing.jquery1.3.min.js')}}"></script>
 
 
 @yield('footer_site')
 
-
+<script src="{{url('js/js.js')}}"></script>
 <?php
 $url1 = url('site/ajax_check_login');
 ?>

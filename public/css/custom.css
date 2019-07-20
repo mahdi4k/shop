@@ -31,7 +31,7 @@ a:hover {
     text-align: center;
     display: table;
     padding: 1px 40px;
-    background-color: #ff637d;
+        background-color: #f93a5a;
     border-bottom-right-radius: 40px;
     border-bottom-left-radius: 40px;
     box-shadow: inset 0 -2px 1px 0 #fff;
@@ -45,7 +45,7 @@ a:hover {
 .navbar-brand {
     color: #797971 !important;
     font-size: 25px;
-     
+     flex: .1 auto;
     font-weight: 700;
     letter-spacing: 0.1em;
 }
@@ -58,7 +58,10 @@ a:hover {
     color: #fff;
 
 }
-
+.top-nav{
+    background-color:#5d53539e;
+    height:31px
+}
 .no-margin {
     margin: unset !important;;
 }
@@ -88,6 +91,7 @@ a:hover {
     display: table-cell;
     position: relative;
     right: 78px;
+    top: 5px;
 }
 
 .social-network a:hover {
@@ -122,9 +126,14 @@ a:hover {
     margin-right: 10px;
 }
 
-.License a {
-    color: white;
+.License li a {
+   transition: .2s;
+   color: white
 }
+.License li a:hover{
+    color: tomato;
+}
+
 
 .original-control {
     display: block;
@@ -451,14 +460,15 @@ a:hover {
 }
 
 .order-title h2 {
-    font-size: 16px;
+    height: 35px;
+    font-size: 19px;
     color: white;
-    margin-top: 15px;
+    margin-top: 3px;
+    padding-top: 9px;
     margin-bottom: 10px;
     display: inline-block;
     margin-right: 10px;
 }
-
 .new-product .product {
     position: relative;
     background: #ffffff;
@@ -762,7 +772,9 @@ footer p {
     line-height: 34px;
     list-style: none;
     margin-left: 19px;
+    transition: .2s color
 }
+
 
 .about-title {
     border-bottom: 1px solid orange;
@@ -836,80 +848,7 @@ i.fa-users {
 
 /*end footer*/
 /* mobile view */
-@media (max-width: 575px) {
-    .navbar-nav {
-        position: relative;
-        background-color: #4765a6;
-        border-top: 3px solid #ff637d;
-        color: #fff;
-        z-index: 9999;
-        text-align: right;
-        margin-top: 5px;
-    }
-
-    .new-product .product {
-        position: relative;
-        background: #ffffff;
-        margin: 5px;
-        border-radius: 5px;
-        width: auto;
-        height: auto;
-    }
-
-    .footer-about {
-        margin-right: 4px;
-        width: auto;
-        font-size: 12px;
-        line-height: 2;
-    }
-
-    .new-product {
-        width: 97%;
-        margin: 56px auto;
-        height: auto;
-    }
-
-    .banner p {
-        margin: 20px;
-    }
-
-    .navbar-fix-custom {
-        height: 73px;
-    }
-
-    .navbar-nav .nav-item .nav-link {
-        padding: 0.7em 1em !important;
-        font-size: 100%;
-        font-weight: 500;
-    }
-
-    .banner-text {
-        padding: 150px 0 150px 0;
-    }
-
-    .banner-heading {
-        font-size: 30px;
-        line-height: 30px;
-        margin-bottom: 20px;
-    }
-
-    .banner-sub-heading {
-        font-size: 10px;
-        font-weight: 200;
-        line-height: 10px;
-        margin-bottom: 40px;
-    }
-
-    .carousel-indicators {
-        right: unset;
-        left: unset;
-        margin-right: unset;
-        top: unset;
-        margin-left: 37px;
-        padding-left: 0;
-    }
-
-}
+ 
 
 @media (max-width: 768px) {
     .carousel-indicators {
@@ -1111,7 +1050,7 @@ i.fa-users {
     font-weight: 100;
     padding-right: 15px;
 }
-
+.#myTabs li a
 .product_box {
     float: right;
     margin-right: 10px;
@@ -1416,10 +1355,9 @@ i.fa-users {
 #myTabs li a.active {
      
     background-color: white;
+    white-space: nowrap;
      
-    white-space: pre;
-    margin-right: 0px;
-    border-top: 4px solid #00bfd6;
+    border-bottom: 4px solid #00bfd6;
 
 }
 
@@ -1438,8 +1376,10 @@ i.fa-users {
     text-decoration: line-through;
 }
 .truck{
-    margin-top: 25px;padding-bottom: 20px;
+    margin-top: 25px;
+    padding-bottom: 22px;
     border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
 }
 .truck-custom{
 
@@ -1832,3 +1772,15 @@ margin-right: 30px;
     padding-bottom: 30px;
  }
 }
+.middle-banner{
+    
+        transition: all .5s ease-in-out;
+     
+}
+.middle-banner:hover{
+    transform: scale( 1.1);
+}
+.banner-two{
+  box-shadow: -1px 7px 22px -5px #A2C8F9;
+}
+ 

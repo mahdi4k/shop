@@ -7,23 +7,23 @@
 
         <div class="col-md-6 col-xs-6 login-form">
             <span class="sign-in">
-                <i class="fa fa-sign-in"></i>
+                <i style="font-size: 45px;" class="fa fa-sign-in"></i>
             </span>
             <div style="text-align:center;margin-top:160px;">
 
 
-                <p style="font-weight:bold;font-size:15px">عضو هوشمند خودرو هستید؟</p>
+                 
                 <p style="font-size: 11px;color: #716666;">برای تکمیل فرآیند خرید خود وارد شوید</p>
                 <button onclick="show_login_form()" class="btn btn-primary">ورود به سایت</button>
             </div>
         </div>
         <div class="col-md-6 col-xs-6 register-form">
-            <span class="user-plus"> <i class="fa fa-user-plus"></i></span>
+            <span class="user-plus"> <i style="font-size: 45px;" class="fa fa-user-plus"></i></span>
             <div class="right_login_box">
 
                 <div style="text-align:center;padding-top: 160px;">
 
-                    <p style="font-weight:bold;font-size:15px">تازه وارد هستید؟</p>
+                     
                     <p style="font-size: 11px;color: #716666;">برای تکمیل فرآیند خرید ثبت نام کنید</p>
                     <a class="btn btn-success" href="{{ url('register') }}">ثبت نام در سایت</a>
 

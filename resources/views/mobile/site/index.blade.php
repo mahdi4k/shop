@@ -287,12 +287,15 @@ function get_amazing_time($old_amazing)
 <div class="container-fluid  ">
     <div class="row">
          
-        <div class="col-md-6 col-xs-6">
-            <img class="img-fluid" src="{{url('img/1000004013.jpg')}}">
-        </div>
-        <div class="col-md-6 col-xs-6">
-            <img class="img-fluid" src="{{url('img/1000003909.jpg')}}">
-
+        <div class="col-md-6 text-center ">
+                <figure class="banner-two">
+                <img class="img-fluid  mbanner  " src="{{url('img/mbanner3.jpg')}}">
+                </figure>
+            </div>
+            <div class="col-md-6 text-center">
+                <figure class="banner-two">
+                <img class="img-fluid mbanner " src="{{url('img/mbannertwo.jpg')}}">
+                </figure>
         </div>
     </div>
 
@@ -423,7 +426,11 @@ function get_amazing_time($old_amazing)
             </div>
         </div>
     </section>
-
+<div class="container-fluid">
+    <figure style="overflow:hidden; border-radius:17px;box-shadow: 0 0 22px -5px #A2C8F9;">
+    <img  class="w-100 middle-banner" src="{{url('img/banner-middleV2.jpg')}}">
+        </figure>
+</div>
     <section id="news">
 
 
@@ -475,6 +482,109 @@ function get_amazing_time($old_amazing)
 <section id="we-are">
     <div class="container-fluid">
         <h1 class="text-center">گروه<span class="yellow"> هیراد</span> کویر</h1>
+        <button  style="position: relative;top: -66px;left: 10px;" class=" mobile-team btn  btn-outline-info" id="show_team">مشاهده
+            اعضا گروه هیراد</button>
+        <div class="w-100 our-team" id="show_ourteam">
+            <div class="title-section1 d-table mx-auto w-100 mb-3">
+                <h1 style=" " class="text-center">تــیــم هیراد کویر</h1>
+
+                <div class="team-line center-block"></div>
+                <h4 style=" " class="text-center">گروه هیراد کویر ارائه دهنده خدمات نوین با کادری مجرب و متعهد</h4>
+            </div>
+            <div class="row">
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail thumbnail-custom">
+                        <img width="150" height="150"
+                            class="img-responsive img-rounded rounded-circle d-table mx-auto lazy"
+                            src="/img/team/hesani.jpg">
+                        <div class="caption caption-custom text-center">
+                            <h5>امین حسانی فر </h5>
+                            <h6>دارای مدرک مهندسی فناوری اطلاعات و فعال در بخش بازاریابی شرکت </h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail thumbnail-custom">
+                        <img width="150" height="150"
+                            class="img-responsive img-rounded rounded-circle d-table mx-auto lazy"
+                            src="/img/team/hessanifar.jpg">
+                        <div class="caption caption-custom text-center">
+                            <h5>محمد رضا حسانی فر</h5>
+                            <h6>دارای مدرک کارشناسی برق, 15 سال سابقه فعالیت مستمر در زمینه خودرو </h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail thumbnail-custom">
+                        <img width="150" height="150"
+                            class="img-responsive img-rounded rounded-circle d-table mx-auto lazy"
+                            src="/img/team/seyed_ali.jpg">
+                        <div class="caption caption-custom text-center">
+                            <h5>سید علی بهشت آئین</h5>
+                            <h6>دارای مدرک مهندسی برق و متخصص در مونتاژ سخت افزار</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail thumbnail-custom">
+                        <img width="150" height="150"
+                            class="img-responsive img-rounded rounded-circle d-table mx-auto lazy "
+                            src="/img/team/salari.PNG">
+                        <div class="caption caption-custom text-center">
+                            <h5>سید محمد سالاری </h5>
+                            <h6>دارای مدرک فناوری اطلاعات و برنامه نویس اندروید </h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail thumbnail-custom">
+                        <img width="150" height="150"
+                            class="img-responsive img-rounded rounded-circle d-table mx-auto lazy"
+                            src="/img/team/mohammad_hassan.jpg">
+                        <div class="caption caption-custom text-center">
+                            <h5>محمد حسن قاسمی نژاد</h5>
+                            <h6> دارای مدرک مهندسی تکنولوژی الکترونیک </h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail thumbnail-custom ">
+                        <img width="150" height="150" class="  img-rounded rounded-circle d-table mx-auto lazy "
+                            src="/img/team/mohammad_hossen.jpg">
+                        <div class="caption caption-custom text-center">
+                            <h5>محمد حسین قاسمی نژاد</h5>
+                            <h6>دارای مدرک فیزیک جامدات </h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail thumbnail-custom ">
+                        <img width="150" height="150" class="  img-rounded rounded-circle d-table mx-auto lazy "
+                            src="/img/team/mohammad_hossen.jpg">
+                        <div class="caption caption-custom text-center">
+                            <h5>محمد حسین قاسمی نژاد</h5>
+                            <h6>دارای مدرک فیزیک جامدات </h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail thumbnail-custom ">
+                        <img width="150" height="150" class="  img-rounded rounded-circle d-table mx-auto lazy "
+                            src="{{url('/img/team/mohammad_hossen.jpg')}}">
+                        <div class="caption caption-custom text-center">
+                            <h5>محمد حسین قاسمی نژاد</h5>
+                            <h6>دارای مدرک فیزیک جامدات </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
 
             <div class="col-md-4 ">

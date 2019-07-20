@@ -628,10 +628,7 @@ a
 {
     color:black;
 }
-a:hover
-{
-    color:black;
-}
+ 
 .price1
 {
     height: 32px;
@@ -932,14 +929,25 @@ a:hover
 }
 .products-availability-image
 {
-    background:url("../img/status-specialoffer.png");
+    background:url("../img/discount-bg.png") no-repeat;
     height: 138px;
     width: 132px;
     float: right;
 }
+.products-availability-image-not{
+    height: 48px;
+}
+.products-availability-image span{
+    font-weight: bold;
+    color: white;
+    position: relative;
+    top: 23px;
+    font-size: 14pt;
+    right: 20px;
+}
 #myTabs
 {
-    background: #F5F6F7 none repeat scroll 0% 0%;
+    background: rgb(255, 255, 255) none repeat scroll 0% 0%;
     border-radius: 4px;
     position: relative;
     width: 100%;
@@ -959,6 +967,20 @@ a:hover
     right: 14px;
     margin-left: 5px;
 }
+#myTabs li #tab_item.active::before {
+    background: transparent url(../img/slices.png) no-repeat scroll -317px -309px;
+    width: 18px;
+    height: 22px;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    margin-left: 5px;
+}
+
+
+
 #tab_comment::before
 {
     background: transparent url(../img/slices.png) no-repeat scroll -263px -269px;
@@ -971,6 +993,18 @@ a:hover
     right: 15px;
     height: 20px;
 }
+#myTabs li #tab_comment.active::before {
+    background: transparent url(../img/slices.png) no-repeat scroll -263px -309px;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 15px;
+    margin-left: 5px;
+    width: 20px;
+    right: 15px;
+    height: 20px;
+}
+
 #tab_question::before
 {
     background: transparent url(../img/slices.png) no-repeat scroll -212px -269px;
@@ -983,9 +1017,33 @@ a:hover
     right: 9px;
     height: 20px;
 }
+#myTabs li #tab_question.active::before{
+    background: transparent url(../img/slices.png) no-repeat scroll -212px -308px;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 16px;
+    margin-left: 5px;
+    width: 20px;
+    right: 9px;
+    height: 20px;
+     
+}
 #tab_review::before
 {
     background: transparent url("../img/slices.png") no-repeat scroll -107px -269px;
+    content: "";
+    display: inline-block;
+    height: 20px;
+    margin: 0px 0px 0px 7px;
+    right: 0px;
+    width: 20px;
+    position: relative;
+    top: 7px;
+}
+#myTabs li #tab_review.active::before
+{
+    background: transparent url("../img/slices.png") no-repeat scroll -107px -310px;
     content: "";
     display: inline-block;
     height: 20px;
@@ -1007,8 +1065,12 @@ a:hover
     width: 100%;
     position: relative;
     left: 12px;
+    transition: .3s all;
 }
-
+#myTabs li a:hover{
+    box-shadow: 0px 1px 6px 0px rgba(140, 199, 199, 0.29);
+    color: tomato
+}
 .nav-tabs > li > a
 {
     -webkit-border-radius: 0px;
@@ -1252,11 +1314,7 @@ a:hover
     color: #666;
     line-height:30px;
 }
-a:hover
-{
-    color:black;
-    text-decoration:none;
-}
+ 
 .cart_img
 {
     width:100%;
@@ -3454,7 +3512,27 @@ content: "\f0d9";
     bottom: 194px;
 }
 
+.banner-two{
+    transition: all .2s;
+    overflow: hidden;
+    border-radius: 5px;
+}
+.mbanner:hover{
+transform: scale( 1.1);
+}
+.mbanner{
+    transition: all .5s ease-in-out;
+}
+.finish-badge{
+    width: 85px !important;
+    position: unset !important;
+    margin-bottom: 21px;
+    display: flex;
+    margin-right: auto !important;
+    margin-top: 12px !important;
+    margin-left: auto !important;
 
+}
 @media (max-width:397px)
 {
     .index_search_input
@@ -3468,6 +3546,13 @@ content: "\f0d9";
     {
         width: 850px;
     }
+}
+@media (max-width:1599px){
+
+    .banner img{
+        width: 1200px;
+    }
+
 }
 @media (min-width:1600px)
     {
@@ -3483,3 +3568,6 @@ content: "\f0d9";
         margin: 0 auto;
       }
     }
+
+
+    

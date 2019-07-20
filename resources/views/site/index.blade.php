@@ -36,12 +36,15 @@
     <div class="row">
         <div class="img-cover ">
              
-            <div class="col-md-6 text-center">
-                <img class="img-fluid" src="{{url('img/1000004013.jpg')}}">
+            <div class="col-md-6 text-center ">
+                <figure class="banner-two">
+                <img class="img-fluid  mbanner  " src="{{url('img/mbanner3.jpg')}}">
+                </figure>
             </div>
             <div class="col-md-6 text-center">
-                <img class="img-fluid" src="{{url('img/1000003909.jpg')}}">
-
+                <figure class="banner-two">
+                <img class="img-fluid mbanner " src="{{url('img/mbannertwo.jpg')}}">
+                </figure>
             </div>
         </div>
     </div>
@@ -49,8 +52,10 @@
 @include('site.index-sections.new-product-section')
 
 
-<div>
-    <img class="w-100" src="{{url('img/banner.jpg')}}">
+<div class="container-fluid">
+    <figure style="overflow:hidden; border-radius:17px;box-shadow: 0 0 22px -5px #A2C8F9;">
+    <img  class="w-100 middle-banner" src="{{url('img/banner-middleV2.jpg')}}">
+        </figure>
 </div>
 
 
@@ -65,6 +70,8 @@
  
 @endsection
 @section('footer_site')
+<script src="{{url('js/slick.js')}}"></script>
+<script src="{{url('js/flipclock.min.js')}}"></script>
 <script>
     var amazing_time=new Array;
     var i=0;
@@ -85,227 +92,9 @@
  
 <script type="text/javascript" src="{{ url('js/flipclock.min.js') }}"></script>
  
-
 <script>
-    $('.amazing').slick({
-        rtl: true,
-        speed: 900,
-        slidesToShow: 3,
-        slidesToScroll: 2,
-        variableWidth: true,
-        infinite: false
-    });
 
-</script>
-<script>
-                var sliderTag = $('#slider');
-                var sliderItems = sliderTag.find('.item');
-            
-                var numItems = sliderItems.length;
-                var nextSlide = 1;
-                var timeout = 50000;
-                var slidernavigator = sliderTag.find("#slider_navigator ul li");
-            
-                function slider() {
-                    if (nextSlide > numItems) {
-                        nextSlide = 1;
-                    }
-                    if (nextSlide < 1) {
-                        nextSlide = numItems;
-                    }
-                    sliderItems.fadeOut(0);
-                    sliderItems.eq(nextSlide - 1).fadeIn(100);
-                    slidernavigator.removeClass('active');
-                    slidernavigator.eq(nextSlide - 1).addClass('active');
-                    nextSlide++;
-            
-            
-                }
-                slider();
-                var sliderinterval = setInterval(slider, timeout);
-                sliderTag.mouseleave(function () {
-                    clearInterval((sliderinterval));
-                    sliderinterval = setInterval(slider, timeout);
-                });
-            
-            
-                function gotonext() {
-                    slider();
-                }
-            
-                $(' #slider').find('#next').click(function () {
-                    clearInterval(sliderinterval);
-                    gotonext();
-            
-            
-                });
-            
-                function gotoprev() {
-                    nextSlide = nextSlide - 2;
-                    slider();
-                }
-            
-                $(' #slider  ').find('#prev').click(function () {
-                    clearInterval(sliderinterval);
-                    gotoprev()
-            
-                });
-            
-                function gotoslide(index) {
-                    nextSlide = index;
-                    slider();
-            
-                }
-            
-                $('#slider').find('#slider_navigator li ').click(function () {
-                    clearInterval(sliderinterval);
-            
-                    var index = $(this).index();
-                    gotoslide(index + 1);
-            
-            
-                });
-
-
-    var sliderTag2 = $('#slider2');
-    var sliderItems2 = sliderTag2.find('.item');
-
-    var numItems2 = sliderItems2.length;
-    var nextSlide2 = 1;
-    var timeout2 = 5000;
-    var slidernavigator2 = sliderTag2.find("#slider2_navigator ul li");
-
-    function slider2() {
-        if (nextSlide2 > numItems2) {
-            nextSlide2 = 1;
-        }
-        if (nextSlide2 < 1) {
-            nextSlide2 = numItems2;
-        }
-        sliderItems2.fadeOut(0);
-        sliderItems2.eq(nextSlide2 - 1).fadeIn(100);
-        slidernavigator2.removeClass('active');
-        slidernavigator2.eq(nextSlide2 - 1).addClass('active');
-        nextSlide2++;
-
-
-    }
-    slider2();
-    var sliderinterval2 = setInterval(slider2, timeout);
-    sliderTag.mouseleave(function () {
-        clearInterval((sliderinterval2));
-        sliderinterval2 = setInterval(slider2, timeout2);
-    });
-
-
-    function gotonext2() {
-        slider2();
-    }
-
-
-    function gotoslide2(index) {
-        nextSlide2 = index;
-        slider2();
-
-    }
-
-    $('#slider2').find('#slider2_navigator li ').click(function () {
-            clearInterval(sliderinterval2);
-
-            var index = $(this).index();
-            gotoslide2(index + 1);
-
-
-        }
-    );
-
-    //    end slider2
-
-    //    timer
-
-    
-</script>
-<script>
-    $('.new_product').slick({
-        infinite: true,
-        dots: true,
-        speed: 1000,
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        rtl: true,
-        responsive: [{
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
-    });
-
-
-    for (var j = 0; j < amazing_time.length; j++) {
-        var clock;
-
-        clock = $('#amazing_clock_' + j).FlipClock({
-            clockFace: 'HourlyCounter',
-            autoStart: false,
-            id: 'c_' + j,
-            callbacks: {
-                stop: function () {
-                    var a = this.id.replace('c_', '');
-                    $('#amazing_clock_' + a).hide();
-                    $('#amazing_img_' + a).show();
-                }
-            }
-        });
-
-        clock.setTime(amazing_time[j]);
-        clock.setCountdown(true);
-        clock.start();
-    }
-
-</script>
-<script>
-    function checkValue(element) {
-        // check if the input has any value (if we've typed into it)
-        if ($(element).val())
-            $(element).addClass('has-value');
-        else
-            $(element).removeClass('has-value');
-    }
-
-    $(document).ready(function () {
-        // Run on page load
-        $('.form-control').each(function () {
-            checkValue(this);
-        });
-        // Run on input exit
-        $('.form-control').blur(function () {
-            checkValue(this);
-        });
-
-    });
-
-</script>
-<script>
-    $(document).ready(function () {
+        $(document).ready(function () {
             $('#ajaxSubmit').click(function (e) {
                 e.preventDefault();
                 $.ajaxSetup(
@@ -345,7 +134,8 @@
                 }
                 );
             });
-        });
-</script>
+    });
+
+    </script>
 
 @endsection

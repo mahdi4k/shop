@@ -5,10 +5,23 @@
 
    ?>
 
-
-<nav style="background:#fdfdfd" class="navbar navbar-expand-md pb-4  pt-4">
-    <a class="navbar-brand" href="/"><img src="{{URL::asset('/img/icon.gif')}}" width="40" height="40"> گروه<span> هیراد
-            کویر </span></a>
+<div  class="w-100 top-nav d-flex justify-content-center">
+    <ul style="background: #4c4f569e;padding-top: 7px;height: 31px;margin-top: 0;font-size: 13px;" class="list-inline text-center">
+        <li style="color:white" class="list-inline-item">شماره تماس : </li>
+        <li class="list-inline-item">
+            
+             
+        </li>
+        <li style="position: relative; left: 9px;top: 1px;"  class="list-inline-item">
+        <span style="color:white">۳۵۳-۷۲۲۲۲۲۲۲ </span>
+        
+        <i style="padding-left: 6px;position: relative;color: coral;right: 2px;" class="fa fa-phone"></i>
+        </li>
+    </ul>
+</div>
+<nav style="background:#fdfdfd" class="navbar navbar-expand-md pb-2  pt-2">
+    <a class="navbar-brand" href="/"><img width="80"  src="{{URL::asset('/img/Untitled-3.gif')}}" > </a> 
+             
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -97,7 +110,7 @@
                             <tr class="table-body">
                                 <td class="text-center color-mini-cart" colspan="2"><span class="price-cart-final ">قیمت
                                         کل :
-                                    </span><span class="pink">{{ arabic_w2e( number_format($total_price)) }}</span>
+                                    </span><span class="pink">{{   number_format($total_price)  }}</span>
                                 </td>
 
                                 <td style="padding: 6px 11px;" colspan="2"><a href="{{url('Cart')}}"
@@ -133,7 +146,7 @@
                                 </td>
                                 <td>
                                     <span class="cart-price color-mini-cart">
-                                        {{ arabic_w2e( number_format($data['price2']))}} تومان
+                                        {{  number_format($data['price2'])}} تومان
                                     </span>
 
                                 </td>
